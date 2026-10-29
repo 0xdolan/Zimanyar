@@ -121,7 +121,12 @@ The lessons Zimanyar links to come from zimankit's two complete courses, each wi
 
 ## Development
 
+You need Node 22 or newer with pnpm 10, [uv](https://docs.astral.sh/uv/), git and make.
+
 ```sh
+make setup           # dependencies, git hooks and the UI skills
+make lint            # Biome, TypeScript, dashes, Kurdish spelling, shellcheck, actionlint, ruff, knip
+make test            # unit tests
 make logo            # the logo SVG variants, from scripts/brand/make-logo.mjs
 make icons           # every icon size for the extension, the web and Linux (Inkscape, ImageMagick)
 make marketing       # banner, store tiles, store screenshots and ads (headless Chrome)
@@ -135,9 +140,11 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 | `assets/marketing/` | Banner, social preview, store tiles and screenshots, ads in English, Sorani and Kurmanji |
 | `scripts/brand/` | The logo geometry and the icon renderer |
 | `scripts/marketing/` | HTML templates and the content of every marketing image |
-| `docs/` | [The name and the logo](docs/STORY.md) |
+| `packages/config/` | Shared TypeScript and Vitest configuration |
+| `scripts/checks/`, `scripts/release/` | Repository guards: dashes, Kurdish spelling, licences, attribution |
+| `docs/` | [The name and the logo](docs/STORY.md), [developer documentation](docs/dev/) |
 
-The engine, the apps and the website arrive phase by phase. Contributors, human or tooling, follow the rules in [CLAUDE.md](CLAUDE.md): no AI or bot attribution, no em or en dashes, and every interface string translated into English, Sorani and Kurmanji.
+The engine, the apps and the website arrive phase by phase. Contributors, human or tooling, follow the rules in [CONTRIBUTING.md](CONTRIBUTING.md) and [CLAUDE.md](CLAUDE.md): no AI or bot attribution, no em or en dashes, and every interface string translated into English, Sorani and Kurmanji. Security reports go through [SECURITY.md](SECURITY.md).
 
 ## Branches and releases
 

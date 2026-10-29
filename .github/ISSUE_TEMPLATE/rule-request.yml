@@ -1,0 +1,34 @@
+name: Wrong suggestion or missed error
+description: Zimanyar flagged correct Kurdish, suggested the wrong fix, or missed a mistake
+labels: [rules]
+body:
+  - type: dropdown
+    id: lang
+    attributes:
+      label: Variety
+      options: [Sorani (ckb), Kurmanji (kmr)]
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [False alarm (correct text was flagged), Wrong suggestion, Missed error, Wrong explanation]
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: The sentence
+      description: The whole sentence helps; agreement rules depend on context.
+    validations:
+      required: true
+  - type: input
+    id: rule
+    attributes:
+      label: Rule id
+      description: Shown on the finding card, for example ckb.morph.definite-allomorph.
+  - type: textarea
+    id: expected
+    attributes:
+      label: What is correct, and why

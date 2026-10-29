@@ -1,0 +1,17 @@
+name: Lesson error
+description: A mistake or unclear passage in a lesson
+labels: [lessons]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Lesson and section
+      description: A link or the lesson number and heading.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong, and the correct version
+    validations:
+      required: true
