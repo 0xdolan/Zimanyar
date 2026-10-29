@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" style="--w:1400px;--h:560px">
+<head>
+<meta charset="utf-8">
+<title>Chrome Web Store marquee</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+<script src="components.js"></script>
+<style>
+  .left { position: absolute; left: 72px; top: 70px; width: 560px; display: flex; flex-direction: column; gap: 26px; }
+  .headline { font-size: 50px; }
+  .sub { font-size: 21px; }
+  .right { position: absolute; left: 690px; top: 56px; }
+  .right .window { position: absolute; left: 0; top: 0; }
+  .right .card { position: absolute; left: 230px; top: 150px; --card-w: 440px; }
+</style>
+</head>
+<body>
+<div class="rays"></div>
+<div class="left" id="left"></div>
+<div class="right" id="right"></div>
+<script>
+  const c = Z.copy.en;
+  document.getElementById("left").innerHTML = `
+    ${brandHTML({ logo: 88, name: 60 })}
+    <div class="headline">${c.headline}</div>
+    <div class="sub">${c.sub}</div>
+    ${chipsHTML("en", 4)}`;
+  document.getElementById("right").innerHTML =
+    browserHTML("kmr", { width: 640 }) + cardHTML("kmr", "agree", { examples: 1, lessons: 1 });
+</script>
+</body>
+</html>
