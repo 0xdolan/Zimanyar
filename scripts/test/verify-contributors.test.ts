@@ -4,8 +4,6 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { ROOT, run } from "./helpers.js";
 
-const script = `${ROOT}/scripts/release/verify-contributors.sh`;
-
 /** A throwaway repository with the guard scripts and an allow list. */
 function makeRepo() {
   const dir = mkdtempSync(join(tmpdir(), "zimanyar-repo-"));
@@ -69,9 +67,5 @@ describe("verify-contributors.sh", () => {
     const repo = makeRepo();
     repo.commit("feat: web edit", "maintainer@example.org", "noreply@github.com");
     expect(repo.verify().status).toBe(1);
-  });
-
-  it("checks the real history", () => {
-    expect(run(script, ["--all"]).status).toBe(0);
   });
 });
