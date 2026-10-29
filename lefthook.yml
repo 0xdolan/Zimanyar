@@ -1,0 +1,28 @@
+# Git hooks, installed by `make setup` (pnpm exec lefthook install).
+pre-commit:
+  parallel: true
+  jobs:
+    - name: biome
+      glob: "*.{js,mjs,cjs,ts,tsx,jsx,json,jsonc,css}"
+      run: pnpm exec biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+    - name: dashes
+      run: scripts/checks/check-dashes.sh {staged_files}
+    - name: kurdish-spelling
+      run: pnpm exec tsx scripts/checks/check-kurdish-spelling.ts {staged_files}
+    - name: typecheck
+      glob: "*.{ts,tsx}"
+      run: pnpm exec turbo run typecheck --affected
+
+commit-msg:
+  jobs:
+    - name: attribution
+      run: scripts/release/verify-attribution.sh {1}
+    - name: dashes
+      run: scripts/checks/check-dashes.sh {1}
+    - name: commitlint
+      run: pnpm exec commitlint --edit {1}
+
+pre-push:
+  jobs:
+    - name: unit-tests
+      run: pnpm exec turbo run test
