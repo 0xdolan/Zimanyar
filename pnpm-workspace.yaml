@@ -3,6 +3,13 @@ packages:
   - packages/*
   - scripts
 
+# Supply-chain safety: wait seven days before installing a newly published version,
+# refuse updates that weaken a package's publishing trust, and allow git or tarball
+# dependencies only where the workspace itself declares them.
+minimumReleaseAge: 10080
+trustPolicy: no-downgrade
+blockExoticSubdeps: true
+
 # pnpm 10 runs no dependency install scripts unless they are listed here.
 onlyBuiltDependencies:
   - lefthook
