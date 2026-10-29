@@ -1,6 +1,6 @@
 # Notes for AI assistants working on Zimanyar
 
-Read `PRD.md` first. It is the specification; implement it phase by phase (section 20).
+Read `PRD.md` first. It is the specification; implement it phase by phase (section 20). `PRD.md` is local only: git ignores it, and it must never be committed or linked from committed files.
 
 ## Attribution (absolute rule)
 

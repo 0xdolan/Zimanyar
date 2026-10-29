@@ -19,9 +19,8 @@ target/
 __pycache__/
 *.py[oc]
 
-# generated data and icons (masters are committed)
+# generated data (icons and marketing images are committed: README and stores use them)
 packages/data/build/
-assets/icons/generated/
 
 # local, never committed
 private/
@@ -36,3 +35,6 @@ private/
 .DS_Store
 .idea/
 *.swp
+
+# product spec: local only, used to generate the project
+PRD.md
