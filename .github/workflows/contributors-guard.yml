@@ -1,0 +1,44 @@
+name: Contributors guard
+
+# Every commit must be authored and committed by the maintainer, with no AI or bot
+# attribution, and the tree must hold no Dependabot or Renovate configuration.
+on:
+  push:
+    branches: [main, develop, "feature/**", "release/**", "hotfix/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: contributors-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    name: Authors and attribution
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Check commits
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          if [[ "$EVENT" == "pull_request" ]]; then
+            range="$PR_BASE..$PR_HEAD"
+          elif [[ -z "$BEFORE" || "$BEFORE" =~ ^0+$ ]] || ! git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            range="--all"
+          else
+            range="$BEFORE..$AFTER"
+          fi
+          echo "checking $range"
+          scripts/release/verify-contributors.sh "$range"
