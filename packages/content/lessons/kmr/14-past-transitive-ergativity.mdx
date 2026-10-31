@@ -1,0 +1,80 @@
+---
+title: "14. The past tense II: transitive verbs and split ergativity"
+description: "Kurmanji lesson 14: The past tense II: transitive verbs and split ergativity"
+course: kmr
+lesson: 14
+level: intermediate
+rules: ["kmr.ergative.agreement","kmr.ergative.direct-agent","kmr.ergative.oblique-object"]
+---
+
+import { Ergativity, LessonRules, Sentences, VerbTable } from "../../src/components.tsx";
+
+## The big switch
+
+Compare the present and the past of *to see*:
+
+<Sentences lang="kmr" ipa items={[["Ez te dibînim.","I see you."],["Min tu dîtî.","I saw you."]]} />
+
+Everything has swapped:
+
+| | present *I see you* | past *I saw you* |
+|---|---|---|
+| the doer *I* | **ez** (direct) | **min** (oblique) |
+| the object *you* | **te** (oblique) | **tu** (direct) |
+| the verb agrees with | the doer: dibîn**im** (1sg) | the **object**: dît**î** (2sg) |
+
+This is **split ergativity**. In the **present**, Kurmanji works like English (*accusative*); in the **past tenses of transitive verbs** it is **ergative**:
+
+1. the **doer** (agent) is **oblique**;
+2. the **object** is **direct**;
+3. the verb **agrees with the object**.
+
+Intransitive verbs are never ergative: *ez hatim* “I came” (lesson 13).
+
+## Paradigms
+
+In the tables below the person column is the **object**, because that is what the verb agrees with. Any oblique agent can go with any form:
+
+<VerbTable lang="kmr" verb="dîtin" cells="past,past_neg" />
+
+So *dîtim* means “(someone) saw **me**”, and *dîtin* means “(someone) saw **them**”.
+
+With a 3rd-person or noun object, which is very common, the verb is simply 3sg or plural:
+
+<Sentences lang="kmr" ipa items={[["Min nan xwar.","I ate bread."],["Te nan xwar.","You ate bread."],["Wê pirtûk xwend.","She read the book."],["Me ew dîtin.","We saw them."],["Wan ez dîtim.","They saw me."],["Jinê nan çêkir.","The woman made bread."]]} />
+
+In *Jinê nan çêkir*, the noun agent *jin* takes the feminine oblique ending **-ê** (lesson 9).
+
+## Checking it with zimankit
+
+zimankit's `detect_alignment()` finds the verb, decides whether the clause is ergative, classifies each argument by case and checks the agreement. This is the core of a Kurmanji grammar checker:
+
+<Ergativity items={[["Ez te dibînim.","I see you."],["Min tu dîtî.","I saw you."],["Min ew dîtin.","I saw them."],["Wan ez dîtim.","They saw me."],["Min tu dîtim.","(wrong) *I saw you"],["Ez tu dîtî.","(wrong) *I saw you"]]} />
+
+The last two are classic learner errors: putting the agreement on the agent (*dîtim* for *min*), and using the direct pronoun for the agent (*ez*). The checker flags both. Its explanation of the second one is not ideal yet: it takes *ez* for the object because it is direct, and then reports a person mismatch. A better message (“the agent of a past transitive verb must be oblique: *min*”) is one of the things a full grammar checker should add. Lesson 22 shows more cases, including where the checker still goes wrong.
+
+## Practice
+
+1. *She saw me.*
+2. *I ate the apples* (*sêv*).
+3. *You (pl) read the book* (past).
+
+<details>
+<summary>Answers</summary>
+
+1. Wê ez dîtim.
+2. Min sêv xwarin. (plural object → plural verb)
+3. We pirtûk xwend.
+
+</details>
+
+## Summary
+
+* Present: agent direct, object oblique, verb agrees with the agent.
+* Past, transitive: **agent oblique, object direct, verb agrees with the object**.
+* Past, intransitive: subject direct, verb agrees with it.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={14} />

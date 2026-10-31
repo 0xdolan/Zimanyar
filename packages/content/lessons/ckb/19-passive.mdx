@@ -1,0 +1,56 @@
+---
+title: "19. The passive"
+description: "Sorani lesson 19: The passive"
+course: ckb
+lesson: 19
+level: advanced
+rules: []
+---
+
+import { Sentences, VerbTable } from "../../src/components.tsx";
+
+## A real passive verb
+
+English builds the passive with *be* + participle (*is written*). Sorani has a **morphological passive**: a special stem made from the **present stem** + **-ر-**, inflected like an intransitive verb.
+
+| infinitive | present stem | passive stem | present passive | past passive |
+|---|---|---|---|---|
+| کردن | کە | کر | دەکرێت *is done* | کرا *was done* |
+| نووسین | نووس | نووسر | دەنووسرێت | نووسرا |
+| خواردن | خۆ | خور | دەخورێت | خورا |
+| ناردن | نێر | نێردر | دەنێردرێت | نێردرا |
+| گوتن | ڵێ | **گوتر** (irregular) | دەگوترێت | گوترا |
+| گرتن | گر | **گیر** (irregular) | دەگیرێت | گیرا |
+
+Rules zimankit applies (`_passive_stem` in `skills_ckb/verbs.py`):
+
+1. a present stem ending in **ە / ێ / ی** drops that vowel: کە → کر;
+2. ۆ becomes **و**: خۆ → خور;
+3. a stem ending in **ر / ڕ** adds **د**: نێر → نێردر, کڕ → کڕدر;
+4. a few verbs are listed as exceptions (گوتن، وتن، گرتن، بیستن); ویستن *to want* has no passive at all.
+
+## Paradigms
+
+<VerbTable lang="ckb" verb="کردن" cells="passive_present,passive_present_neg,passive_past" />
+
+<VerbTable lang="ckb" verb="نووسین" cells="passive_present,passive_past" />
+
+<VerbTable lang="ckb" verb="ناردن" cells="passive_present,passive_past" />
+
+<VerbTable lang="ckb" verb="گوتن" cells="passive_present,passive_past" />
+
+## Participle and perfect
+
+The passive participle is passive stem + **-او**: کراو *done*, نووسراو *written*. Add **-ە** for the perfect: **کراوە** *has been done*, **نووسراوە** *has been written*. The participle is also an adjective: دەرگای داخراو *the closed door*.
+
+## The agent
+
+Usually the passive leaves the doer unsaid. When needed: **لەلایەن … ەوە** *by*:
+
+<Sentences lang="ckb" ipa items={[["ئەم کتێبە بە کوردی نووسراوە.","This book has been written in Kurdish."],["نامەکە دوێنێ نێردرا.","The letter was sent yesterday."],["ئەمە چۆن دەکرێت؟","How is this done?"],["بڕیارەکە لەلایەن حکومەتەوە درا.","The decision was made by the government."]]} />
+
+## Summary
+
+* Passive stem = present stem + **ر** (ر/ڕ-final stems + **در**).
+* Present **دەکرێت**, past **کرا**, perfect **کراوە**, participle **کراو**.
+* Agent: لەلایەن … ەوە.

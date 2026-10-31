@@ -1,0 +1,83 @@
+---
+title: "16. In, from, with: prepositions and circumpositions"
+description: "Sorani lesson 16: In, from, with: prepositions and circumpositions"
+course: ckb
+lesson: 16
+level: intermediate
+rules: []
+---
+
+import { Analyze, Sentences } from "../../src/components.tsx";
+
+## Simple prepositions
+
+| preposition | meaning | example |
+|---|---|---|
+| **لە** | in, at, from | لە هەولێر *in Erbil* |
+| **بە** | with, by, by means of | بە ئۆتۆمبێل *by car* |
+| **بۆ** | for, to (a place) | بۆ ماڵەوە *(to) home* |
+| **لەگەڵ** | (together) with | لەگەڵ هاوڕێکەم *with my friend* |
+| **بێ** | without | بێ پارە *without money* |
+| **وەک** | like, as | وەک باوکی *like his father* |
+| **تا / هەتا** | until, up to | تا بەیانی *until morning* |
+
+## Compound prepositions
+
+Many place words are formed with **لە** + a noun + ezafe **-ی**:
+
+| form | meaning |
+|---|---|
+| **لەسەر**ی | on (top of) |
+| **لەژێر**ی | under |
+| **لەناو**ی | inside |
+| **لەبەردەم**ی | in front of |
+| **لەپشت**ی | behind |
+| **لەتەنیشت**ی | next to |
+
+کتێبەکە لەسەر مێزەکەیە. *The book is on the table.*
+
+## Circumpositions: the second half after the noun
+
+Sorani often frames a noun between a preposition and an ending that completes its meaning:
+
+| frame | meaning | example |
+|---|---|---|
+| **لە … دا** | in, at (location) | لە ماڵ**دا** *in the house* |
+| **لە … ەوە** | from (source) | لە هەولێر**ەوە** *from Erbil* |
+| **بە … دا** | along, through | بە شەقام**دا** *along the street* |
+| **بە … ەوە** | with, attached to | بە دیوار**ەوە** *on the wall* |
+
+The second half is written **attached** to the noun (after a vowel ەوە becomes وە: لە دەرگاکە**وە**).
+
+<Sentences lang="ckb" ipa items={[["لە ماڵەوە کار دەکەم.","I work from home."],["لە شاردا دەژین.","We live in the city."],["لە سلێمانییەوە هاتم.","I came from Sulaymaniyah."],["لەگەڵ براکەم دەچم بۆ بازاڕ.","I go to the market with my brother."],["کتێبەکە لەسەر مێزەکەیە.","The book is on the table."]]} />
+
+## A whole phrase in one word
+
+Because endings stack, a single written word can contain a whole prepositional phrase. zimankit's analyzer takes it apart:
+
+<Analyze lang="ckb" words="لەماڵەکانمانیشدا,ماڵەکەمانەوە,کتێبەکانیشم" />
+
+**لەماڵەکانمانیشدا** = لە + ماڵ + ەکان + مان + یش + دا = *in our houses too*. The order of the slots is fixed:
+
+> [preposition] stem [derivation] [comparative] [number/definite] [clitic] [also] [postposition]
+
+## Practice
+
+1. *in the mountain* (چیا).
+2. *from the city.*
+3. *with my father.*
+
+<details>
+<summary>Answers</summary>
+
+1. لە چیاکەدا
+2. لە شارەکەوە
+3. لەگەڵ باوکم
+
+</details>
+
+## Summary
+
+* لە *in/from*, بە *with/by*, بۆ *for/to*, لەگەڵ *with*, بێ *without*.
+* Circumpositions: لە…دا *in*, لە…ەوە *from*, بە…دا *through*.
+* Endings stack in a fixed order, so a whole phrase can be one written word.

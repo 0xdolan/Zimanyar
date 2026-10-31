@@ -1,0 +1,75 @@
+---
+title: "2. The alphabet"
+description: "Sorani lesson 2: The alphabet"
+course: ckb
+lesson: 2
+level: beginner
+rules: ["ckb.orth.arabic-codepoint","ckb.orth.doubled-letter","ckb.orth.initial-r","ckb.orth.initial-vowel","ckb.spell.missing-mark"]
+---
+
+import { Alphabet, LessonRules, Words } from "../../src/components.tsx";
+
+## The 34 letters
+
+Sorani has **34 letters**: 33 single characters plus the double letter **وو** (long *û*). Like Arabic, the script is **cursive**: most letters join the letter that follows them, and a letter's shape changes slightly depending on whether it stands alone, starts a word, sits in the middle or ends a word.
+
+The table shows each letter in its four shapes, the Latin letter used to transliterate it, its sound in IPA, and an example word. *Joins left?* tells you whether the letter connects to the **next** letter (on its left, because you write right to left).
+
+<Alphabet lang="ckb" />
+
+## The nine letters that never join forward
+
+Nine letters join the letter **before** them but never the letter **after** them:
+
+**ا د ر ڕ ز ژ و ۆ ە**
+
+After one of them the next letter starts fresh, as if at the beginning of a word. That is why some words look broken into pieces even though they are one word:
+
+<Words lang="ckb" words="دار,ڕۆژ,وڵات,زمان,ژن,دوور" />
+
+In دار “tree” all three letters stand separately: د and ا never join forward, so ا and ر start fresh.
+
+## Letters to watch
+
+| pair | difference | example |
+|---|---|---|
+| **ر / ڕ** | tap *r* (one flick of the tongue) / trilled *rr* | بەرد *stone* vs ڕۆژ *day* |
+| **ل / ڵ** | clear *l* / dark *ll* (tongue pulled back, like English *full*) | لاو *young man* vs ماڵ *house* |
+| **ه / ە** | consonant *h* / vowel *e* | هەوا *air* (both!) |
+| **ی / ێ** | *y* or long *î* / long *ê* | شیر *milk* vs سێو *apple* |
+| **و / ۆ** | *w* or *u* / long *ô* | وڵات *country* vs ڕۆژ *day* |
+
+The marks on ڕ ڵ ێ ۆ (a small `v` above or below) are part of the letter. Leaving them out is the most common spelling mistake in Sorani. zimankit's spelling checker flags it (lesson 23).
+
+## The letter ئ
+
+**ئ** (*hamza on a seat*) has no sound of its own in practice. It is the obligatory **seat for a vowel at the start of a word or syllable**: a Sorani word never begins with a bare vowel letter. *Water* is ئاو, not او; *horse* is ئەسپ, not ەسپ.
+
+<Words lang="ckb" words="ئاو,ئەسپ,ئێمە,ئۆتۆمبێل" />
+
+## Practice
+
+1. Which letters in **ڕۆژنامە** (*newspaper*) do not join the next letter?
+2. Write *water* and *horse* from memory.
+3. Read aloud: باوک، پیاو، چاو، ژن، شار.
+
+<details>
+<summary>Answers</summary>
+
+1. ڕ, ۆ, ژ, ا and the final ە. The word falls into the pieces ڕ | ۆ | ژ | نا | مە: ن joins the ا after it, and م joins the final ە.
+2. ئاو، ئەسپ, both start with the seat ئ.
+3. *bawk* (father), *pyaw* (man), *çaw* (eye), *jin* (woman), *şar* (city).
+
+</details>
+
+## Summary
+
+* 34 letters, written right to left; most join the next letter.
+* **ا د ر ڕ ز ژ و ۆ ە** never join forward.
+* ڕ ڵ ێ ۆ are separate letters from ر ل ی و; their marks matter.
+* A word never starts with a bare vowel: ئ is written as its seat.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="ckb" lesson={2} />

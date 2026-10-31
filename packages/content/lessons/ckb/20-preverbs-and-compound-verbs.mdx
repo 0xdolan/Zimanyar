@@ -1,0 +1,69 @@
+---
+title: "20. Preverbs, -ەوە verbs and compound verbs"
+description: "Sorani lesson 20: Preverbs, -ەوە verbs and compound verbs"
+course: ckb
+lesson: 20
+level: advanced
+rules: ["ckb.verb.preverb-b"]
+---
+
+import { LessonRules, Sentences, VerbTable } from "../../src/components.tsx";
+
+Most verbs in a real text are not simple verbs like کردن but **complex** ones built from a simple verb plus something else. Three kinds matter.
+
+## 1. Preverbs
+
+A **preverb** is a short prefix that changes the meaning of the verb: هەڵ *up*, دا *down*, ڕا *forth*, وەر *towards*, دەر *out*, تێ *into*, پێ *at, on*, لێ *from, at*:
+
+| verb | parts | meaning |
+|---|---|---|
+| هەڵگرتن | هەڵ + گرتن | to pick up, to lift |
+| داخستن | دا + خستن | to close |
+| ڕاگەیاندن | ڕا + گەیاندن | to announce |
+| وەرگرتن | وەر + گرتن | to receive |
+| دەرکردن | دەر + کردن | to expel, to issue |
+
+Rules:
+
+* The preverb stays **in front of** دە / نا: هەڵ**دە**گرم *I pick up*, هەڵ**نا**گرم *I don't pick up*.
+* The subjunctive and imperative **drop ب**: هەڵگرم *that I pick up*, هەڵگرە *pick up!*
+* In the past the agent clitic goes **right after the preverb**: هەڵ**م**گرت *I picked up*, ڕا**ی**گەیاند *he announced*.
+
+<VerbTable lang="ckb" verb="هەڵگرتن" cells="present,subj,past,imperative" />
+
+<VerbTable lang="ckb" verb="ڕاگەیاندن" cells="present,past" />
+
+## 2. Verbs with -ەوە
+
+The suffix **-ەوە** adds *again, back* or a new meaning, and it always comes **last**, after the person ending:
+
+| verb | meaning | present 1sg |
+|---|---|---|
+| کردنەوە | to open | دەکەمەوە |
+| گەڕانەوە | to return | دەگەڕێمەوە |
+| خوێندنەوە | to read | دەخوێنمەوە |
+
+<VerbTable lang="ckb" verb="کردنەوە" cells="present,past" />
+
+<VerbTable lang="ckb" verb="گەڕانەوە" cells="present,past" />
+
+## 3. Compound verbs with a noun
+
+Very many verbs are **noun or adjective + light verb** (usually کردن *do*, بوون *become*, دان *give*): دەستپێکردن *to begin* (lit. hand-to-do), بەکارهێنان *to use* (lit. into-work-bring), کارکردن *to work*. The noun part behaves like a preverb, but the subjunctive **keeps ب**:
+
+<VerbTable lang="ckb" verb="دەستپێکردن" cells="present,subj,past" />
+
+<Sentences lang="ckb" ipa items={[["کتێبەکەم هەڵگرت.","I picked up the book."],["دەرگاکە دابخە!","Close the door!"],["کەی دەگەڕێیتەوە؟","When are you coming back?"],["وانەکە دەستی پێکرد.","The lesson began."],["حکومەت بڕیارەکەی ڕاگەیاند.","The government announced the decision."]]} />
+
+Notice **دەستی پێکرد** in the fourth sentence. In the standard language, the agent clitic of a noun + verb compound goes on the **noun part** (دەست**ی** پێکرد *he began*, دەست**م** پێکرد *I began*). The table above shows the forms with the clitic at the end (دەستپێکردی), which are common in speech. The paradigm generator does not yet split the noun part off, so treat this column as colloquial.
+
+## Summary
+
+* Preverb verbs: preverb + دە/نا; subjunctive without ب; past clitic after the preverb.
+* -ەوە always last: دەکەمەوە.
+* Noun + light verb: the noun behaves like a preverb, but ب is kept.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="ckb" lesson={20} />

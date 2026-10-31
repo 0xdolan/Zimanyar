@@ -1,0 +1,1732 @@
+{
+  "ckb": [
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["سڵاو!", "Hello!"],
+        ["چۆنی؟", "How are you?"],
+        ["باشم، سوپاس.", "I'm fine, thanks."],
+        ["ناوت چییە؟", "What is your name?"],
+        ["ناوم ئاراسە.", "My name is Aras."],
+        ["بەخێربێیت!", "Welcome!"]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | سڵاو! | sillaw! | /s(ɯ)ɫaːw/ | Hello! |\n| 2 | چۆنی؟ | çonî? | /tʃoːniː/ | How are you? |\n| 3 | باشم، سوپاس. | başim, supas. | /baːʃ(ɯ)m supaːs/ | I'm fine, thanks. |\n| 4 | ناوت چییە؟ | nawt çîye? | /naːwt tʃiːjæ/ | What is your name? |\n| 5 | ناوم ئاراسە. | nawm arase. | /naːwm ʔaːɾaːsæ/ | My name is Aras. |\n| 6 | بەخێربێیت! | bexêrbêyt! | /bæxeːɾbeːjt/ | Welcome! |"
+    },
+    {
+      "name": "alphabet",
+      "args": {},
+      "lines": [],
+      "output": "| letter | isolated | initial | medial | final | Latin | IPA | joins left? | example | meaning |\n|---|---|---|---|---|---|---|---|---|---|\n| **ئ** | ئ | ئ‍ | ‍ئ‍ | ‍ئ | · | /ʔ/ | yes | ئاو (aw) | water |\n| **ا** | ا | ا | ‍ا | ‍ا | a | /aː/ | **no** | باران (baran) | rain |\n| **ب** | ب | ب‍ | ‍ب‍ | ‍ب | b | /b/ | yes | باوک (bawk) | father |\n| **پ** | پ | پ‍ | ‍پ‍ | ‍پ | p | /p/ | yes | پیاو (pyaw) | man |\n| **ت** | ت | ت‍ | ‍ت‍ | ‍ت | t | /t/ | yes | تۆ (to) | you (singular) |\n| **ج** | ج | ج‍ | ‍ج‍ | ‍ج | c | /dʒ/ | yes | جوان (cwan) | beautiful |\n| **چ** | چ | چ‍ | ‍چ‍ | ‍چ | ç | /tʃ/ | yes | چاو (çaw) | eye |\n| **ح** | ح | ح‍ | ‍ح‍ | ‍ح | ḧ | /ħ/ | yes | حەوت (ḧewt) | seven |\n| **خ** | خ | خ‍ | ‍خ‍ | ‍خ | x | /x/ | yes | خەو (xew) | sleep |\n| **د** | د | د | ‍د | ‍د | d | /d/ | **no** | دار (dar) | tree, wood |\n| **ر** | ر | ر | ‍ر | ‍ر | r | /ɾ/ | **no** | بەرد (berd) | stone |\n| **ڕ** | ڕ | ڕ | ‍ڕ | ‍ڕ | rr | /r/ | **no** | ڕۆژ (roj) | day; sun |\n| **ز** | ز | ز | ‍ز | ‍ز | z | /z/ | **no** | زمان (ziman) | language; tongue |\n| **ژ** | ژ | ژ | ‍ژ | ‍ژ | j | /ʒ/ | **no** | ژن (jin) | woman; wife |\n| **س** | س | س‍ | ‍س‍ | ‍س | s | /s/ | yes | سەر (ser) | head |\n| **ش** | ش | ش‍ | ‍ش‍ | ‍ش | ş | /ʃ/ | yes | شار (şar) | city |\n| **ع** | ع | ع‍ | ‍ع‍ | ‍ع | ' | /ʕ/ | yes | عەقڵ ('eqill) | mind, reason |\n| **غ** | غ | غ‍ | ‍غ‍ | ‍غ | ẍ | /ɣ/ | yes | غەریب (ẍerîb) | stranger; foreign |\n| **ف** | ف | ف‍ | ‍ف‍ | ‍ف | f | /f/ | yes | فڕین (firrîn) | to fly |\n| **ڤ** | ڤ | ڤ‍ | ‍ڤ‍ | ‍ڤ | v | /v/ | yes | ڤیدیۆ (vîdyo) | video |\n| **ق** | ق | ق‍ | ‍ق‍ | ‍ق | q | /q/ | yes | قەڵەم (qellem) | pen |\n| **ک** | ک | ک‍ | ‍ک‍ | ‍ک | k | /k/ | yes | کتێب (kitêb) | book |\n| **گ** | گ | گ‍ | ‍گ‍ | ‍گ | g | /ɡ/ | yes | گوڵ (gull) | flower |\n| **ل** | ل | ل‍ | ‍ل‍ | ‍ل | l | /l/ | yes | لاو (law) | young man |\n| **ڵ** | ڵ | ڵ‍ | ‍ڵ‍ | ‍ڵ | ll | /ɫ/ | yes | ماڵ (mall) | house, home |\n| **م** | م | م‍ | ‍م‍ | ‍م | m | /m/ | yes | مانگ (mang) | moon; month |\n| **ن** | ن | ن‍ | ‍ن‍ | ‍ن | n | /n/ | yes | نان (nan) | bread |\n| **ه** | ه | ه‍ | ‍ه‍ | ‍ه | h | /h/ | yes | هەوا (hewa) | air, weather |\n| **ە** | ە | ە | ‍ە | ‍ە | e | /æ/ | **no** | ئەسپ (esp) | horse |\n| **و** | و | و | ‍و | ‍و | w / u | /w, u/ | **no** | وڵات (willat) | country |\n| **وو** | وو | وو | ‍وو | ‍وو | û | /uː/ | **no** | بوون (bûn) | to be, to become |\n| **ۆ** | ۆ | ۆ | ‍ۆ | ‍ۆ | o | /oː/ | **no** | ڕۆژ (roj) | day; sun |\n| **ی** | ی | ی‍ | ‍ی‍ | ‍ی | y / î | /j, iː/ | yes | شیر (şîr) | milk; lion |\n| **ێ** | ێ | ێ‍ | ‍ێ‍ | ‍ێ | ê | /eː/ | yes | سێو (sêw) | apple |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "دار,ڕۆژ,وڵات,زمان,ژن,دوور"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **دار** | dar | /daːɾ/ | daːɾ | tree, wood |\n| **ڕۆژ** | roj | /roːʒ/ | roːʒ | day; sun |\n| **وڵات** | willat | /w(ɯ)ɫaːt/ | wɯ.ɫaːt | country |\n| **زمان** | ziman | /z(ɯ)maːn/ | zɯ.maːn | language; tongue |\n| **ژن** | jin | /ʒ(ɯ)n/ | ʒɯn | woman; wife |\n| **دوور** | dûr | /duːɾ/ | duːɾ | far |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "ئاو,ئەسپ,ئێمە,ئۆتۆمبێل"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **ئاو** | aw | /ʔaːw/ | ʔaːw | water |\n| **ئەسپ** | esp | /ʔæsp/ | ʔæsp | horse |\n| **ئێمە** | ême | /ʔeːmæ/ | ʔeː.mæ | we |\n| **ئۆتۆمبێل** | otombêl | /ʔoːtoːmbeːl/ | ʔoː.toːm.beːl | car |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "باران,ئەسپ,سێو,ڕۆژ,بوون,کورد,شیر"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **باران** | baran | /baːɾaːn/ | baː.ɾaːn | rain |\n| **ئەسپ** | esp | /ʔæsp/ | ʔæsp | horse |\n| **سێو** | sêw | /seːw/ | seːw | apple |\n| **ڕۆژ** | roj | /roːʒ/ | roːʒ | day; sun |\n| **بوون** | bûn | /buːn/ | buːn | to be, to become |\n| **کورد** | kurd | /kuɾd/ | kuɾd | Kurd |\n| **شیر** | şîr | /ʃiːɾ/ | ʃiːɾ | milk; lion |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "ئاو,پیاو,چاو,خواردن,چای,ماسی,کوردی"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **ئاو** | aw | /ʔaːw/ | ʔaːw | water |\n| **پیاو** | pyaw | /pjaːw/ | pjaːw | man |\n| **چاو** | çaw | /tʃaːw/ | tʃaːw | eye |\n| **خواردن** | xwardin | /xwaːɾd(ɯ)n/ | xwaːɾ.dɯn | to eat |\n| **چای** | çay | /tʃaːj/ | tʃaːj | tea |\n| **ماسی** | masî | /maːsiː/ | maː.siː | fish |\n| **کوردی** | kurdî | /kuɾdiː/ | kuɾ.diː | Kurdish (language) |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "من,کتێب,بزن,کردن,مشک,کوردستان,هەڵبژاردن"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **من** | min | /m(ɯ)n/ | mɯn | I |\n| **کتێب** | kitêb | /k(ɯ)teːb/ | kɯ.teːb | book |\n| **بزن** | bizin | /b(ɯ)z(ɯ)n/ | bɯ.zɯn | goat |\n| **کردن** | kirdin | /k(ɯ)ɾd(ɯ)n/ | kɯɾ.dɯn | to do, to make |\n| **مشک** | mişk | /m(ɯ)ʃk/ | mɯʃk | mouse |\n| **کوردستان** | kurdistan | /kuɾd(ɯ)staːn/ | kuɾ.dɯs.taːn | Kurdistan |\n| **هەڵبژاردن** | hellbijardin | /hæɫb(ɯ)ʒaːɾd(ɯ)n/ | hæɫ.bɯ.ʒaːɾ.dɯn | to elect, to choose; election |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "کەر,کار,شیر,شەر"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **کەر** | ker | /kæɾ/ | kæɾ | donkey |\n| **کار** | kar | /kaːɾ/ | kaːɾ | work, job |\n| **شیر** | şîr | /ʃiːɾ/ | ʃiːɾ | milk; lion |\n| **شەر** | şer | /ʃæɾ/ | ʃæɾ | war, fight |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "خەو,غەریب,قەڵەم,حەوت,عەقڵ,ڕۆژ,ماڵ"
+      },
+      "lines": [],
+      "output": "| Kurdish | Latin | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **خەو** | xew | /xæw/ | xæw | sleep |\n| **غەریب** | ẍerîb | /ɣæɾiːb/ | ɣæ.ɾiːb | stranger; foreign |\n| **قەڵەم** | qellem | /qæɫæm/ | qæ.ɫæm | pen |\n| **حەوت** | ḧewt | /ħæwt/ | ħæwt | seven |\n| **عەقڵ** | 'eqill | /ʕæq(ɯ)ɫ/ | ʕæ.qɯɫ | mind, reason |\n| **ڕۆژ** | roj | /roːʒ/ | roːʒ | day; sun |\n| **ماڵ** | mall | /maːɫ/ | maːɫ | house, home |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["یەک، دوو، سێ، چوار، پێنج", "one, two, three, four, five"],
+        ["شەش، حەوت، هەشت، نۆ، دە", "six, seven, eight, nine, ten"],
+        ["ساڵی ٢٠٢٦", "the year 2026"]
+      ],
+      "output": "| # | Kurdish | Latin | English |\n|---|---|---|---|\n| 1 | یەک، دوو، سێ، چوار، پێنج | yek, dû, sê, çwar, pênc | one, two, three, four, five |\n| 2 | شەش، حەوت، هەشت، نۆ، دە | şeş, ḧewt, heşt, no, de | six, seven, eight, nine, ten |\n| 3 | ساڵی ٢٠٢٦ | sallî ٢٠٢٦ | the year 2026 |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["ئەمڕۆ هەوا خۆشە.", "The weather is nice today."],
+        ["من کوردم و لە هەولێر دەژیم.", "I am Kurdish and I live in Erbil."],
+        ["ئەم کتێبە زۆر باشە.", "This book is very good."]
+      ],
+      "output": "| # | Kurdish | Latin | English |\n|---|---|---|---|\n| 1 | ئەمڕۆ هەوا خۆشە. | emrro hewa xoşe. | The weather is nice today. |\n| 2 | من کوردم و لە هەولێر دەژیم. | min kurdim u le hewlêr dejîm. | I am Kurdish and I live in Erbil. |\n| 3 | ئەم کتێبە زۆر باشە. | em kitêbe zor başe. | This book is very good. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["باوکم مامۆستایە.", "My father is a teacher."],
+        ["ژنەکە نان دەکڕێت.", "The woman is buying bread."],
+        ["پیاوەکان لە شار دەژین.", "The men live in the city."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | باوکم مامۆستایە. | bawkim mamostaye. | /baːwk(ɯ)m maːmoːstaːjæ/ | My father is a teacher. |\n| 2 | ژنەکە نان دەکڕێت. | jineke nan dekrrêt. | /ʒ(ɯ)nækæ naːn dækreːt/ | The woman is buying bread. |\n| 3 | پیاوەکان لە شار دەژین. | pyawekan le şar dejîn. | /pjaːwækaːn læ ʃaːɾ dæʒiːn/ | The men live in the city. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["من کوردم.", "I am Kurdish."],
+        ["تۆ کوردیت.", "You are Kurdish."],
+        ["ئەو کوردە.", "He / She is Kurdish."],
+        ["ئێمە کوردین.", "We are Kurdish."],
+        ["ئێوە کوردن.", "You (pl) are Kurdish."],
+        ["ئەوان کوردن.", "They are Kurdish."],
+        ["من مامۆستام.", "I am a teacher."],
+        ["ئەو مامۆستایە.", "He / She is a teacher."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | من کوردم. | min kurdim. | /m(ɯ)n kuɾd(ɯ)m/ | I am Kurdish. |\n| 2 | تۆ کوردیت. | to kurdît. | /toː kuɾdiːt/ | You are Kurdish. |\n| 3 | ئەو کوردە. | ew kurde. | /ʔæw kuɾdæ/ | He / She is Kurdish. |\n| 4 | ئێمە کوردین. | ême kurdîn. | /ʔeːmæ kuɾdiːn/ | We are Kurdish. |\n| 5 | ئێوە کوردن. | êwe kurdin. | /ʔeːwæ kuɾd(ɯ)n/ | You (pl) are Kurdish. |\n| 6 | ئەوان کوردن. | ewan kurdin. | /ʔæwaːn kuɾd(ɯ)n/ | They are Kurdish. |\n| 7 | من مامۆستام. | min mamostam. | /m(ɯ)n maːmoːstaːm/ | I am a teacher. |\n| 8 | ئەو مامۆستایە. | ew mamostaye. | /ʔæw maːmoːstaːjæ/ | He / She is a teacher. |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["ئاو هەیە.", "There is water."],
+        ["نان نییە.", "There is no bread."],
+        ["کتێبێکم هەیە.", "I have a book. (lit. a-book-my exists)"],
+        ["ئۆتۆمبێلت هەیە؟", "Do you have a car?"]
+      ],
+      "output": "| # | Kurdish | Latin | English |\n|---|---|---|---|\n| 1 | ئاو هەیە. | aw heye. | There is water. |\n| 2 | نان نییە. | nan nîye. | There is no bread. |\n| 3 | کتێبێکم هەیە. | kitêbêkim heye. | I have a book. (lit. a-book-my exists) |\n| 4 | ئۆتۆمبێلت هەیە؟ | otombêlt heye? | Do you have a car? |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "پیاو,ژن,کتێب,ماڵ,دەرگا,مامۆستا,ماسی,خانە,چیا",
+        "cells": "bare,def.sg,def.pl,ind.sg,pl"
+      },
+      "lines": [],
+      "output": "| noun | meaning | bare (generic) | the … (sg) | the … (pl) | a … | … (pl) |\n|---|---|---|---|---|---|---|\n| **پیاو** | man | **پیاو**<br><sub>pyaw</sub> | **پیاوەکە**<br><sub>pyaweke</sub> | **پیاوەکان**<br><sub>pyawekan</sub> | **پیاوێک**<br><sub>pyawêk</sub> | **پیاوان**<br><sub>pyawan</sub> |\n| **ژن** | woman; wife | **ژن**<br><sub>jin</sub> | **ژنەکە**<br><sub>jineke</sub> | **ژنەکان**<br><sub>jinekan</sub> | **ژنێک**<br><sub>jinêk</sub> | **ژنان**<br><sub>jinan</sub> |\n| **کتێب** | book | **کتێب**<br><sub>kitêb</sub> | **کتێبەکە**<br><sub>kitêbeke</sub> | **کتێبەکان**<br><sub>kitêbekan</sub> | **کتێبێک**<br><sub>kitêbêk</sub> | **کتێبان**<br><sub>kitêban</sub> |\n| **ماڵ** | house, home | **ماڵ**<br><sub>mall</sub> | **ماڵەکە**<br><sub>malleke</sub> | **ماڵەکان**<br><sub>mallekan</sub> | **ماڵێک**<br><sub>mallêk</sub> | **ماڵان**<br><sub>mallan</sub> |\n| **دەرگا** | door | **دەرگا**<br><sub>derga</sub> | **دەرگاکە**<br><sub>dergake</sub> | **دەرگاکان**<br><sub>dergakan</sub> | **دەرگایەک**<br><sub>dergayek</sub> | **دەرگایان**<br><sub>dergayan</sub> |\n| **مامۆستا** | teacher | **مامۆستا**<br><sub>mamosta</sub> | **مامۆستاکە**<br><sub>mamostake</sub> | **مامۆستاکان**<br><sub>mamostakan</sub> | **مامۆستایەک**<br><sub>mamostayek</sub> | **مامۆستایان**<br><sub>mamostayan</sub> |\n| **ماسی** | fish | **ماسی**<br><sub>masî</sub> | **ماسییەکە**<br><sub>masîyeke</sub> | **ماسییەکان**<br><sub>masîyekan</sub> | **ماسییەک**<br><sub>masîyek</sub> | **ماسییان**<br><sub>masîyan</sub> |\n| **خانە** | house, room | **خانە**<br><sub>xane</sub> | **خانەکە**<br><sub>xaneke</sub> | **خانەکان**<br><sub>xanekan</sub> | **خانەیەک**<br><sub>xaneyek</sub> | · |\n| **چیا** | mountain | **چیا**<br><sub>çya</sub> | **چیاکە**<br><sub>çyake</sub> | **چیاکان**<br><sub>çyakan</sub> | **چیایەک**<br><sub>çyayek</sub> | **چیایان**<br><sub>çyayan</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["پیاوەکە هات.", "The man came."],
+        ["پیاوێک هات.", "A man came."],
+        ["پیاوەکان هاتن.", "The men came."],
+        ["کتێبەکان لێرەن.", "The books are here."],
+        ["ماسییەکە گەورەیە.", "The fish is big."],
+        ["دەرگاکە داخراوە.", "The door is closed."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | پیاوەکە هات. | pyaweke hat. | /pjaːwækæ haːt/ | The man came. |\n| 2 | پیاوێک هات. | pyawêk hat. | /pjaːweːk haːt/ | A man came. |\n| 3 | پیاوەکان هاتن. | pyawekan hatin. | /pjaːwækaːn haːt(ɯ)n/ | The men came. |\n| 4 | کتێبەکان لێرەن. | kitêbekan lêren. | /k(ɯ)teːbækaːn leːɾæn/ | The books are here. |\n| 5 | ماسییەکە گەورەیە. | masîyeke gewreye. | /maːsiːjækæ ɡæwɾæjæ/ | The fish is big. |\n| 6 | دەرگاکە داخراوە. | dergake daxrawe. | /dæɾɡaːkæ daːxɾaːwæ/ | The door is closed. |"
+    },
+    {
+      "name": "analyze",
+      "args": {
+        "words": "پیاوەکە,ژنەکان,کتێبێک,دەرگاکە,ماسییەکە,مامۆستایان"
+      },
+      "lines": [],
+      "output": "| word | segmentation | morpheme tags | lemma | features |\n|---|---|---|---|---|\n| **پیاوەکە** | پیاو+ەکە | STEM+DEF.SG | پیاو | definite=def, number=sg |\n| **ژنەکان** | ژن+ەکان | STEM+DEF.PL | ژن | definite=def, number=pl |\n| **کتێبێک** | کتێب+ێک | STEM+INDEF | کتێب | definite=ind, number=sg |\n| **دەرگاکە** | دەرگا+کە | STEM+DEF.SG | دەرگا | definite=def, number=sg |\n| **ماسییەکە** | ماسی+یەکە | STEM+DEF.SG | ماسی | definite=def, number=sg |\n| **مامۆستایان** | مامۆستا+یان | STEM+3PL | مامۆستا | enclitic=3pl |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "پیاو,کتێب,دەرگا,ماسی,خانە",
+        "cells": "bare,dem"
+      },
+      "lines": [],
+      "output": "| noun | meaning | bare (generic) | ئەم / ئەو … ە |\n|---|---|---|---|\n| **پیاو** | man | **پیاو**<br><sub>pyaw</sub> | **پیاوە**<br><sub>pyawe</sub> |\n| **کتێب** | book | **کتێب**<br><sub>kitêb</sub> | **کتێبە**<br><sub>kitêbe</sub> |\n| **دەرگا** | door | **دەرگا**<br><sub>derga</sub> | **دەرگایە**<br><sub>dergaye</sub> |\n| **ماسی** | fish | **ماسی**<br><sub>masî</sub> | **ماسییە**<br><sub>masîye</sub> |\n| **خانە** | house, room | **خانە**<br><sub>xane</sub> | **خانەیە**<br><sub>xaneye</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["ئەم کتێبە باشە.", "This book is good."],
+        ["ئەو پیاوە مامۆستایە.", "That man is a teacher."],
+        ["ئەم پیاوانە کوردن.", "These men are Kurds."],
+        ["ئەو دەرگایە داخە.", "Close that door."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | ئەم کتێبە باشە. | em kitêbe başe. | /ʔæm k(ɯ)teːbæ baːʃæ/ | This book is good. |\n| 2 | ئەو پیاوە مامۆستایە. | ew pyawe mamostaye. | /ʔæw pjaːwæ maːmoːstaːjæ/ | That man is a teacher. |\n| 3 | ئەم پیاوانە کوردن. | em pyawane kurdin. | /ʔæm pjaːwaːnæ kuɾd(ɯ)n/ | These men are Kurds. |\n| 4 | ئەو دەرگایە داخە. | ew dergaye daxe. | /ʔæw dæɾɡaːjæ daːxæ/ | Close that door. |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["ئەوە کێیە؟", "Who is that?"],
+        ["ئەمە چییە؟", "What is this?"],
+        ["ناوت چییە؟", "What is your name?"],
+        ["لەکوێ دەژیت؟", "Where do you live?"],
+        ["بۆچی هاتیت؟", "Why did you come?"],
+        ["چەند کتێبت هەیە؟", "How many books do you have?"]
+      ],
+      "output": "| # | Kurdish | Latin | English |\n|---|---|---|---|\n| 1 | ئەوە کێیە؟ | ewe kêye? | Who is that? |\n| 2 | ئەمە چییە؟ | eme çîye? | What is this? |\n| 3 | ناوت چییە؟ | nawt çîye? | What is your name? |\n| 4 | لەکوێ دەژیت؟ | lekwê dejît? | Where do you live? |\n| 5 | بۆچی هاتیت؟ | boçî hatît? | Why did you come? |\n| 6 | چەند کتێبت هەیە؟ | çend kitêbit heye? | How many books do you have? |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "پیاو,کتێب,دەرگا,ماسی,خانە",
+        "cells": "bare,ezafe,ind.ezafe"
+      },
+      "lines": [],
+      "output": "| noun | meaning | bare (generic) | ezafe (… of / adj) | a … + adj |\n|---|---|---|---|---|\n| **پیاو** | man | **پیاو**<br><sub>pyaw</sub> | **پیاوی**<br><sub>pyawî</sub> | **پیاوێکی**<br><sub>pyawêkî</sub> |\n| **کتێب** | book | **کتێب**<br><sub>kitêb</sub> | **کتێبی**<br><sub>kitêbî</sub> | **کتێبێکی**<br><sub>kitêbêkî</sub> |\n| **دەرگا** | door | **دەرگا**<br><sub>derga</sub> | **دەرگای**<br><sub>dergay</sub> | **دەرگایەکی**<br><sub>dergayekî</sub> |\n| **ماسی** | fish | **ماسی**<br><sub>masî</sub> | **ماسیی**<br><sub>masî</sub> | **ماسییەکی**<br><sub>masîyekî</sub> |\n| **خانە** | house, room | **خانە**<br><sub>xane</sub> | **خانەی**<br><sub>xaney</sub> | **خانەیەکی**<br><sub>xaneyekî</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["پیاوە باشەکە هات.", "The good man came."],
+        ["کتێبە نوێیەکەم کڕی.", "I bought the new book."],
+        ["زمانی کوردی جوانە.", "The Kurdish language is beautiful."],
+        ["ئەم ماڵە هی باوکمە.", "This house is my father's."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | پیاوە باشەکە هات. | pyawe başeke hat. | /pjaːwæ baːʃækæ haːt/ | The good man came. |\n| 2 | کتێبە نوێیەکەم کڕی. | kitêbe nwêyekem kirrî. | /k(ɯ)teːbæ nweːjækæm k(ɯ)riː/ | I bought the new book. |\n| 3 | زمانی کوردی جوانە. | zimanî kurdî cwane. | /z(ɯ)maːniː kuɾdiː dʒwaːnæ/ | The Kurdish language is beautiful. |\n| 4 | ئەم ماڵە هی باوکمە. | em malle hî bawkme. | /ʔæm maːɫæ hiː baːwkmæ/ | This house is my father's. |"
+    },
+    {
+      "name": "analyze",
+      "args": {
+        "words": "کتێبی,پیاوێکی,پیاوەکە,کتێبەکان"
+      },
+      "lines": [],
+      "output": "| word | segmentation | morpheme tags | lemma | features |\n|---|---|---|---|---|\n| **کتێبی** | کتێب+ی | STEM+3SG/EZ | کتێب | enclitic=3sg|ezafe |\n| **پیاوێکی** | پیاو+ێک+ی | STEM+INDEF+3SG/EZ | پیاو | definite=ind, number=sg, enclitic=3sg|ezafe |\n| **پیاوەکە** | پیاو+ەکە | STEM+DEF.SG | پیاو | definite=def, number=sg |\n| **کتێبەکان** | کتێب+ەکان | STEM+DEF.PL | کتێب | definite=def, number=pl |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووسین",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*نووسین* (nûsîn) “to write”, present stem **نووس**, past stem **نووسی**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەنووسم**<br><sub>denûsim</sub> | **نانووسم**<br><sub>nanûsim</sub> |\n| 2sg | تۆ | **دەنووسیت**<br><sub>denûsît</sub> | **نانووسیت**<br><sub>nanûsît</sub> |\n| 3sg | ئەو | **دەنووسێت**<br><sub>denûsêt</sub> | **نانووسێت**<br><sub>nanûsêt</sub> |\n| 1pl | ئێمە | **دەنووسین**<br><sub>denûsîn</sub> | **نانووسین**<br><sub>nanûsîn</sub> |\n| 2pl | ئێوە | **دەنووسن**<br><sub>denûsin</sub> | **نانووسن**<br><sub>nanûsin</sub> |\n| 3pl | ئەوان | **دەنووسن**<br><sub>denûsin</sub> | **نانووسن**<br><sub>nanûsin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەکەم**<br><sub>dekem</sub> | **ناکەم**<br><sub>nakem</sub> |\n| 2sg | تۆ | **دەکەیت**<br><sub>dekeyt</sub> | **ناکەیت**<br><sub>nakeyt</sub> |\n| 3sg | ئەو | **دەکات**<br><sub>dekat</sub> | **ناکات**<br><sub>nakat</sub> |\n| 1pl | ئێمە | **دەکەین**<br><sub>dekeyn</sub> | **ناکەین**<br><sub>nakeyn</sub> |\n| 2pl | ئێوە | **دەکەن**<br><sub>deken</sub> | **ناکەن**<br><sub>naken</sub> |\n| 3pl | ئەوان | **دەکەن**<br><sub>deken</sub> | **ناکەن**<br><sub>naken</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "خواردن",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*خواردن* (xwardin) “to eat”, present stem **خۆ**, past stem **خوارد**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەخۆم**<br><sub>dexom</sub> | **ناخۆم**<br><sub>naxom</sub> |\n| 2sg | تۆ | **دەخۆیت**<br><sub>dexoyt</sub> | **ناخۆیت**<br><sub>naxoyt</sub> |\n| 3sg | ئەو | **دەخوات**<br><sub>dexwat</sub> | **ناخوات**<br><sub>naxwat</sub> |\n| 1pl | ئێمە | **دەخۆین**<br><sub>dexoyn</sub> | **ناخۆین**<br><sub>naxoyn</sub> |\n| 2pl | ئێوە | **دەخۆن**<br><sub>dexon</sub> | **ناخۆن**<br><sub>naxon</sub> |\n| 3pl | ئەوان | **دەخۆن**<br><sub>dexon</sub> | **ناخۆن**<br><sub>naxon</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "چوون",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*چوون* (çûn) “to go”, present stem **چ**, past stem **چوو**, intransitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەچم**<br><sub>deçim</sub> | **ناچم**<br><sub>naçim</sub> |\n| 2sg | تۆ | **دەچیت**<br><sub>deçît</sub> | **ناچیت**<br><sub>naçît</sub> |\n| 3sg | ئەو | **دەچێت**<br><sub>deçêt</sub> | **ناچێت**<br><sub>naçêt</sub> |\n| 1pl | ئێمە | **دەچین**<br><sub>deçîn</sub> | **ناچین**<br><sub>naçîn</sub> |\n| 2pl | ئێوە | **دەچن**<br><sub>deçin</sub> | **ناچن**<br><sub>naçin</sub> |\n| 3pl | ئەوان | **دەچن**<br><sub>deçin</sub> | **ناچن**<br><sub>naçin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "زانین",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*زانین* (zanîn) “to know”, present stem **زان**, past stem **زانی**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەزانم**<br><sub>dezanim</sub> | **نازانم**<br><sub>nazanim</sub> |\n| 2sg | تۆ | **دەزانیت**<br><sub>dezanît</sub> | **نازانیت**<br><sub>nazanît</sub> |\n| 3sg | ئەو | **دەزانێت**<br><sub>dezanêt</sub> | **نازانێت**<br><sub>nazanêt</sub> |\n| 1pl | ئێمە | **دەزانین**<br><sub>dezanîn</sub> | **نازانین**<br><sub>nazanîn</sub> |\n| 2pl | ئێوە | **دەزانن**<br><sub>dezanin</sub> | **نازانن**<br><sub>nazanin</sub> |\n| 3pl | ئەوان | **دەزانن**<br><sub>dezanin</sub> | **نازانن**<br><sub>nazanin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دێم**<br><sub>dêm</sub> | **نایەم**<br><sub>nayem</sub> |\n| 2sg | تۆ | **دێیت**<br><sub>dêyt</sub> | **نایەیت**<br><sub>nayeyt</sub> |\n| 3sg | ئەو | **دێت**<br><sub>dêt</sub> | **نایەت**<br><sub>nayet</sub> |\n| 1pl | ئێمە | **دێین**<br><sub>dêyn</sub> | **نایەین**<br><sub>nayeyn</sub> |\n| 2pl | ئێوە | **دێن**<br><sub>dên</sub> | **نایەن**<br><sub>nayen</sub> |\n| 3pl | ئەوان | **دێن**<br><sub>dên</sub> | **نایەن**<br><sub>nayen</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["من نان دەخۆم.", "I eat / am eating bread."],
+        ["ئەو نامە دەنووسێت.", "She writes / is writing a letter."],
+        ["ئێمە سبەی دەچین بۆ هەولێر.", "We are going to Erbil tomorrow."],
+        ["ئەوان کوردی نازانن.", "They don't know Kurdish."],
+        ["تۆ چی دەکەیت؟", "What are you doing?"]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | من نان دەخۆم. | min nan dexom. | /m(ɯ)n naːn dæxoːm/ | I eat / am eating bread. |\n| 2 | ئەو نامە دەنووسێت. | ew name denûsêt. | /ʔæw naːmæ dænuːseːt/ | She writes / is writing a letter. |\n| 3 | ئێمە سبەی دەچین بۆ هەولێر. | ême sbey deçîn bo hewlêr. | /ʔeːmæ sbæj dætʃiːn boː hæwleːɾ/ | We are going to Erbil tomorrow. |\n| 4 | ئەوان کوردی نازانن. | ewan kurdî nazanin. | /ʔæwaːn kuɾdiː naːzaːn(ɯ)n/ | They don't know Kurdish. |\n| 5 | تۆ چی دەکەیت؟ | to çî dekeyt? | /toː tʃiː dækæjt/ | What are you doing? |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "خوێندن",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*خوێندن* (xwêndin) “to read, to study”, present stem **خوێن**, past stem **خوێند**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەخوێنم**<br><sub>dexwênim</sub> | **ناخوێنم**<br><sub>naxwênim</sub> |\n| 2sg | تۆ | **دەخوێنیت**<br><sub>dexwênît</sub> | **ناخوێنیت**<br><sub>naxwênît</sub> |\n| 3sg | ئەو | **دەخوێنێت**<br><sub>dexwênêt</sub> | **ناخوێنێت**<br><sub>naxwênêt</sub> |\n| 1pl | ئێمە | **دەخوێنین**<br><sub>dexwênîn</sub> | **ناخوێنین**<br><sub>naxwênîn</sub> |\n| 2pl | ئێوە | **دەخوێنن**<br><sub>dexwênin</sub> | **ناخوێنن**<br><sub>naxwênin</sub> |\n| 3pl | ئەوان | **دەخوێنن**<br><sub>dexwênin</sub> | **ناخوێنن**<br><sub>naxwênin</sub> |"
+    },
+    {
+      "name": "noun_persons",
+      "args": {
+        "noun": "کتێب"
+      },
+      "lines": [],
+      "output": "*کتێب* “book”\n\n| person | pronoun | my/your… + noun | the noun + clitic |\n|---|---|---|---|\n| 1sg | من | **کتێبم**<br><sub>kitêbim</sub> | **کتێبەکەم**<br><sub>kitêbekem</sub> |\n| 2sg | تۆ | **کتێبت**<br><sub>kitêbit</sub> | **کتێبەکەت**<br><sub>kitêbeket</sub> |\n| 3sg | ئەو | **کتێبی**<br><sub>kitêbî</sub> | **کتێبەکەی**<br><sub>kitêbekey</sub> |\n| 1pl | ئێمە | **کتێبمان**<br><sub>kitêbman</sub> | **کتێبەکەمان**<br><sub>kitêbekeman</sub> |\n| 2pl | ئێوە | **کتێبتان**<br><sub>kitêbtan</sub> | **کتێبەکەتان**<br><sub>kitêbeketan</sub> |\n| 3pl | ئەوان | **کتێبیان**<br><sub>kitêbyan</sub> | **کتێبەکەیان**<br><sub>kitêbekeyan</sub> |"
+    },
+    {
+      "name": "noun_persons",
+      "args": {
+        "noun": "دەرگا"
+      },
+      "lines": [],
+      "output": "*دەرگا* “door”\n\n| person | pronoun | my/your… + noun | the noun + clitic |\n|---|---|---|---|\n| 1sg | من | **دەرگام**<br><sub>dergam</sub> | **دەرگاکەم**<br><sub>dergakem</sub> |\n| 2sg | تۆ | **دەرگات**<br><sub>dergat</sub> | **دەرگاکەت**<br><sub>dergaket</sub> |\n| 3sg | ئەو | **دەرگای**<br><sub>dergay</sub> | **دەرگاکەی**<br><sub>dergakey</sub> |\n| 1pl | ئێمە | **دەرگامان**<br><sub>dergaman</sub> | **دەرگاکەمان**<br><sub>dergakeman</sub> |\n| 2pl | ئێوە | **دەرگاتان**<br><sub>dergatan</sub> | **دەرگاکەتان**<br><sub>dergaketan</sub> |\n| 3pl | ئەوان | **دەرگایان**<br><sub>dergayan</sub> | **دەرگاکەیان**<br><sub>dergakeyan</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["کتێبێکم هەیە.", "I have a book."],
+        ["ئۆتۆمبێلت هەیە؟", "Do you have a car?"],
+        ["براکەی دوو کچی هەیە.", "His brother has two daughters."],
+        ["پارەمان نییە.", "We don't have money."],
+        ["کاتتان هەیە؟", "Do you (pl) have time?"]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | کتێبێکم هەیە. | kitêbêkim heye. | /k(ɯ)teːbeːk(ɯ)m hæjæ/ | I have a book. |\n| 2 | ئۆتۆمبێلت هەیە؟ | otombêlt heye? | /ʔoːtoːmbeːlt hæjæ/ | Do you have a car? |\n| 3 | براکەی دوو کچی هەیە. | birakey dû kiçî heye. | /b(ɯ)ɾaːkæj duː k(ɯ)tʃiː hæjæ/ | His brother has two daughters. |\n| 4 | پارەمان نییە. | pareman nîye. | /paːɾæmaːn niːjæ/ | We don't have money. |\n| 5 | کاتتان هەیە؟ | kattan heye? | /kaːttaːn hæjæ/ | Do you (pl) have time? |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "present,subj,subj_neg"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Present | Subjunctive | Subjunctive negative |\n|---|---|---|---|---|\n| 1sg | من | **دەکەم**<br><sub>dekem</sub> | **بکەم**<br><sub>bikem</sub> | **نەکەم**<br><sub>nekem</sub> |\n| 2sg | تۆ | **دەکەیت**<br><sub>dekeyt</sub> | **بکەیت**<br><sub>bikeyt</sub> | **نەکەیت**<br><sub>nekeyt</sub> |\n| 3sg | ئەو | **دەکات**<br><sub>dekat</sub> | **بکات**<br><sub>bikat</sub> | **نەکات**<br><sub>nekat</sub> |\n| 1pl | ئێمە | **دەکەین**<br><sub>dekeyn</sub> | **بکەین**<br><sub>bikeyn</sub> | **نەکەین**<br><sub>nekeyn</sub> |\n| 2pl | ئێوە | **دەکەن**<br><sub>deken</sub> | **بکەن**<br><sub>biken</sub> | **نەکەن**<br><sub>neken</sub> |\n| 3pl | ئەوان | **دەکەن**<br><sub>deken</sub> | **بکەن**<br><sub>biken</sub> | **نەکەن**<br><sub>neken</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "چوون",
+        "cells": "subj,subj_neg"
+      },
+      "lines": [],
+      "output": "*چوون* (çûn) “to go”, present stem **چ**, past stem **چوو**, intransitive\n\n| person | pronoun | Subjunctive | Subjunctive negative |\n|---|---|---|---|\n| 1sg | من | **بچم**<br><sub>biçim</sub> | **نەچم**<br><sub>neçim</sub> |\n| 2sg | تۆ | **بچیت**<br><sub>biçît</sub> | **نەچیت**<br><sub>neçît</sub> |\n| 3sg | ئەو | **بچێت**<br><sub>biçêt</sub> | **نەچێت**<br><sub>neçêt</sub> |\n| 1pl | ئێمە | **بچین**<br><sub>biçîn</sub> | **نەچین**<br><sub>neçîn</sub> |\n| 2pl | ئێوە | **بچن**<br><sub>biçin</sub> | **نەچن**<br><sub>neçin</sub> |\n| 3pl | ئەوان | **بچن**<br><sub>biçin</sub> | **نەچن**<br><sub>neçin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "ویستن",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*ویستن* (wîstin) “to want”, present stem **وێ**, past stem **ویست**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەمەوێت**<br><sub>demewêt</sub> | **نامەوێت**<br><sub>namewêt</sub> |\n| 2sg | تۆ | **دەتەوێت**<br><sub>detewêt</sub> | **ناتەوێت**<br><sub>natewêt</sub> |\n| 3sg | ئەو | **دەیەوێت**<br><sub>deyewêt</sub> | **نایەوێت**<br><sub>nayewêt</sub> |\n| 1pl | ئێمە | **دەمانەوێت**<br><sub>demanewêt</sub> | **نامانەوێت**<br><sub>namanewêt</sub> |\n| 2pl | ئێوە | **دەتانەوێت**<br><sub>detanewêt</sub> | **ناتانەوێت**<br><sub>natanewêt</sub> |\n| 3pl | ئەوان | **دەیانەوێت**<br><sub>deyanewêt</sub> | **نایانەوێت**<br><sub>nayanewêt</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "توانین",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*توانین* (twanîn) “to be able, can”, present stem **توان**, past stem **توانی**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | من | **دەتوانم**<br><sub>detwanim</sub> | **ناتوانم**<br><sub>natwanim</sub> |\n| 2sg | تۆ | **دەتوانیت**<br><sub>detwanît</sub> | **ناتوانیت**<br><sub>natwanît</sub> |\n| 3sg | ئەو | **دەتوانێت**<br><sub>detwanêt</sub> | **ناتوانێت**<br><sub>natwanêt</sub> |\n| 1pl | ئێمە | **دەتوانین**<br><sub>detwanîn</sub> | **ناتوانین**<br><sub>natwanîn</sub> |\n| 2pl | ئێوە | **دەتوانن**<br><sub>detwanin</sub> | **ناتوانن**<br><sub>natwanin</sub> |\n| 3pl | ئەوان | **دەتوانن**<br><sub>detwanin</sub> | **ناتوانن**<br><sub>natwanin</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["دەمەوێت کوردی فێر ببم.", "I want to learn Kurdish."],
+        ["ناتوانم ئەمڕۆ بێم.", "I can't come today."],
+        ["با بچین بۆ ماڵەوە.", "Let's go home."],
+        ["پێویستە ئەم کتێبە بخوێنیت.", "You have to read this book."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | دەمەوێت کوردی فێر ببم. | demewêt kurdî fêr bibim. | /dæmæweːt kuɾdiː feːɾ b(ɯ)b(ɯ)m/ | I want to learn Kurdish. |\n| 2 | ناتوانم ئەمڕۆ بێم. | natwanim emrro bêm. | /naːtwaːn(ɯ)m ʔæmroː beːm/ | I can't come today. |\n| 3 | با بچین بۆ ماڵەوە. | ba biçîn bo mallewe. | /baː b(ɯ)tʃiːn boː maːɫæwæ/ | Let's go home. |\n| 4 | پێویستە ئەم کتێبە بخوێنیت. | pêwîste em kitêbe bixwênît. | /peːwiːstæ ʔæm k(ɯ)teːbæ b(ɯ)xweːniːt/ | You have to read this book. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | تۆ | **بکە**<br><sub>bike</sub> | **مەکە**<br><sub>meke</sub> |\n| 2pl | ئێوە | **بکەن**<br><sub>biken</sub> | **مەکەن**<br><sub>meken</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووسین",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*نووسین* (nûsîn) “to write”, present stem **نووس**, past stem **نووسی**, transitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | تۆ | **بنووسە**<br><sub>binûse</sub> | **مەنووسە**<br><sub>menûse</sub> |\n| 2pl | ئێوە | **بنووسن**<br><sub>binûsin</sub> | **مەنووسن**<br><sub>menûsin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "خواردن",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*خواردن* (xwardin) “to eat”, present stem **خۆ**, past stem **خوارد**, transitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | تۆ | **بخۆ**<br><sub>bixo</sub> | **مەخۆ**<br><sub>mexo</sub> |\n| 2pl | ئێوە | **بخۆن**<br><sub>bixon</sub> | **مەخۆن**<br><sub>mexon</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | تۆ | **وەرە**<br><sub>were</sub> | **مەیە**<br><sub>meye</sub> |\n| 2pl | ئێوە | **وەرن**<br><sub>wern</sub> | **مەیەن**<br><sub>meyen</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "چوون",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*چوون* (çûn) “to go”, present stem **چ**, past stem **چوو**, intransitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | تۆ | **بڕۆ**<br><sub>birro</sub> | **مەچە**<br><sub>meçe</sub> |\n| 2pl | ئێوە | **بڕۆن**<br><sub>birron</sub> | **مەچن**<br><sub>meçin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **هاتم**<br><sub>hatim</sub> | **نەهاتم**<br><sub>nehatim</sub> |\n| 2sg | تۆ | **هاتیت**<br><sub>hatît</sub> | **نەهاتیت**<br><sub>nehatît</sub> |\n| 3sg | ئەو | **هات**<br><sub>hat</sub> | **نەهات**<br><sub>nehat</sub> |\n| 1pl | ئێمە | **هاتین**<br><sub>hatîn</sub> | **نەهاتین**<br><sub>nehatîn</sub> |\n| 2pl | ئێوە | **هاتن**<br><sub>hatin</sub> | **نەهاتن**<br><sub>nehatin</sub> |\n| 3pl | ئەوان | **هاتن**<br><sub>hatin</sub> | **نەهاتن**<br><sub>nehatin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "چوون",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*چوون* (çûn) “to go”, present stem **چ**, past stem **چوو**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **چووم**<br><sub>çûm</sub> | **نەچووم**<br><sub>neçûm</sub> |\n| 2sg | تۆ | **چوویت**<br><sub>çûyt</sub> | **نەچوویت**<br><sub>neçûyt</sub> |\n| 3sg | ئەو | **چوو**<br><sub>çû</sub> | **نەچوو**<br><sub>neçû</sub> |\n| 1pl | ئێمە | **چووین**<br><sub>çûyn</sub> | **نەچووین**<br><sub>neçûyn</sub> |\n| 2pl | ئێوە | **چوون**<br><sub>çûn</sub> | **نەچوون**<br><sub>neçûn</sub> |\n| 3pl | ئەوان | **چوون**<br><sub>çûn</sub> | **نەچوون**<br><sub>neçûn</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کەوتن",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*کەوتن* (kewtin) “to fall”, present stem **کەو**, past stem **کەوت**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **کەوتم**<br><sub>kewtim</sub> | **نەکەوتم**<br><sub>nekewtim</sub> |\n| 2sg | تۆ | **کەوتیت**<br><sub>kewtît</sub> | **نەکەوتیت**<br><sub>nekewtît</sub> |\n| 3sg | ئەو | **کەوت**<br><sub>kewt</sub> | **نەکەوت**<br><sub>nekewt</sub> |\n| 1pl | ئێمە | **کەوتین**<br><sub>kewtîn</sub> | **نەکەوتین**<br><sub>nekewtîn</sub> |\n| 2pl | ئێوە | **کەوتن**<br><sub>kewtin</sub> | **نەکەوتن**<br><sub>nekewtin</sub> |\n| 3pl | ئەوان | **کەوتن**<br><sub>kewtin</sub> | **نەکەوتن**<br><sub>nekewtin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووستن",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*نووستن* (nûstin) “to sleep”, present stem **نوو**, past stem **نووست**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **نووستم**<br><sub>nûstim</sub> | **نەنووستم**<br><sub>nenûstim</sub> |\n| 2sg | تۆ | **نووستیت**<br><sub>nûstît</sub> | **نەنووستیت**<br><sub>nenûstît</sub> |\n| 3sg | ئەو | **نووست**<br><sub>nûst</sub> | **نەنووست**<br><sub>nenûst</sub> |\n| 1pl | ئێمە | **نووستین**<br><sub>nûstîn</sub> | **نەنووستین**<br><sub>nenûstîn</sub> |\n| 2pl | ئێوە | **نووستن**<br><sub>nûstin</sub> | **نەنووستن**<br><sub>nenûstin</sub> |\n| 3pl | ئەوان | **نووستن**<br><sub>nûstin</sub> | **نەنووستن**<br><sub>nenûstin</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["دوێنێ هاتم.", "I came yesterday."],
+        ["ئەوان چوون بۆ بازاڕ.", "They went to the market."],
+        ["منداڵەکە کەوت.", "The child fell."],
+        ["بۆچی نەهاتیت؟", "Why didn't you come?"],
+        ["ئێمە زوو نووستین.", "We slept early."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | دوێنێ هاتم. | dwênê hatim. | /dweːneː haːt(ɯ)m/ | I came yesterday. |\n| 2 | ئەوان چوون بۆ بازاڕ. | ewan çûn bo bazarr. | /ʔæwaːn tʃuːn boː baːzaːr/ | They went to the market. |\n| 3 | منداڵەکە کەوت. | minidalleke kewt. | /m(ɯ)n(ɯ)daːɫækæ kæwt/ | The child fell. |\n| 4 | بۆچی نەهاتیت؟ | boçî nehatît? | /boːtʃiː næhaːtiːt/ | Why didn't you come? |\n| 5 | ئێمە زوو نووستین. | ême zû nûstîn. | /ʔeːmæ zuː nuːstiːn/ | We slept early. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "ڕۆیشتن",
+        "cells": "past"
+      },
+      "lines": [],
+      "output": "*ڕۆیشتن* (royşitin) “to go, to walk, to leave”, present stem **ڕۆ**, past stem **ڕۆیشت**, intransitive\n\n| person | pronoun | Simple past |\n|---|---|---|\n| 1sg | من | **ڕۆیشتم**<br><sub>royşitim</sub> |\n| 2sg | تۆ | **ڕۆیشتیت**<br><sub>royştît</sub> |\n| 3sg | ئەو | **ڕۆیشت**<br><sub>royşt</sub> |\n| 1pl | ئێمە | **ڕۆیشتین**<br><sub>royştîn</sub> |\n| 2pl | ئێوە | **ڕۆیشتن**<br><sub>royşitin</sub> |\n| 3pl | ئەوان | **ڕۆیشتن**<br><sub>royşitin</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [["من نان دەخۆم.", "I eat bread."], ["من نانم خوارد.", "I ate bread."]],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | من نان دەخۆم. | min nan dexom. | /m(ɯ)n naːn dæxoːm/ | I eat bread. |\n| 2 | من نانم خوارد. | min nanim xward. | /m(ɯ)n naːn(ɯ)m xwaːɾd/ | I ate bread. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **کردم**<br><sub>kirdim</sub> | **نەمکرد**<br><sub>nemkird</sub> |\n| 2sg | تۆ | **کردت**<br><sub>kirdit</sub> | **نەتکرد**<br><sub>netkird</sub> |\n| 3sg | ئەو | **کردی**<br><sub>kiridî</sub> | **نەیکرد**<br><sub>neykird</sub> |\n| 1pl | ئێمە | **کردمان**<br><sub>kirdiman</sub> | **نەمانکرد**<br><sub>nemankird</sub> |\n| 2pl | ئێوە | **کردتان**<br><sub>kirditan</sub> | **نەتانکرد**<br><sub>netankird</sub> |\n| 3pl | ئەوان | **کردیان**<br><sub>kiridyan</sub> | **نەیانکرد**<br><sub>neyankird</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووسین",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*نووسین* (nûsîn) “to write”, present stem **نووس**, past stem **نووسی**, transitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **نووسیم**<br><sub>nûsîm</sub> | **نەمنووسی**<br><sub>nemnûsî</sub> |\n| 2sg | تۆ | **نووسیت**<br><sub>nûsît</sub> | **نەتنووسی**<br><sub>netnûsî</sub> |\n| 3sg | ئەو | **نووسیی**<br><sub>nûsî</sub> | **نەینووسی**<br><sub>neynûsî</sub> |\n| 1pl | ئێمە | **نووسیمان**<br><sub>nûsîman</sub> | **نەماننووسی**<br><sub>nemannûsî</sub> |\n| 2pl | ئێوە | **نووسیتان**<br><sub>nûsîtan</sub> | **نەتاننووسی**<br><sub>netannûsî</sub> |\n| 3pl | ئەوان | **نووسییان**<br><sub>nûsîyan</sub> | **نەیاننووسی**<br><sub>neyannûsî</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "بینین",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*بینین* (bînîn) “to see”, present stem **بین**, past stem **بینی**, transitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | من | **بینیم**<br><sub>bînîm</sub> | **نەمبینی**<br><sub>nembînî</sub> |\n| 2sg | تۆ | **بینیت**<br><sub>bînît</sub> | **نەتبینی**<br><sub>netbînî</sub> |\n| 3sg | ئەو | **بینیی**<br><sub>bînî</sub> | **نەیبینی**<br><sub>neybînî</sub> |\n| 1pl | ئێمە | **بینیمان**<br><sub>bînîman</sub> | **نەمانبینی**<br><sub>nemanbînî</sub> |\n| 2pl | ئێوە | **بینیتان**<br><sub>bînîtan</sub> | **نەتانبینی**<br><sub>netanbînî</sub> |\n| 3pl | ئەوان | **بینییان**<br><sub>bînîyan</sub> | **نەیانبینی**<br><sub>neyanbînî</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["نامەیەکم نووسی.", "I wrote a letter."],
+        ["کتێبەکەت خوێند؟", "Did you read the book?"],
+        ["ئەو هیچی نەگوت.", "He didn't say anything."],
+        ["ئێمە ئۆتۆمبێلێکمان کڕی.", "We bought a car."],
+        ["پیاوەکەیان بینی.", "They saw the man."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | نامەیەکم نووسی. | nameyekim nûsî. | /naːmæjæk(ɯ)m nuːsiː/ | I wrote a letter. |\n| 2 | کتێبەکەت خوێند؟ | kitêbeket xwênd? | /k(ɯ)teːbækæt xweːnd/ | Did you read the book? |\n| 3 | ئەو هیچی نەگوت. | ew hîçî negut. | /ʔæw hiːtʃiː næɡut/ | He didn't say anything. |\n| 4 | ئێمە ئۆتۆمبێلێکمان کڕی. | ême otombêlêkman kirrî. | /ʔeːmæ ʔoːtoːmbeːleːkmaːn k(ɯ)riː/ | We bought a car. |\n| 5 | پیاوەکەیان بینی. | pyawekeyan bînî. | /pjaːwækæjaːn biːniː/ | They saw the man. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Past progressive | Past progressive negative |\n|---|---|---|---|\n| 1sg | من | **دەهاتم**<br><sub>dehatim</sub> | **نەدەهاتم**<br><sub>nedehatim</sub> |\n| 2sg | تۆ | **دەهاتیت**<br><sub>dehatît</sub> | **نەدەهاتیت**<br><sub>nedehatît</sub> |\n| 3sg | ئەو | **دەهات**<br><sub>dehat</sub> | **نەدەهات**<br><sub>nedehat</sub> |\n| 1pl | ئێمە | **دەهاتین**<br><sub>dehatîn</sub> | **نەدەهاتین**<br><sub>nedehatîn</sub> |\n| 2pl | ئێوە | **دەهاتن**<br><sub>dehatin</sub> | **نەدەهاتن**<br><sub>nedehatin</sub> |\n| 3pl | ئەوان | **دەهاتن**<br><sub>dehatin</sub> | **نەدەهاتن**<br><sub>nedehatin</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Past progressive | Past progressive negative |\n|---|---|---|---|\n| 1sg | من | **دەمکرد**<br><sub>demkird</sub> | **نەمدەکرد**<br><sub>nemdekrid</sub> |\n| 2sg | تۆ | **دەتکرد**<br><sub>detkird</sub> | **نەتدەکرد**<br><sub>netdekrid</sub> |\n| 3sg | ئەو | **دەیکرد**<br><sub>deykird</sub> | **نەیدەکرد**<br><sub>neydekrid</sub> |\n| 1pl | ئێمە | **دەمانکرد**<br><sub>demankird</sub> | **نەماندەکرد**<br><sub>nemandekrid</sub> |\n| 2pl | ئێوە | **دەتانکرد**<br><sub>detankird</sub> | **نەتاندەکرد**<br><sub>netandekrid</sub> |\n| 3pl | ئەوان | **دەیانکرد**<br><sub>deyankird</sub> | **نەیاندەکرد**<br><sub>neyandekrid</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "خوێندن",
+        "cells": "past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*خوێندن* (xwêndin) “to read, to study”, present stem **خوێن**, past stem **خوێند**, transitive\n\n| person | pronoun | Past progressive | Past progressive negative |\n|---|---|---|---|\n| 1sg | من | **دەمخوێند**<br><sub>demxwênd</sub> | **نەمدەخوێند**<br><sub>nemdexwênd</sub> |\n| 2sg | تۆ | **دەتخوێند**<br><sub>detxwênd</sub> | **نەتدەخوێند**<br><sub>netdexwênd</sub> |\n| 3sg | ئەو | **دەیخوێند**<br><sub>deyxwênd</sub> | **نەیدەخوێند**<br><sub>neydexwênd</sub> |\n| 1pl | ئێمە | **دەمانخوێند**<br><sub>demanxwênd</sub> | **نەماندەخوێند**<br><sub>nemandexwênd</sub> |\n| 2pl | ئێوە | **دەتانخوێند**<br><sub>detanxwênd</sub> | **نەتاندەخوێند**<br><sub>netandexwênd</sub> |\n| 3pl | ئەوان | **دەیانخوێند**<br><sub>deyanxwênd</sub> | **نەیاندەخوێند**<br><sub>neyandexwênd</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["کاتێک هات، من نانم دەخوارد.", "When he came, I was eating."],
+        ["هەموو ئێوارەیەک کتێبم دەخوێند.", "I used to read every evening."],
+        ["ئەوان لە سلێمانی دەژیان.", "They used to live in Sulaymaniyah."],
+        ["ئەگەر پارەم هەبوایە، ماڵێکم دەکڕی.", "If I had money, I would buy a house."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | کاتێک هات، من نانم دەخوارد. | katêk hat, min nanim dexward. | /kaːteːk haːt m(ɯ)n naːn(ɯ)m dæxwaːɾd/ | When he came, I was eating. |\n| 2 | هەموو ئێوارەیەک کتێبم دەخوێند. | hemû êwareyek kitêbim dexwênd. | /hæmuː ʔeːwaːɾæjæk k(ɯ)teːb(ɯ)m dæxweːnd/ | I used to read every evening. |\n| 3 | ئەوان لە سلێمانی دەژیان. | ewan le silêmanî dejyan. | /ʔæwaːn læ s(ɯ)leːmaːniː dæʒjaːn/ | They used to live in Sulaymaniyah. |\n| 4 | ئەگەر پارەم هەبوایە، ماڵێکم دەکڕی. | eger parem hebwaye, mallêkim dekrrî. | /ʔæɡæɾ paːɾæm hæbwaːjæ maːɫeːk(ɯ)m dækriː/ | If I had money, I would buy a house. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووسین",
+        "cells": "past,past_neg,past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*نووسین* (nûsîn) “to write”, present stem **نووس**, past stem **نووسی**, transitive\n\n| person | pronoun | Simple past | Past negative | Past progressive | Past progressive negative |\n|---|---|---|---|---|---|\n| 1sg | من | **نووسیم**<br><sub>nûsîm</sub> | **نەمنووسی**<br><sub>nemnûsî</sub> | **دەمنووسی**<br><sub>demnûsî</sub> | **نەمدەنووسی**<br><sub>nemdenûsî</sub> |\n| 2sg | تۆ | **نووسیت**<br><sub>nûsît</sub> | **نەتنووسی**<br><sub>netnûsî</sub> | **دەتنووسی**<br><sub>detnûsî</sub> | **نەتدەنووسی**<br><sub>netdenûsî</sub> |\n| 3sg | ئەو | **نووسیی**<br><sub>nûsî</sub> | **نەینووسی**<br><sub>neynûsî</sub> | **دەینووسی**<br><sub>deynûsî</sub> | **نەیدەنووسی**<br><sub>neydenûsî</sub> |\n| 1pl | ئێمە | **نووسیمان**<br><sub>nûsîman</sub> | **نەماننووسی**<br><sub>nemannûsî</sub> | **دەماننووسی**<br><sub>demannûsî</sub> | **نەماندەنووسی**<br><sub>nemandenûsî</sub> |\n| 2pl | ئێوە | **نووسیتان**<br><sub>nûsîtan</sub> | **نەتاننووسی**<br><sub>netannûsî</sub> | **دەتاننووسی**<br><sub>detannûsî</sub> | **نەتاندەنووسی**<br><sub>netandenûsî</sub> |\n| 3pl | ئەوان | **نووسییان**<br><sub>nûsîyan</sub> | **نەیاننووسی**<br><sub>neyannûsî</sub> | **دەیاننووسی**<br><sub>deyannûsî</sub> | **نەیاندەنووسی**<br><sub>neyandenûsî</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["لە ماڵەوە کار دەکەم.", "I work from home."],
+        ["لە شاردا دەژین.", "We live in the city."],
+        ["لە سلێمانییەوە هاتم.", "I came from Sulaymaniyah."],
+        ["لەگەڵ براکەم دەچم بۆ بازاڕ.", "I go to the market with my brother."],
+        ["کتێبەکە لەسەر مێزەکەیە.", "The book is on the table."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | لە ماڵەوە کار دەکەم. | le mallewe kar dekem. | /læ maːɫæwæ kaːɾ dækæm/ | I work from home. |\n| 2 | لە شاردا دەژین. | le şarda dejîn. | /læ ʃaːɾdaː dæʒiːn/ | We live in the city. |\n| 3 | لە سلێمانییەوە هاتم. | le silêmanîyewe hatim. | /læ s(ɯ)leːmaːniːjæwæ haːt(ɯ)m/ | I came from Sulaymaniyah. |\n| 4 | لەگەڵ براکەم دەچم بۆ بازاڕ. | legell birakem deçim bo bazarr. | /læɡæɫ b(ɯ)ɾaːkæm dætʃ(ɯ)m boː baːzaːr/ | I go to the market with my brother. |\n| 5 | کتێبەکە لەسەر مێزەکەیە. | kitêbeke leser mêzekeye. | /k(ɯ)teːbækæ læsæɾ meːzækæjæ/ | The book is on the table. |"
+    },
+    {
+      "name": "analyze",
+      "args": {
+        "words": "لەماڵەکانمانیشدا,ماڵەکەمانەوە,کتێبەکانیشم"
+      },
+      "lines": [],
+      "output": "| word | segmentation | morpheme tags | lemma | features |\n|---|---|---|---|---|\n| **لەماڵەکانمانیشدا** | لە+ماڵ+ەکان+مان+یش+دا | PREP.LE+STEM+DEF.PL+1PL+ADD+POSTP.DA | ماڵ | definite=def, number=pl, enclitic=1pl, additive=yes, postposition=da |\n| **ماڵەکەمانەوە** | ماڵ+ەکە+مان+ەوە | STEM+DEF.SG+1PL+POSTP.EWE | ماڵ | definite=def, number=sg, enclitic=1pl, postposition=ewe |\n| **کتێبەکانیشم** | کتێبەکانیشم | STEM | کتێبەکانیشم | · |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["هەولێر لە سلێمانی گەورەترە.", "Erbil is bigger than Sulaymaniyah."],
+        ["ئەمە باشترین کتێبە.", "This is the best book."],
+        ["براکەم لە من بچووکترە.", "My brother is younger than me."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | هەولێر لە سلێمانی گەورەترە. | hewlêr le silêmanî gewretre. | /hæwleːɾ læ s(ɯ)leːmaːniː ɡæwɾætɾæ/ | Erbil is bigger than Sulaymaniyah. |\n| 2 | ئەمە باشترین کتێبە. | eme baştrîn kitêbe. | /ʔæmæ baːʃtɾiːn k(ɯ)teːbæ/ | This is the best book. |\n| 3 | براکەم لە من بچووکترە. | birakem le min biçûktire. | /b(ɯ)ɾaːkæm læ m(ɯ)n b(ɯ)tʃuːkt(ɯ)ɾæ/ | My brother is younger than me. |"
+    },
+    {
+      "name": "analyze",
+      "args": {
+        "words": "گەورەتر,گەورەترین,کوردستان,ڕۆژانە,پارەدار,کرێکار"
+      },
+      "lines": [],
+      "output": "| word | segmentation | morpheme tags | lemma | features |\n|---|---|---|---|---|\n| **گەورەتر** | گەورە+تر | STEM+CMPR | گەورە | degree=cmp |\n| **گەورەترین** | گەورە+ترین | STEM+SUPL | گەورە | degree=sup |\n| **کوردستان** | کورد+ستان | STEM+PLACE | کورد | derivation=place |\n| **ڕۆژانە** | ڕۆژ+انە | STEM+ADVZ | ڕۆژ | derivation=adverbial |\n| **پارەدار** | پارە+دار | STEM+POSSR | پارە | derivation=possessor |\n| **کرێکار** | کرێ+کار | STEM+AGENT | کرێ | derivation=agent |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "perfect,pluperfect",
+        "show": "translit,ipa"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Present perfect | Past perfect |\n|---|---|---|---|\n| 1sg | من | **هاتووم**<br><sub>hatûm</sub><br><sub>/haːtuːm/</sub> | **هاتبووم**<br><sub>hatbûm</sub><br><sub>/haːtbuːm/</sub> |\n| 2sg | تۆ | **هاتوویت**<br><sub>hatûyt</sub><br><sub>/haːtuːjt/</sub> | **هاتبوویت**<br><sub>hatbûyt</sub><br><sub>/haːtbuːjt/</sub> |\n| 3sg | ئەو | **هاتووە**<br><sub>hatûwe</sub><br><sub>/haːtuːwæ/</sub> | **هاتبوو**<br><sub>hatbû</sub><br><sub>/haːtbuː/</sub> |\n| 1pl | ئێمە | **هاتووین**<br><sub>hatûyn</sub><br><sub>/haːtuːjn/</sub> | **هاتبووین**<br><sub>hatbûyn</sub><br><sub>/haːtbuːjn/</sub> |\n| 2pl | ئێوە | **هاتوون**<br><sub>hatûn</sub><br><sub>/haːtuːn/</sub> | **هاتبوون**<br><sub>hatbûn</sub><br><sub>/haːtbuːn/</sub> |\n| 3pl | ئەوان | **هاتوون**<br><sub>hatûn</sub><br><sub>/haːtuːn/</sub> | **هاتبوون**<br><sub>hatbûn</sub><br><sub>/haːtbuːn/</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "perfect,pluperfect",
+        "show": "translit,ipa"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Present perfect | Past perfect |\n|---|---|---|---|\n| 1sg | من | **کردوومە**<br><sub>kiridûme</sub><br><sub>/k(ɯ)ɾ(ɯ)duːmæ/</sub> | **کردبووم**<br><sub>kirdibûm</sub><br><sub>/k(ɯ)ɾd(ɯ)buːm/</sub> |\n| 2sg | تۆ | **کردووتە**<br><sub>kiridûte</sub><br><sub>/k(ɯ)ɾ(ɯ)duːtæ/</sub> | **کردبووت**<br><sub>kirdibût</sub><br><sub>/k(ɯ)ɾd(ɯ)buːt/</sub> |\n| 3sg | ئەو | **کردوویەتی**<br><sub>kiridûyetî</sub><br><sub>/k(ɯ)ɾ(ɯ)duːjætiː/</sub> | **کردبووی**<br><sub>kirdibûy</sub><br><sub>/k(ɯ)ɾd(ɯ)buːj/</sub> |\n| 1pl | ئێمە | **کردوومانە**<br><sub>kiridûmane</sub><br><sub>/k(ɯ)ɾ(ɯ)duːmaːnæ/</sub> | **کردبوومان**<br><sub>kirdibûman</sub><br><sub>/k(ɯ)ɾd(ɯ)buːmaːn/</sub> |\n| 2pl | ئێوە | **کردووتانە**<br><sub>kiridûtane</sub><br><sub>/k(ɯ)ɾ(ɯ)duːtaːnæ/</sub> | **کردبووتان**<br><sub>kirdibûtan</sub><br><sub>/k(ɯ)ɾd(ɯ)buːtaːn/</sub> |\n| 3pl | ئەوان | **کردوویانە**<br><sub>kiridûyane</sub><br><sub>/k(ɯ)ɾ(ɯ)duːjaːnæ/</sub> | **کردبوویان**<br><sub>kirdibûyan</sub><br><sub>/k(ɯ)ɾd(ɯ)buːjaːn/</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووسین",
+        "cells": "perfect,pluperfect"
+      },
+      "lines": [],
+      "output": "*نووسین* (nûsîn) “to write”, present stem **نووس**, past stem **نووسی**, transitive\n\n| person | pronoun | Present perfect | Past perfect |\n|---|---|---|---|\n| 1sg | من | **نووسیومە**<br><sub>nûsîwme</sub> | **نووسیبووم**<br><sub>nûsîbûm</sub> |\n| 2sg | تۆ | **نووسیوتە**<br><sub>nûsîwte</sub> | **نووسیبووت**<br><sub>nûsîbût</sub> |\n| 3sg | ئەو | **نووسیویەتی**<br><sub>nûsîwyetî</sub> | **نووسیبووی**<br><sub>nûsîbûy</sub> |\n| 1pl | ئێمە | **نووسیومانە**<br><sub>nûsîwmane</sub> | **نووسیبوومان**<br><sub>nûsîbûman</sub> |\n| 2pl | ئێوە | **نووسیوتانە**<br><sub>nûsîwtane</sub> | **نووسیبووتان**<br><sub>nûsîbûtan</sub> |\n| 3pl | ئەوان | **نووسیویانە**<br><sub>nûsîwyane</sub> | **نووسیبوویان**<br><sub>nûsîbûyan</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["ئەم کتێبەم خوێندووە.", "I have read this book."],
+        ["هیچم نەکردووە.", "I haven't done anything."],
+        ["هێشتا نەهاتووە.", "He hasn't come yet."],
+        ["کاتێک گەیشتم، ئەوان ڕۆیشتبوون.", "When I arrived, they had left."],
+        ["نامەکەی نووسیبوو.", "He had written the letter."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | ئەم کتێبەم خوێندووە. | em kitêbem xwêndûwe. | /ʔæm k(ɯ)teːbæm xweːnduːwæ/ | I have read this book. |\n| 2 | هیچم نەکردووە. | hîçim nekridûwe. | /hiːtʃ(ɯ)m nækɾ(ɯ)duːwæ/ | I haven't done anything. |\n| 3 | هێشتا نەهاتووە. | hêşta nehatûwe. | /heːʃtaː næhaːtuːwæ/ | He hasn't come yet. |\n| 4 | کاتێک گەیشتم، ئەوان ڕۆیشتبوون. | katêk geyşitim, ewan royşitbûn. | /kaːteːk ɡæjʃ(ɯ)t(ɯ)m ʔæwaːn roːjʃ(ɯ)tbuːn/ | When I arrived, they had left. |\n| 5 | نامەکەی نووسیبوو. | namekey nûsîbû. | /naːmækæj nuːsiːbuː/ | He had written the letter. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "passive_present,passive_present_neg,passive_past"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Passive present | Passive present negative | Passive past |\n|---|---|---|---|---|\n| 1sg | من | **دەکرێم**<br><sub>dekrêm</sub> | **ناکرێم**<br><sub>nakrêm</sub> | **کرام**<br><sub>kiram</sub> |\n| 2sg | تۆ | **دەکرێیت**<br><sub>dekrêyt</sub> | **ناکرێیت**<br><sub>nakrêyt</sub> | **کرایت**<br><sub>kirayt</sub> |\n| 3sg | ئەو | **دەکرێت**<br><sub>dekrêt</sub> | **ناکرێت**<br><sub>nakrêt</sub> | **کرا**<br><sub>kira</sub> |\n| 1pl | ئێمە | **دەکرێین**<br><sub>dekrêyn</sub> | **ناکرێین**<br><sub>nakrêyn</sub> | **کراین**<br><sub>kirayn</sub> |\n| 2pl | ئێوە | **دەکرێن**<br><sub>dekrên</sub> | **ناکرێن**<br><sub>nakrên</sub> | **کران**<br><sub>kiran</sub> |\n| 3pl | ئەوان | **دەکرێن**<br><sub>dekrên</sub> | **ناکرێن**<br><sub>nakrên</sub> | **کران**<br><sub>kiran</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "نووسین",
+        "cells": "passive_present,passive_past"
+      },
+      "lines": [],
+      "output": "*نووسین* (nûsîn) “to write”, present stem **نووس**, past stem **نووسی**, transitive\n\n| person | pronoun | Passive present | Passive past |\n|---|---|---|---|\n| 1sg | من | **دەنووسرێم**<br><sub>denûsrêm</sub> | **نووسرام**<br><sub>nûsram</sub> |\n| 2sg | تۆ | **دەنووسرێیت**<br><sub>denûsrêyt</sub> | **نووسرایت**<br><sub>nûsrayt</sub> |\n| 3sg | ئەو | **دەنووسرێت**<br><sub>denûsrêt</sub> | **نووسرا**<br><sub>nûsra</sub> |\n| 1pl | ئێمە | **دەنووسرێین**<br><sub>denûsrêyn</sub> | **نووسراین**<br><sub>nûsrayn</sub> |\n| 2pl | ئێوە | **دەنووسرێن**<br><sub>denûsrên</sub> | **نووسران**<br><sub>nûsran</sub> |\n| 3pl | ئەوان | **دەنووسرێن**<br><sub>denûsrên</sub> | **نووسران**<br><sub>nûsran</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "ناردن",
+        "cells": "passive_present,passive_past"
+      },
+      "lines": [],
+      "output": "*ناردن* (nardin) “to send”, present stem **نێر**, past stem **نارد**, transitive\n\n| person | pronoun | Passive present | Passive past |\n|---|---|---|---|\n| 1sg | من | **دەنێردرێم**<br><sub>denêrdirêm</sub> | **نێردرام**<br><sub>nêrdiram</sub> |\n| 2sg | تۆ | **دەنێردرێیت**<br><sub>denêrdirêyt</sub> | **نێردرایت**<br><sub>nêrdirayt</sub> |\n| 3sg | ئەو | **دەنێردرێت**<br><sub>denêrdirêt</sub> | **نێردرا**<br><sub>nêrdira</sub> |\n| 1pl | ئێمە | **دەنێردرێین**<br><sub>denêrdirêyn</sub> | **نێردراین**<br><sub>nêrdirayn</sub> |\n| 2pl | ئێوە | **دەنێردرێن**<br><sub>denêrdirên</sub> | **نێردران**<br><sub>nêrdiran</sub> |\n| 3pl | ئەوان | **دەنێردرێن**<br><sub>denêrdirên</sub> | **نێردران**<br><sub>nêrdiran</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "گوتن",
+        "cells": "passive_present,passive_past"
+      },
+      "lines": [],
+      "output": "*گوتن* (gutin) “to say”, present stem **ڵێ**, past stem **گوت**, transitive\n\n| person | pronoun | Passive present | Passive past |\n|---|---|---|---|\n| 1sg | من | **دەگوترێم**<br><sub>degutrêm</sub> | **گوترام**<br><sub>gutram</sub> |\n| 2sg | تۆ | **دەگوترێیت**<br><sub>degutrêyt</sub> | **گوترایت**<br><sub>gutrayt</sub> |\n| 3sg | ئەو | **دەگوترێت**<br><sub>degutrêt</sub> | **گوترا**<br><sub>gutra</sub> |\n| 1pl | ئێمە | **دەگوترێین**<br><sub>degutrêyn</sub> | **گوتراین**<br><sub>gutrayn</sub> |\n| 2pl | ئێوە | **دەگوترێن**<br><sub>degutrên</sub> | **گوتران**<br><sub>gutran</sub> |\n| 3pl | ئەوان | **دەگوترێن**<br><sub>degutrên</sub> | **گوتران**<br><sub>gutran</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["ئەم کتێبە بە کوردی نووسراوە.", "This book has been written in Kurdish."],
+        ["نامەکە دوێنێ نێردرا.", "The letter was sent yesterday."],
+        ["ئەمە چۆن دەکرێت؟", "How is this done?"],
+        ["بڕیارەکە لەلایەن حکومەتەوە درا.", "The decision was made by the government."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | ئەم کتێبە بە کوردی نووسراوە. | em kitêbe be kurdî nûsrawe. | /ʔæm k(ɯ)teːbæ bæ kuɾdiː nuːsɾaːwæ/ | This book has been written in Kurdish. |\n| 2 | نامەکە دوێنێ نێردرا. | nameke dwênê nêrdira. | /naːmækæ dweːneː neːɾd(ɯ)ɾaː/ | The letter was sent yesterday. |\n| 3 | ئەمە چۆن دەکرێت؟ | eme çon dekrêt? | /ʔæmæ tʃoːn dækɾeːt/ | How is this done? |\n| 4 | بڕیارەکە لەلایەن حکومەتەوە درا. | birryareke lelayen ḧikumetewe dira. | /b(ɯ)rjaːɾækæ lælaːjæn ħ(ɯ)kumætæwæ d(ɯ)ɾaː/ | The decision was made by the government. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هەڵگرتن",
+        "cells": "present,subj,past,imperative"
+      },
+      "lines": [],
+      "output": "*هەڵگرتن* (hellgirtin) “to pick up, to lift”, present stem **گر**, past stem **گرت**, transitive, preverb **هەڵ**\n\n| person | pronoun | Present | Subjunctive | Simple past | Imperative |\n|---|---|---|---|---|---|\n| 1sg | من | **هەڵدەگرم**<br><sub>helldegrim</sub> | **هەڵگرم**<br><sub>hellgirm</sub> | **هەڵمگرت**<br><sub>hellmigirt</sub> | · |\n| 2sg | تۆ | **هەڵدەگریت**<br><sub>helldegrît</sub> | **هەڵگریت**<br><sub>hellgirît</sub> | **هەڵتگرت**<br><sub>helltigirt</sub> | **هەڵگرە**<br><sub>hellgire</sub> |\n| 3sg | ئەو | **هەڵدەگرێت**<br><sub>helldegrêt</sub> | **هەڵگرێت**<br><sub>hellgirêt</sub> | **هەڵیگرت**<br><sub>hellîgrit</sub> | · |\n| 1pl | ئێمە | **هەڵدەگرین**<br><sub>helldegrîn</sub> | **هەڵگرین**<br><sub>hellgirîn</sub> | **هەڵمانگرت**<br><sub>hellmangirt</sub> | · |\n| 2pl | ئێوە | **هەڵدەگرن**<br><sub>helldegrin</sub> | **هەڵگرن**<br><sub>hellgirn</sub> | **هەڵتانگرت**<br><sub>helltangirt</sub> | **هەڵگرن**<br><sub>hellgirn</sub> |\n| 3pl | ئەوان | **هەڵدەگرن**<br><sub>helldegrin</sub> | **هەڵگرن**<br><sub>hellgirn</sub> | **هەڵیانگرت**<br><sub>hellyangirt</sub> | · |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "ڕاگەیاندن",
+        "cells": "present,past"
+      },
+      "lines": [],
+      "output": "*ڕاگەیاندن* (rageyandin) “to announce”, present stem **گەیەن**, past stem **گەیاند**, transitive, preverb **ڕا**\n\n| person | pronoun | Present | Simple past |\n|---|---|---|---|\n| 1sg | من | **ڕادەگەیەنم**<br><sub>radegeyenim</sub> | **ڕامگەیاند**<br><sub>ramgeyand</sub> |\n| 2sg | تۆ | **ڕادەگەیەنیت**<br><sub>radegeyenît</sub> | **ڕاتگەیاند**<br><sub>ratgeyand</sub> |\n| 3sg | ئەو | **ڕادەگەیەنێت**<br><sub>radegeyenêt</sub> | **ڕایگەیاند**<br><sub>raygeyand</sub> |\n| 1pl | ئێمە | **ڕادەگەیەنین**<br><sub>radegeyenîn</sub> | **ڕامانگەیاند**<br><sub>ramangeyand</sub> |\n| 2pl | ئێوە | **ڕادەگەیەنن**<br><sub>radegeyenin</sub> | **ڕاتانگەیاند**<br><sub>ratangeyand</sub> |\n| 3pl | ئەوان | **ڕادەگەیەنن**<br><sub>radegeyenin</sub> | **ڕایانگەیاند**<br><sub>rayangeyand</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردنەوە",
+        "cells": "present,past"
+      },
+      "lines": [],
+      "output": "*کردنەوە* (kirdinewe) “to open”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Present | Simple past |\n|---|---|---|---|\n| 1sg | من | **دەکەمەوە**<br><sub>dekemewe</sub> | **کردمەوە**<br><sub>kirdimewe</sub> |\n| 2sg | تۆ | **دەکەیتەوە**<br><sub>dekeytewe</sub> | **کردتەوە**<br><sub>kirditewe</sub> |\n| 3sg | ئەو | **دەکاتەوە**<br><sub>dekatewe</sub> | **کردیەوە**<br><sub>kiridyewe</sub> |\n| 1pl | ئێمە | **دەکەینەوە**<br><sub>dekeynewe</sub> | **کردمانەوە**<br><sub>kirdimanewe</sub> |\n| 2pl | ئێوە | **دەکەنەوە**<br><sub>dekenewe</sub> | **کردتانەوە**<br><sub>kirditanewe</sub> |\n| 3pl | ئەوان | **دەکەنەوە**<br><sub>dekenewe</sub> | **کردیانەوە**<br><sub>kiridyanewe</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "گەڕانەوە",
+        "cells": "present,past"
+      },
+      "lines": [],
+      "output": "*گەڕانەوە* (gerranewe) “to return”, present stem **گەڕێ**, past stem **گەڕا**, intransitive\n\n| person | pronoun | Present | Simple past |\n|---|---|---|---|\n| 1sg | من | **دەگەڕێمەوە**<br><sub>degerrêmewe</sub> | **گەڕامەوە**<br><sub>gerramewe</sub> |\n| 2sg | تۆ | **دەگەڕێیتەوە**<br><sub>degerrêytewe</sub> | **گەڕایتەوە**<br><sub>gerraytewe</sub> |\n| 3sg | ئەو | **دەگەڕێتەوە**<br><sub>degerrêtewe</sub> | **گەڕایەوە**<br><sub>gerrayewe</sub> |\n| 1pl | ئێمە | **دەگەڕێینەوە**<br><sub>degerrêynewe</sub> | **گەڕاینەوە**<br><sub>gerraynewe</sub> |\n| 2pl | ئێوە | **دەگەڕێنەوە**<br><sub>degerrênewe</sub> | **گەڕانەوە**<br><sub>gerranewe</sub> |\n| 3pl | ئەوان | **دەگەڕێنەوە**<br><sub>degerrênewe</sub> | **گەڕانەوە**<br><sub>gerranewe</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "دەستپێکردن",
+        "cells": "present,subj,past"
+      },
+      "lines": [],
+      "output": "*دەستپێکردن* (destpêkridin) “to begin”, present stem **کە**, past stem **کرد**, transitive, preverb **دەستپێ**\n\n| person | pronoun | Present | Subjunctive | Simple past |\n|---|---|---|---|---|\n| 1sg | من | **دەستپێدەکەم**<br><sub>destpêdekem</sub> | **دەستپێکەم**<br><sub>destpêkem</sub> | **دەستپێمکرد**<br><sub>destpêmkird</sub> |\n| 2sg | تۆ | **دەستپێدەکەیت**<br><sub>destpêdekeyt</sub> | **دەستپێکەیت**<br><sub>destpêkeyt</sub> | **دەستپێتکرد**<br><sub>destpêtkird</sub> |\n| 3sg | ئەو | **دەستپێدەکات**<br><sub>destpêdekat</sub> | **دەستپێکات**<br><sub>destpêkat</sub> | **دەستپێیکرد**<br><sub>destpêykird</sub> |\n| 1pl | ئێمە | **دەستپێدەکەین**<br><sub>destpêdekeyn</sub> | **دەستپێکەین**<br><sub>destpêkeyn</sub> | **دەستپێمانکرد**<br><sub>destpêmankird</sub> |\n| 2pl | ئێوە | **دەستپێدەکەن**<br><sub>destpêdeken</sub> | **دەستپێکەن**<br><sub>destpêken</sub> | **دەستپێتانکرد**<br><sub>destpêtankird</sub> |\n| 3pl | ئەوان | **دەستپێدەکەن**<br><sub>destpêdeken</sub> | **دەستپێکەن**<br><sub>destpêken</sub> | **دەستپێیانکرد**<br><sub>destpêyankird</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["کتێبەکەم هەڵگرت.", "I picked up the book."],
+        ["دەرگاکە دابخە!", "Close the door!"],
+        ["کەی دەگەڕێیتەوە؟", "When are you coming back?"],
+        ["وانەکە دەستی پێکرد.", "The lesson began."],
+        ["حکومەت بڕیارەکەی ڕاگەیاند.", "The government announced the decision."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | کتێبەکەم هەڵگرت. | kitêbekem hellgirt. | /k(ɯ)teːbækæm hæɫɡ(ɯ)ɾt/ | I picked up the book. |\n| 2 | دەرگاکە دابخە! | dergake dabxe! | /dæɾɡaːkæ daːbxæ/ | Close the door! |\n| 3 | کەی دەگەڕێیتەوە؟ | key degerrêytewe? | /kæj dæɡæreːjtæwæ/ | When are you coming back? |\n| 4 | وانەکە دەستی پێکرد. | waneke destî pêkrid. | /waːnækæ dæstiː peːkɾ(ɯ)d/ | The lesson began. |\n| 5 | حکومەت بڕیارەکەی ڕاگەیاند. | ḧikumet birryarekey rageyand. | /ħ(ɯ)kumæt b(ɯ)rjaːɾækæj raːɡæjaːnd/ | The government announced the decision. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "present,present_neg,subj,subj_neg"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Present | Present negative | Subjunctive | Subjunctive negative |\n|---|---|---|---|---|---|\n| 1sg | من | **دێم**<br><sub>dêm</sub> | **نایەم**<br><sub>nayem</sub> | **بێم**<br><sub>bêm</sub> | **نەیەم**<br><sub>neyem</sub> |\n| 2sg | تۆ | **دێیت**<br><sub>dêyt</sub> | **نایەیت**<br><sub>nayeyt</sub> | **بێیت**<br><sub>bêyt</sub> | **نەیەیت**<br><sub>neyeyt</sub> |\n| 3sg | ئەو | **دێت**<br><sub>dêt</sub> | **نایەت**<br><sub>nayet</sub> | **بێت**<br><sub>bêt</sub> | **نەیەت**<br><sub>neyet</sub> |\n| 1pl | ئێمە | **دێین**<br><sub>dêyn</sub> | **نایەین**<br><sub>nayeyn</sub> | **بێین**<br><sub>bêyn</sub> | **نەیەین**<br><sub>neyeyn</sub> |\n| 2pl | ئێوە | **دێن**<br><sub>dên</sub> | **نایەن**<br><sub>nayen</sub> | **بێن**<br><sub>bên</sub> | **نەیەن**<br><sub>neyen</sub> |\n| 3pl | ئەوان | **دێن**<br><sub>dên</sub> | **نایەن**<br><sub>nayen</sub> | **بێن**<br><sub>bên</sub> | **نەیەن**<br><sub>neyen</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | تۆ | **وەرە**<br><sub>were</sub> | **مەیە**<br><sub>meye</sub> |\n| 2pl | ئێوە | **وەرن**<br><sub>wern</sub> | **مەیەن**<br><sub>meyen</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "چوون",
+        "cells": "present,past,imperative"
+      },
+      "lines": [],
+      "output": "*چوون* (çûn) “to go”, present stem **چ**, past stem **چوو**, intransitive\n\n| person | pronoun | Present | Simple past | Imperative |\n|---|---|---|---|---|\n| 1sg | من | **دەچم**<br><sub>deçim</sub> | **چووم**<br><sub>çûm</sub> | · |\n| 2sg | تۆ | **دەچیت**<br><sub>deçît</sub> | **چوویت**<br><sub>çûyt</sub> | **بڕۆ**<br><sub>birro</sub> |\n| 3sg | ئەو | **دەچێت**<br><sub>deçêt</sub> | **چوو**<br><sub>çû</sub> | · |\n| 1pl | ئێمە | **دەچین**<br><sub>deçîn</sub> | **چووین**<br><sub>çûyn</sub> | · |\n| 2pl | ئێوە | **دەچن**<br><sub>deçin</sub> | **چوون**<br><sub>çûn</sub> | **بڕۆن**<br><sub>birron</sub> |\n| 3pl | ئەوان | **دەچن**<br><sub>deçin</sub> | **چوون**<br><sub>çûn</sub> | · |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "ویستن",
+        "cells": "present,present_neg,subj"
+      },
+      "lines": [],
+      "output": "*ویستن* (wîstin) “to want”, present stem **وێ**, past stem **ویست**, transitive\n\n| person | pronoun | Present | Present negative | Subjunctive |\n|---|---|---|---|---|\n| 1sg | من | **دەمەوێت**<br><sub>demewêt</sub> | **نامەوێت**<br><sub>namewêt</sub> | **بمەوێت**<br><sub>bimewêt</sub> |\n| 2sg | تۆ | **دەتەوێت**<br><sub>detewêt</sub> | **ناتەوێت**<br><sub>natewêt</sub> | **بتەوێت**<br><sub>bitewêt</sub> |\n| 3sg | ئەو | **دەیەوێت**<br><sub>deyewêt</sub> | **نایەوێت**<br><sub>nayewêt</sub> | **بیەوێت**<br><sub>byewêt</sub> |\n| 1pl | ئێمە | **دەمانەوێت**<br><sub>demanewêt</sub> | **نامانەوێت**<br><sub>namanewêt</sub> | **بمانەوێت**<br><sub>bimanewêt</sub> |\n| 2pl | ئێوە | **دەتانەوێت**<br><sub>detanewêt</sub> | **ناتانەوێت**<br><sub>natanewêt</sub> | **بتانەوێت**<br><sub>bitanewêt</sub> |\n| 3pl | ئەوان | **دەیانەوێت**<br><sub>deyanewêt</sub> | **نایانەوێت**<br><sub>nayanewêt</sub> | **بیانەوێت**<br><sub>byanewêt</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "بوون",
+        "cells": "present,past,perfect,subj"
+      },
+      "lines": [],
+      "output": "*بوون* (bûn) “to be, to become”, present stem **ب**, past stem **بوو**, intransitive\n\n| person | pronoun | Present | Simple past | Present perfect | Subjunctive |\n|---|---|---|---|---|---|\n| 1sg | من | **دەبم**<br><sub>debim</sub> | **بووم**<br><sub>bûm</sub> | **بووم**<br><sub>bûm</sub> | **ببم**<br><sub>bibim</sub> |\n| 2sg | تۆ | **دەبیت**<br><sub>debît</sub> | **بوویت**<br><sub>bûyt</sub> | **بوویت**<br><sub>bûyt</sub> | **ببیت**<br><sub>bibît</sub> |\n| 3sg | ئەو | **دەبێت**<br><sub>debêt</sub> | **بوو**<br><sub>bû</sub> | **بووە**<br><sub>bûwe</sub> | **ببێت**<br><sub>bibêt</sub> |\n| 1pl | ئێمە | **دەبین**<br><sub>debîn</sub> | **بووین**<br><sub>bûyn</sub> | **بووین**<br><sub>bûyn</sub> | **ببین**<br><sub>bibîn</sub> |\n| 2pl | ئێوە | **دەبن**<br><sub>debin</sub> | **بوون**<br><sub>bûn</sub> | **بوون**<br><sub>bûn</sub> | **ببن**<br><sub>bibin</sub> |\n| 3pl | ئەوان | **دەبن**<br><sub>debin</sub> | **بوون**<br><sub>bûn</sub> | **بوون**<br><sub>bûn</sub> | **ببن**<br><sub>bibin</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["دەتبینم.", "I see you. (ت = you object, م = I subject)"],
+        ["دەمبینیت.", "You see me."],
+        ["بینیمیت.", "I saw you. (م = I agent, یت = you object)"],
+        ["بینیتم.", "You saw me."]
+      ],
+      "output": "| # | Kurdish | Latin | IPA | English |\n|---|---|---|---|---|\n| 1 | دەتبینم. | detbînim. | /dætbiːn(ɯ)m/ | I see you. (ت = you object, م = I subject) |\n| 2 | دەمبینیت. | dembînît. | /dæmbiːniːt/ | You see me. |\n| 3 | بینیمیت. | bînîmît. | /biːniːmiːt/ | I saw you. (م = I agent, یت = you object) |\n| 4 | بینیتم. | bînîtim. | /biːniːt(ɯ)m/ | You saw me. |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["کتێبەکە دەخوێنم.", "I read the book. (object is a noun → no clitic)"],
+        ["دەیخوێنم.", "I read it."],
+        ["نایناسم.", "I don't know him."],
+        ["هەڵیدەگرم.", "I pick it up."]
+      ],
+      "output": "| # | Kurdish | Latin | English |\n|---|---|---|---|\n| 1 | کتێبەکە دەخوێنم. | kitêbeke dexwênim. | I read the book. (object is a noun → no clitic) |\n| 2 | دەیخوێنم. | deyxwênim. | I read it. |\n| 3 | نایناسم. | naynasim. | I don't know him. |\n| 4 | هەڵیدەگرم. | hellîdegrim. | I pick it up. |"
+    },
+    {
+      "name": "normalize",
+      "args": {},
+      "lines": [
+        ["به‌ڕێوه‌به‌ر", "legacy ه + ZWNJ for ە"],
+        ["كتێبەكە", "Arabic kāf"],
+        ["ئەو رۆژە", "initial ر should be ڕ"],
+        ["ساڵی 2015", "Latin digits"],
+        ["گول", "missing ڵ: a possible word shape, so not flagged here (see section 6)"]
+      ],
+      "output": "| typed text | after `normalize()` | problems still found by `validate_word()` | note |\n|---|---|---|---|\n| به‌ڕێوه‌به‌ر | بەڕێوەبەر | · | legacy ه + ZWNJ for ە |\n| كتێبەكە | کتێبەکە | · | Arabic kāf |\n| ئەو رۆژە | ئەو ڕۆژە | · | initial ر should be ڕ |\n| ساڵی 2015 | ساڵی ٢٠١٥ | · | Latin digits |\n| گول | گول | · | missing ڵ: a possible word shape, so not flagged here (see section 6) |"
+    },
+    {
+      "name": "normalize",
+      "args": {},
+      "lines": [
+        ["ثەورە", "Arabic-only letter ث"],
+        ["اسپ", "initial vowel without ئ"],
+        ["ذکر", "Arabic-only letter ذ"]
+      ],
+      "output": "| typed text | after `normalize()` | problems still found by `validate_word()` | note |\n|---|---|---|---|\n| ثەورە | ثەورە | ثەورە: arabic-only letter; non-Kurdish character(s): U+062B | Arabic-only letter ث |\n| اسپ | ئاسپ | · | initial vowel without ئ |\n| ذکر | ذکر | ذکر: arabic-only letter; non-Kurdish character(s): U+0630 | Arabic-only letter ذ |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "کردن",
+        "cells": "present,subj,past,past_prog,perfect,pluperfect"
+      },
+      "lines": [],
+      "output": "*کردن* (kirdin) “to do, to make”, present stem **کە**, past stem **کرد**, transitive\n\n| person | pronoun | Present | Subjunctive | Simple past | Past progressive | Present perfect | Past perfect |\n|---|---|---|---|---|---|---|---|\n| 1sg | من | **دەکەم**<br><sub>dekem</sub> | **بکەم**<br><sub>bikem</sub> | **کردم**<br><sub>kirdim</sub> | **دەمکرد**<br><sub>demkird</sub> | **کردوومە**<br><sub>kiridûme</sub> | **کردبووم**<br><sub>kirdibûm</sub> |\n| 2sg | تۆ | **دەکەیت**<br><sub>dekeyt</sub> | **بکەیت**<br><sub>bikeyt</sub> | **کردت**<br><sub>kirdit</sub> | **دەتکرد**<br><sub>detkird</sub> | **کردووتە**<br><sub>kiridûte</sub> | **کردبووت**<br><sub>kirdibût</sub> |\n| 3sg | ئەو | **دەکات**<br><sub>dekat</sub> | **بکات**<br><sub>bikat</sub> | **کردی**<br><sub>kiridî</sub> | **دەیکرد**<br><sub>deykird</sub> | **کردوویەتی**<br><sub>kiridûyetî</sub> | **کردبووی**<br><sub>kirdibûy</sub> |\n| 1pl | ئێمە | **دەکەین**<br><sub>dekeyn</sub> | **بکەین**<br><sub>bikeyn</sub> | **کردمان**<br><sub>kirdiman</sub> | **دەمانکرد**<br><sub>demankird</sub> | **کردوومانە**<br><sub>kiridûmane</sub> | **کردبوومان**<br><sub>kirdibûman</sub> |\n| 2pl | ئێوە | **دەکەن**<br><sub>deken</sub> | **بکەن**<br><sub>biken</sub> | **کردتان**<br><sub>kirditan</sub> | **دەتانکرد**<br><sub>detankird</sub> | **کردووتانە**<br><sub>kiridûtane</sub> | **کردبووتان**<br><sub>kirdibûtan</sub> |\n| 3pl | ئەوان | **دەکەن**<br><sub>deken</sub> | **بکەن**<br><sub>biken</sub> | **کردیان**<br><sub>kiridyan</sub> | **دەیانکرد**<br><sub>deyankird</sub> | **کردوویانە**<br><sub>kiridûyane</sub> | **کردبوویان**<br><sub>kirdibûyan</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the person marker is the set-2 clitic (م ت ی مان تان یان) of the **agent**, not a verb ending."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "هاتن",
+        "cells": "present,subj,past,past_prog,perfect,pluperfect"
+      },
+      "lines": [],
+      "output": "*هاتن* (hatin) “to come”, present stem **ێ**, past stem **هات**, intransitive\n\n| person | pronoun | Present | Subjunctive | Simple past | Past progressive | Present perfect | Past perfect |\n|---|---|---|---|---|---|---|---|\n| 1sg | من | **دێم**<br><sub>dêm</sub> | **بێم**<br><sub>bêm</sub> | **هاتم**<br><sub>hatim</sub> | **دەهاتم**<br><sub>dehatim</sub> | **هاتووم**<br><sub>hatûm</sub> | **هاتبووم**<br><sub>hatbûm</sub> |\n| 2sg | تۆ | **دێیت**<br><sub>dêyt</sub> | **بێیت**<br><sub>bêyt</sub> | **هاتیت**<br><sub>hatît</sub> | **دەهاتیت**<br><sub>dehatît</sub> | **هاتوویت**<br><sub>hatûyt</sub> | **هاتبوویت**<br><sub>hatbûyt</sub> |\n| 3sg | ئەو | **دێت**<br><sub>dêt</sub> | **بێت**<br><sub>bêt</sub> | **هات**<br><sub>hat</sub> | **دەهات**<br><sub>dehat</sub> | **هاتووە**<br><sub>hatûwe</sub> | **هاتبوو**<br><sub>hatbû</sub> |\n| 1pl | ئێمە | **دێین**<br><sub>dêyn</sub> | **بێین**<br><sub>bêyn</sub> | **هاتین**<br><sub>hatîn</sub> | **دەهاتین**<br><sub>dehatîn</sub> | **هاتووین**<br><sub>hatûyn</sub> | **هاتبووین**<br><sub>hatbûyn</sub> |\n| 2pl | ئێوە | **دێن**<br><sub>dên</sub> | **بێن**<br><sub>bên</sub> | **هاتن**<br><sub>hatin</sub> | **دەهاتن**<br><sub>dehatin</sub> | **هاتوون**<br><sub>hatûn</sub> | **هاتبوون**<br><sub>hatbûn</sub> |\n| 3pl | ئەوان | **دێن**<br><sub>dên</sub> | **بێن**<br><sub>bên</sub> | **هاتن**<br><sub>hatin</sub> | **دەهاتن**<br><sub>dehatin</sub> | **هاتوون**<br><sub>hatûn</sub> | **هاتبوون**<br><sub>hatbûn</sub> |"
+    }
+  ],
+  "kmr": [
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Silav!", "Hello!"],
+        ["Tu çawa yî?", "How are you?"],
+        ["Ez baş im, spas.", "I'm fine, thanks."],
+        ["Navê te çi ye?", "What is your name?"],
+        ["Navê min Rojda ye.", "My name is Rojda."],
+        ["Bi xêr hatî!", "Welcome!"]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Silav! | سلاڤ! | /sɪlaːv/ | Hello! |\n| 2 | Tu çawa yî? | تو چاوا یی؟ | /tʊ tʃaːwaː jiː/ | How are you? |\n| 3 | Ez baş im, spas. | ئەز باش ئم، سپاس. | /ɛz baːʃ ɪm spaːs/ | I'm fine, thanks. |\n| 4 | Navê te çi ye? | ناڤێ تە چ یە؟ | /naːveː tɛ tʃɪ jɛ/ | What is your name? |\n| 5 | Navê min Rojda ye. | ناڤێ من ڕۆژدا یە. | /naːveː mɪn roːʒdaː jɛ/ | My name is Rojda. |\n| 6 | Bi xêr hatî! | ب خێر هاتی! | /bɪ xeːɾ haːtiː/ | Welcome! |"
+    },
+    {
+      "name": "alphabet",
+      "args": {},
+      "lines": [],
+      "output": "| letter | Arabic-script equivalent | IPA | example | example (Arabic script) | meaning |\n|---|---|---|---|---|---|\n| **A a** | ا | /aː/ | av | ئاڤ | water |\n| **B b** | ب | /b/ | bav | باڤ | father |\n| **C c** | ج | /dʒ/ | ciwan | جوان | young; beautiful |\n| **Ç ç** | چ | /tʃ/ | çav | چاڤ | eye |\n| **D d** | د | /d/ | dar | دار | tree, wood |\n| **E e** | ە | /ɛ/ | dest | دەست | hand |\n| **Ê ê** | ێ | /eː/ | êvar | ئێڤار | evening |\n| **F f** | ف | /f/ | firîn | فرین | to fly |\n| **G g** | گ | /ɡ/ | gul | گول | rose, flower |\n| **H h** | ه | /h/ | hesp | هەسپ | horse |\n| **I i** | (unwritten) | /ɪ/ | jin | ژن | woman; wife |\n| **Î î** | ی | /iː/ | şîr | شیر | milk |\n| **J j** | ژ | /ʒ/ | jin | ژن | woman; wife |\n| **K k** | ک | /k/ | kitêb | کتێب | book |\n| **L l** | ل | /l/ | ling | لنگ | leg, foot |\n| **M m** | م | /m/ | mal | مال | house, home |\n| **N n** | ن | /n/ | nan | نان | bread |\n| **O o** | ۆ | /oː/ | roj | ڕۆژ | day; sun |\n| **P p** | پ | /p/ | pirtûk | پرتووک | book |\n| **Q q** | ق | /q/ | qelem | قەلەم | pen |\n| **R r** | ر / ڕ | /ɾ, r/ | bira | برا | brother |\n| **S s** | س | /s/ | sêv | سێڤ | apple |\n| **Ş ş** | ش | /ʃ/ | şev | شەڤ | night |\n| **T t** | ت | /t/ | tu | تو | you (singular) |\n| **U u** | و | /ʊ/ | kurd | کورد | Kurd |\n| **Û û** | وو | /uː/ | çûn | چوون | to go |\n| **V v** | ڤ | /v/ | av | ئاڤ | water |\n| **W w** | و | /w/ | welat | وەلات | country |\n| **X x** | خ | /x/ | xew | خەو | sleep |\n| **Y y** | ی | /j/ | yek | یەک | one |\n| **Z z** | ز | /z/ | ziman | زمان | language; tongue |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "av,êvar,şîr,roj,çûn,dest,jin,kurd"
+      },
+      "lines": [],
+      "output": "| Kurdish | Arabic script | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **av** | ئاڤ | /aːv/ | aːv | water |\n| **êvar** | ئێڤار | /eːvaːɾ/ | eː.vaːɾ | evening |\n| **şîr** | شیر | /ʃiːɾ/ | ʃiːɾ | milk |\n| **roj** | ڕۆژ | /roːʒ/ | roːʒ | day; sun |\n| **çûn** | چوون | /tʃuːn/ | tʃuːn | to go |\n| **dest** | دەست | /dɛst/ | dɛst | hand |\n| **jin** | ژن | /ʒɪn/ | ʒɪn | woman; wife |\n| **kurd** | کورد | /kʊɾd/ | kʊɾd | Kurd |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "dîtin,xwarin,kirin,nivîsîn"
+      },
+      "lines": [],
+      "output": "| Kurdish | Arabic script | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **dîtin** | دیتن | /diːtɯn/ | diː.tɯn | to see, to find |\n| **xwarin** | خوارن | /xʷaːɾɯn/ | xʷaː.ɾɯn | to eat |\n| **kirin** | کرن | /kɪɾɯn/ | kɪ.ɾɯn | to do, to make |\n| **nivîsîn** | نڤیسین | /nɪviːsiːn/ | nɪ.viː.siːn | to write |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "ciwan,çav,jin,şev,xew,qelem"
+      },
+      "lines": [],
+      "output": "| Kurdish | Arabic script | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **ciwan** | جوان | /dʒɪwaːn/ | dʒɪ.waːn | young; beautiful |\n| **çav** | چاڤ | /tʃaːv/ | tʃaːv | eye |\n| **jin** | ژن | /ʒɪn/ | ʒɪn | woman; wife |\n| **şev** | شەڤ | /ʃɛv/ | ʃɛv | night |\n| **xew** | خەو | /xɛw/ | xɛw | sleep |\n| **qelem** | قەلەم | /qɛlɛm/ | qɛ.lɛm | pen |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["yek, du, sê, çar, pênc", "one, two, three, four, five"],
+        ["şeş, heft, heşt, neh, deh", "six, seven, eight, nine, ten"]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | yek, du, sê, çar, pênc | یەک، دو، سێ، چار، پێنج | /jɛk dʊ seː tʃaːɾ peːndʒ/ | one, two, three, four, five |\n| 2 | şeş, heft, heşt, neh, deh | شەش، هەفت، هەشت، نەه، دەه | /ʃɛʃ hɛft hɛʃt nɛh dɛh/ | six, seven, eight, nine, ten |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["Ez kurd im.", "I am Kurdish."],
+        ["Navê min Rojda ye.", "My name is Rojda."],
+        ["Em li Amedê dijîn.", "We live in Diyarbakır."]
+      ],
+      "output": "| # | Kurdish | Arabic script | English |\n|---|---|---|---|\n| 1 | Ez kurd im. | ئەز کورد ئم. | I am Kurdish. |\n| 2 | Navê min Rojda ye. | ناڤێ من ڕۆژدا یە. | My name is Rojda. |\n| 3 | Em li Amedê dijîn. | ئەم ل ئامەدێ دژین. | We live in Diyarbakır. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Bavê min mamoste ye.", "My father is a teacher."],
+        ["Jin nan dikire.", "The woman is buying bread."],
+        ["Ez kitêbekê dixwînim.", "I am reading a book."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Bavê min mamoste ye. | باڤێ من مامۆستە یە. | /baːveː mɪn maːmoːstɛ jɛ/ | My father is a teacher. |\n| 2 | Jin nan dikire. | ژن نان دکرە. | /ʒɪn naːn dɪkɪɾɛ/ | The woman is buying bread. |\n| 3 | Ez kitêbekê dixwînim. | ئەز کتێبەکێ دخوینم. | /ɛz kɪteːbɛkeː dɪxʷiːnɯm/ | I am reading a book. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez kurd im.", "I am Kurdish."],
+        ["Tu kurd î.", "You are Kurdish."],
+        ["Ew kurd e.", "He / She is Kurdish."],
+        ["Em kurd in.", "We are Kurdish."],
+        ["Ez mamoste me.", "I am a teacher."],
+        ["Tu mamoste yî.", "You are a teacher."],
+        ["Ew mamoste ye.", "He / She is a teacher."],
+        ["Hûn mamoste ne.", "You (pl) are teachers."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez kurd im. | ئەز کورد ئم. | /ɛz kʊɾd ɪm/ | I am Kurdish. |\n| 2 | Tu kurd î. | تو کورد ئی. | /tʊ kʊɾd iː/ | You are Kurdish. |\n| 3 | Ew kurd e. | ئەو کورد ئە. | /ɛw kʊɾd ɛ/ | He / She is Kurdish. |\n| 4 | Em kurd in. | ئەم کورد ئن. | /ɛm kʊɾd ɪn/ | We are Kurdish. |\n| 5 | Ez mamoste me. | ئەز مامۆستە مە. | /ɛz maːmoːstɛ mɛ/ | I am a teacher. |\n| 6 | Tu mamoste yî. | تو مامۆستە یی. | /tʊ maːmoːstɛ jiː/ | You are a teacher. |\n| 7 | Ew mamoste ye. | ئەو مامۆستە یە. | /ɛw maːmoːstɛ jɛ/ | He / She is a teacher. |\n| 8 | Hûn mamoste ne. | هوون مامۆستە نە. | /huːn maːmoːstɛ nɛ/ | You (pl) are teachers. |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [["Ez ne mamoste me.", "I am not a teacher."], ["Ew ne li malê ye.", "He is not at home."]],
+      "output": "| # | Kurdish | Arabic script | English |\n|---|---|---|---|\n| 1 | Ez ne mamoste me. | ئەز نە مامۆستە مە. | I am not a teacher. |\n| 2 | Ew ne li malê ye. | ئەو نە ل مالێ یە. | He is not at home. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Av heye.", "There is water."],
+        ["Nan tune.", "There is no bread."],
+        ["Pirtûkeke min heye.", "I have a book."],
+        ["Du birayên min hene.", "I have two brothers."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Av heye. | ئاڤ هەیە. | /aːv hɛjɛ/ | There is water. |\n| 2 | Nan tune. | نان تونە. | /naːn tʊnɛ/ | There is no bread. |\n| 3 | Pirtûkeke min heye. | پرتووکەکە من هەیە. | /pɪɾtuːkɛkɛ mɪn hɛjɛ/ | I have a book. |\n| 4 | Du birayên min hene. | دو برایێن من هەنە. | /dʊ bɪɾaːjeːn mɪn hɛnɛ/ | I have two brothers. |"
+    },
+    {
+      "name": "words",
+      "args": {
+        "words": "bav,bira,mirov,jin,keç,mal,bajar,pirtûk,ziman,welat"
+      },
+      "lines": [],
+      "output": "| Kurdish | Arabic script | IPA | syllables | meaning |\n|---|---|---|---|---|\n| **bav** | باڤ | /baːv/ | baːv | father |\n| **bira** | برا | /bɪɾaː/ | bɪ.ɾaː | brother |\n| **mirov** | مرۆڤ | /mɪɾoːv/ | mɪ.ɾoːv | person, human, man |\n| **jin** | ژن | /ʒɪn/ | ʒɪn | woman; wife |\n| **keç** | کەچ | /kɛtʃ/ | kɛtʃ | girl; daughter |\n| **mal** | مال | /maːl/ | maːl | house, home |\n| **bajar** | باژار | /baːʒaːɾ/ | baː.ʒaːɾ | city |\n| **pirtûk** | پرتووک | /pɪɾtuːk/ | pɪɾ.tuːk | book |\n| **ziman** | زمان | /zɪmaːn/ | zɪ.maːn | language; tongue |\n| **welat** | وەلات | /wɛlaːt/ | wɛ.laːt | country |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Keç hat.", "The girl came."],
+        ["Keç hatin.", "The girls came."],
+        ["Jinek hat.", "A woman came."],
+        ["Hin mirov hatin.", "Some people came."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Keç hat. | کەچ هات. | /kɛtʃ haːt/ | The girl came. |\n| 2 | Keç hatin. | کەچ هاتن. | /kɛtʃ haːtɯn/ | The girls came. |\n| 3 | Jinek hat. | ژنەک هات. | /ʒɪnɛk haːt/ | A woman came. |\n| 4 | Hin mirov hatin. | هن مرۆڤ هاتن. | /hɪn mɪɾoːv haːtɯn/ | Some people came. |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "jin,keç,mal,pirtûk,bav,mirov,bajar,xanî,çiya",
+        "cells": "def.dir.sg,ind.dir.sg,def.dir.pl"
+      },
+      "lines": [],
+      "output": "| noun | meaning | gender | direct sg | indef. direct | direct pl |\n|---|---|---|---|---|---|\n| **jin** | woman; wife | f | **jin**<br><sub>ژن</sub> | **jinek**<br><sub>ژنەک</sub> | **jin**<br><sub>ژن</sub> |\n| **keç** | girl; daughter | f | **keç**<br><sub>کەچ</sub> | **keçek**<br><sub>کەچەک</sub> | **keç**<br><sub>کەچ</sub> |\n| **mal** | house, home | f | **mal**<br><sub>مال</sub> | **malek**<br><sub>مالەک</sub> | **mal**<br><sub>مال</sub> |\n| **pirtûk** | book | f | **pirtûk**<br><sub>پرتووک</sub> | **pirtûkek**<br><sub>پرتووکەک</sub> | **pirtûk**<br><sub>پرتووک</sub> |\n| **bav** | father | m | **bav**<br><sub>باڤ</sub> | **bavek**<br><sub>باڤەک</sub> | **bav**<br><sub>باڤ</sub> |\n| **mirov** | person, human, man | m | **mirov**<br><sub>مرۆڤ</sub> | **mirovek**<br><sub>مرۆڤەک</sub> | **mirov**<br><sub>مرۆڤ</sub> |\n| **bajar** | city | m | **bajar**<br><sub>باژار</sub> | **bajarek**<br><sub>باژارەک</sub> | **bajar**<br><sub>باژار</sub> |\n| **xanî** | house (building) | m | **xanî**<br><sub>خانی</sub> | **xaniyek**<br><sub>خانیەک</sub> | **xanî**<br><sub>خانی</sub> |\n| **çiya** | mountain | m | **çiya**<br><sub>چیا</sub> | **çiyayek**<br><sub>چیایەک</sub> | **çiya**<br><sub>چیا</sub> |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "bav,mirov,bajar,xanî,jin,mal,pirtûk,çiya",
+        "cells": "def.dir.sg,def.ez.sg,def.ez.pl"
+      },
+      "lines": [],
+      "output": "| noun | meaning | gender | direct sg | ezafe sg | ezafe pl |\n|---|---|---|---|---|---|\n| **bav** | father | m | **bav**<br><sub>باڤ</sub> | **bavê**<br><sub>باڤێ</sub> | **bavên**<br><sub>باڤێن</sub> |\n| **mirov** | person, human, man | m | **mirov**<br><sub>مرۆڤ</sub> | **mirovê**<br><sub>مرۆڤێ</sub> | **mirovên**<br><sub>مرۆڤێن</sub> |\n| **bajar** | city | m | **bajar**<br><sub>باژار</sub> | **bajarê**<br><sub>باژارێ</sub> | **bajarên**<br><sub>باژارێن</sub> |\n| **xanî** | house (building) | m | **xanî**<br><sub>خانی</sub> | **xaniyê**<br><sub>خانیێ</sub> | **xaniyên**<br><sub>خانیێن</sub> |\n| **jin** | woman; wife | f | **jin**<br><sub>ژن</sub> | **jina**<br><sub>ژنا</sub> | **jinên**<br><sub>ژنێن</sub> |\n| **mal** | house, home | f | **mal**<br><sub>مال</sub> | **mala**<br><sub>مالا</sub> | **malên**<br><sub>مالێن</sub> |\n| **pirtûk** | book | f | **pirtûk**<br><sub>پرتووک</sub> | **pirtûka**<br><sub>پرتووکا</sub> | **pirtûkên**<br><sub>پرتووکێن</sub> |\n| **çiya** | mountain | m | **çiya**<br><sub>چیا</sub> | **çiyayê**<br><sub>چیایێ</sub> | **çiyayên**<br><sub>چیایێن</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["mala min", "my house"],
+        ["bavê te", "your father"],
+        ["zimanê kurdî", "the Kurdish language"],
+        ["pirtûka nû", "the new book"],
+        ["bajarê mezin", "the big city"],
+        ["hevalên me", "our friends"]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | mala min | مالا من | /maːlaː mɪn/ | my house |\n| 2 | bavê te | باڤێ تە | /baːveː tɛ/ | your father |\n| 3 | zimanê kurdî | زمانێ کوردی | /zɪmaːneː kʊɾdiː/ | the Kurdish language |\n| 4 | pirtûka nû | پرتووکا نوو | /pɪɾtuːkaː nuː/ | the new book |\n| 5 | bajarê mezin | باژارێ مەزن | /baːʒaːɾeː mɛzɯn/ | the big city |\n| 6 | hevalên me | هەڤالێن مە | /hɛvaːleːn mɛ/ | our friends |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "mirov,bajar,jin,pirtûk",
+        "cells": "ind.dir.sg,ind.ez.sg"
+      },
+      "lines": [],
+      "output": "| noun | meaning | gender | indef. direct | indef. ezafe |\n|---|---|---|---|---|\n| **mirov** | person, human, man | m | **mirovek**<br><sub>مرۆڤەک</sub> | **mirovekî**<br><sub>مرۆڤەکی</sub> |\n| **bajar** | city | m | **bajarek**<br><sub>باژارەک</sub> | **bajarekî**<br><sub>باژارەکی</sub> |\n| **jin** | woman; wife | f | **jinek**<br><sub>ژنەک</sub> | **jineke**<br><sub>ژنەکە</sub> |\n| **pirtûk** | book | f | **pirtûkek**<br><sub>پرتووکەک</sub> | **pirtûkeke**<br><sub>پرتووکەکە</sub> |"
+    },
+    {
+      "name": "analyze",
+      "args": {
+        "words": "bavê,mala,hevalên,mirovekî,pirtûkeke"
+      },
+      "lines": [],
+      "output": "| word | segmentation | morpheme tags | lemma | features |\n|---|---|---|---|---|\n| **bavê** | bav+ê | STEM+EZ.M|OBL.F | bav | definite=def, number=sg, gender=m, ezafe=yes |\n| **mala** | mal+a | STEM+EZ.F | mal | definite=def, number=sg, ezafe=yes, gender=f |\n| **hevalên** | heval+ên | STEM+EZ.PL | heval | definite=def, number=pl, ezafe=yes, gender=m |\n| **mirovekî** | mirov+ekî | STEM+INDEF.OBL.M|INDEF.EZ.M | mirov | definite=ind, number=sg, gender=m, case=obl |\n| **pirtûkeke** | pirtûk+eke | STEM+INDEF.EZ.F | pirtûk | definite=ind, number=sg, ezafe=yes, gender=f |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "jin,mal,keç,pirtûk,bav,mirov,bajar",
+        "cells": "def.dir.sg,def.obl.sg,def.ez.sg,ind.dir.sg,ind.obl.sg,def.obl.pl,def.ez.pl,voc.sg"
+      },
+      "lines": [],
+      "output": "| noun | meaning | gender | direct sg | oblique sg | ezafe sg | indef. direct | indef. oblique | oblique pl | ezafe pl | vocative sg |\n|---|---|---|---|---|---|---|---|---|---|---|\n| **jin** | woman; wife | f | **jin**<br><sub>ژن</sub> | **jinê**<br><sub>ژنێ</sub> | **jina**<br><sub>ژنا</sub> | **jinek**<br><sub>ژنەک</sub> | **jinekê**<br><sub>ژنەکێ</sub> | **jinan**<br><sub>ژنان</sub> | **jinên**<br><sub>ژنێن</sub> | **jinê**<br><sub>ژنێ</sub> |\n| **mal** | house, home | f | **mal**<br><sub>مال</sub> | **malê**<br><sub>مالێ</sub> | **mala**<br><sub>مالا</sub> | **malek**<br><sub>مالەک</sub> | **malekê**<br><sub>مالەکێ</sub> | **malan**<br><sub>مالان</sub> | **malên**<br><sub>مالێن</sub> | **malê**<br><sub>مالێ</sub> |\n| **keç** | girl; daughter | f | **keç**<br><sub>کەچ</sub> | **keçê**<br><sub>کەچێ</sub> | **keça**<br><sub>کەچا</sub> | **keçek**<br><sub>کەچەک</sub> | **keçekê**<br><sub>کەچەکێ</sub> | **keçan**<br><sub>کەچان</sub> | **keçên**<br><sub>کەچێن</sub> | **keçê**<br><sub>کەچێ</sub> |\n| **pirtûk** | book | f | **pirtûk**<br><sub>پرتووک</sub> | **pirtûkê**<br><sub>پرتووکێ</sub> | **pirtûka**<br><sub>پرتووکا</sub> | **pirtûkek**<br><sub>پرتووکەک</sub> | **pirtûkekê**<br><sub>پرتووکەکێ</sub> | **pirtûkan**<br><sub>پرتووکان</sub> | **pirtûkên**<br><sub>پرتووکێن</sub> | **pirtûkê**<br><sub>پرتووکێ</sub> |\n| **bav** | father | m | **bav**<br><sub>باڤ</sub> | **bavî**<br><sub>باڤی</sub> | **bavê**<br><sub>باڤێ</sub> | **bavek**<br><sub>باڤەک</sub> | **bavekî**<br><sub>باڤەکی</sub> | **bavan**<br><sub>باڤان</sub> | **bavên**<br><sub>باڤێن</sub> | **bavo**<br><sub>باڤۆ</sub> |\n| **mirov** | person, human, man | m | **mirov**<br><sub>مرۆڤ</sub> | **mirovî**<br><sub>مرۆڤی</sub> | **mirovê**<br><sub>مرۆڤێ</sub> | **mirovek**<br><sub>مرۆڤەک</sub> | **mirovekî**<br><sub>مرۆڤەکی</sub> | **mirovan**<br><sub>مرۆڤان</sub> | **mirovên**<br><sub>مرۆڤێن</sub> | **mirovo**<br><sub>مرۆڤۆ</sub> |\n| **bajar** | city | m | **bajar**<br><sub>باژار</sub> | **bajarî**<br><sub>باژاری</sub> | **bajarê**<br><sub>باژارێ</sub> | **bajarek**<br><sub>باژارەک</sub> | **bajarekî**<br><sub>باژارەکی</sub> | **bajaran**<br><sub>باژاران</sub> | **bajarên**<br><sub>باژارێن</sub> | **bajaro**<br><sub>باژارۆ</sub> |"
+    },
+    {
+      "name": "noun",
+      "args": {
+        "nouns": "xanî,çiya",
+        "cells": "def.dir.sg,def.obl.sg,def.ez.sg,ind.dir.sg,ind.obl.sg,def.obl.pl,def.ez.pl"
+      },
+      "lines": [],
+      "output": "| noun | meaning | gender | direct sg | oblique sg | ezafe sg | indef. direct | indef. oblique | oblique pl | ezafe pl |\n|---|---|---|---|---|---|---|---|---|---|\n| **xanî** | house (building) | m | **xanî**<br><sub>خانی</sub> | **xanî**<br><sub>خانی</sub> | **xaniyê**<br><sub>خانیێ</sub> | **xaniyek**<br><sub>خانیەک</sub> | **xaniyekî**<br><sub>خانیەکی</sub> | **xaniyan**<br><sub>خانیان</sub> | **xaniyên**<br><sub>خانیێن</sub> |\n| **çiya** | mountain | m | **çiya**<br><sub>چیا</sub> | **çiya**<br><sub>چیا</sub> | **çiyayê**<br><sub>چیایێ</sub> | **çiyayek**<br><sub>چیایەک</sub> | **çiyayekî**<br><sub>چیایەکی</sub> | **çiyayan**<br><sub>چیایان</sub> | **çiyayên**<br><sub>چیایێن</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez diçim malê.", "I am going home."],
+        ["Ez pirtûkê dixwînim.", "I am reading the book."],
+        ["Em li bajêr in.", "We are in the city."],
+        ["Ez bi keçan re diaxivim.", "I am talking with the girls."],
+        ["Wî jinek dît.", "He saw a woman. (past: the doer wî is oblique, the object jinek direct)"]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez diçim malê. | ئەز دچم مالێ. | /ɛz dɪtʃɯm maːleː/ | I am going home. |\n| 2 | Ez pirtûkê dixwînim. | ئەز پرتووکێ دخوینم. | /ɛz pɪɾtuːkeː dɪxʷiːnɯm/ | I am reading the book. |\n| 3 | Em li bajêr in. | ئەم ل باژێر ئن. | /ɛm lɪ baːʒeːɾ ɪn/ | We are in the city. |\n| 4 | Ez bi keçan re diaxivim. | ئەز ب کەچان ڕە دئاخڤم. | /ɛz bɪ kɛtʃaːn rɛ dɪaːxɪvɯm/ | I am talking with the girls. |\n| 5 | Wî jinek dît. | وی ژنەک دیت. | /wiː ʒɪnɛk diːt/ | He saw a woman. (past: the doer wî is oblique, the object jinek direct) |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "kirin",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*kirin* (کرن) “to do, to make”, present stem **k**, past stem **kir**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **dikim**<br><sub>دکم</sub> | **nakim**<br><sub>ناکم</sub> |\n| 2sg | tu | **dikî**<br><sub>دکی</sub> | **nakî**<br><sub>ناکی</sub> |\n| 3sg | ew | **dike**<br><sub>دکە</sub> | **nake**<br><sub>ناکە</sub> |\n| 1pl | em | **dikin**<br><sub>دکن</sub> | **nakin**<br><sub>ناکن</sub> |\n| 2pl | hûn | **dikin**<br><sub>دکن</sub> | **nakin**<br><sub>ناکن</sub> |\n| 3pl | ew | **dikin**<br><sub>دکن</sub> | **nakin**<br><sub>ناکن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "xwarin",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*xwarin* (خوارن) “to eat”, present stem **xw**, past stem **xwar**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **dixwim**<br><sub>دخوم</sub> | **naxwim**<br><sub>ناخوم</sub> |\n| 2sg | tu | **dixwî**<br><sub>دخوی</sub> | **naxwî**<br><sub>ناخوی</sub> |\n| 3sg | ew | **dixwe**<br><sub>دخوە</sub> | **naxwe**<br><sub>ناخوە</sub> |\n| 1pl | em | **dixwin**<br><sub>دخون</sub> | **naxwin**<br><sub>ناخون</sub> |\n| 2pl | hûn | **dixwin**<br><sub>دخون</sub> | **naxwin**<br><sub>ناخون</sub> |\n| 3pl | ew | **dixwin**<br><sub>دخون</sub> | **naxwin**<br><sub>ناخون</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "dîtin",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*dîtin* (دیتن) “to see, to find”, present stem **bîn**, past stem **dît**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **dibînim**<br><sub>دبینم</sub> | **nabînim**<br><sub>نابینم</sub> |\n| 2sg | tu | **dibînî**<br><sub>دبینی</sub> | **nabînî**<br><sub>نابینی</sub> |\n| 3sg | ew | **dibîne**<br><sub>دبینە</sub> | **nabîne**<br><sub>نابینە</sub> |\n| 1pl | em | **dibînin**<br><sub>دبینن</sub> | **nabînin**<br><sub>نابینن</sub> |\n| 2pl | hûn | **dibînin**<br><sub>دبینن</sub> | **nabînin**<br><sub>نابینن</sub> |\n| 3pl | ew | **dibînin**<br><sub>دبینن</sub> | **nabînin**<br><sub>نابینن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "çûn",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*çûn* (چوون) “to go”, present stem **ç**, past stem **çû**, intransitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **diçim**<br><sub>دچم</sub> | **naçim**<br><sub>ناچم</sub> |\n| 2sg | tu | **diçî**<br><sub>دچی</sub> | **naçî**<br><sub>ناچی</sub> |\n| 3sg | ew | **diçe**<br><sub>دچە</sub> | **naçe**<br><sub>ناچە</sub> |\n| 1pl | em | **diçin**<br><sub>دچن</sub> | **naçin**<br><sub>ناچن</sub> |\n| 2pl | hûn | **diçin**<br><sub>دچن</sub> | **naçin**<br><sub>ناچن</sub> |\n| 3pl | ew | **diçin**<br><sub>دچن</sub> | **naçin**<br><sub>ناچن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "şûştin",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*şûştin* (شووشتن) “to wash”, present stem **şo**, past stem **şûşt**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **dişom**<br><sub>دشۆم</sub> | **naşom**<br><sub>ناشۆم</sub> |\n| 2sg | tu | **dişoyî**<br><sub>دشۆیی</sub> | **naşoyî**<br><sub>ناشۆیی</sub> |\n| 3sg | ew | **dişo**<br><sub>دشۆ</sub> | **naşo**<br><sub>ناشۆ</sub> |\n| 1pl | em | **dişon**<br><sub>دشۆن</sub> | **naşon**<br><sub>ناشۆن</sub> |\n| 2pl | hûn | **dişon**<br><sub>دشۆن</sub> | **naşon**<br><sub>ناشۆن</sub> |\n| 3pl | ew | **dişon**<br><sub>دشۆن</sub> | **naşon**<br><sub>ناشۆن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **têm**<br><sub>تێم</sub> | **nayêm**<br><sub>نایێم</sub> |\n| 2sg | tu | **têyî**<br><sub>تێیی</sub> | **nayêyî**<br><sub>نایێیی</sub> |\n| 3sg | ew | **tê**<br><sub>تێ</sub> | **nayê**<br><sub>نایێ</sub> |\n| 1pl | em | **tên**<br><sub>تێن</sub> | **nayên**<br><sub>نایێن</sub> |\n| 2pl | hûn | **tên**<br><sub>تێن</sub> | **nayên**<br><sub>نایێن</sub> |\n| 3pl | ew | **tên**<br><sub>تێن</sub> | **nayên**<br><sub>نایێن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "axaftin",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*axaftin* (ئاخافتن) “to speak”, present stem **axiv**, past stem **axaft**, intransitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **diaxivim**<br><sub>دئاخڤم</sub> | **naxivim**<br><sub>ناخڤم</sub> |\n| 2sg | tu | **diaxivî**<br><sub>دئاخڤی</sub> | **naxivî**<br><sub>ناخڤی</sub> |\n| 3sg | ew | **diaxive**<br><sub>دئاخڤە</sub> | **naxive**<br><sub>ناخڤە</sub> |\n| 1pl | em | **diaxivin**<br><sub>دئاخڤن</sub> | **naxivin**<br><sub>ناخڤن</sub> |\n| 2pl | hûn | **diaxivin**<br><sub>دئاخڤن</sub> | **naxivin**<br><sub>ناخڤن</sub> |\n| 3pl | ew | **diaxivin**<br><sub>دئاخڤن</sub> | **naxivin**<br><sub>ناخڤن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "zanîn",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*zanîn* (زانین) “to know”, present stem **zan**, past stem **zanî**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **dizanim**<br><sub>دزانم</sub> | **nizanim**<br><sub>نزانم</sub> |\n| 2sg | tu | **dizanî**<br><sub>دزانی</sub> | **nizanî**<br><sub>نزانی</sub> |\n| 3sg | ew | **dizane**<br><sub>دزانە</sub> | **nizane**<br><sub>نزانە</sub> |\n| 1pl | em | **dizanin**<br><sub>دزانن</sub> | **nizanin**<br><sub>نزانن</sub> |\n| 2pl | hûn | **dizanin**<br><sub>دزانن</sub> | **nizanin**<br><sub>نزانن</sub> |\n| 3pl | ew | **dizanin**<br><sub>دزانن</sub> | **nizanin**<br><sub>نزانن</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez nan dixwim.", "I eat / am eating bread."],
+        ["Ez pirtûkê dixwînim.", "I am reading the book."],
+        ["Tu çi dikî?", "What are you doing?"],
+        ["Ew kurdî nizane.", "He doesn't know Kurdish."],
+        ["Em sibê diçin Amedê.", "We are going to Amed tomorrow."],
+        ["Ez te dibînim.", "I see you."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez nan dixwim. | ئەز نان دخوم. | /ɛz naːn dɪxʷɯm/ | I eat / am eating bread. |\n| 2 | Ez pirtûkê dixwînim. | ئەز پرتووکێ دخوینم. | /ɛz pɪɾtuːkeː dɪxʷiːnɯm/ | I am reading the book. |\n| 3 | Tu çi dikî? | تو چ دکی؟ | /tʊ tʃɪ dɪkiː/ | What are you doing? |\n| 4 | Ew kurdî nizane. | ئەو کوردی نزانە. | /ɛw kʊɾdiː nɪzaːnɛ/ | He doesn't know Kurdish. |\n| 5 | Em sibê diçin Amedê. | ئەم سبێ دچن ئامەدێ. | /ɛm sɪbeː dɪtʃɯn aːmɛdeː/ | We are going to Amed tomorrow. |\n| 6 | Ez te dibînim. | ئەز تە دبینم. | /ɛz tɛ dɪbiːnɯm/ | I see you. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "nivîsîn",
+        "cells": "present,present_neg"
+      },
+      "lines": [],
+      "output": "*nivîsîn* (نڤیسین) “to write”, present stem **nivîs**, past stem **nivîsî**, transitive\n\n| person | pronoun | Present | Present negative |\n|---|---|---|---|\n| 1sg | ez | **dinivîsim**<br><sub>دنڤیسم</sub> | **nanivîsim**<br><sub>نانڤیسم</sub> |\n| 2sg | tu | **dinivîsî**<br><sub>دنڤیسی</sub> | **nanivîsî**<br><sub>نانڤیسی</sub> |\n| 3sg | ew | **dinivîse**<br><sub>دنڤیسە</sub> | **nanivîse**<br><sub>نانڤیسە</sub> |\n| 1pl | em | **dinivîsin**<br><sub>دنڤیسن</sub> | **nanivîsin**<br><sub>نانڤیسن</sub> |\n| 2pl | hûn | **dinivîsin**<br><sub>دنڤیسن</sub> | **nanivîsin**<br><sub>نانڤیسن</sub> |\n| 3pl | ew | **dinivîsin**<br><sub>دنڤیسن</sub> | **nanivîsin**<br><sub>نانڤیسن</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ev pirtûk nû ye.", "This book is new."],
+        ["Ew mirov mamoste ye.", "That man is a teacher."],
+        ["Ez vê pirtûkê dixwînim.", "I am reading this book."],
+        ["Ez wî mirovî nas dikim.", "I know that man."],
+        ["Van rojan pir germ e.", "These days it is very hot."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ev pirtûk nû ye. | ئەڤ پرتووک نوو یە. | /ɛv pɪɾtuːk nuː jɛ/ | This book is new. |\n| 2 | Ew mirov mamoste ye. | ئەو مرۆڤ مامۆستە یە. | /ɛw mɪɾoːv maːmoːstɛ jɛ/ | That man is a teacher. |\n| 3 | Ez vê pirtûkê dixwînim. | ئەز ڤێ پرتووکێ دخوینم. | /ɛz veː pɪɾtuːkeː dɪxʷiːnɯm/ | I am reading this book. |\n| 4 | Ez wî mirovî nas dikim. | ئەز وی مرۆڤی ناس دکم. | /ɛz wiː mɪɾoːviː naːs dɪkɯm/ | I know that man. |\n| 5 | Van rojan pir germ e. | ڤان ڕۆژان پر گەرم ئە. | /vaːn roːʒaːn pɪɾ ɡɛɾm ɛ/ | These days it is very hot. |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["Ev kî ye?", "Who is this?"],
+        ["Navê te çi ye?", "What is your name?"],
+        ["Tu li ku dijî?", "Where do you live?"],
+        ["Tu ji ku yî?", "Where are you from?"],
+        ["Çima tu nayêyî?", "Why don't you come?"],
+        ["Çend pirtûkên te hene?", "How many books do you have?"]
+      ],
+      "output": "| # | Kurdish | Arabic script | English |\n|---|---|---|---|\n| 1 | Ev kî ye? | ئەڤ کی یە؟ | Who is this? |\n| 2 | Navê te çi ye? | ناڤێ تە چ یە؟ | What is your name? |\n| 3 | Tu li ku dijî? | تو ل کو دژی؟ | Where do you live? |\n| 4 | Tu ji ku yî? | تو ژ کو یی؟ | Where are you from? |\n| 5 | Çima tu nayêyî? | چما تو نایێیی؟ | Why don't you come? |\n| 6 | Çend pirtûkên te hene? | چەند پرتووکێن تە هەنە؟ | How many books do you have? |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "kirin",
+        "cells": "present,subj,subj_neg"
+      },
+      "lines": [],
+      "output": "*kirin* (کرن) “to do, to make”, present stem **k**, past stem **kir**, transitive\n\n| person | pronoun | Present | Subjunctive | Subjunctive negative |\n|---|---|---|---|---|\n| 1sg | ez | **dikim**<br><sub>دکم</sub> | **bikim**<br><sub>بکم</sub> | **nekim**<br><sub>نەکم</sub> |\n| 2sg | tu | **dikî**<br><sub>دکی</sub> | **bikî**<br><sub>بکی</sub> | **nekî**<br><sub>نەکی</sub> |\n| 3sg | ew | **dike**<br><sub>دکە</sub> | **bike**<br><sub>بکە</sub> | **neke**<br><sub>نەکە</sub> |\n| 1pl | em | **dikin**<br><sub>دکن</sub> | **bikin**<br><sub>بکن</sub> | **nekin**<br><sub>نەکن</sub> |\n| 2pl | hûn | **dikin**<br><sub>دکن</sub> | **bikin**<br><sub>بکن</sub> | **nekin**<br><sub>نەکن</sub> |\n| 3pl | ew | **dikin**<br><sub>دکن</sub> | **bikin**<br><sub>بکن</sub> | **nekin**<br><sub>نەکن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "çûn",
+        "cells": "subj,subj_neg"
+      },
+      "lines": [],
+      "output": "*çûn* (چوون) “to go”, present stem **ç**, past stem **çû**, intransitive\n\n| person | pronoun | Subjunctive | Subjunctive negative |\n|---|---|---|---|\n| 1sg | ez | **biçim**<br><sub>بچم</sub> | **neçim**<br><sub>نەچم</sub> |\n| 2sg | tu | **biçî**<br><sub>بچی</sub> | **neçî**<br><sub>نەچی</sub> |\n| 3sg | ew | **biçe**<br><sub>بچە</sub> | **neçe**<br><sub>نەچە</sub> |\n| 1pl | em | **biçin**<br><sub>بچن</sub> | **neçin**<br><sub>نەچن</sub> |\n| 2pl | hûn | **biçin**<br><sub>بچن</sub> | **neçin**<br><sub>نەچن</sub> |\n| 3pl | ew | **biçin**<br><sub>بچن</sub> | **neçin**<br><sub>نەچن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "xwestin",
+        "cells": "present"
+      },
+      "lines": [],
+      "output": "*xwestin* (خوەستن) “to want”, present stem **xwaz**, past stem **xwest**, transitive\n\n| person | pronoun | Present |\n|---|---|---|\n| 1sg | ez | **dixwazim**<br><sub>دخوازم</sub> |\n| 2sg | tu | **dixwazî**<br><sub>دخوازی</sub> |\n| 3sg | ew | **dixwaze**<br><sub>دخوازە</sub> |\n| 1pl | em | **dixwazin**<br><sub>دخوازن</sub> |\n| 2pl | hûn | **dixwazin**<br><sub>دخوازن</sub> |\n| 3pl | ew | **dixwazin**<br><sub>دخوازن</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez ê sibê biçim Wanê.", "I will go to Van tomorrow."],
+        ["Tu yê çi bikî?", "What will you do?"],
+        ["Ew ê neyê.", "He won't come."],
+        ["Em ê bibînin.", "We will see."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez ê sibê biçim Wanê. | ئەز ئێ سبێ بچم وانێ. | /ɛz eː sɪbeː bɪtʃɯm waːneː/ | I will go to Van tomorrow. |\n| 2 | Tu yê çi bikî? | تو یێ چ بکی؟ | /tʊ jeː tʃɪ bɪkiː/ | What will you do? |\n| 3 | Ew ê neyê. | ئەو ئێ نەیێ. | /ɛw eː nɛjeː/ | He won't come. |\n| 4 | Em ê bibînin. | ئەم ئێ ببینن. | /ɛm eː bɪbiːnɯn/ | We will see. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "kirin",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*kirin* (کرن) “to do, to make”, present stem **k**, past stem **kir**, transitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | tu | **bike**<br><sub>بکە</sub> | **neke**<br><sub>نەکە</sub> |\n| 2pl | hûn | **bikin**<br><sub>بکن</sub> | **nekin**<br><sub>نەکن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "xwarin",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*xwarin* (خوارن) “to eat”, present stem **xw**, past stem **xwar**, transitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | tu | **bixwe**<br><sub>بخوە</sub> | **nexwe**<br><sub>نەخوە</sub> |\n| 2pl | hûn | **bixwin**<br><sub>بخون</sub> | **nexwin**<br><sub>نەخون</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "xwendin",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*xwendin* (خوەندن) “to read, to study”, present stem **xwîn**, past stem **xwend**, transitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | tu | **bixwîne**<br><sub>بخوینە</sub> | **nexwîne**<br><sub>نەخوینە</sub> |\n| 2pl | hûn | **bixwînin**<br><sub>بخوینن</sub> | **nexwînin**<br><sub>نەخوینن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | tu | **were**<br><sub>وەرە</sub> | **neyê**<br><sub>نەیێ</sub> |\n| 2pl | hûn | **werin**<br><sub>وەرن</sub> | **neyên**<br><sub>نەیێن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "çûn",
+        "cells": "imperative,prohibitive"
+      },
+      "lines": [],
+      "output": "*çûn* (چوون) “to go”, present stem **ç**, past stem **çû**, intransitive\n\n| person | pronoun | Imperative | Prohibitive |\n|---|---|---|---|\n| 2sg | tu | **here**<br><sub>هەرە</sub> | **neçe**<br><sub>نەچە</sub> |\n| 2pl | hûn | **herin**<br><sub>هەرن</sub> | **neçin**<br><sub>نەچن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | ez | **hatim**<br><sub>هاتم</sub> | **nehatim**<br><sub>نەهاتم</sub> |\n| 2sg | tu | **hatî**<br><sub>هاتی</sub> | **nehatî**<br><sub>نەهاتی</sub> |\n| 3sg | ew | **hat**<br><sub>هات</sub> | **nehat**<br><sub>نەهات</sub> |\n| 1pl | em | **hatin**<br><sub>هاتن</sub> | **nehatin**<br><sub>نەهاتن</sub> |\n| 2pl | hûn | **hatin**<br><sub>هاتن</sub> | **nehatin**<br><sub>نەهاتن</sub> |\n| 3pl | ew | **hatin**<br><sub>هاتن</sub> | **nehatin**<br><sub>نەهاتن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "çûn",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*çûn* (چوون) “to go”, present stem **ç**, past stem **çû**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | ez | **çûm**<br><sub>چووم</sub> | **neçûm**<br><sub>نەچووم</sub> |\n| 2sg | tu | **çûyî**<br><sub>چوویی</sub> | **neçûyî**<br><sub>نەچوویی</sub> |\n| 3sg | ew | **çû**<br><sub>چوو</sub> | **neçû**<br><sub>نەچوو</sub> |\n| 1pl | em | **çûn**<br><sub>چوون</sub> | **neçûn**<br><sub>نەچوون</sub> |\n| 2pl | hûn | **çûn**<br><sub>چوون</sub> | **neçûn**<br><sub>نەچوون</sub> |\n| 3pl | ew | **çûn**<br><sub>چوون</sub> | **neçûn**<br><sub>نەچوون</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "ketin",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*ketin* (کەتن) “to fall, to enter”, present stem **kev**, past stem **ket**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | ez | **ketim**<br><sub>کەتم</sub> | **neketim**<br><sub>نەکەتم</sub> |\n| 2sg | tu | **ketî**<br><sub>کەتی</sub> | **neketî**<br><sub>نەکەتی</sub> |\n| 3sg | ew | **ket**<br><sub>کەت</sub> | **neket**<br><sub>نەکەت</sub> |\n| 1pl | em | **ketin**<br><sub>کەتن</sub> | **neketin**<br><sub>نەکەتن</sub> |\n| 2pl | hûn | **ketin**<br><sub>کەتن</sub> | **neketin**<br><sub>نەکەتن</sub> |\n| 3pl | ew | **ketin**<br><sub>کەتن</sub> | **neketin**<br><sub>نەکەتن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "man",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*man* (مان) “to stay, to remain”, present stem **mîn**, past stem **ma**, intransitive\n\n| person | pronoun | Simple past | Past negative |\n|---|---|---|---|\n| 1sg | ez | **mam**<br><sub>مام</sub> | **nemam**<br><sub>نەمام</sub> |\n| 2sg | tu | **mayî**<br><sub>مایی</sub> | **nemayî**<br><sub>نەمایی</sub> |\n| 3sg | ew | **ma**<br><sub>ما</sub> | **nema**<br><sub>نەما</sub> |\n| 1pl | em | **man**<br><sub>مان</sub> | **neman**<br><sub>نەمان</sub> |\n| 2pl | hûn | **man**<br><sub>مان</sub> | **neman**<br><sub>نەمان</sub> |\n| 3pl | ew | **man**<br><sub>مان</sub> | **neman**<br><sub>نەمان</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez duh hatim.", "I came yesterday."],
+        ["Ew çûn bazarê.", "They went to the market."],
+        ["Zarok ket.", "The child fell."],
+        ["Tu çima nehatî?", "Why didn't you come?"],
+        ["Em li malê man.", "We stayed at home."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez duh hatim. | ئەز دوه هاتم. | /ɛz dʊh haːtɯm/ | I came yesterday. |\n| 2 | Ew çûn bazarê. | ئەو چوون بازارێ. | /ɛw tʃuːn baːzaːɾeː/ | They went to the market. |\n| 3 | Zarok ket. | زارۆک کەت. | /zaːɾoːk kɛt/ | The child fell. |\n| 4 | Tu çima nehatî? | تو چما نەهاتی؟ | /tʊ tʃɪmaː nɛhaːtiː/ | Why didn't you come? |\n| 5 | Em li malê man. | ئەم ل مالێ مان. | /ɛm lɪ maːleː maːn/ | We stayed at home. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [["Ez te dibînim.", "I see you."], ["Min tu dîtî.", "I saw you."]],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez te dibînim. | ئەز تە دبینم. | /ɛz tɛ dɪbiːnɯm/ | I see you. |\n| 2 | Min tu dîtî. | من تو دیتی. | /mɪn tʊ diːtiː/ | I saw you. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "dîtin",
+        "cells": "past,past_neg"
+      },
+      "lines": [],
+      "output": "*dîtin* (دیتن) “to see, to find”, present stem **bîn**, past stem **dît**, transitive\n\n| person | agent (oblique) | object (direct) | Simple past | Past negative |\n|---|---|---|---|---|\n| 1sg | min | ez | **dîtim**<br><sub>دیتم</sub> | **nedîtim**<br><sub>نەدیتم</sub> |\n| 2sg | te | tu | **dîtî**<br><sub>دیتی</sub> | **nedîtî**<br><sub>نەدیتی</sub> |\n| 3sg | wî / wê | ew | **dît**<br><sub>دیت</sub> | **nedît**<br><sub>نەدیت</sub> |\n| 1pl | me | em | **dîtin**<br><sub>دیتن</sub> | **nedîtin**<br><sub>نەدیتن</sub> |\n| 2pl | we | hûn | **dîtin**<br><sub>دیتن</sub> | **nedîtin**<br><sub>نەدیتن</sub> |\n| 3pl | wan | ew | **dîtin**<br><sub>دیتن</sub> | **nedîtin**<br><sub>نەدیتن</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Min nan xwar.", "I ate bread."],
+        ["Te nan xwar.", "You ate bread."],
+        ["Wê pirtûk xwend.", "She read the book."],
+        ["Me ew dîtin.", "We saw them."],
+        ["Wan ez dîtim.", "They saw me."],
+        ["Jinê nan çêkir.", "The woman made bread."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Min nan xwar. | من نان خوار. | /mɪn naːn xʷaːɾ/ | I ate bread. |\n| 2 | Te nan xwar. | تە نان خوار. | /tɛ naːn xʷaːɾ/ | You ate bread. |\n| 3 | Wê pirtûk xwend. | وێ پرتووک خوەند. | /weː pɪɾtuːk xʷɛnd/ | She read the book. |\n| 4 | Me ew dîtin. | مە ئەو دیتن. | /mɛ ɛw diːtɯn/ | We saw them. |\n| 5 | Wan ez dîtim. | وان ئەز دیتم. | /waːn ɛz diːtɯm/ | They saw me. |\n| 6 | Jinê nan çêkir. | ژنێ نان چێکر. | /ʒɪneː naːn tʃeːkɯɾ/ | The woman made bread. |"
+    },
+    {
+      "name": "ergativity",
+      "args": {},
+      "lines": [
+        ["Ez te dibînim.", "I see you."],
+        ["Min tu dîtî.", "I saw you."],
+        ["Min ew dîtin.", "I saw them."],
+        ["Wan ez dîtim.", "They saw me."],
+        ["Min tu dîtim.", "(wrong) *I saw you"],
+        ["Ez tu dîtî.", "(wrong) *I saw you"]
+      ],
+      "output": "| sentence | English | alignment | agent | object | verb agrees with | check |\n|---|---|---|---|---|---|---|\n| *Ez te dibînim.* | I see you. | accusative | Ez (dir) | te (obl) | subject (1sg) | ✔ |\n| *Min tu dîtî.* | I saw you. | ergative | Min (obl) | tu (dir) | object (2sg) | ✔ |\n| *Min ew dîtin.* | I saw them. | ergative | Min (obl) | ew (dir) | object (pl) | ✔ |\n| *Wan ez dîtim.* | They saw me. | ergative | Wan (obl) | ez (dir) | object (1sg) | ✔ |\n| *Min tu dîtim.* | (wrong) *I saw you | ergative | Min (obl) | tu (dir) | object (1sg) | ✘ verb ending marks 1sg but object 'tu' is 2sg |\n| *Ez tu dîtî.* | (wrong) *I saw you | ergative | · | Ez (dir) | object (2sg) | ✘ ergative clause without an overt oblique agent (pro-drop); verb ending marks 2sg but object 'Ez' is 1sg |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Past progressive | Past progressive negative |\n|---|---|---|---|\n| 1sg | ez | **dihatim**<br><sub>دهاتم</sub> | **nedihatim**<br><sub>نەدهاتم</sub> |\n| 2sg | tu | **dihatî**<br><sub>دهاتی</sub> | **nedihatî**<br><sub>نەدهاتی</sub> |\n| 3sg | ew | **dihat**<br><sub>دهات</sub> | **nedihat**<br><sub>نەدهات</sub> |\n| 1pl | em | **dihatin**<br><sub>دهاتن</sub> | **nedihatin**<br><sub>نەدهاتن</sub> |\n| 2pl | hûn | **dihatin**<br><sub>دهاتن</sub> | **nedihatin**<br><sub>نەدهاتن</sub> |\n| 3pl | ew | **dihatin**<br><sub>دهاتن</sub> | **nedihatin**<br><sub>نەدهاتن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "xwarin",
+        "cells": "past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*xwarin* (خوارن) “to eat”, present stem **xw**, past stem **xwar**, transitive\n\n| person | agent (oblique) | object (direct) | Past progressive | Past progressive negative |\n|---|---|---|---|---|\n| 1sg | min | ez | **dixwarim**<br><sub>دخوارم</sub> | **nedixwarim**<br><sub>نەدخوارم</sub> |\n| 2sg | te | tu | **dixwarî**<br><sub>دخواری</sub> | **nedixwarî**<br><sub>نەدخواری</sub> |\n| 3sg | wî / wê | ew | **dixwar**<br><sub>دخوار</sub> | **nedixwar**<br><sub>نەدخوار</sub> |\n| 1pl | me | em | **dixwarin**<br><sub>دخوارن</sub> | **nedixwarin**<br><sub>نەدخوارن</sub> |\n| 2pl | we | hûn | **dixwarin**<br><sub>دخوارن</sub> | **nedixwarin**<br><sub>نەدخوارن</sub> |\n| 3pl | wan | ew | **dixwarin**<br><sub>دخوارن</sub> | **nedixwarin**<br><sub>نەدخوارن</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "xwendin",
+        "cells": "past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*xwendin* (خوەندن) “to read, to study”, present stem **xwîn**, past stem **xwend**, transitive\n\n| person | agent (oblique) | object (direct) | Past progressive | Past progressive negative |\n|---|---|---|---|---|\n| 1sg | min | ez | **dixwendim**<br><sub>دخوەندم</sub> | **nedixwendim**<br><sub>نەدخوەندم</sub> |\n| 2sg | te | tu | **dixwendî**<br><sub>دخوەندی</sub> | **nedixwendî**<br><sub>نەدخوەندی</sub> |\n| 3sg | wî / wê | ew | **dixwend**<br><sub>دخوەند</sub> | **nedixwend**<br><sub>نەدخوەند</sub> |\n| 1pl | me | em | **dixwendin**<br><sub>دخوەندن</sub> | **nedixwendin**<br><sub>نەدخوەندن</sub> |\n| 2pl | we | hûn | **dixwendin**<br><sub>دخوەندن</sub> | **nedixwendin**<br><sub>نەدخوەندن</sub> |\n| 3pl | wan | ew | **dixwendin**<br><sub>دخوەندن</sub> | **nedixwendin**<br><sub>نەدخوەندن</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Dema ew hat, min nan dixwar.", "When he came, I was eating."],
+        ["Her êvar min pirtûk dixwend.", "I used to read every evening."],
+        ["Em li Amedê diman.", "We used to live (stay) in Amed."],
+        ["Ez diçûm dibistanê.", "I was going / used to go to school."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Dema ew hat, min nan dixwar. | دەما ئەو هات، من نان دخوار. | /dɛmaː ɛw haːt mɪn naːn dɪxʷaːɾ/ | When he came, I was eating. |\n| 2 | Her êvar min pirtûk dixwend. | هەر ئێڤار من پرتووک دخوەند. | /hɛɾ eːvaːɾ mɪn pɪɾtuːk dɪxʷɛnd/ | I used to read every evening. |\n| 3 | Em li Amedê diman. | ئەم ل ئامەدێ دمان. | /ɛm lɪ aːmɛdeː dɪmaːn/ | We used to live (stay) in Amed. |\n| 4 | Ez diçûm dibistanê. | ئەز دچووم دبستانێ. | /ɛz dɪtʃuːm dɪbɪstaːneː/ | I was going / used to go to school. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "kirin",
+        "cells": "past,past_neg,past_prog,past_prog_neg"
+      },
+      "lines": [],
+      "output": "*kirin* (کرن) “to do, to make”, present stem **k**, past stem **kir**, transitive\n\n| person | agent (oblique) | object (direct) | Simple past | Past negative | Past progressive | Past progressive negative |\n|---|---|---|---|---|---|---|\n| 1sg | min | ez | **kirim**<br><sub>کرم</sub> | **nekirim**<br><sub>نەکرم</sub> | **dikirim**<br><sub>دکرم</sub> | **nedikirim**<br><sub>نەدکرم</sub> |\n| 2sg | te | tu | **kirî**<br><sub>کری</sub> | **nekirî**<br><sub>نەکری</sub> | **dikirî**<br><sub>دکری</sub> | **nedikirî**<br><sub>نەدکری</sub> |\n| 3sg | wî / wê | ew | **kir**<br><sub>کر</sub> | **nekir**<br><sub>نەکر</sub> | **dikir**<br><sub>دکر</sub> | **nedikir**<br><sub>نەدکر</sub> |\n| 1pl | me | em | **kirin**<br><sub>کرن</sub> | **nekirin**<br><sub>نەکرن</sub> | **dikirin**<br><sub>دکرن</sub> | **nedikirin**<br><sub>نەدکرن</sub> |\n| 2pl | we | hûn | **kirin**<br><sub>کرن</sub> | **nekirin**<br><sub>نەکرن</sub> | **dikirin**<br><sub>دکرن</sub> | **nedikirin**<br><sub>نەدکرن</sub> |\n| 3pl | wan | ew | **kirin**<br><sub>کرن</sub> | **nekirin**<br><sub>نەکرن</sub> | **dikirin**<br><sub>دکرن</sub> | **nedikirin**<br><sub>نەدکرن</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez li malê me.", "I am at home."],
+        ["Ew ji Wanê hat.", "He came from Van."],
+        ["Ez bi te re têm.", "I'm coming with you."],
+        ["Min ji wê re name nivîsî.", "I wrote her a letter."],
+        ["Pirtûk li ser maseyê ye.", "The book is on the table."],
+        ["Di bajêr de pir mirov hene.", "There are many people in the city."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez li malê me. | ئەز ل مالێ مە. | /ɛz lɪ maːleː mɛ/ | I am at home. |\n| 2 | Ew ji Wanê hat. | ئەو ژ وانێ هات. | /ɛw ʒɪ waːneː haːt/ | He came from Van. |\n| 3 | Ez bi te re têm. | ئەز ب تە ڕە تێم. | /ɛz bɪ tɛ rɛ teːm/ | I'm coming with you. |\n| 4 | Min ji wê re name nivîsî. | من ژ وێ ڕە نامە نڤیسی. | /mɪn ʒɪ weː rɛ naːmɛ nɪviːsiː/ | I wrote her a letter. |\n| 5 | Pirtûk li ser maseyê ye. | پرتووک ل سەر ماسەیێ یە. | /pɪɾtuːk lɪ sɛɾ maːsɛjeː jɛ/ | The book is on the table. |\n| 6 | Di bajêr de pir mirov hene. | د باژێر دە پر مرۆڤ هەنە. | /dɪ baːʒeːɾ dɛ pɪɾ mɪɾoːv hɛnɛ/ | There are many people in the city. |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Amed ji Mêrdînê mezintir e.", "Amed is bigger than Mardin."],
+        ["Ev baştirîn pirtûk e.", "This is the best book."],
+        ["Birayê min ji min biçûktir e.", "My brother is younger than me."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Amed ji Mêrdînê mezintir e. | ئامەد ژ مێردینێ مەزنتر ئە. | /aːmɛd ʒɪ meːɾdiːneː mɛzɪntɯɾ ɛ/ | Amed is bigger than Mardin. |\n| 2 | Ev baştirîn pirtûk e. | ئەڤ باشترین پرتووک ئە. | /ɛv baːʃtɪɾiːn pɪɾtuːk ɛ/ | This is the best book. |\n| 3 | Birayê min ji min biçûktir e. | برایێ من ژ من بچووکتر ئە. | /bɪɾaːjeː mɪn ʒɪ mɪn bɪtʃuːktɯɾ ɛ/ | My brother is younger than me. |"
+    },
+    {
+      "name": "analyze",
+      "args": {
+        "words": "mezintir,mezintirîn,Kurdistan,hevaltî,rojnamevan,birîndar,zanîngeh"
+      },
+      "lines": [],
+      "output": "| word | segmentation | morpheme tags | lemma | features |\n|---|---|---|---|---|\n| **mezintir** | mezin+tir | STEM+CMPR | mezin | · |\n| **mezintirîn** | mezin+tirîn | STEM+SUPL | mezin | · |\n| **Kurdistan** | kurd+istan | STEM+PLACE | kurd | gender=m |\n| **hevaltî** | heval+tî | STEM+ABST | heval | gender=m |\n| **rojnamevan** | rojname+van | STEM+AGENT | rojname | gender=f |\n| **birîndar** | birîn+dar | STEM+POSSR | birîn | · |\n| **zanîngeh** | zanîngeh | STEM | zanîngeh | · |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "perfect,pluperfect",
+        "show": "translit,ipa"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Present perfect | Past perfect |\n|---|---|---|---|\n| 1sg | ez | **hatime**<br><sub>هاتمە</sub><br><sub>/haːtɪmɛ/</sub> | **hatibûm**<br><sub>هاتبووم</sub><br><sub>/haːtɪbuːm/</sub> |\n| 2sg | tu | **hatiyî**<br><sub>هاتیی</sub><br><sub>/haːtɪjiː/</sub> | **hatibûyî**<br><sub>هاتبوویی</sub><br><sub>/haːtɪbuːjiː/</sub> |\n| 3sg | ew | **hatiye**<br><sub>هاتیە</sub><br><sub>/haːtɪjɛ/</sub> | **hatibû**<br><sub>هاتبوو</sub><br><sub>/haːtɪbuː/</sub> |\n| 1pl | em | **hatine**<br><sub>هاتنە</sub><br><sub>/haːtɪnɛ/</sub> | **hatibûn**<br><sub>هاتبوون</sub><br><sub>/haːtɪbuːn/</sub> |\n| 2pl | hûn | **hatine**<br><sub>هاتنە</sub><br><sub>/haːtɪnɛ/</sub> | **hatibûn**<br><sub>هاتبوون</sub><br><sub>/haːtɪbuːn/</sub> |\n| 3pl | ew | **hatine**<br><sub>هاتنە</sub><br><sub>/haːtɪnɛ/</sub> | **hatibûn**<br><sub>هاتبوون</sub><br><sub>/haːtɪbuːn/</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "dîtin",
+        "cells": "perfect,pluperfect",
+        "show": "translit,ipa"
+      },
+      "lines": [],
+      "output": "*dîtin* (دیتن) “to see, to find”, present stem **bîn**, past stem **dît**, transitive\n\n| person | agent (oblique) | object (direct) | Present perfect | Past perfect |\n|---|---|---|---|---|\n| 1sg | min | ez | **dîtime**<br><sub>دیتمە</sub><br><sub>/diːtɪmɛ/</sub> | **dîtibûm**<br><sub>دیتبووم</sub><br><sub>/diːtɪbuːm/</sub> |\n| 2sg | te | tu | **dîtiyî**<br><sub>دیتیی</sub><br><sub>/diːtɪjiː/</sub> | **dîtibûyî**<br><sub>دیتبوویی</sub><br><sub>/diːtɪbuːjiː/</sub> |\n| 3sg | wî / wê | ew | **dîtiye**<br><sub>دیتیە</sub><br><sub>/diːtɪjɛ/</sub> | **dîtibû**<br><sub>دیتبوو</sub><br><sub>/diːtɪbuː/</sub> |\n| 1pl | me | em | **dîtine**<br><sub>دیتنە</sub><br><sub>/diːtɪnɛ/</sub> | **dîtibûn**<br><sub>دیتبوون</sub><br><sub>/diːtɪbuːn/</sub> |\n| 2pl | we | hûn | **dîtine**<br><sub>دیتنە</sub><br><sub>/diːtɪnɛ/</sub> | **dîtibûn**<br><sub>دیتبوون</sub><br><sub>/diːtɪbuːn/</sub> |\n| 3pl | wan | ew | **dîtine**<br><sub>دیتنە</sub><br><sub>/diːtɪnɛ/</sub> | **dîtibûn**<br><sub>دیتبوون</sub><br><sub>/diːtɪbuːn/</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "nivîsîn",
+        "cells": "perfect,pluperfect"
+      },
+      "lines": [],
+      "output": "*nivîsîn* (نڤیسین) “to write”, present stem **nivîs**, past stem **nivîsî**, transitive\n\n| person | agent (oblique) | object (direct) | Present perfect | Past perfect |\n|---|---|---|---|---|\n| 1sg | min | ez | **nivîsîme**<br><sub>نڤیسیمە</sub> | **nivîsîbûm**<br><sub>نڤیسیبووم</sub> |\n| 2sg | te | tu | **nivîsiyî**<br><sub>نڤیسیی</sub> | **nivîsîbûyî**<br><sub>نڤیسیبوویی</sub> |\n| 3sg | wî / wê | ew | **nivîsiye**<br><sub>نڤیسیە</sub> | **nivîsîbû**<br><sub>نڤیسیبوو</sub> |\n| 1pl | me | em | **nivîsîne**<br><sub>نڤیسینە</sub> | **nivîsîbûn**<br><sub>نڤیسیبوون</sub> |\n| 2pl | we | hûn | **nivîsîne**<br><sub>نڤیسینە</sub> | **nivîsîbûn**<br><sub>نڤیسیبوون</sub> |\n| 3pl | wan | ew | **nivîsîne**<br><sub>نڤیسینە</sub> | **nivîsîbûn**<br><sub>نڤیسیبوون</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez hatime.", "I have come."],
+        ["Min ev pirtûk xwendiye.", "I have read this book."],
+        ["Ew hîn nehatiye.", "He hasn't come yet."],
+        ["Dema ez gihîştim, ew çûbûn.", "When I arrived, they had gone."],
+        ["Wî name nivîsîbû.", "He had written the letter."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez hatime. | ئەز هاتمە. | /ɛz haːtɪmɛ/ | I have come. |\n| 2 | Min ev pirtûk xwendiye. | من ئەڤ پرتووک خوەندیە. | /mɪn ɛv pɪɾtuːk xʷɛndɪjɛ/ | I have read this book. |\n| 3 | Ew hîn nehatiye. | ئەو هین نەهاتیە. | /ɛw hiːn nɛhaːtɪjɛ/ | He hasn't come yet. |\n| 4 | Dema ez gihîştim, ew çûbûn. | دەما ئەز گهیشتم، ئەو چووبوون. | /dɛmaː ɛz ɡɪhiːʃtɯm ɛw tʃuːbuːn/ | When I arrived, they had gone. |\n| 5 | Wî name nivîsîbû. | وی نامە نڤیسیبوو. | /wiː naːmɛ nɪviːsiːbuː/ | He had written the letter. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "present,past,perfect"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Present | Simple past | Present perfect |\n|---|---|---|---|---|\n| 1sg | ez | **têm**<br><sub>تێم</sub> | **hatim**<br><sub>هاتم</sub> | **hatime**<br><sub>هاتمە</sub> |\n| 2sg | tu | **têyî**<br><sub>تێیی</sub> | **hatî**<br><sub>هاتی</sub> | **hatiyî**<br><sub>هاتیی</sub> |\n| 3sg | ew | **tê**<br><sub>تێ</sub> | **hat**<br><sub>هات</sub> | **hatiye**<br><sub>هاتیە</sub> |\n| 1pl | em | **tên**<br><sub>تێن</sub> | **hatin**<br><sub>هاتن</sub> | **hatine**<br><sub>هاتنە</sub> |\n| 2pl | hûn | **tên**<br><sub>تێن</sub> | **hatin**<br><sub>هاتن</sub> | **hatine**<br><sub>هاتنە</sub> |\n| 3pl | ew | **tên**<br><sub>تێن</sub> | **hatin**<br><sub>هاتن</sub> | **hatine**<br><sub>هاتنە</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ev pirtûk bi kurdî hatiye nivîsîn.", "This book has been written in Kurdish."],
+        ["Derî tê vekirin.", "The door is being opened."],
+        ["Name duh hat şandin.", "The letter was sent yesterday."],
+        ["Ez hatim vexwendin.", "I was invited."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ev pirtûk bi kurdî hatiye nivîsîn. | ئەڤ پرتووک ب کوردی هاتیە نڤیسین. | /ɛv pɪɾtuːk bɪ kʊɾdiː haːtɪjɛ nɪviːsiːn/ | This book has been written in Kurdish. |\n| 2 | Derî tê vekirin. | دەری تێ ڤەکرن. | /dɛɾiː teː vɛkɪɾɯn/ | The door is being opened. |\n| 3 | Name duh hat şandin. | نامە دوه هات شاندن. | /naːmɛ dʊh haːt ʃaːndɯn/ | The letter was sent yesterday. |\n| 4 | Ez hatim vexwendin. | ئەز هاتم ڤەخوەندن. | /ɛz haːtɯm vɛxʷɛndɯn/ | I was invited. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "rabûn",
+        "cells": "present,subj,past,imperative"
+      },
+      "lines": [],
+      "output": "*rabûn* (ڕابوون) “to get up, to stand up”, present stem **b**, past stem **bû**, intransitive, preverb **ra**\n\n| person | pronoun | Present | Subjunctive | Simple past | Imperative |\n|---|---|---|---|---|---|\n| 1sg | ez | **radibim**<br><sub>ڕادبم</sub> | **rabim**<br><sub>ڕابم</sub> | **rabûm**<br><sub>ڕابووم</sub> | · |\n| 2sg | tu | **radibî**<br><sub>ڕادبی</sub> | **rabî**<br><sub>ڕابی</sub> | **rabûyî**<br><sub>ڕابوویی</sub> | **rabe**<br><sub>ڕابە</sub> |\n| 3sg | ew | **radibe**<br><sub>ڕادبە</sub> | **rabe**<br><sub>ڕابە</sub> | **rabû**<br><sub>ڕابوو</sub> | · |\n| 1pl | em | **radibin**<br><sub>ڕادبن</sub> | **rabin**<br><sub>ڕابن</sub> | **rabûn**<br><sub>ڕابوون</sub> | · |\n| 2pl | hûn | **radibin**<br><sub>ڕادبن</sub> | **rabin**<br><sub>ڕابن</sub> | **rabûn**<br><sub>ڕابوون</sub> | **rabin**<br><sub>ڕابن</sub> |\n| 3pl | ew | **radibin**<br><sub>ڕادبن</sub> | **rabin**<br><sub>ڕابن</sub> | **rabûn**<br><sub>ڕابوون</sub> | · |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "vekirin",
+        "cells": "present,subj,past,imperative"
+      },
+      "lines": [],
+      "output": "*vekirin* (ڤەکرن) “to open”, present stem **k**, past stem **kir**, transitive, preverb **ve**\n\n| person | agent (oblique) | object (direct) | Present | Subjunctive | Simple past | Imperative |\n|---|---|---|---|---|---|---|\n| 1sg | min | ez | **vedikim**<br><sub>ڤەدکم</sub> | **vekim**<br><sub>ڤەکم</sub> | **vekirim**<br><sub>ڤەکرم</sub> | · |\n| 2sg | te | tu | **vedikî**<br><sub>ڤەدکی</sub> | **vekî**<br><sub>ڤەکی</sub> | **vekirî**<br><sub>ڤەکری</sub> | **veke**<br><sub>ڤەکە</sub> |\n| 3sg | wî / wê | ew | **vedike**<br><sub>ڤەدکە</sub> | **veke**<br><sub>ڤەکە</sub> | **vekir**<br><sub>ڤەکر</sub> | · |\n| 1pl | me | em | **vedikin**<br><sub>ڤەدکن</sub> | **vekin**<br><sub>ڤەکن</sub> | **vekirin**<br><sub>ڤەکرن</sub> | · |\n| 2pl | we | hûn | **vedikin**<br><sub>ڤەدکن</sub> | **vekin**<br><sub>ڤەکن</sub> | **vekirin**<br><sub>ڤەکرن</sub> | **vekin**<br><sub>ڤەکن</sub> |\n| 3pl | wan | ew | **vedikin**<br><sub>ڤەدکن</sub> | **vekin**<br><sub>ڤەکن</sub> | **vekirin**<br><sub>ڤەکرن</sub> | · |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "derketin",
+        "cells": "present,past"
+      },
+      "lines": [],
+      "output": "*derketin* (دەرکەتن) “to go out, to come out”, present stem **kev**, past stem **ket**, intransitive, preverb **der**\n\n| person | pronoun | Present | Simple past |\n|---|---|---|---|\n| 1sg | ez | **derdikevim**<br><sub>دەردکەڤم</sub> | **derketim**<br><sub>دەرکەتم</sub> |\n| 2sg | tu | **derdikevî**<br><sub>دەردکەڤی</sub> | **derketî**<br><sub>دەرکەتی</sub> |\n| 3sg | ew | **derdikeve**<br><sub>دەردکەڤە</sub> | **derket**<br><sub>دەرکەت</sub> |\n| 1pl | em | **derdikevin**<br><sub>دەردکەڤن</sub> | **derketin**<br><sub>دەرکەتن</sub> |\n| 2pl | hûn | **derdikevin**<br><sub>دەردکەڤن</sub> | **derketin**<br><sub>دەرکەتن</sub> |\n| 3pl | ew | **derdikevin**<br><sub>دەردکەڤن</sub> | **derketin**<br><sub>دەرکەتن</sub> |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hilgirtin",
+        "cells": "present,past"
+      },
+      "lines": [],
+      "output": "*hilgirtin* (هلگرتن) “to pick up, to lift”, present stem **gir**, past stem **girt**, transitive, preverb **hil**\n\n| person | agent (oblique) | object (direct) | Present | Simple past |\n|---|---|---|---|---|\n| 1sg | min | ez | **hildigirim**<br><sub>هلدگرم</sub> | **hilgirtim**<br><sub>هلگرتم</sub> |\n| 2sg | te | tu | **hildigirî**<br><sub>هلدگری</sub> | **hilgirtî**<br><sub>هلگرتی</sub> |\n| 3sg | wî / wê | ew | **hildigire**<br><sub>هلدگرە</sub> | **hilgirt**<br><sub>هلگرت</sub> |\n| 1pl | me | em | **hildigirin**<br><sub>هلدگرن</sub> | **hilgirtin**<br><sub>هلگرتن</sub> |\n| 2pl | we | hûn | **hildigirin**<br><sub>هلدگرن</sub> | **hilgirtin**<br><sub>هلگرتن</sub> |\n| 3pl | wan | ew | **hildigirin**<br><sub>هلدگرن</sub> | **hilgirtin**<br><sub>هلگرتن</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "sentences",
+      "args": {
+        "ipa": "1"
+      },
+      "lines": [
+        ["Ez sibê zû radibim.", "I get up early in the morning."],
+        ["Derî veke!", "Open the door!"],
+        ["Min pirtûk hilgirt.", "I picked up the book."],
+        ["Ders dest pê kir.", "The lesson began."],
+        ["Ez komputerê bi kar tînim.", "I use the computer."],
+        ["Ez te nas dikim.", "I know you."]
+      ],
+      "output": "| # | Kurdish | Arabic script | IPA | English |\n|---|---|---|---|---|\n| 1 | Ez sibê zû radibim. | ئەز سبێ زوو ڕادبم. | /ɛz sɪbeː zuː raːdɪbɯm/ | I get up early in the morning. |\n| 2 | Derî veke! | دەری ڤەکە! | /dɛɾiː vɛkɛ/ | Open the door! |\n| 3 | Min pirtûk hilgirt. | من پرتووک هلگرت. | /mɪn pɪɾtuːk hɪlɡɯɾt/ | I picked up the book. |\n| 4 | Ders dest pê kir. | دەرس دەست پێ کر. | /dɛɾs dɛst peː kɪɾ/ | The lesson began. |\n| 5 | Ez komputerê bi kar tînim. | ئەز کۆمپوتەرێ ب کار تینم. | /ɛz koːmpʊtɛɾeː bɪ kaːɾ tiːnɯm/ | I use the computer. |\n| 6 | Ez te nas dikim. | ئەز تە ناس دکم. | /ɛz tɛ naːs dɪkɯm/ | I know you. |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "present,present_neg,subj,imperative"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Present | Present negative | Subjunctive | Imperative |\n|---|---|---|---|---|---|\n| 1sg | ez | **têm**<br><sub>تێم</sub> | **nayêm**<br><sub>نایێم</sub> | **bêm**<br><sub>بێم</sub> | · |\n| 2sg | tu | **têyî**<br><sub>تێیی</sub> | **nayêyî**<br><sub>نایێیی</sub> | **bêyî**<br><sub>بێیی</sub> | **were**<br><sub>وەرە</sub> |\n| 3sg | ew | **tê**<br><sub>تێ</sub> | **nayê**<br><sub>نایێ</sub> | **bê**<br><sub>بێ</sub> | · |\n| 1pl | em | **tên**<br><sub>تێن</sub> | **nayên**<br><sub>نایێن</sub> | **bên**<br><sub>بێن</sub> | · |\n| 2pl | hûn | **tên**<br><sub>تێن</sub> | **nayên**<br><sub>نایێن</sub> | **bên**<br><sub>بێن</sub> | **werin**<br><sub>وەرن</sub> |\n| 3pl | ew | **tên**<br><sub>تێن</sub> | **nayên**<br><sub>نایێن</sub> | **bên**<br><sub>بێن</sub> | · |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "anîn",
+        "cells": "present,present_neg,subj,past"
+      },
+      "lines": [],
+      "output": "*anîn* (ئانین) “to bring”, present stem **în**, past stem **anî**, transitive\n\n| person | agent (oblique) | object (direct) | Present | Present negative | Subjunctive | Simple past |\n|---|---|---|---|---|---|---|\n| 1sg | min | ez | **tînim**<br><sub>تینم</sub> | **nayînim**<br><sub>نایینم</sub> | **bînim**<br><sub>بینم</sub> | **anîm**<br><sub>ئانیم</sub> |\n| 2sg | te | tu | **tînî**<br><sub>تینی</sub> | **nayînî**<br><sub>نایینی</sub> | **bînî**<br><sub>بینی</sub> | **aniyî**<br><sub>ئانیی</sub> |\n| 3sg | wî / wê | ew | **tîne**<br><sub>تینە</sub> | **nayîne**<br><sub>نایینە</sub> | **bîne**<br><sub>بینە</sub> | **anî**<br><sub>ئانی</sub> |\n| 1pl | me | em | **tînin**<br><sub>تینن</sub> | **nayînin**<br><sub>نایینن</sub> | **bînin**<br><sub>بینن</sub> | **anîn**<br><sub>ئانین</sub> |\n| 2pl | we | hûn | **tînin**<br><sub>تینن</sub> | **nayînin**<br><sub>نایینن</sub> | **bînin**<br><sub>بینن</sub> | **anîn**<br><sub>ئانین</sub> |\n| 3pl | wan | ew | **tînin**<br><sub>تینن</sub> | **nayînin**<br><sub>نایینن</sub> | **bînin**<br><sub>بینن</sub> | **anîn**<br><sub>ئانین</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "çûn",
+        "cells": "present,past,imperative"
+      },
+      "lines": [],
+      "output": "*çûn* (چوون) “to go”, present stem **ç**, past stem **çû**, intransitive\n\n| person | pronoun | Present | Simple past | Imperative |\n|---|---|---|---|---|\n| 1sg | ez | **diçim**<br><sub>دچم</sub> | **çûm**<br><sub>چووم</sub> | · |\n| 2sg | tu | **diçî**<br><sub>دچی</sub> | **çûyî**<br><sub>چوویی</sub> | **here**<br><sub>هەرە</sub> |\n| 3sg | ew | **diçe**<br><sub>دچە</sub> | **çû**<br><sub>چوو</sub> | · |\n| 1pl | em | **diçin**<br><sub>دچن</sub> | **çûn**<br><sub>چوون</sub> | · |\n| 2pl | hûn | **diçin**<br><sub>دچن</sub> | **çûn**<br><sub>چوون</sub> | **herin**<br><sub>هەرن</sub> |\n| 3pl | ew | **diçin**<br><sub>دچن</sub> | **çûn**<br><sub>چوون</sub> | · |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "zanîn",
+        "cells": "present,present_neg,past"
+      },
+      "lines": [],
+      "output": "*zanîn* (زانین) “to know”, present stem **zan**, past stem **zanî**, transitive\n\n| person | agent (oblique) | object (direct) | Present | Present negative | Simple past |\n|---|---|---|---|---|---|\n| 1sg | min | ez | **dizanim**<br><sub>دزانم</sub> | **nizanim**<br><sub>نزانم</sub> | **zanîm**<br><sub>زانیم</sub> |\n| 2sg | te | tu | **dizanî**<br><sub>دزانی</sub> | **nizanî**<br><sub>نزانی</sub> | **zaniyî**<br><sub>زانیی</sub> |\n| 3sg | wî / wê | ew | **dizane**<br><sub>دزانە</sub> | **nizane**<br><sub>نزانە</sub> | **zanî**<br><sub>زانی</sub> |\n| 1pl | me | em | **dizanin**<br><sub>دزانن</sub> | **nizanin**<br><sub>نزانن</sub> | **zanîn**<br><sub>زانین</sub> |\n| 2pl | we | hûn | **dizanin**<br><sub>دزانن</sub> | **nizanin**<br><sub>نزانن</sub> | **zanîn**<br><sub>زانین</sub> |\n| 3pl | wan | ew | **dizanin**<br><sub>دزانن</sub> | **nizanin**<br><sub>نزانن</sub> | **zanîn**<br><sub>زانین</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "bûn",
+        "cells": "present,subj,past,perfect"
+      },
+      "lines": [],
+      "output": "*bûn* (بوون) “to be, to become”, present stem **b**, past stem **bû**, intransitive\n\n| person | pronoun | Present | Subjunctive | Simple past | Present perfect |\n|---|---|---|---|---|---|\n| 1sg | ez | **dibim**<br><sub>دبم</sub> | **bibim**<br><sub>ببم</sub> | **bûm**<br><sub>بووم</sub> | **bûme**<br><sub>بوومە</sub> |\n| 2sg | tu | **dibî**<br><sub>دبی</sub> | **bibî**<br><sub>ببی</sub> | **bûyî**<br><sub>بوویی</sub> | **bûyî**<br><sub>بوویی</sub> |\n| 3sg | ew | **dibe**<br><sub>دبە</sub> | **bibe**<br><sub>ببە</sub> | **bû**<br><sub>بوو</sub> | **bûye**<br><sub>بوویە</sub> |\n| 1pl | em | **dibin**<br><sub>دبن</sub> | **bibin**<br><sub>ببن</sub> | **bûn**<br><sub>بوون</sub> | **bûne**<br><sub>بوونە</sub> |\n| 2pl | hûn | **dibin**<br><sub>دبن</sub> | **bibin**<br><sub>ببن</sub> | **bûn**<br><sub>بوون</sub> | **bûne**<br><sub>بوونە</sub> |\n| 3pl | ew | **dibin**<br><sub>دبن</sub> | **bibin**<br><sub>ببن</sub> | **bûn**<br><sub>بوون</sub> | **bûne**<br><sub>بوونە</sub> |"
+    },
+    {
+      "name": "sentences",
+      "args": {},
+      "lines": [
+        ["Min sêv xwar.", "I ate the apple."],
+        ["Min sêv xwarin.", "I ate the apples."],
+        ["Wî heval dîtin.", "He saw the friends."]
+      ],
+      "output": "| # | Kurdish | Arabic script | English |\n|---|---|---|---|\n| 1 | Min sêv xwar. | من سێڤ خوار. | I ate the apple. |\n| 2 | Min sêv xwarin. | من سێڤ خوارن. | I ate the apples. |\n| 3 | Wî heval dîtin. | وی هەڤال دیتن. | He saw the friends. |"
+    },
+    {
+      "name": "ergativity",
+      "args": {},
+      "lines": [
+        ["Ez nan dixwim.", "I eat bread."],
+        ["Min nan xwar.", "I ate bread."],
+        ["Te ez dîtim.", "You saw me."],
+        ["Wan em dîtin.", "They saw us."],
+        ["Ez hatim.", "I came."],
+        ["Ez nan xwar.", "(wrong) direct agent"],
+        ["Min tu dîtim.", "(wrong) agreement with the agent"],
+        ["Min hatim.", "(wrong) oblique subject of an intransitive verb"],
+        ["Min sêv xwarin.", "I ate the apples. (correct)"],
+        ["Jinê nan çêkir.", "The woman made bread. (correct)"]
+      ],
+      "output": "| sentence | English | alignment | agent | object | verb agrees with | check |\n|---|---|---|---|---|---|---|\n| *Ez nan dixwim.* | I eat bread. | accusative | Ez (dir) | · | subject (1sg) | ✔ |\n| *Min nan xwar.* | I ate bread. | ergative | Min (obl) | nan (dir) | object (3sg) | ✔ |\n| *Te ez dîtim.* | You saw me. | ergative | Te (obl) | ez (dir) | object (1sg) | ✔ |\n| *Wan em dîtin.* | They saw us. | ergative | Wan (obl) | em (dir) | object (pl) | ✔ |\n| *Ez hatim.* | I came. | accusative | Ez (dir) | · | subject (1sg) | ✔ |\n| *Ez nan xwar.* | (wrong) direct agent | ergative | · | Ez (dir) | object (3sg) | ✘ ergative clause without an overt oblique agent (pro-drop); verb ending marks 3sg but object 'Ez' is 1sg |\n| *Min tu dîtim.* | (wrong) agreement with the agent | ergative | Min (obl) | tu (dir) | object (1sg) | ✘ verb ending marks 1sg but object 'tu' is 2sg |\n| *Min hatim.* | (wrong) oblique subject of an intransitive verb | accusative | · | · | subject (1sg) | ✘ subject not overt; verb ending marks 1sg |\n| *Min sêv xwarin.* | I ate the apples. (correct) | ergative | Min (obl) | sêv (dir) | object (pl) | ✘ verb ending marks pl but object 'sêv' is 3sg |\n| *Jinê nan çêkir.* | The woman made bread. (correct) | ergative | · | Jinê (dir) | object (3sg) | ✔ |"
+    },
+    {
+      "name": "normalize",
+      "args": {},
+      "lines": [
+        ["Kürdistan", "Turkish ü for û"],
+        ["şéwe", "acute é for ê"],
+        ["İro baran dibare.", "Turkish dotted İ"],
+        ["Ez dıçım malê.", "Turkish dotless ı"],
+        ["Ew’ê hat.", "curly apostrophe"]
+      ],
+      "output": "| typed text | after `normalize()` | problems still found by `validate_word()` | note |\n|---|---|---|---|\n| Kürdistan | Kûrdistan | · | Turkish ü for û |\n| şéwe | şêwe | · | acute é for ê |\n| İro baran dibare. | Iro baran dibare. | · | Turkish dotted İ |\n| Ez dıçım malê. | Ez diçim malê. | · | Turkish dotless ı |\n| Ew’ê hat. | Ew'ê hat. | · | curly apostrophe |"
+    },
+    {
+      "name": "normalize",
+      "args": {},
+      "lines": [
+        ["Erdoğan", "ğ is not a Kurmanji letter"],
+        ["Göktürk", "ö, ü"],
+        ["kurrrd", "three r in a row"]
+      ],
+      "output": "| typed text | after `normalize()` | problems still found by `validate_word()` | note |\n|---|---|---|---|\n| Erdoğan | Erdoğan | Erdoğan: foreign letter(s): ğ; non-Hawar character(s): ğ | ğ is not a Kurmanji letter |\n| Göktürk | Göktûrk | Göktûrk: foreign letter(s): ö; non-Hawar character(s): ö | ö, ü |\n| kurrrd | kurrrd | kurrrd: tripled letter; four consonants in a row | three r in a row |"
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "kirin",
+        "cells": "present,subj,past,past_prog,perfect,pluperfect"
+      },
+      "lines": [],
+      "output": "*kirin* (کرن) “to do, to make”, present stem **k**, past stem **kir**, transitive\n\n| person | agent (oblique) | object (direct) | Present | Subjunctive | Simple past | Past progressive | Present perfect | Past perfect |\n|---|---|---|---|---|---|---|---|---|\n| 1sg | min | ez | **dikim**<br><sub>دکم</sub> | **bikim**<br><sub>بکم</sub> | **kirim**<br><sub>کرم</sub> | **dikirim**<br><sub>دکرم</sub> | **kirime**<br><sub>کرمە</sub> | **kiribûm**<br><sub>کربووم</sub> |\n| 2sg | te | tu | **dikî**<br><sub>دکی</sub> | **bikî**<br><sub>بکی</sub> | **kirî**<br><sub>کری</sub> | **dikirî**<br><sub>دکری</sub> | **kiriyî**<br><sub>کریی</sub> | **kiribûyî**<br><sub>کربوویی</sub> |\n| 3sg | wî / wê | ew | **dike**<br><sub>دکە</sub> | **bike**<br><sub>بکە</sub> | **kir**<br><sub>کر</sub> | **dikir**<br><sub>دکر</sub> | **kiriye**<br><sub>کریە</sub> | **kiribû**<br><sub>کربوو</sub> |\n| 1pl | me | em | **dikin**<br><sub>دکن</sub> | **bikin**<br><sub>بکن</sub> | **kirin**<br><sub>کرن</sub> | **dikirin**<br><sub>دکرن</sub> | **kirine**<br><sub>کرنە</sub> | **kiribûn**<br><sub>کربوون</sub> |\n| 2pl | we | hûn | **dikin**<br><sub>دکن</sub> | **bikin**<br><sub>بکن</sub> | **kirin**<br><sub>کرن</sub> | **dikirin**<br><sub>دکرن</sub> | **kirine**<br><sub>کرنە</sub> | **kiribûn**<br><sub>کربوون</sub> |\n| 3pl | wan | ew | **dikin**<br><sub>دکن</sub> | **bikin**<br><sub>بکن</sub> | **kirin**<br><sub>کرن</sub> | **dikirin**<br><sub>دکرن</sub> | **kirine**<br><sub>کرنە</sub> | **kiribûn**<br><sub>کربوون</sub> |\n\n> Past tenses of a transitive verb are **ergative**: the agent is oblique and the verb agrees with the **object** (the *object* column), e.g. *min tu dîtî* “I saw you”."
+    },
+    {
+      "name": "verb",
+      "args": {
+        "verb": "hatin",
+        "cells": "present,subj,past,past_prog,perfect,pluperfect"
+      },
+      "lines": [],
+      "output": "*hatin* (هاتن) “to come”, present stem **ê**, past stem **hat**, intransitive\n\n| person | pronoun | Present | Subjunctive | Simple past | Past progressive | Present perfect | Past perfect |\n|---|---|---|---|---|---|---|---|\n| 1sg | ez | **têm**<br><sub>تێم</sub> | **bêm**<br><sub>بێم</sub> | **hatim**<br><sub>هاتم</sub> | **dihatim**<br><sub>دهاتم</sub> | **hatime**<br><sub>هاتمە</sub> | **hatibûm**<br><sub>هاتبووم</sub> |\n| 2sg | tu | **têyî**<br><sub>تێیی</sub> | **bêyî**<br><sub>بێیی</sub> | **hatî**<br><sub>هاتی</sub> | **dihatî**<br><sub>دهاتی</sub> | **hatiyî**<br><sub>هاتیی</sub> | **hatibûyî**<br><sub>هاتبوویی</sub> |\n| 3sg | ew | **tê**<br><sub>تێ</sub> | **bê**<br><sub>بێ</sub> | **hat**<br><sub>هات</sub> | **dihat**<br><sub>دهات</sub> | **hatiye**<br><sub>هاتیە</sub> | **hatibû**<br><sub>هاتبوو</sub> |\n| 1pl | em | **tên**<br><sub>تێن</sub> | **bên**<br><sub>بێن</sub> | **hatin**<br><sub>هاتن</sub> | **dihatin**<br><sub>دهاتن</sub> | **hatine**<br><sub>هاتنە</sub> | **hatibûn**<br><sub>هاتبوون</sub> |\n| 2pl | hûn | **tên**<br><sub>تێن</sub> | **bên**<br><sub>بێن</sub> | **hatin**<br><sub>هاتن</sub> | **dihatin**<br><sub>دهاتن</sub> | **hatine**<br><sub>هاتنە</sub> | **hatibûn**<br><sub>هاتبوون</sub> |\n| 3pl | ew | **tên**<br><sub>تێن</sub> | **bên**<br><sub>بێن</sub> | **hatin**<br><sub>هاتن</sub> | **dihatin**<br><sub>دهاتن</sub> | **hatine**<br><sub>هاتنە</sub> | **hatibûn**<br><sub>هاتبوون</sub> |"
+    }
+  ]
+}

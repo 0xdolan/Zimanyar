@@ -1,0 +1,62 @@
+---
+title: "7. Nouns: gender, a / the, and plurals"
+description: "Kurmanji lesson 7: Nouns: gender, a / the, and plurals"
+course: kmr
+lesson: 7
+level: beginner
+rules: []
+---
+
+import { NounTable, Sentences, Words } from "../../src/components.tsx";
+
+## Masculine and feminine
+
+Every Kurmanji noun is **masculine (m)** or **feminine (f)**. For people it follows sex (*bav* father m, *jin* woman f); for everything else you must learn it with the word, as in German or French. The gender does not change the noun itself, but it chooses the endings of lessons 8 and 9, so **always learn nouns with their gender**:
+
+<Words lang="kmr" words="bav,bira,mirov,jin,keç,mal,bajar,pirtûk,ziman,welat" />
+
+| m | f |
+|---|---|
+| bav *father*, bira *brother*, kur *son*, mirov *person* | jin *woman*, keç *girl*, dê *mother*, xwişk *sister* |
+| bajar *city*, gund *village*, welat *country*, ziman *language*, nan *bread*, xanî *house (building)* | mal *home*, pirtûk *book*, kitêb *book*, av *water*, roj *day*, şev *night*, sêv *apple* |
+
+## “The”: nothing
+
+A bare noun is **definite** or generic: *jin* “the woman” or “woman”. There is no word for *the*.
+
+## “A”: -ek
+
+Add **-ek** (after a vowel **-yek**): *jinek* “a woman”, *çiyayek* “a mountain”, *xaniyek* “a house”. For *some* (plural) use **hin**: *hin pirtûk* “some books”.
+
+## Plural: often nothing!
+
+In the **direct** case the plural is **unmarked**: *keç* = “the girl” or “the girls”. The verb and any endings show the number:
+
+<Sentences lang="kmr" ipa items={[["Keç hat.","The girl came."],["Keç hatin.","The girls came."],["Jinek hat.","A woman came."],["Hin mirov hatin.","Some people came."]]} />
+
+In the oblique case (lesson 9) and with ezafe (lesson 8) the plural **is** marked: *-an*, *-ên*.
+
+## The direct forms
+
+zimankit's `decline()` generates the direct forms (the full table with all cases is in lesson 9):
+
+<NounTable lang="kmr" nouns="jin,keç,mal,pirtûk,bav,mirov,bajar,xanî,çiya" cells="def.dir.sg,ind.dir.sg,def.dir.pl" />
+
+## Practice
+
+1. *a book*, *a mountain*, *a house* (xanî).
+2. What is the gender of *mal*, *bajar*, *jin*?
+
+<details>
+<summary>Answers</summary>
+
+1. pirtûkek, çiyayek, xaniyek.
+2. *mal* f, *bajar* m, *jin* f.
+
+</details>
+
+## Summary
+
+* Every noun is m or f: learn the gender with the noun.
+* *the* = bare noun; *a* = **-ek / -yek**; *some* = **hin**.
+* The direct plural is unmarked; the verb shows the number.
