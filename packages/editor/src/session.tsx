@@ -50,6 +50,10 @@ export interface EditorHandle {
   /** Show a finding's card and move focus to it, for a findings panel beside the text. */
   open(findingId: string): void;
   apply(findingId: string, suggestion: string): void;
+  /** Select a finding's text and bring it into view, for a findings panel beside the text. */
+  reveal(findingId: string): void;
+  /** Stop showing a finding, and others like it, until the page is reloaded. */
+  ignore(findingId: string): void;
   /** Apply every deterministic fix. */
   fixSafe(): void;
   destroy(): void;
@@ -483,6 +487,16 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
     },
     open: (findingId) => openCard(findingId, true),
     apply,
+    reveal(findingId) {
+      const finding = byId(findingId);
+      if (finding !== undefined) field.reveal(finding.range.start, finding.range.end);
+    },
+    ignore(findingId) {
+      const finding = byId(findingId);
+      if (finding === undefined) return;
+      ignored.add(ignoreKey(finding));
+      publish();
+    },
     fixSafe() {
       // From the end, so the earlier offsets stay right.
       const safe = visible()

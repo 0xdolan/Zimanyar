@@ -292,8 +292,8 @@ describe("the worker's client", () => {
     const handle = createHandler(checker);
     const transfers: unknown[] = [];
     const port: WorkerPort = {
-      postMessage(message, transfer) {
-        transfers.push(transfer);
+      postMessage(message, options) {
+        transfers.push(options?.transfer);
         void handle(message).then((data) => {
           for (const listener of listeners) listener({ data });
         });
