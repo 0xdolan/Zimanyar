@@ -1,0 +1,20 @@
+id: ckb.verb.negation-clitic
+family: verb
+category: agreement
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "In the negative past the clitic follows نە."
+  ckb: "لە ڕابردووی نەرێدا کلیتیک دوای نە دێت."
+  kmr: "Di dema borî ya neyînî de klîtîk piştî نە tê."
+reason:
+  en: "The clitic of a transitive verb moves onto the first part of the word: نەمخوارد, \"I did not eat\"."
+  ckb: "کلیتیکی کرداری تێپەڕ دەچێتە سەر بەشی یەکەمی وشەکە: نەمخوارد."
+  kmr: "Klîtîka lêkera gerguhêz diçe ser beşa yekem a peyvê: نەمخوارد."
+examples:
+  - { wrong: "نەخواردم", right: "نەمخوارد" }
+  - { wrong: "نەکڕیمان", right: "نەمانکڕی" }
+lessons:
+  - { lang: ckb, lessonId: 14, anchor: "where-the-clitic-goes" }
+  - { lang: ckb, lessonId: 22, anchor: "the-hosting-rule" }

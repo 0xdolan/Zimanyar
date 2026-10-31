@@ -30,3 +30,4 @@ These are not exceptions, because the behaviour is the same:
 - zimankit's data tables and regular expressions are generated from its source into `packages/core/src/generated/tables.ts`, so they cannot drift or be mistyped. CI regenerates the file and fails if it differs.
 - `packages/core/src/python.ts` holds the places where the languages differ: `\s` and `\w`, `str.strip`, `str.count` and `round`.
 - `charScript` uses zimankit's answers as generated ranges, because zimankit reads Unicode character names, which JavaScript cannot.
+- The Sorani generator treats دا as a preverb that drops the subjunctive ب, giving داخە, but zimankit's own lessons write دابخە. The port matches the generator, and `ckb.verb.preverb-b` follows the lessons by not flagging دابخە.

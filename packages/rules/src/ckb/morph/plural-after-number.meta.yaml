@@ -1,0 +1,20 @@
+id: ckb.morph.plural-after-number
+family: morph
+category: morphology
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "After a number the noun stays singular."
+  ckb: "دوای ژمارە ناو تاک دەمێنێتەوە."
+  kmr: "Piştî hejmarê navdêr yekjimar dimîne."
+reason:
+  en: "The number already says how many, so the plural ending ان is not used: سێ پیاو. A definite plural is different: سێ پیاوەکە means \"the three men\"."
+  ckb: "ژمارەکە خۆی دەڵێت چەندە، بۆیە پاشگری کۆی ان بەکار نایەت: سێ پیاو. کۆی ناسراو جیاوازە: سێ پیاوەکە واتە ئەو سێ پیاوە."
+  kmr: "Hejmar bi xwe dibêje çend in, ji ber vê paşgira pirjimar ان nayê bikaranîn: سێ پیاو. Pirjimara diyar cuda ye: سێ پیاوەکە tê wateya ew sê mêr."
+examples:
+  - { wrong: "سێ پیاوان", right: "سێ پیاو" }
+  - { wrong: "دوو کتێبان", right: "دوو کتێب" }
+lessons:
+  - { lang: ckb, lessonId: 7, anchor: "counting" }
+  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }

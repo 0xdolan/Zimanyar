@@ -1,0 +1,20 @@
+id: ckb.morph.definite-adjective-order
+family: morph
+category: morphology
+severity: warning
+confidence: 0.6
+safeFix: false
+message:
+  en: "In \"the good man\" the definite ending goes on the adjective."
+  ckb: "لە «پیاوە باشەکە» پاشگری ناسراو دەچێتە سەر ئاوەڵناوەکە."
+  kmr: "Di «پیاوە باشەکە» de paşgira diyar li ser rengdêrê ye."
+reason:
+  en: "When a definite noun has an adjective, the noun takes ە and the adjective takes the ending: پیاوە باشەکە. پیاوەکە باشە is a different thing: a sentence, \"the man is good\"."
+  ckb: "کاتێک ناوی ناسراو ئاوەڵناوی هەبێت، ناوەکە ە وەردەگرێت و ئاوەڵناوەکە پاشگرەکە: پیاوە باشەکە. پیاوەکە باشە شتێکی ترە: ڕستەیە."
+  kmr: "Dema navdêra diyar rengdêr hebe, navdêr ە digire û rengdêr paşgirê: پیاوە باشەکە. پیاوەکە باشە tiştekî din e: hevok e."
+examples:
+  - { wrong: "پیاوەکە باش", right: "پیاوە باشەکە" }
+  - { wrong: "ژنەکە جوان", right: "ژنە جوانەکە" }
+lessons:
+  - { lang: ckb, lessonId: 9, anchor: "definite-the-good-man" }
+  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }

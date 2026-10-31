@@ -1,0 +1,53 @@
+{"text": "من كتێب دەخوێنم.", "findings": [{"rule": "ckb.orth.arabic-codepoint", "span": "كتێب", "fix": "کتێب"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "كوردستان جوانە.", "findings": [{"rule": "ckb.orth.arabic-codepoint", "span": "كوردستان", "fix": "کوردستان"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەو ماسي دەخوات.", "findings": [{"rule": "ckb.orth.arabic-codepoint", "span": "ماسي", "fix": "ماسی"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەو چاى دەخواتەوە.", "findings": [{"rule": "ckb.orth.arabic-codepoint", "span": "چاى", "fix": "چای"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "به‌ڕێوه‌به‌ر هات.", "findings": [{"rule": "ckb.orth.legacy-heh", "span": "به‌ڕێوه‌به‌ر", "fix": "بەڕێوەبەر"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "هه‌موو پیاوێک هات.", "findings": [{"rule": "ckb.orth.legacy-heh", "span": "هه‌موو", "fix": "هەموو"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئه‌و هات.", "findings": [{"rule": "ckb.orth.legacy-heh", "span": "ئه‌و", "fix": "ئەو"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من او دەخۆمەوە.", "findings": [{"rule": "ckb.orth.initial-vowel", "span": "او", "fix": "ئاو"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ێمە هاتین.", "findings": [{"rule": "ckb.orth.initial-vowel", "span": "ێمە", "fix": "ئێمە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ەو هات.", "findings": [{"rule": "ckb.orth.initial-vowel", "span": "ەو", "fix": "ئەو"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەو رۆژە هات.", "findings": [{"rule": "ckb.orth.initial-r", "span": "رۆژە", "fix": "ڕۆژە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "رووبارەکە گەورەیە.", "findings": [{"rule": "ckb.orth.initial-r", "span": "رووبارەکە", "fix": "ڕووبارەکە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەو رۆیشت.", "findings": [{"rule": "ckb.orth.initial-r", "span": "رۆیشت", "fix": "ڕۆیشت"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "هەەر من هاتم.", "findings": [{"rule": "ckb.orth.doubled-letter", "span": "هەەر", "fix": "هەر"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەو گوڵڵ دەبینێت.", "findings": [{"rule": "ckb.orth.doubled-letter", "span": "گوڵڵ", "fix": "گوڵ"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەو ئئاو دەخواتەوە.", "findings": [{"rule": "ckb.orth.doubled-letter", "span": "ئئاو", "fix": "ئاو"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ثەورە هات.", "findings": [{"rule": "ckb.orth.arabic-only-letter", "span": "ثەورە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ذکر دەکات.", "findings": [{"rule": "ckb.orth.arabic-only-letter", "span": "ذکر"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "چۆنی?", "findings": [{"rule": "ckb.orth.digits-punct", "span": "?", "fix": "؟"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ساڵی 2015 هات.", "findings": [{"rule": "ckb.orth.digits-punct", "span": "2015", "fix": "٢٠١٥"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "دەرگاەکە کرایەوە.", "findings": [{"rule": "ckb.morph.definite-allomorph", "span": "دەرگاەکە", "fix": "دەرگاکە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "دەرگاەکان کرانەوە.", "findings": [{"rule": "ckb.morph.definite-allomorph", "span": "دەرگاەکان", "fix": "دەرگاکان"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "پیاوکە هات.", "findings": [{"rule": "ckb.morph.definite-allomorph", "span": "پیاوکە", "fix": "پیاوەکە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "کتێبکان لێرەن.", "findings": [{"rule": "ckb.morph.definite-allomorph", "span": "کتێبکان", "fix": "کتێبەکان"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "دەرگاێک هەیە.", "findings": [{"rule": "ckb.morph.indef-allomorph", "span": "دەرگاێک", "fix": "دەرگایەک"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "پیاویەک هات.", "findings": [{"rule": "ckb.morph.indef-allomorph", "span": "پیاویەک", "fix": "پیاوێک"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "سێ پیاوان هاتن.", "findings": [{"rule": "ckb.morph.plural-after-number", "span": "پیاوان", "fix": "پیاو"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "دوو کتێبان دەخوێنم.", "findings": [{"rule": "ckb.morph.plural-after-number", "span": "کتێبان", "fix": "کتێب"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "پیاو باش لە ماڵە.", "findings": [{"rule": "ckb.morph.ezafe-missing", "span": "پیاو", "fix": "پیاوی"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "کتێب نوێ لە ماڵە.", "findings": [{"rule": "ckb.morph.ezafe-missing", "span": "کتێب", "fix": "کتێبی"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "پیاوەکە باش.", "findings": [{"rule": "ckb.morph.definite-adjective-order", "span": "پیاوەکە باش", "fix": "پیاوە باشەکە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من نان خوارد.", "findings": [{"rule": "ckb.verb.agent-missing", "span": "نان", "fix": "نانم"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئێمە کتێب کڕی.", "findings": [{"rule": "ckb.verb.agent-missing", "span": "کتێب", "fix": "کتێبمان"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "تۆ نان خوارد.", "findings": [{"rule": "ckb.verb.agent-missing", "span": "نان", "fix": "نانت"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من نان خواردم.", "findings": [{"rule": "ckb.verb.agent-misplaced", "span": "نان خواردم", "fix": "نانم خوارد"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئێمە کتێب کڕیمان.", "findings": [{"rule": "ckb.verb.agent-misplaced", "span": "کتێب کڕیمان", "fix": "کتێبمان کڕی"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "نانم خواردم.", "findings": [{"rule": "ckb.verb.agent-doubled", "span": "خواردم", "fix": "خوارد"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "کتێبمان کڕیمان.", "findings": [{"rule": "ckb.verb.agent-doubled", "span": "کڕیمان", "fix": "کڕی"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئێمە هاتمان.", "findings": [{"rule": "ckb.verb.agent-on-intransitive", "span": "هاتمان", "fix": "هاتین"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەوان چوویان.", "findings": [{"rule": "ckb.verb.agent-on-intransitive", "span": "چوویان", "fix": "چوون"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من نەخواردم.", "findings": [{"rule": "ckb.verb.negation-clitic", "span": "نەخواردم", "fix": "نەمخوارد"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ئەوان نەخواردیان.", "findings": [{"rule": "ckb.verb.negation-clitic", "span": "نەخواردیان", "fix": "نەیانخوارد"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "کتێبەکە هەڵبگرە.", "findings": [{"rule": "ckb.verb.preverb-b", "span": "هەڵبگرە", "fix": "هەڵگرە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "مەێ!", "findings": [{"rule": "ckb.verb.irregular", "span": "مەێ", "fix": "مەیە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من کتێبەکە دەوێم.", "findings": [{"rule": "ckb.verb.irregular", "span": "دەوێم", "fix": "دەمەوێت"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "دەمخوارد نان.", "findings": [{"rule": "ckb.syntax.verb-final", "span": "دەمخوارد نان", "fix": "نانم دەخوارد"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "بەلام من هاتم.", "findings": [{"rule": "ckb.spell.missing-mark", "span": "بەلام", "fix": "بەڵام"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من گول دەبینم.", "findings": [{"rule": "ckb.spell.missing-mark", "span": "گول", "fix": "گوڵ"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "وێستگه گەورەیە.", "findings": [{"rule": "ckb.orth.legacy-heh", "span": "وێستگه", "fix": "وێستگە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من هاتم .", "findings": [{"rule": "any.space.punctuation", "span": " .", "fix": "."}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من  هاتم.", "findings": [{"rule": "any.space.punctuation", "span": "  ", "fix": " "}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "من من هاتم.", "findings": [{"rule": "any.repeat.word", "span": "من من", "fix": "من"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "کتێbەکە لێرەیە.", "findings": [{"rule": "any.script.mixed", "span": "کتێbەکە"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}

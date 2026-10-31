@@ -1,0 +1,20 @@
+id: ckb.orth.doubled-letter
+family: orth
+category: orthography
+severity: error
+confidence: 0.98
+safeFix: true
+message:
+  en: "This letter is doubled."
+  ckb: "ئەم پیتە دووبارە نووسراوە."
+  kmr: "Ev tîp du caran hatiye nivîsîn."
+reason:
+  en: "ە, ڕ, ڵ and ئ are never written twice in a row, and و and ی at most twice."
+  ckb: "ە، ڕ، ڵ و ئ هەرگیز دوو جار لەسەر یەک نانووسرێن، و و ی زۆرترین دوو جار."
+  kmr: "ە, ڕ, ڵ û ئ tu carî du caran li pey hev nayên nivîsîn, و û ی herî zêde du caran."
+examples:
+  - { wrong: "مەەر", right: "مەر" }
+  - { wrong: "بووو", right: "بوو" }
+lessons:
+  - { lang: ckb, lessonId: 23, anchor: "5-words-the-validator-rejects" }
+  - { lang: ckb, lessonId: 2, anchor: "letters-to-watch" }

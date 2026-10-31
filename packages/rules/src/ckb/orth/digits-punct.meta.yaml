@@ -1,0 +1,20 @@
+id: ckb.orth.digits-punct
+family: orth
+category: punctuation
+severity: hint
+confidence: 0.6
+safeFix: false
+message:
+  en: "Sorani writes this with its own punctuation or digits."
+  ckb: "سۆرانی ئەمە بە خاڵبەندی یان ژمارەی خۆی دەنووسێت."
+  kmr: "Soranî vê bi xalbendî an hejmarên xwe dinivîse."
+reason:
+  en: "Arabic-script text normally uses ؟ ، ؛ and the digits ٠١٢٣. This is a matter of style, and some publishers prefer Latin digits."
+  ckb: "دەقی عەرەبی-نووس زۆرجار ؟ ، ؛ و ژمارەکانی ٠١٢٣ بەکاردەهێنێت. ئەمە پرسی شێوازە و هەندێک بڵاوکەرەوە ژمارەی لاتینی بەباشتر دەزانن."
+  kmr: "Nivîsa bi tîpên erebî bi gelemperî ؟ ، ؛ û hejmarên ٠١٢٣ bi kar tîne. Ev mijara şêwazê ye, û hin weşanxane hejmarên latînî tercîh dikin."
+examples:
+  - { wrong: "چۆنی?", right: "چۆنی؟" }
+  - { wrong: "ساڵی 2015", right: "ساڵی ٢٠١٥" }
+lessons:
+  - { lang: ckb, lessonId: 5, anchor: "punctuation" }
+  - { lang: ckb, lessonId: 5, anchor: "numbers" }

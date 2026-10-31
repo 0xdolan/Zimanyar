@@ -1,0 +1,20 @@
+id: ckb.morph.ezafe-missing
+family: morph
+category: morphology
+severity: warning
+confidence: 0.6
+safeFix: false
+message:
+  en: "A noun and its adjective are joined by the ezafe ی."
+  ckb: "ناو و ئاوەڵناوەکەی بە ئیزافەی ی بەیەکەوە دەبەسترێن."
+  kmr: "Navdêr û rengdêra wê bi îzafeya ی tên girêdan."
+reason:
+  en: "Sorani links a noun to the adjective after it with ی: پیاوی باش, \"a good man\". Without it the two words do not form a phrase."
+  ckb: "سۆرانی ناو بە ئاوەڵناوی دوای خۆی بە ی دەبەستێتەوە: پیاوی باش. بەبێ ئەوە دوو وشەکە فرێز پێک ناهێنن."
+  kmr: "Soranî navdêrê bi rengdêra piştî wê bi ی ve girê dide: پیاوی باش. Bêyî wê her du peyv hevokekê çênakin."
+examples:
+  - { wrong: "پیاو باش", right: "پیاوی باش" }
+  - { wrong: "کتێب نوێ", right: "کتێبی نوێ" }
+lessons:
+  - { lang: ckb, lessonId: 9, anchor: "the-linking-vowel" }
+  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }
