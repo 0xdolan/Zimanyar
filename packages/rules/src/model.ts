@@ -63,6 +63,8 @@ export interface RawFinding {
   start: number;
   end: number;
   suggestions: readonly (string | SuggestionText)[];
+  /** The word to look suggestions up for, when the check left them out. */
+  lookup?: string;
   /** Values for the rule's message. */
   params?: Readonly<Record<string, string>>;
   /** Overrides the rule's own confidence, for a case it is less sure of. */
@@ -73,6 +75,8 @@ export interface RuleContext {
   /** The compiled lexicon, or null when it has not been loaded: rules that need it find nothing. */
   lexicon: Lexicon | null;
   strictness: Strictness;
+  /** Leave spelling suggestions out of findings, as the search is the slowest step of a check. */
+  deferSuggestions: boolean;
   /** Every reading of a word, best first, cached per word. */
   readings(word: string): readonly Analysis[];
   /** The same as an analyzer, for engine functions that take one. */
@@ -114,6 +118,8 @@ export interface Finding {
   message: MessageRef;
   reason: MessageRef;
   suggestions: readonly SuggestionText[];
+  /** The word to look suggestions up for, when the check left them out. */
+  lookup?: string;
   examples: readonly RuleExample[];
   lessons: readonly LessonRef[];
   confidence: number;

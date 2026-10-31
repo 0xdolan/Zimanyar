@@ -15,6 +15,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@zimanyar/core": "workspace:*",
     "@zimanyar/data": "workspace:*",
     "@zimanyar/rules": "workspace:*",
     "zod": "4.6.7"

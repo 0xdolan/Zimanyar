@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { spellingFix } from "../src/helpers.js";
 import {
   buildParagraph,
   createContext,
@@ -7,6 +8,7 @@ import {
   runRules,
   splitParagraphs,
   splitSentences,
+  suggestionsFor,
 } from "../src/index.js";
 import { makeLexicon, nouns } from "./helpers.js";
 
@@ -132,5 +134,41 @@ describe("the document model", () => {
     const english = buildParagraph("The children went to school this morning and the weather was very nice");
     expect(english.otherLanguage).toBe("eng");
     expect(english.lang).toBe("kmr");
+  });
+});
+
+describe("suggestions left out of a check", () => {
+  const deferred = (lexicon: ReturnType<typeof makeLexicon> | null) =>
+    createContext("kmr", { lexicon, strictness: "standard", deferSuggestions: true });
+  const lexicon = () => makeLexicon("kmr", nouns([["mal", "f"]]));
+
+  it("names the word to ask about instead of searching", () => {
+    expect(spellingFix("mak", deferred(lexicon()))).toEqual({ suggestions: [], lookup: "mak" });
+  });
+
+  it("searches when not deferred, and remembers the answer", () => {
+    const context = createContext("kmr", { lexicon: lexicon(), strictness: "standard" });
+    expect(spellingFix("mak", context).suggestions).toContain("mal");
+    expect(spellingFix("mak", context).lookup).toBeUndefined();
+    expect(suggestionsFor("mak", context)).toBe(suggestionsFor("mak", context));
+  });
+
+  it("carries the word through to the finding", () => {
+    const rule: Rule = {
+      id: "kmr.spell.unknown",
+      check: () => [{ start: 3, end: 8, suggestions: [], lookup: "hatim" }],
+    };
+    const [finding] = runRules(buildParagraph("Ez hatim hatim û ez çûm.", "kmr"), [rule], deferred(null));
+    expect(finding?.lookup).toBe("hatim");
+    expect(finding?.suggestions).toEqual([]);
+  });
+
+  it("leaves it off a finding that has its suggestions", () => {
+    const [finding] = runRules(
+      buildParagraph("Ez hatim hatim û ez çûm.", "kmr"),
+      [at("any.repeat.word", 3, 14)],
+      context(),
+    );
+    expect(finding).not.toHaveProperty("lookup");
   });
 });

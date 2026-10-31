@@ -1,5 +1,5 @@
 import { kmr } from "@zimanyar/core";
-import { allWords, hasForm, suggestionsFor } from "../../helpers.js";
+import { allWords, hasForm, spellingFix } from "../../helpers.js";
 import type { RawFinding, Rule } from "../../model.js";
 
 const TRIPLED = /(\p{L})\1{2,}/gu;
@@ -20,7 +20,7 @@ export const tripledLetter: Rule = {
         found.push({ start: word.start, end: word.end, suggestions: [best] });
       } else if (!CAPITAL.test(word.text) && !hasForm(word.text, context)) {
         if (kmr.validateWord(word.text).includes("four consonants in a row")) {
-          found.push({ start: word.start, end: word.end, suggestions: suggestionsFor(word.text, context) });
+          found.push({ start: word.start, end: word.end, ...spellingFix(word.text, context) });
         }
       }
       TRIPLED.lastIndex = 0;

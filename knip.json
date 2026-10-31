@@ -7,6 +7,10 @@
     "packages/ui": {
       "entry": ["src/components/ui/*.tsx", "demo/*.{ts,tsx}"]
     },
+    "packages/editor": {
+      "entry": ["demo/*.{ts,tsx}"],
+      "ignoreDependencies": ["tailwindcss"]
+    },
     ".": {
       "ignoreDependencies": ["axe-core"]
     }

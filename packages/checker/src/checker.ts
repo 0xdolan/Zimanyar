@@ -1,3 +1,4 @@
+import { type Completion, complete } from "@zimanyar/core";
 import type { Lexicon } from "@zimanyar/data";
 import {
   buildParagraph,
@@ -9,6 +10,7 @@ import {
   runRules,
   type Strictness,
   splitParagraphs,
+  suggestionsFor,
   type Variety,
 } from "@zimanyar/rules";
 
@@ -18,6 +20,8 @@ export interface CheckOptions {
   strictness?: Strictness;
   /** Rules to leave out, by id. */
   disabledRules?: readonly string[];
+  /** Leave spelling suggestions out, for checking as someone types. `suggest` finds them later. */
+  deferSuggestions?: boolean;
 }
 
 /** Paragraphs kept before the oldest is dropped, which is many pages of editing. */
@@ -39,18 +43,22 @@ export class Checker {
     this.cache.clear();
   }
 
-  private contextFor(lang: Variety, strictness: Strictness): RuleContext {
-    const key = `${lang}\0${strictness}`;
+  private contextFor(lang: Variety, strictness: Strictness, deferSuggestions: boolean): RuleContext {
+    const key = `${lang}\0${strictness}\0${deferSuggestions}`;
     let context = this.contexts.get(key);
     if (context === undefined) {
-      context = createContext(lang, { lexicon: this.lexicons.get(lang) ?? null, strictness });
+      context = createContext(lang, {
+        lexicon: this.lexicons.get(lang) ?? null,
+        strictness,
+        deferSuggestions,
+      });
       this.contexts.set(key, context);
     }
     return context;
   }
 
   private checkParagraph(text: string, options: Required<CheckOptions>): Finding[] {
-    const key = `${options.lang}\0${options.strictness}\0${options.disabledRules.join(",")}\0${text}`;
+    const key = `${options.lang}\0${options.strictness}\0${options.deferSuggestions}\0${options.disabledRules.join(",")}\0${text}`;
     const cached = this.cache.get(key);
     if (cached !== undefined) {
       // Refreshing its place keeps what is being edited in the cache.
@@ -59,7 +67,7 @@ export class Checker {
       return cached;
     }
     const paragraph = buildParagraph(text, options.lang);
-    const context = this.contextFor(paragraph.lang, options.strictness);
+    const context = this.contextFor(paragraph.lang, options.strictness, options.deferSuggestions);
     const disabled = new Set(options.disabledRules);
     const rules = paragraph.otherLanguage !== null ? [NOTICE_RULE] : rulesFor(paragraph.lang);
     const findings = runRules(
@@ -78,6 +86,7 @@ export class Checker {
       lang: options.lang ?? "auto",
       strictness: options.strictness ?? "standard",
       disabledRules: options.disabledRules ?? [],
+      deferSuggestions: options.deferSuggestions ?? false,
     };
     return splitParagraphs(text).flatMap(({ start, text: paragraph }) =>
       this.checkParagraph(paragraph, resolved).map((finding) => ({
@@ -86,6 +95,18 @@ export class Checker {
         range: { start: finding.range.start + start, end: finding.range.end + start },
       })),
     );
+  }
+
+  /** Spelling suggestions for one word, for a finding whose `lookup` asks for them. */
+  suggest(word: string, lang: Variety): string[] {
+    return suggestionsFor(word, this.contextFor(lang, "standard", false));
+  }
+
+  /** Words that begin with what is being typed, attested ones first. */
+  complete(prefix: string, lang: Variety, limit?: number): Completion[] {
+    const lexicon = this.lexicons.get(lang);
+    if (lexicon === undefined) return [];
+    return complete(prefix, lexicon, { includeInflections: true, ...(limit !== undefined ? { limit } : {}) });
   }
 
   get cachedParagraphs(): number {

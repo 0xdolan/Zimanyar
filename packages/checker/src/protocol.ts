@@ -6,13 +6,25 @@ const options = z.object({
   lang: z.enum(["ckb", "kmr", "auto"]).optional(),
   strictness: z.enum(["standard", "tolerant"]).optional(),
   disabledRules: z.array(z.string()).optional(),
+  deferSuggestions: z.boolean().optional(),
 });
+const variety = z.enum(["ckb", "kmr"]);
+/** Far longer than any word: the search for one word grows with its length. */
+const word = z.string().max(100);
 
 /** Every message to the worker is validated: the page or content script that sends it is not trusted. */
 export const requestSchema = z.discriminatedUnion("type", [
   z.object({ type: z.literal("load"), id: z.number(), bytes: z.instanceof(Uint8Array) }),
   z.object({ type: z.literal("check"), id: z.number(), text: z.string(), options: options.optional() }),
   z.object({ type: z.literal("fixSafe"), id: z.number(), text: z.string(), options: options.optional() }),
+  z.object({ type: z.literal("suggest"), id: z.number(), word, lang: variety }),
+  z.object({
+    type: z.literal("complete"),
+    id: z.number(),
+    prefix: word,
+    lang: variety,
+    limit: z.number().int().min(1).max(50).optional(),
+  }),
 ]);
 export type WorkerRequest = z.infer<typeof requestSchema>;
 
@@ -20,6 +32,8 @@ export type WorkerResponse =
   | { type: "loaded"; id: number; lang: string }
   | { type: "findings"; id: number; findings: ReturnType<Checker["check"]> }
   | { type: "fixed"; id: number; text: string }
+  | { type: "suggestions"; id: number; words: string[] }
+  | { type: "completions"; id: number; completions: ReturnType<Checker["complete"]> }
   | { type: "error"; id: number; message: string };
 
 type Options = NonNullable<Extract<WorkerRequest, { type: "check" }>["options"]>;
@@ -30,6 +44,7 @@ function cleanOptions(input: Options | undefined) {
     ...(input?.lang !== undefined ? { lang: input.lang } : {}),
     ...(input?.strictness !== undefined ? { strictness: input.strictness } : {}),
     ...(input?.disabledRules !== undefined ? { disabledRules: input.disabledRules } : {}),
+    ...(input?.deferSuggestions !== undefined ? { deferSuggestions: input.deferSuggestions } : {}),
   };
 }
 
@@ -63,6 +78,14 @@ export function createHandler(
             type: "fixed",
             id: request.id,
             text: fixAllSafe(checker, request.text, cleanOptions(request.options)),
+          };
+        case "suggest":
+          return { type: "suggestions", id: request.id, words: checker.suggest(request.word, request.lang) };
+        case "complete":
+          return {
+            type: "completions",
+            id: request.id,
+            completions: checker.complete(request.prefix, request.lang, request.limit),
           };
       }
     } catch (error) {

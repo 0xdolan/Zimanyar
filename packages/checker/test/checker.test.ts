@@ -1,7 +1,14 @@
 import { Lexicon } from "@zimanyar/data";
 import { buildLexicon } from "@zimanyar/data/builder";
 import { describe, expect, it, vi } from "vitest";
-import { applyFixes, Checker, createHandler, fixAllSafe } from "../src/index.js";
+import {
+  applyFixes,
+  Checker,
+  CheckerClient,
+  createHandler,
+  fixAllSafe,
+  type WorkerPort,
+} from "../src/index.js";
 
 const lexiconBytes = () =>
   buildLexicon({
@@ -228,5 +235,128 @@ describe("the worker's handler", () => {
       throw "odd";
     })({ type: "load", id: 11, bytes: new Uint8Array(4) });
     expect(response).toEqual({ type: "error", id: 11, message: "failed" });
+  });
+});
+
+describe("suggestions on demand", () => {
+  const loaded = () => {
+    const checker = new Checker();
+    checker.setLexicon(new Lexicon(lexiconBytes()));
+    return checker;
+  };
+
+  it("leaves them out of a deferred check, and names the word to ask about", () => {
+    const [finding] = loaded()
+      .check("Ez mak dibînim.", { lang: "kmr", deferSuggestions: true })
+      .filter((found) => found.ruleId === "kmr.spell.unknown");
+    expect(finding?.suggestions).toEqual([]);
+    expect(finding?.lookup).toBe("mak");
+  });
+
+  it("finds them when asked, the same as a full check", () => {
+    const checker = loaded();
+    const [full] = checker
+      .check("Ez mak dibînim.", { lang: "kmr" })
+      .filter((found) => found.ruleId === "kmr.spell.unknown");
+    expect(full?.lookup).toBeUndefined();
+    expect(checker.suggest("mak", "kmr")).toEqual(full?.suggestions.map((suggestion) => suggestion.text));
+    expect(checker.suggest("mak", "kmr")).toContain("mal");
+  });
+
+  it("does not share cached findings between the two kinds of check", () => {
+    const checker = loaded();
+    const lookups = (deferSuggestions: boolean) =>
+      checker
+        .check("Ez mak dibînim.", { lang: "kmr", deferSuggestions })
+        .filter((found) => found.ruleId === "kmr.spell.unknown")
+        .map((found) => found.lookup);
+    expect(lookups(true)).toEqual(["mak"]);
+    expect(lookups(false)).toEqual([undefined]);
+  });
+
+  it("finds nothing without a lexicon", () => {
+    expect(new Checker().suggest("mak", "kmr")).toEqual([]);
+    expect(new Checker().complete("ma", "kmr")).toEqual([]);
+  });
+
+  it("completes a word", () => {
+    expect(loaded().complete("ma", "kmr", 3)[0]?.word).toBe("mal");
+    expect(loaded().complete("ma", "kmr")[0]?.word).toBe("mal");
+  });
+});
+
+describe("the worker's client", () => {
+  /** A worker in all but the thread: messages go through the real handler. */
+  function connected(checker = new Checker()) {
+    const listeners: ((event: { data: unknown }) => void)[] = [];
+    const handle = createHandler(checker);
+    const transfers: unknown[] = [];
+    const port: WorkerPort = {
+      postMessage(message, transfer) {
+        transfers.push(transfer);
+        void handle(message).then((data) => {
+          for (const listener of listeners) listener({ data });
+        });
+      },
+      addEventListener: (_type, listener) => listeners.push(listener),
+    };
+    return { client: new CheckerClient(port), transfers, listeners };
+  }
+
+  it("answers each kind of request", async () => {
+    const { client, transfers } = connected();
+    const bytes = lexiconBytes();
+    expect(await client.load(bytes as Uint8Array<ArrayBuffer>)).toBe("kmr");
+    expect(transfers[0]).toEqual([bytes.buffer]);
+    expect((await client.check("Ez ez hatim.", { lang: "kmr" }))[0]?.ruleId).toBe("any.repeat.word");
+    expect(await client.fixSafe("Ez hatim .", { lang: "kmr" })).toBe("Ez hatim.");
+    expect(await client.suggest("mak", "kmr")).toContain("mal");
+    expect((await client.complete("ma", "kmr", 2))[0]?.word).toBe("mal");
+  });
+
+  it("keeps answers with their questions when they overtake each other", async () => {
+    const { client } = connected();
+    const [first, second] = await Promise.all([
+      client.check("Ez ez hatim.", { lang: "kmr" }),
+      client.check("Ez hatim.", { lang: "kmr" }),
+    ]);
+    expect(first).toHaveLength(1);
+    expect(second).toEqual([]);
+  });
+
+  it("turns an error into a rejection", async () => {
+    const { client } = connected();
+    await expect(client.load(new Uint8Array(4))).rejects.toThrow();
+  });
+
+  it("rejects an answer of the wrong kind", async () => {
+    const listeners: ((event: { data: unknown }) => void)[] = [];
+    const client = new CheckerClient({
+      postMessage: (message) => {
+        const id = (message as { id: number }).id;
+        for (const listener of listeners) listener({ data: { type: "fixed", id, text: "" } });
+      },
+      addEventListener: (_type, listener) => listeners.push(listener),
+    });
+    await expect(client.check("x")).rejects.toThrow("expected findings, got fixed");
+  });
+
+  it("ignores an answer nobody asked for", () => {
+    const { listeners } = connected();
+    expect(() => listeners[0]?.({ data: { type: "fixed", id: 99, text: "" } })).not.toThrow();
+  });
+});
+
+describe("the worker's new requests", () => {
+  it("rejects a word too long to search for", async () => {
+    const response = await createHandler()({ type: "suggest", id: 1, word: "a".repeat(101), lang: "kmr" });
+    expect(response).toEqual({ type: "error", id: 1, message: "invalid request" });
+  });
+
+  it("passes deferSuggestions through", async () => {
+    const checker = new Checker();
+    const check = vi.spyOn(checker, "check");
+    await createHandler(checker)({ type: "check", id: 1, text: "x", options: { deferSuggestions: true } });
+    expect(check).toHaveBeenCalledWith("x", { deferSuggestions: true });
   });
 });

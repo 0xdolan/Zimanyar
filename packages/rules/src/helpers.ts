@@ -19,6 +19,16 @@ export function suggestionsFor(word: string, context: RuleContext): string[] {
   return found;
 }
 
+/**
+ * What a finding offers for a misspelt word: the suggestions or, when the check leaves them out to stay
+ * quick, the word to ask about once someone looks at the finding.
+ */
+export function spellingFix(word: string, context: RuleContext): { suggestions: string[]; lookup?: string } {
+  return context.deferSuggestions
+    ? { suggestions: [], lookup: word }
+    : { suggestions: suggestionsFor(word, context) };
+}
+
 /** A form's frequency in the corpus, or -1 for a word the lexicon lacks. */
 export function frequencyOf(word: string, context: RuleContext): number {
   return context.lexicon?.form(word)?.frequency ?? -1;
