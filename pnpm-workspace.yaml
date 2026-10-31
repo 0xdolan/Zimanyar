@@ -8,7 +8,16 @@ packages:
 # dependencies only where the workspace itself declares them.
 minimumReleaseAge: 10080
 trustPolicy: no-downgrade
+# Published by its maintainer in 2024, before the project signed releases in CI, and required
+# by @types/node 22. It holds types only. Exempt this exact version, never the package.
+trustPolicyExclude:
+  - undici-types@6.21.0
 blockExoticSubdeps: true
+
+# knip's wasm fallback bindings pin this exactly, and 1.2.6 is still inside the cooldown. The
+# fallback is used only on platforms with no native binding. Remove from 2026-11-02.
+overrides:
+  "@napi-rs/wasm-runtime": 1.2.5
 
 # pnpm 10 runs no dependency install scripts unless they are listed here.
 onlyBuiltDependencies:
