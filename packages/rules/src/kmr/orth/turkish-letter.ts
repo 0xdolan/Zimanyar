@@ -1,4 +1,4 @@
-import { allWords, suggestionsFor } from "../../helpers.js";
+import { allWords, spellingFix } from "../../helpers.js";
 import type { RawFinding, Rule } from "../../model.js";
 
 const ALWAYS: ReadonlyMap<string, string> = new Map([
@@ -24,7 +24,7 @@ export const turkishLetter: Rule = {
         (letter) => ALWAYS.get(letter) ?? (name ? letter : (IN_ORDINARY_WORDS.get(letter) ?? letter)),
       ).join("");
       if (!name && NO_KURDISH_EQUIVALENT.test(word.text)) {
-        found.push({ start: word.start, end: word.end, suggestions: suggestionsFor(fixed, context) });
+        found.push({ start: word.start, end: word.end, ...spellingFix(fixed, context) });
       } else if (fixed !== word.text) {
         found.push({ start: word.start, end: word.end, suggestions: [fixed] });
       }

@@ -1,5 +1,5 @@
 import { ckb } from "@zimanyar/core";
-import { allWords, isFunctionWord, isLemma, suggestionsFor } from "../../helpers.js";
+import { allWords, isFunctionWord, isLemma, spellingFix } from "../../helpers.js";
 import type { RawFinding, Rule, RuleContext } from "../../model.js";
 import { isVerbWithObjectClitic } from "../helpers.js";
 
@@ -29,7 +29,7 @@ export const unknownWord: Rule = {
         isVerbWithObjectClitic(normal) ||
         (COPULA.test(normal) && isExplained(normal.replace(COPULA, ""), context));
       if (!explained) {
-        found.push({ start: word.start, end: word.end, suggestions: suggestionsFor(normal, context) });
+        found.push({ start: word.start, end: word.end, ...spellingFix(normal, context) });
       }
     }
     return found;

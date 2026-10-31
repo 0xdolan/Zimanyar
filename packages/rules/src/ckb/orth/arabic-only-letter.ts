@@ -1,4 +1,4 @@
-import { allWords, suggestionsFor } from "../../helpers.js";
+import { allWords, spellingFix } from "../../helpers.js";
 import type { RawFinding, Rule } from "../../model.js";
 
 const ARABIC_ONLY = /[ثذصضطظء]/u;
@@ -10,7 +10,7 @@ export const arabicOnlyLetter: Rule = {
     const found: RawFinding[] = [];
     for (const word of allWords(sentences)) {
       if (ARABIC_ONLY.test(word.text)) {
-        found.push({ start: word.start, end: word.end, suggestions: suggestionsFor(word.text, context) });
+        found.push({ start: word.start, end: word.end, ...spellingFix(word.text, context) });
       }
     }
     return found;

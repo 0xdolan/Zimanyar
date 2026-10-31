@@ -15,11 +15,11 @@ export const LAYERS: Readonly<Record<string, number>> = {
   core: 2,
   rules: 3,
   checker: 4,
-  i18n: 5,
+  i18n: 4,
   settings: 5,
   content: 5,
   ui: 5,
-  editor: 5,
+  editor: 6,
 };
 
 const IMPORT =
@@ -60,7 +60,7 @@ export function layerViolation(from: string, to: string): string | null {
 
 const typescriptFiles = (directory: string): string[] =>
   (readdirSync(directory, { recursive: true }) as string[])
-    .filter((file) => file.endsWith(".ts"))
+    .filter((file) => /\.tsx?$/.test(file))
     .map((file) => join(directory, file));
 
 export function checkPackages(packages: string): string[] {
@@ -73,7 +73,10 @@ export function checkPackages(packages: string): string[] {
       const local: string[] = [];
       for (const specifier of importsOf(readFileSync(file, "utf8"))) {
         if (specifier.startsWith(".")) {
-          local.push(resolve(dirname(file), specifier).replace(/\.js$/, ".ts"));
+          const target = resolve(dirname(file), specifier);
+          local.push(
+            `${target.replace(/\.js$/, "")}${existsSync(target.replace(/\.js$/, ".tsx")) ? ".tsx" : ".ts"}`,
+          );
         } else if (specifier.startsWith("@zimanyar/")) {
           const target = (specifier.split("/")[1] as string).trim();
           const violation = layerViolation(name, target);

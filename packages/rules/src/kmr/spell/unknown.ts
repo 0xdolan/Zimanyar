@@ -1,5 +1,5 @@
 import { kmr } from "@zimanyar/core";
-import { isFunctionWord, isLemma, suggestionsFor } from "../../helpers.js";
+import { isFunctionWord, isLemma, spellingFix } from "../../helpers.js";
 import type { RawFinding, Rule } from "../../model.js";
 
 const HAWAR = /^[a-zçêîşû]+$/u;
@@ -26,8 +26,7 @@ export const unknownWord: Rule = {
               isLemma(reading.lemma, context) ||
               isFunctionWord(reading.lemma, "kmr"),
           );
-        if (!explained)
-          found.push({ start: word.start, end: word.end, suggestions: suggestionsFor(normal, context) });
+        if (!explained) found.push({ start: word.start, end: word.end, ...spellingFix(normal, context) });
       }
     }
     return found;

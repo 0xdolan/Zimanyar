@@ -32,10 +32,14 @@ export function findingId(ruleId: string, start: number, end: number, text: stri
 export interface ContextOptions {
   lexicon: Lexicon | null;
   strictness: Strictness;
+  deferSuggestions?: boolean;
 }
 
 /** The analyzers are expensive to build and words repeat, so both are kept per context. */
-export function createContext(lang: "ckb" | "kmr", { lexicon, strictness }: ContextOptions): RuleContext {
+export function createContext(
+  lang: "ckb" | "kmr",
+  { lexicon, strictness, deferSuggestions = false }: ContextOptions,
+): RuleContext {
   const adapter = lexicon ? lexiconAdapter(lexicon) : undefined;
   const analyzer = lang === "ckb" ? new ckb.CkbAnalyzer(adapter) : new kmr.KmrAnalyzer(adapter);
   const cache = new Map<string, ReturnType<typeof analyzer.analyze>>();
@@ -50,6 +54,7 @@ export function createContext(lang: "ckb" | "kmr", { lexicon, strictness }: Cont
   return {
     lexicon,
     strictness,
+    deferSuggestions,
     readings,
     analyzer: { analyze: readings, best: (word) => readings(word)[0] ?? null },
   };
@@ -71,6 +76,7 @@ function toFinding(rule: Rule, raw: RawFinding, paragraph: Paragraph, offset: nu
     suggestions: raw.suggestions.map((suggestion) =>
       typeof suggestion === "string" ? { text: suggestion } : suggestion,
     ),
+    ...(raw.lookup !== undefined ? { lookup: raw.lookup } : {}),
     examples: meta.examples,
     lessons: meta.lessons,
     confidence: Math.max(0, (raw.confidence ?? meta.confidence) - unsure),
