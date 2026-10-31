@@ -29,6 +29,12 @@ from zimankit.skills_ckb import morphology as ckb_morphology
 from zimankit.skills_ckb import orthography as ckb_orthography
 from zimankit.skills_ckb import phonology_ipa as ckb_phonology
 from zimankit.skills_ckb import verbs as ckb_verbs
+from zimankit.skills_kmr import morphology as kmr_morphology
+from zimankit.skills_kmr import orthography as kmr_orthography
+from zimankit.skills_kmr import phonology_ipa as kmr_phonology
+from zimankit.skills_kmr import syntax as kmr_syntax
+from zimankit.skills_kmr import translit as kmr_translit
+from zimankit.skills_kmr import verbs as kmr_verbs
 
 TARGET = ROOT / "packages" / "core" / "src" / "generated" / "tables.ts"
 TABLES = {
@@ -51,8 +57,16 @@ PREFIXED = {
         ckb_morphology: ["CLITICS", "PERSONS", "POS_PRIORITY", "PROCLITICS"],
         ckb_verbs: ["CLITIC_SUBJECT_PRESENT", "IRREGULAR", "PASSIVE_STEM", "PREVERBS", "SET2", "VOWEL_END"],
     },
+    "KMR": {
+        kmr_morphology: ["DECLENSION", "DERIVATIONS", "INFLECTIONS", "POS_PRIORITY"],
+        kmr_verbs: ["NI_NEGATION", "PERSONS", "PREVERBS"],
+        kmr_syntax: ["DIRECT_PRONOUNS", "OBLIQUE_PRONOUNS", "PRONOUN_PERSON"],
+    },
+    "KMR_PHON": {kmr_phonology: ["ASPIRABLE", "CONSONANTS", "VOWELS"]},
+    "KMR_TRANSLIT": {kmr_translit: ["MAP"]},
 }
 PREFIXED_REGEXES = {
+    "KMR": {kmr_orthography: ["_APOS_EDGE_RE", "_VALID_RE"]},
     "CKB": {
         ckb_orthography: [
             "_INITIAL_R_RE", "_INITIAL_VOWEL_RE", "_LEGACY_FINAL_HEH_RE", "_LEGACY_HEH_ZWNJ_RE", "_SEQ_RE",

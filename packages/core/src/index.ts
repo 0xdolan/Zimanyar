@@ -1,4 +1,5 @@
 export * as ckb from "./ckb/index.js";
+export * as kmr from "./kmr/index.js";
 export { identify, isLang, type LidLang, type LidResult } from "./lid.js";
 export { cleanZwnj, type DigitTarget, type NormalizeOptions, normalizeText } from "./normalize/shared.js";
 export {

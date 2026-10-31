@@ -291,12 +291,18 @@ def export_kmr(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
                 "upper": kmr_orthography.upper(w),
                 "normalize": kmr_orthography.normalize(w),
                 "normalize_word": kmr_orthography.normalize_word(w),
+                "normalize_word_case": kmr_orthography.normalize_word(w, False),
+                "normalize_no_apostrophe": kmr_orthography.normalize(
+                    w, kmr_orthography.KmrOrthographyOptions(lowercase=True, keep_apostrophe=False)
+                ),
                 "validate_word": kmr_orthography.validate_word(w),
             }
             for w in [*inputs, *corrupted]
         ),
     )
     narrow = kmr_phonology.KmrG2POptions(narrow=True)
+    narrow_dots = kmr_phonology.KmrG2POptions(narrow=True, syllable_dots=True)
+    plain_options = kmr_phonology.KmrG2POptions(reduced_suffix_i=False, syllable_dots=True)
     write(
         "kmr_phonology",
         (
@@ -304,6 +310,8 @@ def export_kmr(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
                 "input": w,
                 "ipa": kmr_phonology.to_ipa(w),
                 "ipa_narrow": kmr_phonology.to_ipa(w, narrow),
+                "ipa_narrow_marked": kmr_phonology.to_ipa(w, narrow_dots, True),
+                "ipa_plain": kmr_phonology.to_ipa(w, plain_options, True),
                 "syllables": kmr_phonology.syllables(w),
                 "arabic": kmr_translit.to_arabic(w),
                 "segments": [list(s) for s in kmr_phonology.segments(w)],
@@ -328,6 +336,15 @@ def export_kmr(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
             for n in nouns
         ),
     )
+    plain_analyzer = kmr_morphology.KmrAnalyzer()
+    write(
+        "kmr_analyze_no_lexicon",
+        (
+            {"input": w, "readings": [analysis(a) for a in plain_analyzer.analyze(w)[:3]]}
+            for w in [*frequent[: SIZES["analyze_no_lexicon"]], *corrupted[:500]]
+        ),
+    )
+    write("kmr_lemmas", lemma_table(lemmas), sample=False)
     analyzer = kmr_morphology.KmrAnalyzer(public_lexicon(lemmas))
     write(
         "kmr_analyze",
@@ -336,10 +353,10 @@ def export_kmr(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
             for w in frequent[: SIZES["analyze"]]
         ),
     )
-    export_alignment(core, lemmas, analyzer, rng)
+    export_alignment(core, lemmas, analyzer, plain_analyzer, rng)
 
 
-def export_alignment(core: list, lemmas: list[dict], analyzer, rng: random.Random) -> None:
+def export_alignment(core: list, lemmas: list[dict], analyzer, plain_analyzer, rng: random.Random) -> None:
     """Sentences of every shape the ergativity checker meets: right, wrong, and pro-drop."""
     direct = sorted(kmr_syntax.DIRECT_PRONOUNS)
     oblique = sorted(kmr_syntax.OBLIQUE_PRONOUNS)
@@ -359,6 +376,10 @@ def export_alignment(core: list, lemmas: list[dict], analyzer, rng: random.Rando
             words = [subject, rng.choice(direct + oblique + nouns), verb]
         sentences.append(" ".join(words).capitalize() + ".")
     write("kmr_alignment", (kmr_syntax.detect_alignment(s, analyzer).to_dict() for s in sentences))
+    write(
+        "kmr_alignment_no_lexicon",
+        (kmr_syntax.detect_alignment(s, plain_analyzer).to_dict() for s in sentences),
+    )
 
 
 def export_shared(ckb: list[str], kmr: list[str], rng: random.Random) -> None:
