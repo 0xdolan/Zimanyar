@@ -1,0 +1,20 @@
+id: kmr.orth.capital
+family: orth
+category: orthography
+severity: hint
+confidence: 0.6
+safeFix: true
+message:
+  en: "A sentence starts with a capital letter."
+  ckb: "ڕستە بە پیتی گەورە دەست پێ دەکات."
+  kmr: "Hevok bi tîpa mezin dest pê dike."
+reason:
+  en: "Kurmanji capitalises the first word of a sentence. The capital of i is I, and of î is Î, as in the Hawar alphabet."
+  ckb: "کورمانجی یەکەم وشەی ڕستە بە پیتی گەورە دەنووسێت. گەورەی i پیتی I ە و هی î پیتی Î، وەک ئەلفوبێی هاوار."
+  kmr: "Kurmancî peyva yekem a hevokê bi tîpa mezin dinivîse. Tîpa mezin a i I ye, û ya î Î ye, wek di alfabeya Hawarê de."
+examples:
+  - { wrong: "iro baran dibare.", right: "Iro baran dibare." }
+  - { wrong: "ez hatim.", right: "Ez hatim." }
+lessons:
+  - { lang: kmr, lessonId: 2, anchor: "upper-and-lower-case" }
+  - { lang: kmr, lessonId: 5, anchor: "capital-letters-and-apostrophes" }

@@ -1,0 +1,20 @@
+id: kmr.morph.present-object-case
+family: morph
+category: morphology
+severity: hint
+confidence: 0.45
+safeFix: false
+message:
+  en: "If you mean a specific one, this object takes the oblique."
+  ckb: "ئەگەر مەبەستت دانەیەکی دیاریکراوە، ئەم بەرکارە دەچێتە دۆخی نابەرکەوتوو."
+  kmr: "Heke mebesta te yekî diyar e, ev bireser di rewşa çemandî de ye."
+reason:
+  en: "In the present the object of a transitive verb is oblique: Ez pirtûkê dixwînim, \"I read the book\". Without the ending it reads as general, \"I read books\", which may be what you mean."
+  ckb: "لە ڕانەبردوودا بەرکاری کرداری تێپەڕ لە دۆخی نابەرکەوتووە: Ez pirtûkê dixwînim. بەبێ پاشگر گشتی دەخوێنرێتەوە، کە لەوانەیە مەبەستت بێت."
+  kmr: "Di dema niha de bireserê lêkera gerguhêz di rewşa çemandî de ye: Ez pirtûkê dixwînim. Bêyî paşgir giştî tê xwendin, ku dibe mebesta te be."
+examples:
+  - { wrong: "Ez pirtûk dixwînim", right: "Ez pirtûkê dixwînim" }
+  - { wrong: "Tu jin dibînî", right: "Tu jinê dibînî" }
+lessons:
+  - { lang: kmr, lessonId: 9, anchor: "in-sentences" }
+  - { lang: kmr, lessonId: 10, anchor: "word-order-and-the-object" }

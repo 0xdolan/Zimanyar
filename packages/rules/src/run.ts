@@ -39,17 +39,19 @@ export function createContext(lang: "ckb" | "kmr", { lexicon, strictness }: Cont
   const adapter = lexicon ? lexiconAdapter(lexicon) : undefined;
   const analyzer = lang === "ckb" ? new ckb.CkbAnalyzer(adapter) : new kmr.KmrAnalyzer(adapter);
   const cache = new Map<string, ReturnType<typeof analyzer.analyze>>();
+  const readings = (word: string) => {
+    let found = cache.get(word);
+    if (found === undefined) {
+      found = analyzer.analyze(word);
+      cache.set(word, found);
+    }
+    return found;
+  };
   return {
     lexicon,
     strictness,
-    readings(word) {
-      let found = cache.get(word);
-      if (found === undefined) {
-        found = analyzer.analyze(word);
-        cache.set(word, found);
-      }
-      return found;
-    },
+    readings,
+    analyzer: { analyze: readings, best: (word) => readings(word)[0] ?? null },
   };
 }
 

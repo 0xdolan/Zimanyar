@@ -1,0 +1,20 @@
+id: kmr.ergative.direct-agent
+family: ergative
+category: agreement
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "The doer of a past transitive verb takes the oblique form."
+  ckb: "بکەری ڕابردووی کرداری تێپەڕ لە دۆخی نابەرکەوتوو دەبێت."
+  kmr: "Kirdeya dema borî ya lêkera gerguhêz di rewşa çemandî de ye."
+reason:
+  en: "In the past tense the roles switch: \"I ate bread\" is Min nan xwar, with min, not ez."
+  ckb: "لە ڕابردوودا ڕۆڵەکان دەگۆڕێن: Min nan xwar، بە min، نەک ez."
+  kmr: "Di dema borî de rol diguherin: Min nan xwar, bi min, ne bi ez."
+examples:
+  - { wrong: "Ez nan xwar.", right: "Min nan xwar." }
+  - { wrong: "Tu nan xwar.", right: "Te nan xwar." }
+lessons:
+  - { lang: kmr, lessonId: 14, anchor: "the-big-switch" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

@@ -25,6 +25,28 @@ import { agentOnIntransitive } from "./ckb/verb/agent-on-intransitive.js";
 import { irregularForm } from "./ckb/verb/irregular.js";
 import { negationClitic } from "./ckb/verb/negation-clitic.js";
 import { preverbB } from "./ckb/verb/preverb-b.js";
+import { ergativeAgreement } from "./kmr/ergative/agreement.js";
+import { directAgent } from "./kmr/ergative/direct-agent.js";
+import { obliqueObject } from "./kmr/ergative/oblique-object.js";
+import { caseAfterPreposition } from "./kmr/morph/case-after-preposition.js";
+import { ezafeGender } from "./kmr/morph/ezafe-gender.js";
+import { indefiniteEzafeGender } from "./kmr/morph/indef-ezafe-gender.js";
+import { presentObjectCase } from "./kmr/morph/present-object-case.js";
+import { vowelGlide } from "./kmr/morph/vowel-glide.js";
+import { wrongAccent } from "./kmr/orth/accent.js";
+import { curlyApostrophe } from "./kmr/orth/apostrophe.js";
+import { sentenceCapital } from "./kmr/orth/capital.js";
+import { wrongCedilla } from "./kmr/orth/cedilla.js";
+import { tripledLetter } from "./kmr/orth/tripled.js";
+import { turkishLetter } from "./kmr/orth/turkish-letter.js";
+import { unknownWord as kmrUnknownWord } from "./kmr/spell/unknown.js";
+import { knownVariant as kmrKnownVariant } from "./kmr/spell/variant.js";
+import { futureParticle } from "./kmr/verb/future-particle.js";
+import { niNegation } from "./kmr/verb/ni-negation.js";
+import { obliqueIntransitiveSubject } from "./kmr/verb/oblique-intransitive-subject.js";
+import { prefixContraction } from "./kmr/verb/prefix-contraction.js";
+import { presentAgreement } from "./kmr/verb/present-agreement.js";
+import { preverbBi } from "./kmr/verb/preverb-bi.js";
 import type { Rule, Variety } from "./model.js";
 
 const ANY_RULES: readonly Rule[] = [mixedScript, spacePunctuation, repeatedWord];
@@ -53,7 +75,30 @@ const CKB_RULES: readonly Rule[] = [
   negationClitic,
   preverbB,
 ];
-const KMR_RULES: readonly Rule[] = [];
+const KMR_RULES: readonly Rule[] = [
+  ergativeAgreement,
+  directAgent,
+  obliqueObject,
+  caseAfterPreposition,
+  ezafeGender,
+  indefiniteEzafeGender,
+  presentObjectCase,
+  vowelGlide,
+  wrongAccent,
+  curlyApostrophe,
+  sentenceCapital,
+  wrongCedilla,
+  tripledLetter,
+  turkishLetter,
+  kmrUnknownWord,
+  kmrKnownVariant,
+  futureParticle,
+  niNegation,
+  obliqueIntransitiveSubject,
+  prefixContraction,
+  presentAgreement,
+  preverbBi,
+];
 
 /** The rule that notices another language. It runs alone: such a paragraph is never checked. */
 export const NOTICE_RULE: Rule = otherVariety;

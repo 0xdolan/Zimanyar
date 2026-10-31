@@ -1,0 +1,19 @@
+id: kmr.orth.tripled
+family: orth
+category: orthography
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "This word has a letter or cluster Kurmanji does not write."
+  ckb: "ئەم وشەیە پیت یان کۆمەڵێک پیتی تێدایە کە کورمانجی نایاننووسێت."
+  kmr: "Di vê peyvê de tîp an komek tîp heye ku kurmancî nanivîse."
+reason:
+  en: "No Kurmanji letter is written three times, and four consonants in a row do not occur. It is usually a slip of the finger or an emphasis."
+  ckb: "هیچ پیتێکی کورمانجی سێ جار نانووسرێت، و چوار نەبزوێن لەسەر یەک نییە. زۆرجار هەڵەی پەنجەیە یان جەختکردنە."
+  kmr: "Tu tîpa kurmancî sê caran nayê nivîsîn, û çar dengdar li pey hev çênabin. Pir caran şaşiya tiliyê an giranî ye."
+examples:
+  - { wrong: "kurrrd", right: "kurd" }
+  - { wrong: "baaaş", right: "baş" }
+lessons:
+  - { lang: kmr, lessonId: 23, anchor: "3-what-the-validator-rejects" }

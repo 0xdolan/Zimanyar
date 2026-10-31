@@ -1,0 +1,20 @@
+id: kmr.verb.prefix-contraction
+family: verb
+category: morphology
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "This prefix contracts with the verb's stem."
+  ckb: "ئەم پێشگرە لەگەڵ ڕەگی کردارەکەدا کورت دەبێتەوە."
+  kmr: "Ev pêşgir bi rehê lêkerê re kurt dibe."
+reason:
+  en: "Stems that start in ê or î merge with the prefix: di + êm gives têm, na + êm gives nayêm, bi + êm gives bêm. Stems in a merge too: na + axivim gives naxivim."
+  ckb: "ئەو ڕەگانەی بە ê یان î دەست پێ دەکەن لەگەڵ پێشگر تێکەڵ دەبن: di + êm دەبێتە têm، na + êm دەبێتە nayêm، bi + êm دەبێتە bêm."
+  kmr: "Rehên ku bi ê an î dest pê dikin bi pêşgirê re dibin yek: di + êm dibe têm, na + êm dibe nayêm, bi + êm dibe bêm."
+examples:
+  - { wrong: "diêm", right: "têm" }
+  - { wrong: "naêm", right: "nayêm" }
+lessons:
+  - { lang: kmr, lessonId: 10, anchor: "special-prefixes" }
+  - { lang: kmr, lessonId: 21, anchor: "hatin-to-come" }

@@ -1,0 +1,19 @@
+id: kmr.verb.present-agreement
+family: verb
+category: agreement
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "This verb does not agree with its subject."
+  ckb: "ئەم کردارە لەگەڵ بکەرەکەی ناگونجێت."
+  kmr: "Ev lêker li gorî kirdeya xwe nîne."
+reason:
+  en: "In the present the verb's ending follows the subject: Ez diçim, Tu diçî, Ew diçe, Em diçin."
+  ckb: "لە ڕانەبردوودا کۆتایی کردار پەیڕەوی بکەر دەکات: Ez diçim، Tu diçî، Ew diçe، Em diçin."
+  kmr: "Di dema niha de dawiya lêkerê li gorî kirdeyê ye: Ez diçim, Tu diçî, Ew diçe, Em diçin."
+examples:
+  - { wrong: "Ez diçe.", right: "Ez diçim." }
+  - { wrong: "Tu diçim.", right: "Tu diçî." }
+lessons:
+  - { lang: kmr, lessonId: 10, anchor: "building-the-present" }
