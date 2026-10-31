@@ -26,7 +26,7 @@ export const OVERLAY_CSS = `
 }
 `;
 
-const HOISTED = /@(?:font-face|property)[^{]*\{[^}]*\}/g;
+const HOISTED = /@(?:font-face|property)[^{}@]*\{[^{}]*\}/g;
 const ROOT = /:root((?:\[[^\]]*\]|:not\([^)]*\))*)/g;
 
 /**

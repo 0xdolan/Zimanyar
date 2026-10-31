@@ -109,7 +109,7 @@ function controlField(element: HTMLTextAreaElement | HTMLInputElement, container
       mirror.style.setProperty("white-space", "pre");
       mirror.style.setProperty("line-height", `${inner}px`);
     }
-    copy.data = element.value;
+    copy.nodeValue = element.value;
   };
 
   return {
