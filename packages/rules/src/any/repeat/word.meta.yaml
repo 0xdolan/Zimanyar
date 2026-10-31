@@ -1,0 +1,20 @@
+id: any.repeat.word
+family: repeat
+category: style
+severity: warning
+confidence: 0.75
+safeFix: false
+message:
+  en: "The word {word} is written twice."
+  ckb: "وشەی {word} دوو جار نووسراوە."
+  kmr: "Peyva {word} du caran hatiye nivîsîn."
+reason:
+  en: "A repeated word is usually a slip. Some doubled words are ordinary Kurdish, such as hêdî hêdî, and these are not flagged."
+  ckb: "وشەی دووبارە زۆرجار هەڵەیە. هەندێک وشەی دووبارە ئاساییە، وەک هێواش هێواش، و نیشان نادرێن."
+  kmr: "Peyva dubare pir caran şaşî ye. Hin peyvên dubare asayî ne, wek hêdî hêdî, û nayên nîşandan."
+examples:
+  - { wrong: "Ez ez hatim.", right: "Ez hatim." }
+  - { wrong: "من من هاتم.", right: "من هاتم." }
+lessons:
+  - { lang: ckb, lessonId: 5 }
+  - { lang: kmr, lessonId: 5 }

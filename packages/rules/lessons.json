@@ -1,0 +1,467 @@
+{
+  "ckb": {
+    "1": {
+      "file": "1-beginner/01-introduction.md",
+      "title": "Welcome to Sorani",
+      "anchors": [
+        "what-is-sorani",
+        "the-writing-system-in-one-minute",
+        "your-first-words",
+        "what-makes-sorani-grammar-interesting",
+        "how-this-course-works",
+        "summary"
+      ]
+    },
+    "2": {
+      "file": "1-beginner/02-alphabet.md",
+      "title": "The alphabet",
+      "anchors": [
+        "the-34-letters",
+        "the-nine-letters-that-never-join-forward",
+        "letters-to-watch",
+        "the-letter-ئ",
+        "practice",
+        "summary"
+      ]
+    },
+    "3": {
+      "file": "1-beginner/03-vowels.md",
+      "title": "Vowels and the hidden i",
+      "anchors": [
+        "the-vowel-letters",
+        "و-and-ی-have-two-jobs",
+        "the-bizroke-the-vowel-you-do-not-write",
+        "long-and-short",
+        "practice",
+        "summary"
+      ]
+    },
+    "4": {
+      "file": "1-beginner/04-consonants.md",
+      "title": "Consonants and pronunciation",
+      "anchors": [
+        "consonants-you-already-know",
+        "sounds-english-does-not-have",
+        "pairs-that-change-meaning",
+        "stress",
+        "practice",
+        "summary"
+      ]
+    },
+    "5": {
+      "file": "1-beginner/05-writing-and-reading.md",
+      "title": "Writing and reading",
+      "anchors": [
+        "direction-and-joining",
+        "what-is-written-as-one-word",
+        "numbers",
+        "punctuation",
+        "latin-transliteration",
+        "reading-practice",
+        "summary"
+      ]
+    },
+    "6": {
+      "file": "1-beginner/06-pronouns-and-to-be.md",
+      "title": "Pronouns and “to be”",
+      "anchors": [
+        "personal-pronouns",
+        "to-be-the-copula-endings",
+        "is-not-نیم-نیت-نییە",
+        "there-is-هەیە--نییە",
+        "questions",
+        "practice",
+        "summary"
+      ]
+    },
+    "7": {
+      "file": "1-beginner/07-nouns.md",
+      "title": "Nouns: the, a, and plurals",
+      "anchors": [
+        "the-bare-noun",
+        "consonant-final-and-vowel-final",
+        "the-noun-in-sentences",
+        "counting",
+        "how-zimankit-reads-these-forms",
+        "practice",
+        "summary"
+      ]
+    },
+    "8": {
+      "file": "1-beginner/08-this-that-and-questions.md",
+      "title": "This, that and question words",
+      "anchors": ["this-and-that", "question-words", "practice", "summary"]
+    },
+    "9": {
+      "file": "1-beginner/09-ezafe-and-adjectives.md",
+      "title": "Ezafe: linking nouns and adjectives",
+      "anchors": [
+        "the-linking-vowel",
+        "indefinite-a-good-man",
+        "definite-the-good-man",
+        "adjective-as-a-statement",
+        "how-zimankit-reads-these",
+        "practice",
+        "summary"
+      ]
+    },
+    "10": {
+      "file": "1-beginner/10-present-tense.md",
+      "title": "The present tense",
+      "anchors": [
+        "two-stems",
+        "building-the-present",
+        "six-verbs-in-the-present",
+        "the-negative",
+        "meaning-of-the-present",
+        "word-order-verb-last",
+        "practice",
+        "summary"
+      ]
+    },
+    "11": {
+      "file": "2-intermediate/11-possessives.md",
+      "title": "My, your, his: the personal clitics",
+      "anchors": [
+        "six-small-endings-that-do-a-lot",
+        "on-a-noun",
+        "at-the-end-of-the-phrase",
+        "to-have",
+        "with-prepositions",
+        "practice",
+        "summary"
+      ]
+    },
+    "12": {
+      "file": "2-intermediate/12-subjunctive-and-imperative.md",
+      "title": "Wishes, possibilities and commands",
+      "anchors": [
+        "the-subjunctive",
+        "when-to-use-it",
+        "i-want-ویستن",
+        "i-can-توانین",
+        "the-imperative",
+        "practice",
+        "summary"
+      ]
+    },
+    "13": {
+      "file": "2-intermediate/13-past-intransitive.md",
+      "title": "The past tense I: intransitive verbs",
+      "anchors": ["transitive-and-intransitive", "the-simple-past", "in-sentences", "practice", "summary"]
+    },
+    "14": {
+      "file": "2-intermediate/14-past-transitive-ergativity.md",
+      "title": "The past tense II: transitive verbs and ergativity",
+      "anchors": [
+        "the-surprise",
+        "what-is-going-on",
+        "where-the-clitic-goes",
+        "generated-paradigms",
+        "in-sentences",
+        "why-it-matters",
+        "practice",
+        "summary"
+      ]
+    },
+    "15": {
+      "file": "2-intermediate/15-past-progressive.md",
+      "title": "Was doing, used to do: the past progressive",
+      "anchors": ["form", "meaning", "all-past-forms-side-by-side", "practice", "summary"]
+    },
+    "16": {
+      "file": "2-intermediate/16-prepositions-and-postpositions.md",
+      "title": "In, from, with: prepositions and circumpositions",
+      "anchors": [
+        "simple-prepositions",
+        "compound-prepositions",
+        "circumpositions-the-second-half-after-the-noun",
+        "a-whole-phrase-in-one-word",
+        "practice",
+        "summary"
+      ]
+    },
+    "17": {
+      "file": "2-intermediate/17-comparison-and-word-building.md",
+      "title": "Comparison and building new words",
+      "anchors": [
+        "comparative-and-superlative",
+        "building-words-with-suffixes",
+        "how-zimankit-takes-words-apart",
+        "practice",
+        "summary"
+      ]
+    },
+    "18": {
+      "file": "3-advanced/18-perfect-tenses.md",
+      "title": "The perfect tenses",
+      "anchors": [
+        "present-perfect-i-have-come-i-have-done",
+        "past-perfect-i-had-come-i-had-done",
+        "with-an-object",
+        "meaning",
+        "summary"
+      ]
+    },
+    "19": {
+      "file": "3-advanced/19-passive.md",
+      "title": "The passive",
+      "anchors": ["a-real-passive-verb", "paradigms", "participle-and-perfect", "the-agent", "summary"]
+    },
+    "20": {
+      "file": "3-advanced/20-preverbs-and-compound-verbs.md",
+      "title": "Preverbs, -ەوە verbs and compound verbs",
+      "anchors": ["1-preverbs", "2-verbs-with--ەوە", "3-compound-verbs-with-a-noun", "summary"]
+    },
+    "21": {
+      "file": "3-advanced/21-irregular-verbs.md",
+      "title": "Irregular and special verbs",
+      "anchors": [
+        "هاتن-to-come",
+        "چوون-to-go",
+        "ویستن-to-want",
+        "بوون-to-be-to-become",
+        "verbs-with-unpredictable-present-stems",
+        "summary"
+      ]
+    },
+    "22": {
+      "file": "3-advanced/22-clitic-placement.md",
+      "title": "Clitic placement and ergative syntax in depth",
+      "anchors": [
+        "three-jobs-of-the-clitics",
+        "the-hosting-rule",
+        "present-tense-the-object-clitic",
+        "checking-agreement",
+        "summary"
+      ]
+    },
+    "23": {
+      "file": "3-advanced/23-spelling-and-common-errors.md",
+      "title": "The written standard and common errors",
+      "anchors": [
+        "1-use-kurdish-letters-not-arabic-or-persian-ones",
+        "2-dont-drop-the-marks",
+        "3-initial-vowels-need-ئ",
+        "4-old-encodings",
+        "5-words-the-validator-rejects",
+        "6-real-words-in-the-wrong-spelling",
+        "7-grammar-errors-to-watch",
+        "summary"
+      ]
+    }
+  },
+  "kmr": {
+    "1": {
+      "file": "1-beginner/01-introduction.md",
+      "title": "Welcome to Kurmanji",
+      "anchors": [
+        "what-is-kurmanji",
+        "the-writing-system-in-one-minute",
+        "your-first-words",
+        "what-makes-kurmanji-grammar-interesting",
+        "how-this-course-works",
+        "summary"
+      ]
+    },
+    "2": {
+      "file": "1-beginner/02-alphabet.md",
+      "title": "The Hawar alphabet",
+      "anchors": [
+        "the-31-letters",
+        "letters-that-surprise-english-speakers",
+        "upper-and-lower-case",
+        "extra-letters-some-writers-use",
+        "practice",
+        "summary"
+      ]
+    },
+    "3": {
+      "file": "1-beginner/03-vowels.md",
+      "title": "Vowels: long and short",
+      "anchors": [
+        "eight-vowels",
+        "pairs-to-practise",
+        "the-weak-i",
+        "xw-a-rounded-x",
+        "vowels-next-to-vowels",
+        "practice",
+        "summary"
+      ]
+    },
+    "4": {
+      "file": "1-beginner/04-consonants.md",
+      "title": "Consonants and pronunciation",
+      "anchors": [
+        "consonants-like-english",
+        "consonants-with-a-special-letter",
+        "r-and-rr",
+        "aspirated-and-unaspirated-p-t-k-ç",
+        "stress",
+        "practice",
+        "summary"
+      ]
+    },
+    "5": {
+      "file": "1-beginner/05-writing-and-reading.md",
+      "title": "Writing and reading",
+      "anchors": [
+        "words-and-spaces",
+        "capital-letters-and-apostrophes",
+        "numbers",
+        "punctuation",
+        "kurmanji-in-arabic-script",
+        "reading-practice",
+        "summary"
+      ]
+    },
+    "6": {
+      "file": "1-beginner/06-pronouns-and-to-be.md",
+      "title": "Pronouns and “to be”",
+      "anchors": [
+        "two-sets-of-pronouns",
+        "to-be-the-copula",
+        "not-to-be",
+        "there-is-and-to-have-heye--tune",
+        "questions",
+        "practice",
+        "summary"
+      ]
+    },
+    "7": {
+      "file": "1-beginner/07-nouns-gender-and-definiteness.md",
+      "title": "Nouns: gender, a / the, and plurals",
+      "anchors": [
+        "masculine-and-feminine",
+        "the-nothing",
+        "a--ek",
+        "plural-often-nothing",
+        "the-direct-forms",
+        "practice",
+        "summary"
+      ]
+    },
+    "8": {
+      "file": "1-beginner/08-ezafe.md",
+      "title": "Ezafe: linking nouns to adjectives and owners",
+      "anchors": [
+        "the-linking-ending",
+        "indefinite-ezafe-a-good-man",
+        "chains",
+        "standalone-ezafe-mine-his",
+        "how-zimankit-reads-these",
+        "practice",
+        "summary"
+      ]
+    },
+    "9": {
+      "file": "1-beginner/09-cases.md",
+      "title": "Direct and oblique case",
+      "anchors": ["two-cases", "oblique-endings", "full-declension", "in-sentences", "practice", "summary"]
+    },
+    "10": {
+      "file": "1-beginner/10-present-tense.md",
+      "title": "The present tense",
+      "anchors": [
+        "two-stems",
+        "building-the-present",
+        "special-prefixes",
+        "word-order-and-the-object",
+        "practice",
+        "summary"
+      ]
+    },
+    "11": {
+      "file": "2-intermediate/11-demonstratives-and-questions.md",
+      "title": "This, that and question words",
+      "anchors": ["demonstratives", "question-words", "practice", "summary"]
+    },
+    "12": {
+      "file": "2-intermediate/12-subjunctive-imperative-future.md",
+      "title": "Wishes, commands and the future",
+      "anchors": ["the-subjunctive", "when-to-use-it", "the-future", "the-imperative", "practice", "summary"]
+    },
+    "13": {
+      "file": "2-intermediate/13-past-intransitive.md",
+      "title": "The past tense I: intransitive verbs",
+      "anchors": ["transitive-or-intransitive", "the-simple-past", "in-sentences", "practice", "summary"]
+    },
+    "14": {
+      "file": "2-intermediate/14-past-transitive-ergativity.md",
+      "title": "The past tense II: transitive verbs and split ergativity",
+      "anchors": ["the-big-switch", "paradigms", "checking-it-with-zimankit", "practice", "summary"]
+    },
+    "15": {
+      "file": "2-intermediate/15-past-progressive.md",
+      "title": "Was doing, used to do: the past progressive",
+      "anchors": ["form", "meaning", "all-past-forms-side-by-side", "practice", "summary"]
+    },
+    "16": {
+      "file": "2-intermediate/16-prepositions.md",
+      "title": "Prepositions and circumpositions",
+      "anchors": ["simple-prepositions", "circumpositions", "contracted-forms", "practice", "summary"]
+    },
+    "17": {
+      "file": "2-intermediate/17-comparison-and-word-building.md",
+      "title": "Comparison and building new words",
+      "anchors": [
+        "comparative-and-superlative",
+        "building-words-with-suffixes",
+        "how-zimankit-takes-words-apart",
+        "practice",
+        "summary"
+      ]
+    },
+    "18": {
+      "file": "3-advanced/18-perfect-tenses.md",
+      "title": "The perfect tenses",
+      "anchors": ["present-perfect", "past-perfect", "in-sentences", "meaning", "summary"]
+    },
+    "19": {
+      "file": "3-advanced/19-passive.md",
+      "title": "The passive",
+      "anchors": ["hatin--infinitive", "the-state-participle--copula", "the-agent", "summary"]
+    },
+    "20": {
+      "file": "3-advanced/20-preverbs-and-compound-verbs.md",
+      "title": "Preverbs and compound verbs",
+      "anchors": ["preverbs", "compound-verbs", "summary"]
+    },
+    "21": {
+      "file": "3-advanced/21-irregular-verbs.md",
+      "title": "Irregular and special verbs",
+      "anchors": [
+        "hatin-to-come",
+        "anîn-to-bring",
+        "çûn-to-go",
+        "zanîn-to-know-and-karîn-can",
+        "bûn-to-be-to-become",
+        "unpredictable-present-stems",
+        "summary"
+      ]
+    },
+    "22": {
+      "file": "3-advanced/22-agreement-and-ergativity.md",
+      "title": "Agreement and ergativity in depth",
+      "anchors": [
+        "the-complete-rule",
+        "agreement-with-plural-objects",
+        "pro-drop",
+        "the-checker-on-correct-and-wrong-sentences",
+        "ezafe-agreement",
+        "summary"
+      ]
+    },
+    "23": {
+      "file": "3-advanced/23-spelling-and-common-errors.md",
+      "title": "The written standard and common errors",
+      "anchors": [
+        "1-turkish-and-other-foreign-letters",
+        "2-what-the-normaliser-fixes",
+        "3-what-the-validator-rejects",
+        "4-real-words-wrong-place",
+        "summary"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+id: any.script.mixed
+family: script
+category: orthography
+severity: warning
+confidence: 0.9
+safeFix: false
+message:
+  en: "This word mixes Latin and Arabic letters."
+  ckb: "ئەم وشەیە پیتی لاتینی و عەرەبی تێکەڵ کردووە."
+  kmr: "Ev peyv tîpên latînî û erebî tev li hev dike."
+reason:
+  en: "A word is written in one alphabet. Mixed letters usually come from switching keyboards, and they break searching and spell-checking."
+  ckb: "وشە بە یەک ئەلفوبێ دەنووسرێت. پیتی تێکەڵ زۆرجار لە گۆڕینی تەختەکلیلەوە دێت، گەڕان و پشکنینی ڕێنووس تێک دەدات."
+  kmr: "Peyv bi yek alfabeyê tê nivîsîn. Tîpên tevlihev pir caran ji guherîna klavyeyê tên, û lêgerîn û kontrola rastnivîsê xera dikin."
+examples:
+  - { wrong: "کتێbەکە", right: "کتێبەکە" }
+  - { wrong: "kitێb", right: "kitêb" }
+lessons:
+  - { lang: ckb, lessonId: 5 }
+  - { lang: kmr, lessonId: 5 }

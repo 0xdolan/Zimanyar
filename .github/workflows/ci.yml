@@ -71,6 +71,10 @@ jobs:
         run: pnpm --filter @zimanyar/data test
       - name: Check the engine against the full fixtures
         run: pnpm --filter @zimanyar/core test
+      - name: Check the rules against the full lexicon
+        run: pnpm --filter @zimanyar/rules test
+      - name: Check the rules against the gold corpus
+        run: make corpus
       - name: Hold the engine to its performance budgets
         run: pnpm --filter @zimanyar/core bench
       - name: Sizes
