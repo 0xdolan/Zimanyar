@@ -66,7 +66,7 @@ jobs:
       - uses: ./.github/actions/setup
       - run: make data
       - name: Everything committed matches what the pinned bundle produces
-        run: git diff --exit-code -- packages/data
+        run: git diff --exit-code -- packages/data packages/core/src/generated
       - name: Check the compiled lexicons against the bundle
         run: pnpm --filter @zimanyar/data test
       - name: Sizes

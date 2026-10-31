@@ -10,6 +10,7 @@ make data
 | --- | --- | --- |
 | `scripts/data/fetch_bundle.py` | downloads the release asset, checks its SHA-256 against `packages/data/VERSION`, unpacks it, checks each file against the bundle's manifest | `build/bundle/` |
 | `scripts/data/export_lexicon.py` | keeps the columns the checker uses, as sorted TSV; copies the rules and tables | `build/raw/`, `rules/`, `tables/`, `NOTICE` |
+| `scripts/data/export_core_tables.py` | copies zimankit's data tables and regular expressions into TypeScript | `packages/core/src/generated/tables.ts` |
 | `scripts/data/export_fixtures.py` | runs zimankit on many inputs and records the outputs | `build/fixtures/`, `fixtures/` |
 | `scripts/data/build-lexicon.ts` | compiles one file per language; fails over 6 MB | `build/lexicon-<lang>.bin.gz`, `lexicon.lock.json` |
 

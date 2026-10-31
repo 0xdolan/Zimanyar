@@ -6,7 +6,7 @@ SHELL := bash
 SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh')
 
 .PHONY: help setup lint test coverage typecheck build format \
-	biome check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip licenses \
+	biome check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip circular licenses \
 	attribution deps data skills tokens logo icons marketing brand check-brand
 
 help:
@@ -41,7 +41,7 @@ skills:
 	$(SKILLS) shadcn/ui -s shadcn
 	$(SKILLS) nextlevelbuilder/ui-ux-pro-max-skill -s ui-ux-pro-max
 
-lint: biome typecheck check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip
+lint: biome typecheck check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip circular
 
 test:
 	pnpm exec turbo run test
@@ -58,6 +58,7 @@ build:
 data:
 	uv run --frozen scripts/data/fetch_bundle.py
 	uv run --frozen scripts/data/export_lexicon.py
+	uv run --frozen scripts/data/export_core_tables.py
 	uv run --frozen scripts/data/export_fixtures.py
 	pnpm --filter @zimanyar/data build
 
@@ -91,6 +92,9 @@ ruff:
 
 knip:
 	pnpm exec knip
+
+circular:
+	pnpm exec madge --circular --extensions ts packages/core/src packages/data/src
 
 licenses:
 	pnpm exec tsx scripts/checks/check-licenses.ts
