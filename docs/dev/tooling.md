@@ -23,6 +23,7 @@ The repository root is also a [uv](https://docs.astral.sh/uv/) project (`pyproje
 | `make build` | builds every package and app |
 | `make tokens` | writes `packages/config/tokens.css` from the design tokens |
 | `make check-brand` | renders icons and marketing and compares them with the committed images |
+| `make data` | fetches and verifies the pinned lexicon, exports the fixtures and compiles the lexicons ([data.md](data.md)) |
 | `make licenses` | production dependencies against the GPL-3.0 compatible allow list |
 | `make attribution` | authors, committers and trailers of the commits on this branch |
 | `make deps` | dependency report (outdated, audit, uv upgrades); never changes files |
@@ -51,11 +52,11 @@ The repository root is also a [uv](https://docs.astral.sh/uv/) project (`pyproje
 
 | workflow | trigger | jobs |
 | --- | --- | --- |
-| `ci.yml` | push to git flow branches, pull requests into `main` and `develop` | lint, test with coverage, build |
+| `ci.yml` | push to git flow branches, pull requests into `main` and `develop` | lint, test with coverage, build, data |
 | `contributors-guard.yml` | push, pull request | `verify-contributors.sh` on the new commits |
 | `security.yml` | pull request, push to `main` and `develop`, nightly | gitleaks, Semgrep, `pnpm audit` and licences, OSV-Scanner |
 | `brand.yml` | changes to `assets/`, `scripts/brand/` or `scripts/marketing/` | `make check-brand` with Inkscape, ImageMagick, Chrome and the fonts |
-| `codeql.yml` | push and pull requests on `main` and `develop`, weekly | CodeQL for TypeScript and workflows |
+| `codeql.yml` | push and pull requests on `main` and `develop`, weekly | CodeQL for TypeScript, Python and workflows |
 
 Every third-party action is pinned by full commit SHA with the version in a comment. Workflows default to `contents: read` and never push commits or open pull requests. Shared setup lives in `.github/actions/setup`.
 

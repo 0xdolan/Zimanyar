@@ -1,0 +1,119 @@
+# Central Kurdish closed-class words (authored reference data).
+# word	upos	features
+من	PRON	person=1sg|case=dir
+تۆ	PRON	person=2sg|case=dir
+ئەو	PRON	person=3sg|deixis=distal
+ئێمە	PRON	person=1pl
+ئێوە	PRON	person=2pl
+ئەوان	PRON	person=3pl
+خۆ	PRON	reflexive=yes
+خۆم	PRON	reflexive=yes|person=1sg
+خۆت	PRON	reflexive=yes|person=2sg
+خۆی	PRON	reflexive=yes|person=3sg
+خۆمان	PRON	reflexive=yes|person=1pl
+خۆتان	PRON	reflexive=yes|person=2pl
+خۆیان	PRON	reflexive=yes|person=3pl
+ئەم	DET	deixis=proximal
+ئەمە	PRON	deixis=proximal
+ئەوە	PRON	deixis=distal
+ئەمانە	PRON	deixis=proximal|number=pl
+ئەوانە	PRON	deixis=distal|number=pl
+کێ	PRON	prontype=int
+چی	PRON	prontype=int
+کام	DET	prontype=int
+چۆن	ADV	prontype=int
+کەی	ADV	prontype=int
+بۆچی	ADV	prontype=int
+لەکوێ	ADV	prontype=int
+کوا	ADV	prontype=int
+چەند	DET	prontype=int
+هەموو	DET	prontype=tot
+هەر	DET	prontype=tot
+هیچ	DET	prontype=neg
+هەندێک	DET	prontype=ind
+لە	ADP	adptype=prep
+بە	ADP	adptype=prep
+بۆ	ADP	adptype=prep
+لەگەڵ	ADP	adptype=prep
+تا	ADP	adptype=prep
+بێ	ADP	adptype=prep
+بەبێ	ADP	adptype=prep
+وەک	ADP	adptype=prep
+لەسەر	ADP	adptype=prep
+لەژێر	ADP	adptype=prep
+لەناو	ADP	adptype=prep
+لەبەر	ADP	adptype=prep
+لەپێش	ADP	adptype=prep
+لەدوای	ADP	adptype=prep
+بەرەو	ADP	adptype=prep
+دوای	ADP	adptype=prep
+پێش	ADP	adptype=prep
+نێوان	ADP	adptype=prep
+دژی	ADP	adptype=prep
+و	CCONJ
+یان	CCONJ
+یا	CCONJ
+بەڵام	CCONJ
+کە	SCONJ
+ئەگەر	SCONJ
+چونکە	SCONJ
+هەتا	SCONJ
+تاکو	SCONJ
+هەروەها	ADV
+بەڵێ	INTJ
+نەخێر	INTJ
+ئا	INTJ
+نا	PART	polarity=neg
+نە	PART	polarity=neg
+زۆر	ADV	degree=yes
+کەم	ADJ
+ئێستا	ADV
+ئەمڕۆ	ADV
+دوێنێ	ADV
+سبەی	ADV
+لێرە	ADV
+لەوێ	ADV
+یەک	NUM	numtype=card
+دوو	NUM	numtype=card
+سێ	NUM	numtype=card
+چوار	NUM	numtype=card
+پێنج	NUM	numtype=card
+شەش	NUM	numtype=card
+حەوت	NUM	numtype=card
+هەشت	NUM	numtype=card
+نۆ	NUM	numtype=card
+دە	NUM	numtype=card
+سەد	NUM	numtype=card
+هەزار	NUM	numtype=card
+یەکەم	ADJ	numtype=ord
+دووەم	ADJ	numtype=ord
+سێیەم	ADJ	numtype=ord
+هەیە	VERB	existential=yes|polarity=pos
+نییە	VERB	existential=yes|polarity=neg
+ی	PART	ezafe=yes
+دا	ADP	adptype=post
+ەوە	ADP	adptype=post
+بۆیە	ADV	
+بەڵکو	CCONJ	
+لەلایەن	ADP	adptype=prep
+بەرامبەر	ADP	adptype=prep
+بەسەر	ADP	adptype=prep
+چەندین	DET	prontype=ind
+زیاتر	ADV	degree=cmp
+کەمتر	ADV	degree=cmp
+پێویستە	AUX	mood=necessitative
+دەبێت	AUX	mood=necessitative
+ئەوەیە	PRON	deixis=distal|copula=yes
+تەنها	ADV	
+تەنیا	ADV	
+هێشتا	ADV	
+پاشان	ADV	
+بەتایبەتی	ADV	
+کاک	NOUN	title=yes
+هەمیشە	ADV	
+هەردوو	DET	prontype=tot
+ئایا	PART	prontype=int
+ژێر	ADP	adptype=prep
+دژ	ADP	adptype=prep
+ڕەنگە	ADV	mood=potential
+زۆربەی	DET	prontype=ind

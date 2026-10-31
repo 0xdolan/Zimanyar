@@ -1,0 +1,1109 @@
+{
+  "language": "kmr",
+  "name": "Northern Kurdish (Kurmanji)",
+  "script": "Hawar Latin alphabet (31 letters)",
+  "alphabet": [
+    {
+      "letter": "a",
+      "codepoint": "U+0061",
+      "name": "long open a"
+    },
+    {
+      "letter": "b",
+      "codepoint": "U+0062",
+      "name": "b"
+    },
+    {
+      "letter": "c",
+      "codepoint": "U+0063",
+      "name": "voiced affricate dʒ"
+    },
+    {
+      "letter": "ç",
+      "codepoint": "U+00E7",
+      "name": "voiceless affricate tʃ"
+    },
+    {
+      "letter": "d",
+      "codepoint": "U+0064",
+      "name": "d"
+    },
+    {
+      "letter": "e",
+      "codepoint": "U+0065",
+      "name": "short e ɛ"
+    },
+    {
+      "letter": "ê",
+      "codepoint": "U+00EA",
+      "name": "long e eː"
+    },
+    {
+      "letter": "f",
+      "codepoint": "U+0066",
+      "name": "f"
+    },
+    {
+      "letter": "g",
+      "codepoint": "U+0067",
+      "name": "g"
+    },
+    {
+      "letter": "h",
+      "codepoint": "U+0068",
+      "name": "h"
+    },
+    {
+      "letter": "i",
+      "codepoint": "U+0069",
+      "name": "short central i ɪ/ɨ"
+    },
+    {
+      "letter": "î",
+      "codepoint": "U+00EE",
+      "name": "long i iː"
+    },
+    {
+      "letter": "j",
+      "codepoint": "U+006A",
+      "name": "ʒ"
+    },
+    {
+      "letter": "k",
+      "codepoint": "U+006B",
+      "name": "k"
+    },
+    {
+      "letter": "l",
+      "codepoint": "U+006C",
+      "name": "l"
+    },
+    {
+      "letter": "m",
+      "codepoint": "U+006D",
+      "name": "m"
+    },
+    {
+      "letter": "n",
+      "codepoint": "U+006E",
+      "name": "n"
+    },
+    {
+      "letter": "o",
+      "codepoint": "U+006F",
+      "name": "long o oː"
+    },
+    {
+      "letter": "p",
+      "codepoint": "U+0070",
+      "name": "p"
+    },
+    {
+      "letter": "q",
+      "codepoint": "U+0071",
+      "name": "uvular q"
+    },
+    {
+      "letter": "r",
+      "codepoint": "U+0072",
+      "name": "tap r (rr = trill)"
+    },
+    {
+      "letter": "s",
+      "codepoint": "U+0073",
+      "name": "s"
+    },
+    {
+      "letter": "ş",
+      "codepoint": "U+015F",
+      "name": "ʃ"
+    },
+    {
+      "letter": "t",
+      "codepoint": "U+0074",
+      "name": "t"
+    },
+    {
+      "letter": "u",
+      "codepoint": "U+0075",
+      "name": "short u ʊ"
+    },
+    {
+      "letter": "û",
+      "codepoint": "U+00FB",
+      "name": "long u uː"
+    },
+    {
+      "letter": "v",
+      "codepoint": "U+0076",
+      "name": "v"
+    },
+    {
+      "letter": "w",
+      "codepoint": "U+0077",
+      "name": "w"
+    },
+    {
+      "letter": "x",
+      "codepoint": "U+0078",
+      "name": "velar fricative x"
+    },
+    {
+      "letter": "y",
+      "codepoint": "U+0079",
+      "name": "glide j"
+    },
+    {
+      "letter": "z",
+      "codepoint": "U+007A",
+      "name": "z"
+    }
+  ],
+  "orthography": {
+    "char_map": {
+      "ı": "i",
+      "İ": "I",
+      "é": "ê",
+      "è": "ê",
+      "ë": "ê",
+      "ē": "ê",
+      "ě": "ê",
+      "É": "Ê",
+      "È": "Ê",
+      "Ë": "Ê",
+      "Ē": "Ê",
+      "í": "î",
+      "ì": "î",
+      "ï": "î",
+      "ī": "î",
+      "Í": "Î",
+      "Ì": "Î",
+      "Ï": "Î",
+      "Ī": "Î",
+      "ú": "û",
+      "ù": "û",
+      "ü": "û",
+      "ū": "û",
+      "Ú": "Û",
+      "Ù": "Û",
+      "Ü": "Û",
+      "Ū": "Û",
+      "ș": "ş",
+      "Ș": "Ş",
+      "š": "ş",
+      "Š": "Ş",
+      "č": "ç",
+      "Č": "Ç",
+      "ḥ": "ḧ",
+      "Ḥ": "Ḧ",
+      "ʼ": "'",
+      "’": "'",
+      "‘": "'",
+      "`": "'",
+      "´": "'",
+      "ʻ": "'",
+      "ʿ": "'",
+      "ʾ": "'"
+    },
+    "casing": "Kurdish-aware: I<->i, Î<->î (never Turkish İ/ı)",
+    "digraphs": {
+      "xw": "xʷ",
+      "rr": "r (trill)",
+      "ḧ": "ħ",
+      "ẍ": "ɣ",
+      "'": "ʕ / unaspirated marker"
+    }
+  },
+  "phonology": {
+    "vowels": {
+      "a": "aː",
+      "e": "ɛ",
+      "ê": "eː",
+      "i": "ɪ",
+      "î": "iː",
+      "o": "oː",
+      "u": "ʊ",
+      "û": "uː"
+    },
+    "consonants": {
+      "b": "b",
+      "c": "dʒ",
+      "ç": "tʃ",
+      "d": "d",
+      "f": "f",
+      "g": "ɡ",
+      "h": "h",
+      "j": "ʒ",
+      "k": "k",
+      "l": "l",
+      "m": "m",
+      "n": "n",
+      "p": "p",
+      "q": "q",
+      "r": "ɾ",
+      "s": "s",
+      "ş": "ʃ",
+      "t": "t",
+      "v": "v",
+      "w": "w",
+      "x": "x",
+      "y": "j",
+      "z": "z",
+      "ḧ": "ħ",
+      "ẍ": "ɣ"
+    },
+    "rules": [
+      "word-initial r and rr -> trill /r/, other r -> tap /ɾ/",
+      "xw -> /xʷ/",
+      "final closed syllable i in polysyllables -> reduced /ɯ/ (suffix -in)",
+      "narrow: p t k ç aspirated unless followed by an apostrophe; n -> ŋ before velars"
+    ],
+    "examples": {
+      "jinekê": "ʒɪnɛkeː",
+      "dîtin": "diːtɯn",
+      "xwarin": "xʷaːɾɯn",
+      "rojname": "roːʒnaːmɛ",
+      "zivistan": "zɪvɪstaːn"
+    }
+  },
+  "morphology": {
+    "inflections": [
+      {
+        "form": "ekê",
+        "tag": "INDEF.OBL.F",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "case": "obl",
+          "gender": "f"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yekê",
+        "tag": "INDEF.OBL.F",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "case": "obl",
+          "gender": "f"
+        },
+        "after": "V"
+      },
+      {
+        "form": "ekî",
+        "tag": "INDEF.OBL.M|INDEF.EZ.M",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "gender": "m"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yekî",
+        "tag": "INDEF.OBL.M|INDEF.EZ.M",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "gender": "m"
+        },
+        "after": "V"
+      },
+      {
+        "form": "eke",
+        "tag": "INDEF.EZ.F",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "ezafe": "yes",
+          "gender": "f"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yeke",
+        "tag": "INDEF.EZ.F",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "ezafe": "yes",
+          "gender": "f"
+        },
+        "after": "V"
+      },
+      {
+        "form": "inan",
+        "tag": "INDEF.PL.OBL",
+        "features": {
+          "definite": "ind",
+          "number": "pl",
+          "case": "obl"
+        },
+        "after": "C"
+      },
+      {
+        "form": "ine",
+        "tag": "INDEF.PL.EZ",
+        "features": {
+          "definite": "ind",
+          "number": "pl",
+          "ezafe": "yes"
+        },
+        "after": "C"
+      },
+      {
+        "form": "ek",
+        "tag": "INDEF",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "case": "dir"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yek",
+        "tag": "INDEF",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "case": "dir"
+        },
+        "after": "V"
+      },
+      {
+        "form": "ino",
+        "tag": "VOC.PL",
+        "features": {
+          "number": "pl",
+          "case": "voc"
+        },
+        "after": "C"
+      },
+      {
+        "form": "ên",
+        "tag": "EZ.PL",
+        "features": {
+          "definite": "def",
+          "number": "pl",
+          "ezafe": "yes"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yên",
+        "tag": "EZ.PL",
+        "features": {
+          "definite": "def",
+          "number": "pl",
+          "ezafe": "yes"
+        },
+        "after": "V"
+      },
+      {
+        "form": "an",
+        "tag": "OBL.PL",
+        "features": {
+          "definite": "def",
+          "number": "pl",
+          "case": "obl"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yan",
+        "tag": "OBL.PL",
+        "features": {
+          "definite": "def",
+          "number": "pl",
+          "case": "obl"
+        },
+        "after": "V"
+      },
+      {
+        "form": "a",
+        "tag": "EZ.F",
+        "features": {
+          "definite": "def",
+          "number": "sg",
+          "ezafe": "yes",
+          "gender": "f"
+        },
+        "after": "C"
+      },
+      {
+        "form": "ya",
+        "tag": "EZ.F",
+        "features": {
+          "definite": "def",
+          "number": "sg",
+          "ezafe": "yes",
+          "gender": "f"
+        },
+        "after": "V"
+      },
+      {
+        "form": "ê",
+        "tag": "EZ.M|OBL.F",
+        "features": {
+          "definite": "def",
+          "number": "sg"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yê",
+        "tag": "EZ.M|OBL.F",
+        "features": {
+          "definite": "def",
+          "number": "sg"
+        },
+        "after": "V"
+      },
+      {
+        "form": "î",
+        "tag": "OBL.M",
+        "features": {
+          "definite": "def",
+          "number": "sg",
+          "case": "obl",
+          "gender": "m"
+        },
+        "after": "C"
+      },
+      {
+        "form": "yî",
+        "tag": "OBL.M",
+        "features": {
+          "definite": "def",
+          "number": "sg",
+          "case": "obl",
+          "gender": "m"
+        },
+        "after": "V"
+      },
+      {
+        "form": "o",
+        "tag": "VOC.M",
+        "features": {
+          "number": "sg",
+          "case": "voc",
+          "gender": "m"
+        },
+        "after": "C"
+      },
+      {
+        "form": "in",
+        "tag": "INDEF.PL",
+        "features": {
+          "definite": "ind",
+          "number": "pl",
+          "case": "dir"
+        },
+        "after": "C"
+      }
+    ],
+    "derivations": [
+      {
+        "form": "ahî",
+        "tag": "ABST",
+        "pos": "NOUN"
+      },
+      {
+        "form": "tî",
+        "tag": "ABST",
+        "pos": "NOUN"
+      },
+      {
+        "form": "anî",
+        "tag": "ABST",
+        "pos": "NOUN"
+      },
+      {
+        "form": "î",
+        "tag": "ABST|ADJZ",
+        "pos": "NOUN"
+      },
+      {
+        "form": "dar",
+        "tag": "POSSR",
+        "pos": "ADJ"
+      },
+      {
+        "form": "van",
+        "tag": "AGENT",
+        "pos": "NOUN"
+      },
+      {
+        "form": "kar",
+        "tag": "AGENT",
+        "pos": "NOUN"
+      },
+      {
+        "form": "ger",
+        "tag": "AGENT",
+        "pos": "NOUN"
+      },
+      {
+        "form": "istan",
+        "tag": "PLACE",
+        "pos": "NOUN"
+      },
+      {
+        "form": "stan",
+        "tag": "PLACE",
+        "pos": "NOUN"
+      },
+      {
+        "form": "tir",
+        "tag": "CMPR",
+        "pos": "ADJ"
+      },
+      {
+        "form": "tirîn",
+        "tag": "SUPL",
+        "pos": "ADJ"
+      },
+      {
+        "form": "ok",
+        "tag": "DIM",
+        "pos": "NOUN"
+      },
+      {
+        "form": "ik",
+        "tag": "DIM",
+        "pos": "NOUN"
+      }
+    ],
+    "examples": {
+      "jinekê": {
+        "lemma": "jin",
+        "seg": "jin+ekê",
+        "features": {
+          "definite": "ind",
+          "number": "sg",
+          "case": "obl",
+          "gender": "f"
+        }
+      },
+      "dîtin": {
+        "lemma": "dîtin",
+        "seg": "dîtin",
+        "features": {
+          "form": "infinitive",
+          "transitivity": "transitive",
+          "past_stem": "dît",
+          "present_stem": "bîn"
+        }
+      },
+      "dibînim": {
+        "lemma": "dîtin",
+        "seg": "dibînim",
+        "features": {
+          "tense": "present",
+          "mood": "indicative",
+          "person": "1sg",
+          "agreement": "subject",
+          "transitivity": "transitive",
+          "past_stem": "dît",
+          "present_stem": "bîn"
+        }
+      },
+      "hatim": {
+        "lemma": "hatin",
+        "seg": "hatim",
+        "features": {
+          "tense": "past",
+          "aspect": "perfective",
+          "person": "1sg",
+          "agreement": "subject",
+          "alignment": "accusative",
+          "transitivity": "intransitive",
+          "past_stem": "hat",
+          "present_stem": "ê"
+        }
+      },
+      "nizanim": {
+        "lemma": "zanîn",
+        "seg": "nizanim",
+        "features": {
+          "tense": "present",
+          "mood": "indicative",
+          "person": "1sg",
+          "polarity": "neg",
+          "agreement": "subject",
+          "transitivity": "transitive",
+          "past_stem": "zanî",
+          "present_stem": "zan"
+        }
+      }
+    }
+  },
+  "verbs": {
+    "endings": {
+      "1sg": "-im / -m",
+      "2sg": "-î / -yî",
+      "3sg": "-e (present) / -ø (past)",
+      "pl": "-in / -n"
+    },
+    "preverbs": [
+      "hil",
+      "ra",
+      "der",
+      "ve",
+      "wer",
+      "lê",
+      "pê",
+      "tê",
+      "çê",
+      "da",
+      "rû"
+    ],
+    "model_paradigm": [
+      {
+        "form": "dibînim",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "1sg",
+        "agreement": "subject"
+      },
+      {
+        "form": "nabînim",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "1sg",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "bibînim",
+        "mood": "subjunctive",
+        "person": "1sg",
+        "agreement": "subject"
+      },
+      {
+        "form": "nebînim",
+        "mood": "subjunctive",
+        "person": "1sg",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "dîtim",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "1sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedîtim",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "1sg",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "didîtim",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "1sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedidîtim",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "1sg",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtime",
+        "tense": "present_perfect",
+        "person": "1sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtibûm",
+        "tense": "past_perfect",
+        "person": "1sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dibînî",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2sg",
+        "agreement": "subject"
+      },
+      {
+        "form": "nabînî",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2sg",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "bibînî",
+        "mood": "subjunctive",
+        "person": "2sg",
+        "agreement": "subject"
+      },
+      {
+        "form": "nebînî",
+        "mood": "subjunctive",
+        "person": "2sg",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "dîtî",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "2sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedîtî",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "2sg",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "didîtî",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "2sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedidîtî",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "2sg",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtiyî",
+        "tense": "present_perfect",
+        "person": "2sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtibûyî",
+        "tense": "past_perfect",
+        "person": "2sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dibîne",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3sg",
+        "agreement": "subject"
+      },
+      {
+        "form": "nabîne",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3sg",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "bibîne",
+        "mood": "subjunctive",
+        "person": "3sg",
+        "agreement": "subject"
+      },
+      {
+        "form": "nebîne",
+        "mood": "subjunctive",
+        "person": "3sg",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "dît",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "3sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedît",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "3sg",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "didît",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "3sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedidît",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "3sg",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtiye",
+        "tense": "present_perfect",
+        "person": "3sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtibû",
+        "tense": "past_perfect",
+        "person": "3sg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dibînin",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "pl",
+        "agreement": "subject"
+      },
+      {
+        "form": "nabînin",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "pl",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "bibînin",
+        "mood": "subjunctive",
+        "person": "pl",
+        "agreement": "subject"
+      },
+      {
+        "form": "nebînin",
+        "mood": "subjunctive",
+        "person": "pl",
+        "polarity": "neg",
+        "agreement": "subject"
+      },
+      {
+        "form": "dîtin",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "pl",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedîtin",
+        "tense": "past",
+        "aspect": "perfective",
+        "person": "pl",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "didîtin",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "pl",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "nedidîtin",
+        "tense": "past",
+        "aspect": "progressive",
+        "person": "pl",
+        "polarity": "neg",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtine",
+        "tense": "present_perfect",
+        "person": "pl",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "dîtibûn",
+        "tense": "past_perfect",
+        "person": "pl",
+        "agreement": "object",
+        "alignment": "ergative"
+      },
+      {
+        "form": "bibîne",
+        "mood": "imperative",
+        "person": "2sg"
+      },
+      {
+        "form": "nebîne",
+        "mood": "imperative",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "bibînin",
+        "mood": "imperative",
+        "person": "2pl"
+      },
+      {
+        "form": "nebînin",
+        "mood": "imperative",
+        "person": "2pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "infinitive"
+      },
+      {
+        "form": "past_participle"
+      }
+    ]
+  },
+  "syntax": {
+    "split_ergativity": {
+      "present_stem_tenses": "nominative-accusative: subject in direct case, verb agrees with subject",
+      "past_stem_tenses_transitive": "ergative: agent in oblique case, object in direct case, verb agrees with object",
+      "examples": [
+        {
+          "sentence": "Ez te dibînim.",
+          "verb": "dibînim",
+          "lemma": "dîtin",
+          "tense_stem": "present",
+          "transitive": true,
+          "alignment": "accusative",
+          "agent": {
+            "token": "Ez",
+            "index": 0,
+            "case": "dir",
+            "person": "1sg"
+          },
+          "object": {
+            "token": "te",
+            "index": 1,
+            "case": "obl",
+            "person": "2sg"
+          },
+          "verb_person": "1sg",
+          "controller": "subject",
+          "agreement_ok": true,
+          "notes": []
+        },
+        {
+          "sentence": "Min tu dîtî.",
+          "verb": "dîtî",
+          "lemma": "dîtin",
+          "tense_stem": "past",
+          "transitive": true,
+          "alignment": "ergative",
+          "agent": {
+            "token": "Min",
+            "index": 0,
+            "case": "obl",
+            "person": "1sg"
+          },
+          "object": {
+            "token": "tu",
+            "index": 1,
+            "case": "dir",
+            "person": "2sg"
+          },
+          "verb_person": "2sg",
+          "controller": "object",
+          "agreement_ok": true,
+          "notes": []
+        },
+        {
+          "sentence": "Min ew dîtin.",
+          "verb": "dîtin",
+          "lemma": "dîtin",
+          "tense_stem": "past",
+          "transitive": true,
+          "alignment": "ergative",
+          "agent": {
+            "token": "Min",
+            "index": 0,
+            "case": "obl",
+            "person": "1sg"
+          },
+          "object": {
+            "token": "ew",
+            "index": 1,
+            "case": "dir",
+            "person": "3sg|pl"
+          },
+          "verb_person": "pl",
+          "controller": "object",
+          "agreement_ok": true,
+          "notes": []
+        },
+        {
+          "sentence": "Ez hatim.",
+          "verb": "hatim",
+          "lemma": "hatin",
+          "tense_stem": "past",
+          "transitive": false,
+          "alignment": "accusative",
+          "agent": {
+            "token": "Ez",
+            "index": 0,
+            "case": "dir",
+            "person": "1sg"
+          },
+          "object": null,
+          "verb_person": "1sg",
+          "controller": "subject",
+          "agreement_ok": true,
+          "notes": []
+        }
+      ]
+    }
+  },
+  "regex": {
+    "kmr_word": "^[abcçdeêfghiîjklmnopqrsştuûvwxyzABCÇDEÊFGHIÎJKLMNOPQRSŞTUÛVWXYZ]+(?:'[abcçdeêfghiîjklmnopqrsştuûvwxyzABCÇDEÊFGHIÎJKLMNOPQRSŞTUÛVWXYZ]+)?$",
+    "kmr_token": "[abcçdeêfghiîjklmnopqrsştuûvwxyzABCÇDEÊFGHIÎJKLMNOPQRSŞTUÛVWXYZ]+(?:'[abcçdeêfghiîjklmnopqrsştuûvwxyzABCÇDEÊFGHIÎJKLMNOPQRSŞTUÛVWXYZ]+)?",
+    "kmr_turkish_letters": "[ıİğĞöÖüÜ]",
+    "kmr_wrong_circumflex": "[éèëēíìïīúùūÉÈËÍÌÏÚÙ]",
+    "kmr_oblique_suffix": "(?:ekê|ekî|yekê|yekî|ê|î|an|yan)$",
+    "kmr_ezafe_suffix": "(?:a|ê|ên|ya|yê|yên|eke|ine)$",
+    "kmr_present_verb": "^(?:di|na|ni)[a-zçêîşû]+(?:im|î|e|in)$",
+    "kmr_infinitive": "(?:in|andin|în|ûn|an|n)$",
+    "kmr_oblique_pronoun": "^(?:min|te|wî|wê|me|we|wan|vî|vê|van)$",
+    "kmr_direct_pronoun": "^(?:ez|tu|ew|em|hûn|ev)$"
+  }
+}

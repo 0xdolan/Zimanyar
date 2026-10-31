@@ -1,0 +1,68 @@
+# Northern Kurdish core verbs (authored reference data).
+# infinitive	past_stem	present_stem	transitivity	preverb	notes
+# transitivity: T = transitive (ergative in past tenses), I = intransitive
+kirin	kir	k	T
+bûn	bû	b	I
+hatin	hat	ê	I		present tê- (di+ê), subjunctive bê-, imperative were
+çûn	çû	ç	I		imperative here
+dîtin	dît	bîn	T		past stem also dî-
+gotin	got	bêj	T
+xwarin	xwar	xw	T
+dan	da	d	T
+anîn	anî	în	T		present tîn- (di+în), subjunctive bîn-
+birin	bir	b	T
+zanîn	zanî	zan	T
+xwestin	xwest	xwaz	T
+man	ma	mîn	I
+girtin	girt	gir	T
+kuştin	kuşt	kuj	T
+şûştin	şûşt	şo	T
+xwendin	xwend	xwîn	T
+nivîsîn	nivîsî	nivîs	T
+ketin	ket	kev	I
+avêtin	avêt	avêj	T
+hiştin	hişt	hêl	T
+mirin	mir	mir	I
+revîn	revî	rev	I
+axaftin	axaft	axiv	I
+bihîstin	bihîst	bihîz	T
+guhertin	guhert	guher	T
+firotin	firot	firoş	T
+kirîn	kirî	kir	T
+şandin	şand	şîn	T
+gihîştin	gihîşt	gihîj	I
+jiyan	jiya	jî	I
+kenîn	kenî	ken	I
+giriyan	giriya	gir	I
+lîstin	lîst	lîz	I
+dizîn	dizî	diz	T
+xistin	xist	x	T
+nêrîn	nêrî	nêr	I
+fikirîn	fikirî	fikir	I
+bezîn	bezî	bez	I
+meşîn	meşî	meş	I
+sekinîn	sekinî	sekin	I
+razan	raza	raz	I
+şewitîn	şewitî	şewit	I
+şewitandin	şewitand	şewitîn	T
+pijandin	pijand	pijîn	T
+kişandin	kişand	kişîn	T
+gerîn	gerî	ger	I
+pirsîn	pirsî	pirs	T
+hejandin	hejand	hejîn	T
+hejîn	hejî	hej	I
+ajotin	ajot	ajo	T
+çandin	çand	çîn	T
+rûniştin	rûnişt	rûdin	I		present rûdin- has no separate di-
+kolan	kola	kol	T
+bijartin	bijart	bijêr	T
+parastin	parast	parêz	T
+hilgirtin	girt	gir	T	hil
+rabûn	bû	b	I	ra
+derketin	ket	kev	I	der
+vekirin	kir	k	T	ve
+vexwarin	xwar	xw	T	ve
+lêxistin	xist	x	T	lê
+derxistin	xist	x	T	der
+çêkirin	kir	k	T	çê
+hilbijartin	bijart	bijêr	T	hil

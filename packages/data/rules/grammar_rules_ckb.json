@@ -1,0 +1,1345 @@
+{
+  "language": "ckb",
+  "name": "Central Kurdish (Sorani)",
+  "script": "Arabic-based Kurdish alphabet (34 letters)",
+  "alphabet": [
+    {
+      "letter": "ئ",
+      "codepoints": "U+0626",
+      "name": "hamza carrier (glottal onset)"
+    },
+    {
+      "letter": "ا",
+      "codepoints": "U+0627",
+      "name": "alef - long a"
+    },
+    {
+      "letter": "ب",
+      "codepoints": "U+0628",
+      "name": "beh"
+    },
+    {
+      "letter": "پ",
+      "codepoints": "U+067E",
+      "name": "peh"
+    },
+    {
+      "letter": "ت",
+      "codepoints": "U+062A",
+      "name": "teh"
+    },
+    {
+      "letter": "ج",
+      "codepoints": "U+062C",
+      "name": "jeem"
+    },
+    {
+      "letter": "چ",
+      "codepoints": "U+0686",
+      "name": "tcheh"
+    },
+    {
+      "letter": "ح",
+      "codepoints": "U+062D",
+      "name": "hah - pharyngeal fricative"
+    },
+    {
+      "letter": "خ",
+      "codepoints": "U+062E",
+      "name": "khah"
+    },
+    {
+      "letter": "د",
+      "codepoints": "U+062F",
+      "name": "dal"
+    },
+    {
+      "letter": "ر",
+      "codepoints": "U+0631",
+      "name": "reh - tap r"
+    },
+    {
+      "letter": "ڕ",
+      "codepoints": "U+0695",
+      "name": "reh with small v below - trilled r"
+    },
+    {
+      "letter": "ز",
+      "codepoints": "U+0632",
+      "name": "zain"
+    },
+    {
+      "letter": "ژ",
+      "codepoints": "U+0698",
+      "name": "jeh"
+    },
+    {
+      "letter": "س",
+      "codepoints": "U+0633",
+      "name": "seen"
+    },
+    {
+      "letter": "ش",
+      "codepoints": "U+0634",
+      "name": "sheen"
+    },
+    {
+      "letter": "ع",
+      "codepoints": "U+0639",
+      "name": "ain - voiced pharyngeal"
+    },
+    {
+      "letter": "غ",
+      "codepoints": "U+063A",
+      "name": "ghain"
+    },
+    {
+      "letter": "ف",
+      "codepoints": "U+0641",
+      "name": "feh"
+    },
+    {
+      "letter": "ڤ",
+      "codepoints": "U+06A4",
+      "name": "veh"
+    },
+    {
+      "letter": "ق",
+      "codepoints": "U+0642",
+      "name": "qaf"
+    },
+    {
+      "letter": "ک",
+      "codepoints": "U+06A9",
+      "name": "keheh - Kurdish/Persian kaf"
+    },
+    {
+      "letter": "گ",
+      "codepoints": "U+06AF",
+      "name": "gaf"
+    },
+    {
+      "letter": "ل",
+      "codepoints": "U+0644",
+      "name": "lam - clear l"
+    },
+    {
+      "letter": "ڵ",
+      "codepoints": "U+06B5",
+      "name": "lam with small v - velarized l"
+    },
+    {
+      "letter": "م",
+      "codepoints": "U+0645",
+      "name": "meem"
+    },
+    {
+      "letter": "ن",
+      "codepoints": "U+0646",
+      "name": "noon"
+    },
+    {
+      "letter": "ه",
+      "codepoints": "U+0647",
+      "name": "heh - consonant h"
+    },
+    {
+      "letter": "ە",
+      "codepoints": "U+06D5",
+      "name": "ae - short vowel e/a"
+    },
+    {
+      "letter": "و",
+      "codepoints": "U+0648",
+      "name": "waw - w / u"
+    },
+    {
+      "letter": "وو",
+      "codepoints": "U+0648 U+0648",
+      "name": "double waw - long u"
+    },
+    {
+      "letter": "ۆ",
+      "codepoints": "U+06C6",
+      "name": "oe - long o"
+    },
+    {
+      "letter": "ی",
+      "codepoints": "U+06CC",
+      "name": "farsi yeh - y / long i"
+    },
+    {
+      "letter": "ێ",
+      "codepoints": "U+06CE",
+      "name": "yeh with small v - long e"
+    }
+  ],
+  "orthography": {
+    "char_map": {
+      "U+064A": "ی",
+      "U+0649": "ی",
+      "U+06D0": "ێ",
+      "U+0643": "ک",
+      "U+06AA": "ک",
+      "U+06BE": "ه",
+      "U+06C1": "ه",
+      "U+06C0": "ەی",
+      "U+0629": "ە",
+      "U+0692": "ڕ",
+      "U+06B6": "ڵ",
+      "U+06B7": "ڵ",
+      "U+06A8": "ڤ",
+      "U+06C7": "ۆ",
+      "U+06C5": "ۆ",
+      "U+0676": "ئو",
+      "U+0624": "ئو",
+      "U+0623": "ئ",
+      "U+0625": "ئ",
+      "U+0621": "ئ"
+    },
+    "sequence_map": {
+      "U+06CC U+0654": "ئ",
+      "U+064A U+0654": "ئ",
+      "U+06CC U+065A": "ێ",
+      "U+06CC U+0306": "ێ",
+      "U+06CC U+0302": "ێ",
+      "U+0648 U+065A": "ۆ",
+      "U+0648 U+0306": "ۆ",
+      "U+0648 U+0302": "ۆ",
+      "U+0631 U+065A": "ڕ",
+      "U+0631 U+0306": "ڕ",
+      "U+0631 U+0302": "ڕ",
+      "U+0644 U+065A": "ڵ",
+      "U+0644 U+0306": "ڵ",
+      "U+0644 U+0302": "ڵ"
+    },
+    "contextual_rules": [
+      {
+        "id": "initial_r",
+        "rule": "word-initial ر -> ڕ",
+        "example": [
+          "رۆژ",
+          "ڕۆژ"
+        ]
+      },
+      {
+        "id": "initial_hamza",
+        "rule": "word-initial vowel letter gets ئ",
+        "example": [
+          "ەمە",
+          "ئەمە"
+        ]
+      },
+      {
+        "id": "legacy_ae",
+        "rule": "ه + ZWNJ -> ە; in legacy-encoded text word-final ه -> ە",
+        "example": [
+          "به‌ڕێوه‌به‌ر",
+          "بەڕێوەبەر"
+        ]
+      },
+      {
+        "id": "zwnj",
+        "rule": "micro-spaces -> ZWNJ; ZWNJ kept only between two joining letters"
+      },
+      {
+        "id": "squeeze",
+        "rule": "ەە -> ە, ڕڕ -> ڕ, ڵڵ -> ڵ, ووو -> وو"
+      }
+    ]
+  },
+  "phonology": {
+    "consonants": {
+      "ئ": "ʔ",
+      "ب": "b",
+      "پ": "p",
+      "ت": "t",
+      "ج": "dʒ",
+      "چ": "tʃ",
+      "ح": "ħ",
+      "خ": "x",
+      "د": "d",
+      "ر": "ɾ",
+      "ڕ": "r",
+      "ز": "z",
+      "ژ": "ʒ",
+      "س": "s",
+      "ش": "ʃ",
+      "ع": "ʕ",
+      "غ": "ɣ",
+      "ف": "f",
+      "ڤ": "v",
+      "ق": "q",
+      "ک": "k",
+      "گ": "ɡ",
+      "ل": "l",
+      "ڵ": "ɫ",
+      "م": "m",
+      "ن": "n",
+      "ه": "h"
+    },
+    "vowels": {
+      "ا": "aː",
+      "ە": "æ",
+      "ێ": "eː",
+      "ۆ": "oː",
+      "وو": "uː",
+      "و (C_C)": "u",
+      "ی (C_C)": "iː",
+      "bizroke (unwritten)": "ɯ"
+    },
+    "semivowel_resolution": [
+      "و / ی after a vowel letter -> /w/ /j/",
+      "و / ی before a vowel letter -> /w/ /j/ (onset cluster Cw / Cj)",
+      "و between consonants or word-finally -> /u/; ی -> /iː/",
+      "وو -> /uː/, یی -> /iː/; a glide is inserted before a following vowel"
+    ],
+    "phonotactics": {
+      "initial_onsets": "C, C+glide, sibilant+stop",
+      "medial_onsets": "C, C+glide",
+      "final_codas": "falling sonority (rd, nd, st, ʃk)",
+      "medial_codas": "fricative+stop, nasal+stop, glide+C",
+      "bizroke": "an epenthetic /ɯ/ breaks every other cluster, carved right-to-left"
+    },
+    "examples": {
+      "پیاوەکە": "pjaːwækæ",
+      "کتێبەکەم": "k(ɯ)teːbækæm",
+      "کوردستان": "kuɾd(ɯ)staːn",
+      "بردن": "b(ɯ)ɾd(ɯ)n",
+      "خواردن": "xwaːɾd(ɯ)n",
+      "هاتووە": "haːtuːwæ",
+      "ئنجا": "ʔ(ɯ)ndʒaː"
+    }
+  },
+  "morphology": {
+    "nominal_slots": [
+      {
+        "slot": "POSTP",
+        "affixes": [
+          {
+            "form": "ەوە",
+            "tag": "POSTP.EWE",
+            "after": "C",
+            "features": {
+              "postposition": "ewe"
+            }
+          },
+          {
+            "form": "وە",
+            "tag": "POSTP.EWE",
+            "after": "V",
+            "features": {
+              "postposition": "ewe"
+            }
+          },
+          {
+            "form": "دا",
+            "tag": "POSTP.DA",
+            "after": null,
+            "features": {
+              "postposition": "da"
+            }
+          },
+          {
+            "form": "ڕا",
+            "tag": "POSTP.RA",
+            "after": null,
+            "features": {
+              "postposition": "ra"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "ADD",
+        "affixes": [
+          {
+            "form": "یش",
+            "tag": "ADD",
+            "after": "C",
+            "features": {
+              "additive": "yes"
+            }
+          },
+          {
+            "form": "ش",
+            "tag": "ADD",
+            "after": "V",
+            "features": {
+              "additive": "yes"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "ENCLITIC",
+        "affixes": [
+          {
+            "form": "مان",
+            "tag": "1PL",
+            "after": null,
+            "features": {
+              "enclitic": "1pl"
+            }
+          },
+          {
+            "form": "تان",
+            "tag": "2PL",
+            "after": null,
+            "features": {
+              "enclitic": "2pl"
+            }
+          },
+          {
+            "form": "یان",
+            "tag": "3PL",
+            "after": null,
+            "features": {
+              "enclitic": "3pl"
+            }
+          },
+          {
+            "form": "م",
+            "tag": "1SG",
+            "after": null,
+            "features": {
+              "enclitic": "1sg"
+            }
+          },
+          {
+            "form": "ت",
+            "tag": "2SG",
+            "after": null,
+            "features": {
+              "enclitic": "2sg"
+            }
+          },
+          {
+            "form": "ی",
+            "tag": "3SG/EZ",
+            "after": null,
+            "features": {
+              "enclitic": "3sg|ezafe"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "ADD2",
+        "affixes": [
+          {
+            "form": "ش",
+            "tag": "ADD",
+            "after": "V",
+            "features": {
+              "additive": "yes"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "NUMDEF",
+        "affixes": [
+          {
+            "form": "ەکان",
+            "tag": "DEF.PL",
+            "after": "C",
+            "features": {
+              "definite": "def",
+              "number": "pl"
+            }
+          },
+          {
+            "form": "یەکان",
+            "tag": "DEF.PL",
+            "after": "V",
+            "features": {
+              "definite": "def",
+              "number": "pl"
+            }
+          },
+          {
+            "form": "کان",
+            "tag": "DEF.PL",
+            "after": "V",
+            "features": {
+              "definite": "def",
+              "number": "pl"
+            }
+          },
+          {
+            "form": "ەکە",
+            "tag": "DEF.SG",
+            "after": "C",
+            "features": {
+              "definite": "def",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "یەکە",
+            "tag": "DEF.SG",
+            "after": "V",
+            "features": {
+              "definite": "def",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "کە",
+            "tag": "DEF.SG",
+            "after": "V",
+            "features": {
+              "definite": "def",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "ێک",
+            "tag": "INDEF",
+            "after": "C",
+            "features": {
+              "definite": "ind",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "یەک",
+            "tag": "INDEF",
+            "after": "V",
+            "features": {
+              "definite": "ind",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "ان",
+            "tag": "PL",
+            "after": "C",
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "form": "یان",
+            "tag": "PL",
+            "after": "V",
+            "features": {
+              "number": "pl"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "CMP",
+        "affixes": [
+          {
+            "form": "ترین",
+            "tag": "SUPL",
+            "after": null,
+            "features": {
+              "degree": "sup"
+            }
+          },
+          {
+            "form": "تر",
+            "tag": "CMPR",
+            "after": null,
+            "features": {
+              "degree": "cmp"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "DERIV",
+        "affixes": [
+          {
+            "form": "ایەتی",
+            "tag": "ABST",
+            "after": null,
+            "features": {
+              "derivation": "abstract"
+            }
+          },
+          {
+            "form": "یەتی",
+            "tag": "ABST",
+            "after": null,
+            "features": {
+              "derivation": "abstract"
+            }
+          },
+          {
+            "form": "ێتی",
+            "tag": "ABST",
+            "after": "C",
+            "features": {
+              "derivation": "abstract"
+            }
+          },
+          {
+            "form": "انە",
+            "tag": "ADVZ",
+            "after": null,
+            "features": {
+              "derivation": "adverbial"
+            }
+          },
+          {
+            "form": "ستان",
+            "tag": "PLACE",
+            "after": null,
+            "features": {
+              "derivation": "place"
+            }
+          },
+          {
+            "form": "کار",
+            "tag": "AGENT",
+            "after": null,
+            "features": {
+              "derivation": "agent"
+            }
+          },
+          {
+            "form": "دار",
+            "tag": "POSSR",
+            "after": null,
+            "features": {
+              "derivation": "possessor"
+            }
+          },
+          {
+            "form": "ی",
+            "tag": "NISBA",
+            "after": "C",
+            "features": {
+              "derivation": "nisba|abstract"
+            }
+          }
+        ]
+      }
+    ],
+    "proclitics": [
+      {
+        "form": "لە",
+        "tag": "PREP.LE"
+      },
+      {
+        "form": "بە",
+        "tag": "PREP.BE"
+      },
+      {
+        "form": "بۆ",
+        "tag": "PREP.BO"
+      }
+    ],
+    "examples": {
+      "پیاوەکە": {
+        "lemma": "پیاو",
+        "seg": "پیاو+ەکە",
+        "gloss": "STEM+DEF.SG",
+        "features": {
+          "definite": "def",
+          "number": "sg"
+        }
+      },
+      "کتێبەکەم": {
+        "lemma": "کتێب",
+        "seg": "کتێب+ەکە+م",
+        "gloss": "STEM+DEF.SG+1SG",
+        "features": {
+          "definite": "def",
+          "number": "sg",
+          "enclitic": "1sg"
+        }
+      },
+      "دەرگاکە": {
+        "lemma": "دەرگاکە",
+        "seg": "دەرگاکە",
+        "gloss": "STEM",
+        "features": {}
+      },
+      "دەکەم": {
+        "lemma": "کردن",
+        "seg": "دەکەم",
+        "gloss": "VERB",
+        "features": {
+          "tense": "present",
+          "mood": "indicative",
+          "person": "1sg",
+          "transitivity": "transitive"
+        }
+      },
+      "نەمکرد": {
+        "lemma": "کردن",
+        "seg": "نەمکرد",
+        "gloss": "VERB",
+        "features": {
+          "tense": "past",
+          "aspect": "perfective",
+          "agent": "1sg",
+          "polarity": "neg",
+          "alignment": "ergative",
+          "transitivity": "transitive"
+        }
+      },
+      "کردوومە": {
+        "lemma": "کردن",
+        "seg": "کردوومە",
+        "gloss": "VERB",
+        "features": {
+          "tense": "present_perfect",
+          "agent": "1sg",
+          "alignment": "ergative",
+          "transitivity": "transitive"
+        }
+      }
+    }
+  },
+  "verbs": {
+    "agreement_set_1": {
+      "1sg": "م",
+      "2sg": "یت",
+      "3sg": "ێت / ات",
+      "1pl": "ین",
+      "2pl": "ن",
+      "3pl": "ن"
+    },
+    "agreement_set_2_enclitics": {
+      "1sg": "م",
+      "2sg": "ت",
+      "3sg": "ی",
+      "1pl": "مان",
+      "2pl": "تان",
+      "3pl": "یان"
+    },
+    "alignment": "past tenses of transitive verbs are ergative: the agent is cross-referenced by a set-2 enclitic",
+    "preverbs": [
+      "هەڵ",
+      "وەر",
+      "دەر",
+      "دا",
+      "ڕا",
+      "تێ",
+      "پێ",
+      "لێ"
+    ],
+    "model_paradigm": [
+      {
+        "form": "دەکەم",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "1sg"
+      },
+      {
+        "form": "ناکەم",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "1sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکەم",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکەم",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "1sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "کردم",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "1sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەمکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمدەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "1sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردوومە",
+        "tense": "present_perfect",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووم",
+        "tense": "past_perfect",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرێم",
+        "tense": "present",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "ناکرێم",
+        "tense": "present",
+        "voice": "passive",
+        "person": "1sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "کرام",
+        "tense": "past",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "دەکەیت",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2sg"
+      },
+      {
+        "form": "ناکەیت",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکەیت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکەیت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "کردت",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "2sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەتکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتدەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "2sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردووتە",
+        "tense": "present_perfect",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووت",
+        "tense": "past_perfect",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرێیت",
+        "tense": "present",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "ناکرێیت",
+        "tense": "present",
+        "voice": "passive",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "کرایت",
+        "tense": "past",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "دەکات",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3sg"
+      },
+      {
+        "form": "ناکات",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکات",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکات",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "کردی",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "3sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەیکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیدەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "3sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردوویەتی",
+        "tense": "present_perfect",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووی",
+        "tense": "past_perfect",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرێت",
+        "tense": "present",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "ناکرێت",
+        "tense": "present",
+        "voice": "passive",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "کرا",
+        "tense": "past",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "دەکەین",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "1pl"
+      },
+      {
+        "form": "ناکەین",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "1pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکەین",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکەین",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "1pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "کردمان",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمانکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "1pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەمانکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەماندەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "1pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردوومانە",
+        "tense": "present_perfect",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبوومان",
+        "tense": "past_perfect",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرێین",
+        "tense": "present",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "ناکرێین",
+        "tense": "present",
+        "voice": "passive",
+        "person": "1pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "کراین",
+        "tense": "past",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "دەکەن",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2pl"
+      },
+      {
+        "form": "ناکەن",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکەن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکەن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "2pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "کردتان",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتانکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "2pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەتانکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتاندەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "2pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردووتانە",
+        "tense": "present_perfect",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووتان",
+        "tense": "past_perfect",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرێن",
+        "tense": "present",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "ناکرێن",
+        "tense": "present",
+        "voice": "passive",
+        "person": "2pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "کران",
+        "tense": "past",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "دەکەن",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3pl"
+      },
+      {
+        "form": "ناکەن",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکەن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکەن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "3pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "کردیان",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیانکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "3pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەیانکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیاندەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "3pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردوویانە",
+        "tense": "present_perfect",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبوویان",
+        "tense": "past_perfect",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرێن",
+        "tense": "present",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "ناکرێن",
+        "tense": "present",
+        "voice": "passive",
+        "person": "3pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "کران",
+        "tense": "past",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "دەکاتە",
+        "tense": "present",
+        "person": "3sg",
+        "goal": "yes"
+      },
+      {
+        "form": "کرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکرد",
+        "tense": "past",
+        "aspect": "perfective",
+        "polarity": "neg",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "دەکرد",
+        "tense": "past",
+        "aspect": "progressive",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردووە",
+        "tense": "present_perfect",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبوو",
+        "tense": "past_perfect",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "بکە",
+        "mood": "imperative",
+        "person": "2sg"
+      },
+      {
+        "form": "بکەن",
+        "mood": "imperative",
+        "person": "2pl"
+      },
+      {
+        "form": "مەکە",
+        "mood": "imperative",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "مەکەن",
+        "mood": "imperative",
+        "person": "2pl",
+        "polarity": "neg"
+      },
+      {
+        "form": "infinitive"
+      },
+      {
+        "form": "past_participle"
+      },
+      {
+        "form": "passive_participle"
+      },
+      {
+        "form": "کراوە",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "3sg"
+      }
+    ]
+  },
+  "regex": {
+    "ckb_word": "^[ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنهەوۆیێ]+(?:‌[ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنهەوۆیێ]+)*$",
+    "ckb_token": "[ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنهەوۆیێ]+(?:‌[ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنهەوۆیێ]+)*",
+    "ckb_arabic_kaf_yeh": "[كيى]",
+    "ckb_legacy_heh_zwnj": "ه‌",
+    "ckb_heh_doachashmee": "ھ",
+    "ckb_initial_plain_r": "(^|[^ئابپتجچحخدرڕزژسشعغفڤقکگلڵمنهەوۆیێ‌])ر",
+    "ckb_double_ae": "ەە+",
+    "ckb_arabic_only_letters": "[ثذصضطظةءأإؤ]",
+    "ckb_definite_suffix": "(?:ەکە|کە|ەکان|کان)$",
+    "ckb_pronominal_enclitic": "(?:مان|تان|یان|م|ت|ی)$",
+    "ckb_present_verb": "^(?:نا|نە|مە)?(?:دە|ئە)[^\\s]+(?:م|یت|ێت|ات|ین|ن)$",
+    "ckb_infinitive": "(?:دن|تن|ین|ان|وون|اندن)$"
+  }
+}
