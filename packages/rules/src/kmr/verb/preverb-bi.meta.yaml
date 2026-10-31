@@ -1,0 +1,20 @@
+id: kmr.verb.preverb-bi
+family: verb
+category: morphology
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "After a preverb the bi- of the subjunctive is dropped."
+  ckb: "دوای پێشکردار bi- ی داخوازی لادەچێت."
+  kmr: "Piştî pêşlêkerê bi- ya daxwazî tê rakirin."
+reason:
+  en: "The preverb takes the place of bi-: bûn gives bibe, but rabûn gives rabe."
+  ckb: "پێشکردار جێی bi- دەگرێتەوە: bûn دەبێتە bibe، بەڵام rabûn دەبێتە rabe."
+  kmr: "Pêşlêker cihê bi- digire: bûn dibe bibe, lê rabûn dibe rabe."
+examples:
+  - { wrong: "birabe", right: "rabe" }
+  - { wrong: "bivekim", right: "vekim" }
+lessons:
+  - { lang: kmr, lessonId: 20, anchor: "preverbs" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

@@ -75,6 +75,8 @@ export interface RuleContext {
   strictness: Strictness;
   /** Every reading of a word, best first, cached per word. */
   readings(word: string): readonly Analysis[];
+  /** The same as an analyzer, for engine functions that take one. */
+  analyzer: { analyze(word: string): readonly Analysis[]; best(word: string): Analysis | null };
 }
 
 export interface Rule {

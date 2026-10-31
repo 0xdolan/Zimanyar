@@ -1,0 +1,54 @@
+{"text": "Ez dıçım malê.", "findings": [{"rule": "kmr.orth.turkish-letter", "span": "dıçım", "fix": "diçim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "İro baran dibare.", "findings": [{"rule": "kmr.orth.turkish-letter", "span": "İro", "fix": "Iro"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez mırov dibînim.", "findings": [{"rule": "kmr.orth.turkish-letter", "span": "mırov", "fix": "mirov"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Şéwe baş e.", "findings": [{"rule": "kmr.orth.accent", "span": "Şéwe", "fix": "Şêwe"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez kitéb dixwînim.", "findings": [{"rule": "kmr.orth.accent", "span": "kitéb", "fix": "kitêb"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ev pirtúk e.", "findings": [{"rule": "kmr.orth.accent", "span": "pirtúk", "fix": "pirtûk"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez baș im.", "findings": [{"rule": "kmr.orth.cedilla", "span": "baș", "fix": "baş"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez čav dibînim.", "findings": [{"rule": "kmr.orth.cedilla", "span": "čav", "fix": "çav"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ew’ê hat.", "findings": [{"rule": "kmr.orth.apostrophe", "span": "Ew’ê", "fix": "Ew'ê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "HDP’ê got.", "findings": [{"rule": "kmr.orth.apostrophe", "span": "HDP’ê", "fix": "HDP'ê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "iro baran dibare.", "findings": [{"rule": "kmr.orth.capital", "span": "iro", "fix": "Iro"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "ez hatim.", "findings": [{"rule": "kmr.orth.capital", "span": "ez", "fix": "Ez"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez kurrrd im.", "findings": [{"rule": "kmr.orth.tripled", "span": "kurrrd", "fix": "kurd"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ev baaaş e.", "findings": [{"rule": "kmr.orth.tripled", "span": "baaaş", "fix": "baş"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Bava min hat.", "findings": [{"rule": "kmr.morph.ezafe-gender", "span": "Bava", "fix": "Bavê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Gunda me mezin e.", "findings": [{"rule": "kmr.morph.ezafe-gender", "span": "Gunda", "fix": "Gundê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Malê min mezin e.", "findings": [{"rule": "kmr.morph.ezafe-gender", "span": "Malê", "fix": "Mala"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Baveke baş hat.", "findings": [{"rule": "kmr.morph.indef-ezafe-gender", "span": "Baveke", "fix": "Bavekî"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Jinekî baş hat.", "findings": [{"rule": "kmr.morph.indef-ezafe-gender", "span": "Jinekî", "fix": "Jineke"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez li mal im.", "findings": [{"rule": "kmr.morph.case-after-preposition", "span": "mal", "fix": "malê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez ji jin dibihîzim.", "findings": [{"rule": "kmr.morph.case-after-preposition", "span": "jin", "fix": "jinê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez pirtûk dixwînim.", "findings": [{"rule": "kmr.morph.present-object-case", "span": "pirtûk", "fix": "pirtûkê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Xanîê me mezin e.", "findings": [{"rule": "kmr.morph.vowel-glide", "span": "Xanîê", "fix": "Xaniyê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Min xanîê dît.", "findings": [{"rule": "kmr.morph.vowel-glide", "span": "xanîê", "fix": "xaniyê"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Min tu dîtim.", "findings": [{"rule": "kmr.ergative.agreement", "span": "dîtim", "fix": "dîtî"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Te ez dîtî.", "findings": [{"rule": "kmr.ergative.agreement", "span": "dîtî", "fix": "dîtim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Min hûn dîtim.", "findings": [{"rule": "kmr.ergative.agreement", "span": "dîtim", "fix": "dîtin"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Wî ez dît.", "findings": [{"rule": "kmr.ergative.agreement", "span": "dît", "fix": "dîtim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez nan xwar.", "findings": [{"rule": "kmr.ergative.direct-agent", "span": "Ez", "fix": "Min"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Tu nan xwar.", "findings": [{"rule": "kmr.ergative.direct-agent", "span": "Tu", "fix": "Te"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Em nan xwar.", "findings": [{"rule": "kmr.ergative.direct-agent", "span": "Em", "fix": "Me"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Min wê dît.", "findings": [{"rule": "kmr.ergative.oblique-object", "span": "wê", "fix": "ew"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Te min dît.", "findings": [{"rule": "kmr.ergative.oblique-object", "span": "min", "fix": "ez"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Min hatim.", "findings": [{"rule": "kmr.verb.oblique-intransitive-subject", "span": "Min", "fix": "Ez"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Te hatî.", "findings": [{"rule": "kmr.verb.oblique-intransitive-subject", "span": "Te", "fix": "Tu"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Wan çûn.", "findings": [{"rule": "kmr.verb.oblique-intransitive-subject", "span": "Wan", "fix": "Ew"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez diçe.", "findings": [{"rule": "kmr.verb.present-agreement", "span": "diçe", "fix": "diçim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Tu diçim.", "findings": [{"rule": "kmr.verb.present-agreement", "span": "diçim", "fix": "diçî"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Em diçe.", "findings": [{"rule": "kmr.verb.present-agreement", "span": "diçe", "fix": "diçin"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez dibîne.", "findings": [{"rule": "kmr.verb.present-agreement", "span": "dibîne", "fix": "dibînim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Tu birabe!", "findings": [{"rule": "kmr.verb.preverb-bi", "span": "birabe", "fix": "rabe"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Derî bivekin!", "findings": [{"rule": "kmr.verb.preverb-bi", "span": "bivekin", "fix": "vekin"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez nazanim.", "findings": [{"rule": "kmr.verb.ni-negation", "span": "nazanim", "fix": "nizanim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez nakarim.", "findings": [{"rule": "kmr.verb.ni-negation", "span": "nakarim", "fix": "nikarim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ew nazane.", "findings": [{"rule": "kmr.verb.ni-negation", "span": "nazane", "fix": "nizane"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez diêm.", "findings": [{"rule": "kmr.verb.prefix-contraction", "span": "diêm", "fix": "têm"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez naêm.", "findings": [{"rule": "kmr.verb.prefix-contraction", "span": "naêm", "fix": "nayêm"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez naaxivim.", "findings": [{"rule": "kmr.verb.prefix-contraction", "span": "naaxivim", "fix": "naxivim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez ê diçim.", "findings": [{"rule": "kmr.verb.future-particle", "span": "diçim", "fix": "biçim"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Tu dê dibînî.", "findings": [{"rule": "kmr.verb.future-particle", "span": "dibînî", "fix": "bibînî"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez hatim .", "findings": [{"rule": "any.space.punctuation", "span": " .", "fix": "."}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez  hatim.", "findings": [{"rule": "any.space.punctuation", "span": "  ", "fix": " "}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez ez hatim.", "findings": [{"rule": "any.repeat.word", "span": "Ez ez", "fix": "Ez"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}
+{"text": "Ez kitێb dixwînim.", "findings": [{"rule": "any.script.mixed", "span": "kitێb"}], "source": "zimankit lesson 23 and the rule catalogue", "review": "draft"}

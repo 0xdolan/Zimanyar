@@ -1,0 +1,19 @@
+id: kmr.verb.future-particle
+family: verb
+category: agreement
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "After ê or dê the verb is in the subjunctive."
+  ckb: "دوای ê یان dê کردار لە داخوازیدایە."
+  kmr: "Piştî ê an dê lêker di raweya daxwazî de ye."
+reason:
+  en: "Kurmanji builds the future with ê or dê and the subjunctive: Ez ê biçim, \"I will go\"."
+  ckb: "کورمانجی داهاتوو بە ê یان dê و داخوازی دروست دەکات: Ez ê biçim."
+  kmr: "Kurmancî dema bê bi ê an dê û raweya daxwazî çêdike: Ez ê biçim."
+examples:
+  - { wrong: "Ez ê diçim.", right: "Ez ê biçim." }
+  - { wrong: "Tu dê dibînî.", right: "Tu dê bibînî." }
+lessons:
+  - { lang: kmr, lessonId: 12, anchor: "the-future" }

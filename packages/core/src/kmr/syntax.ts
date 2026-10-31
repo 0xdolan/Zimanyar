@@ -3,6 +3,12 @@ import type { Analysis } from "../schema.js";
 import { words } from "../tokenize.js";
 import { KmrAnalyzer } from "./morphology.js";
 
+/** What the checker needs of an analyzer, so a caller can supply a cached one. */
+export interface WordAnalyzer {
+  analyze(word: string): readonly Analysis[];
+  best(word: string): Analysis | null;
+}
+
 const directPronouns = new Set(KMR_DIRECT_PRONOUNS);
 const obliquePronouns = new Set(KMR_OBLIQUE_PRONOUNS);
 const pronounPerson = KMR_PRONOUN_PERSON as Record<string, string>;
@@ -50,7 +56,7 @@ function caseOf(token: string, reading: Analysis | null): [string, string | null
  */
 export function detectAlignment(
   sentence: string,
-  analyzer: KmrAnalyzer = new KmrAnalyzer(),
+  analyzer: WordAnalyzer = new KmrAnalyzer(),
 ): AlignmentRecord {
   const tokens = words(sentence);
   const record: AlignmentRecord = {

@@ -1,0 +1,21 @@
+id: kmr.ergative.agreement
+family: ergative
+category: agreement
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "In the past this verb agrees with the object, {object}."
+  ckb: "لە ڕابردوودا ئەم کردارە لەگەڵ بەرکار، {object}، دەگونجێت."
+  kmr: "Di dema borî de ev lêker li gorî bireserê ye: {object}."
+reason:
+  en: "Kurmanji past tenses of transitive verbs are ergative: the doer is oblique, and the verb agrees with the object. Min tu dîtî, \"I saw you\": the -î agrees with tu."
+  ckb: "ڕابردووی کرداری تێپەڕی کورمانجی ئێرگاتیڤە: بکەر لە دۆخی نابەرکەوتووە، و کردار لەگەڵ بەرکار دەگونجێت. Min tu dîtî: -î لەگەڵ tu دەگونجێت."
+  kmr: "Demên borî yên lêkerên gerguhêz ên kurmancî ergatîf in: kirde di rewşa çemandî de ye, û lêker li gorî bireserê ye. Min tu dîtî: -î li gorî tu ye."
+examples:
+  - { wrong: "Min tu dîtim.", right: "Min tu dîtî." }
+  - { wrong: "Te ez dîtî.", right: "Te ez dîtim." }
+lessons:
+  - { lang: kmr, lessonId: 14, anchor: "the-big-switch" }
+  - { lang: kmr, lessonId: 22, anchor: "the-complete-rule" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

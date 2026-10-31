@@ -1,0 +1,20 @@
+id: kmr.ergative.oblique-object
+family: ergative
+category: agreement
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "The object of a past transitive verb takes the direct form."
+  ckb: "بەرکاری ڕابردووی کرداری تێپەڕ لە دۆخی بەرکەوتوو دەبێت."
+  kmr: "Bireserê dema borî ya lêkera gerguhêz di rewşa sade de ye."
+reason:
+  en: "In the past the roles switch: the doer is oblique and the object direct. \"I saw her\" is Min ew dît, with ew, not wê."
+  ckb: "لە ڕابردوودا ڕۆڵەکان دەگۆڕێن: بکەر نابەرکەوتوو و بەرکار بەرکەوتوو. Min ew dît، بە ew، نەک wê."
+  kmr: "Di dema borî de rol diguherin: kirde çemandî û bireser sade ye. Min ew dît, bi ew, ne bi wê."
+examples:
+  - { wrong: "Min wê dît.", right: "Min ew dît." }
+  - { wrong: "Te min dît.", right: "Te ez dît." }
+lessons:
+  - { lang: kmr, lessonId: 14, anchor: "the-big-switch" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

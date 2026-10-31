@@ -31,3 +31,4 @@ These are not exceptions, because the behaviour is the same:
 - `packages/core/src/python.ts` holds the places where the languages differ: `\s` and `\w`, `str.strip`, `str.count` and `round`.
 - `charScript` uses zimankit's answers as generated ranges, because zimankit reads Unicode character names, which JavaScript cannot.
 - The Sorani generator treats دا as a preverb that drops the subjunctive ب, giving داخە, but zimankit's own lessons write دابخە. The port matches the generator, and `ckb.verb.preverb-b` follows the lessons by not flagging دابخە.
+- The Kurmanji generator gives dijîyî for the 2sg present of jiyan, but zimankit's own lessons write Tu li ku dijî. The port matches the generator, and `kmr.verb.present-agreement` does not judge vowel-final present stems.

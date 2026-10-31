@@ -1191,5 +1191,965 @@ export const CATALOGUE = [
         "title": "Preverbs, -ەوە verbs and compound verbs"
       }
     ]
+  },
+  {
+    "id": "kmr.ergative.agreement",
+    "lang": "kmr",
+    "family": "ergative",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "In the past this verb agrees with the object, {object}.",
+      "ckb": "لە ڕابردوودا ئەم کردارە لەگەڵ بەرکار، {object}، دەگونجێت.",
+      "kmr": "Di dema borî de ev lêker li gorî bireserê ye: {object}."
+    },
+    "reason": {
+      "en": "Kurmanji past tenses of transitive verbs are ergative: the doer is oblique, and the verb agrees with the object. Min tu dîtî, \"I saw you\": the -î agrees with tu.",
+      "ckb": "ڕابردووی کرداری تێپەڕی کورمانجی ئێرگاتیڤە: بکەر لە دۆخی نابەرکەوتووە، و کردار لەگەڵ بەرکار دەگونجێت. Min tu dîtî: -î لەگەڵ tu دەگونجێت.",
+      "kmr": "Demên borî yên lêkerên gerguhêz ên kurmancî ergatîf in: kirde di rewşa çemandî de ye, û lêker li gorî bireserê ye. Min tu dîtî: -î li gorî tu ye."
+    },
+    "examples": [
+      {
+        "wrong": "Min tu dîtim.",
+        "right": "Min tu dîtî."
+      },
+      {
+        "wrong": "Te ez dîtî.",
+        "right": "Te ez dîtim."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 14,
+        "anchor": "the-big-switch",
+        "title": "The past tense II: transitive verbs and split ergativity"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 22,
+        "anchor": "the-complete-rule",
+        "title": "Agreement and ergativity in depth"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.ergative.direct-agent",
+    "lang": "kmr",
+    "family": "ergative",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "The doer of a past transitive verb takes the oblique form.",
+      "ckb": "بکەری ڕابردووی کرداری تێپەڕ لە دۆخی نابەرکەوتوو دەبێت.",
+      "kmr": "Kirdeya dema borî ya lêkera gerguhêz di rewşa çemandî de ye."
+    },
+    "reason": {
+      "en": "In the past tense the roles switch: \"I ate bread\" is Min nan xwar, with min, not ez.",
+      "ckb": "لە ڕابردوودا ڕۆڵەکان دەگۆڕێن: Min nan xwar، بە min، نەک ez.",
+      "kmr": "Di dema borî de rol diguherin: Min nan xwar, bi min, ne bi ez."
+    },
+    "examples": [
+      {
+        "wrong": "Ez nan xwar.",
+        "right": "Min nan xwar."
+      },
+      {
+        "wrong": "Tu nan xwar.",
+        "right": "Te nan xwar."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 14,
+        "anchor": "the-big-switch",
+        "title": "The past tense II: transitive verbs and split ergativity"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.ergative.oblique-object",
+    "lang": "kmr",
+    "family": "ergative",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "The object of a past transitive verb takes the direct form.",
+      "ckb": "بەرکاری ڕابردووی کرداری تێپەڕ لە دۆخی بەرکەوتوو دەبێت.",
+      "kmr": "Bireserê dema borî ya lêkera gerguhêz di rewşa sade de ye."
+    },
+    "reason": {
+      "en": "In the past the roles switch: the doer is oblique and the object direct. \"I saw her\" is Min ew dît, with ew, not wê.",
+      "ckb": "لە ڕابردوودا ڕۆڵەکان دەگۆڕێن: بکەر نابەرکەوتوو و بەرکار بەرکەوتوو. Min ew dît، بە ew، نەک wê.",
+      "kmr": "Di dema borî de rol diguherin: kirde çemandî û bireser sade ye. Min ew dît, bi ew, ne bi wê."
+    },
+    "examples": [
+      {
+        "wrong": "Min wê dît.",
+        "right": "Min ew dît."
+      },
+      {
+        "wrong": "Te min dît.",
+        "right": "Te ez dît."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 14,
+        "anchor": "the-big-switch",
+        "title": "The past tense II: transitive verbs and split ergativity"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.morph.case-after-preposition",
+    "lang": "kmr",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "warning",
+    "confidence": 0.7,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After a preposition this noun takes the oblique case.",
+      "ckb": "دوای ئامراز ئەم ناوە دەچێتە دۆخی نابەرکەوتوو.",
+      "kmr": "Piştî daçekê ev navdêr di rewşa çemandî de ye."
+    },
+    "reason": {
+      "en": "Prepositions such as li, ji, bi and di take the oblique. A feminine noun marks it with -ê: li malê, \"at home\".",
+      "ckb": "ئامرازەکانی وەک li، ji، bi و di دۆخی نابەرکەوتوو دەخوازن. ناوی مێ بە -ê نیشانی دەدات: li malê.",
+      "kmr": "Daçekên wek li, ji, bi û di rewşa çemandî dixwazin. Navdêra mê wê bi -ê nîşan dide: li malê."
+    },
+    "examples": [
+      {
+        "wrong": "li mal",
+        "right": "li malê"
+      },
+      {
+        "wrong": "ji jin",
+        "right": "ji jinê"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 9,
+        "anchor": "oblique-endings",
+        "title": "Direct and oblique case"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 16,
+        "anchor": "simple-prepositions",
+        "title": "Prepositions and circumpositions"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.morph.ezafe-gender",
+    "lang": "kmr",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.8,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This ezafe does not match the noun's gender.",
+      "ckb": "ئەم ئیزافەیە لەگەڵ ڕەگەزی ناوەکەدا ناگونجێت.",
+      "kmr": "Ev îzafe li gorî zayenda navdêrê nîne."
+    },
+    "reason": {
+      "en": "Before a modifier, a feminine noun takes -a and a masculine noun takes -ê: mala min, \"my house\", but bavê min, \"my father\".",
+      "ckb": "پێش وەسفکەر، ناوی مێ -a وەردەگرێت و ناوی نێر -ê: mala min، بەڵام bavê min.",
+      "kmr": "Berî rengdêr an xwedî, navdêra mê -a û ya nêr -ê digire: mala min, lê bavê min."
+    },
+    "examples": [
+      {
+        "wrong": "bava min",
+        "right": "bavê min"
+      },
+      {
+        "wrong": "malê min",
+        "right": "mala min"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 8,
+        "anchor": "the-linking-ending",
+        "title": "Ezafe: linking nouns to adjectives and owners"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 22,
+        "anchor": "ezafe-agreement",
+        "title": "Agreement and ergativity in depth"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.morph.indef-ezafe-gender",
+    "lang": "kmr",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This ending does not match the noun's gender.",
+      "ckb": "ئەم پاشگرە لەگەڵ ڕەگەزی ناوەکەدا ناگونجێت.",
+      "kmr": "Ev paşgir li gorî zayenda navdêrê nîne."
+    },
+    "reason": {
+      "en": "Before an adjective, an indefinite feminine noun takes -eke and a masculine one -ekî: jineke baş, mirovekî baş.",
+      "ckb": "پێش ئاوەڵناو، ناوی نەناسراوی مێ -eke و نێر -ekî وەردەگرێت: jineke baş، mirovekî baş.",
+      "kmr": "Berî rengdêrê, navdêra nediyar a mê -eke û ya nêr -ekî digire: jineke baş, mirovekî baş."
+    },
+    "examples": [
+      {
+        "wrong": "miroveke baş",
+        "right": "mirovekî baş"
+      },
+      {
+        "wrong": "jinekî baş",
+        "right": "jineke baş"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 8,
+        "anchor": "indefinite-ezafe-a-good-man",
+        "title": "Ezafe: linking nouns to adjectives and owners"
+      }
+    ]
+  },
+  {
+    "id": "kmr.morph.present-object-case",
+    "lang": "kmr",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "hint",
+    "confidence": 0.45,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "If you mean a specific one, this object takes the oblique.",
+      "ckb": "ئەگەر مەبەستت دانەیەکی دیاریکراوە، ئەم بەرکارە دەچێتە دۆخی نابەرکەوتوو.",
+      "kmr": "Heke mebesta te yekî diyar e, ev bireser di rewşa çemandî de ye."
+    },
+    "reason": {
+      "en": "In the present the object of a transitive verb is oblique: Ez pirtûkê dixwînim, \"I read the book\". Without the ending it reads as general, \"I read books\", which may be what you mean.",
+      "ckb": "لە ڕانەبردوودا بەرکاری کرداری تێپەڕ لە دۆخی نابەرکەوتووە: Ez pirtûkê dixwînim. بەبێ پاشگر گشتی دەخوێنرێتەوە، کە لەوانەیە مەبەستت بێت.",
+      "kmr": "Di dema niha de bireserê lêkera gerguhêz di rewşa çemandî de ye: Ez pirtûkê dixwînim. Bêyî paşgir giştî tê xwendin, ku dibe mebesta te be."
+    },
+    "examples": [
+      {
+        "wrong": "Ez pirtûk dixwînim",
+        "right": "Ez pirtûkê dixwînim"
+      },
+      {
+        "wrong": "Tu jin dibînî",
+        "right": "Tu jinê dibînî"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 9,
+        "anchor": "in-sentences",
+        "title": "Direct and oblique case"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 10,
+        "anchor": "word-order-and-the-object",
+        "title": "The present tense"
+      }
+    ]
+  },
+  {
+    "id": "kmr.morph.vowel-glide",
+    "lang": "kmr",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "Between two vowels this ending needs y.",
+      "ckb": "لە نێوان دوو بزوێندا ئەم پاشگرە y ی دەوێت.",
+      "kmr": "Di navbera du dengdêran de ev paşgir y dixwaze."
+    },
+    "reason": {
+      "en": "Kurmanji does not let two vowels meet at a suffix: y goes between them, and a final î shortens to i: xanî gives xaniyê.",
+      "ckb": "کورمانجی نایەڵێت دوو بزوێن لە پاشگردا بەیەک بگەن: y دەچێتە نێوانیان، و î ی کۆتایی دەبێتە i: xanî دەبێتە xaniyê.",
+      "kmr": "Kurmancî nahêle du dengdêr li ber paşgirê bigihîjin hev: y dikeve navbera wan, û î ya dawiyê dibe i: xanî dibe xaniyê."
+    },
+    "examples": [
+      {
+        "wrong": "xanîê",
+        "right": "xaniyê"
+      },
+      {
+        "wrong": "çiyaê",
+        "right": "çiyayê"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 3,
+        "anchor": "vowels-next-to-vowels",
+        "title": "Vowels: long and short"
+      }
+    ]
+  },
+  {
+    "id": "kmr.orth.accent",
+    "lang": "kmr",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.98,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "Kurmanji writes this vowel with a circumflex.",
+      "ckb": "کورمانجی ئەم بزوێنە بە سەرکڵاو دەنووسێت.",
+      "kmr": "Kurmancî vê dengdêrê bi şapik dinivîse."
+    },
+    "reason": {
+      "en": "The circumflex is the only Kurmanji accent: ê î û. Other accents come from other keyboards.",
+      "ckb": "سەرکڵاو تاکە نیشانەی کورمانجییە: ê î û. نیشانەکانی تر لە تەختەکلیلی ترەوە دێن.",
+      "kmr": "Şapik tenê nîşana kurmancî ye: ê î û. Nîşanên din ji klavyeyên din tên."
+    },
+    "examples": [
+      {
+        "wrong": "şéwe",
+        "right": "şêwe"
+      },
+      {
+        "wrong": "Kurdí",
+        "right": "Kurdî"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "2-what-the-normaliser-fixes",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 3,
+        "anchor": "eight-vowels",
+        "title": "Vowels: long and short"
+      }
+    ]
+  },
+  {
+    "id": "kmr.orth.apostrophe",
+    "lang": "kmr",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "warning",
+    "confidence": 0.95,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "Use a plain apostrophe here.",
+      "ckb": "لێرەدا ئەپۆسترۆفی ئاسایی بەکاربهێنە.",
+      "kmr": "Li vir apostrofa sade bi kar bîne."
+    },
+    "reason": {
+      "en": "Word processors turn ' into ’. Inside a word, such as before a suffix on a name, the plain apostrophe is the standard, and the curly one splits the word for searching.",
+      "ckb": "بەرنامەکانی نووسین ' دەکەن بە ’. لەناو وشەدا، وەک پێش پاشگر لەسەر ناو، ئەپۆسترۆفی ئاسایی ستانداردە، و ئەوی چەماوە وشەکە بۆ گەڕان دابەش دەکات.",
+      "kmr": "Bernameyên nivîsê ' dikin ’. Di nav peyvê de, wek berî paşgirê li ser navekî, apostrofa sade standard e, û ya xwar peyvê ji bo lêgerînê parçe dike."
+    },
+    "examples": [
+      {
+        "wrong": "HDP’ê",
+        "right": "HDP'ê"
+      },
+      {
+        "wrong": "Ew’ê hat.",
+        "right": "Ew'ê hat."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 5,
+        "anchor": "capital-letters-and-apostrophes",
+        "title": "Writing and reading"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "2-what-the-normaliser-fixes",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.orth.capital",
+    "lang": "kmr",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "hint",
+    "confidence": 0.6,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "A sentence starts with a capital letter.",
+      "ckb": "ڕستە بە پیتی گەورە دەست پێ دەکات.",
+      "kmr": "Hevok bi tîpa mezin dest pê dike."
+    },
+    "reason": {
+      "en": "Kurmanji capitalises the first word of a sentence. The capital of i is I, and of î is Î, as in the Hawar alphabet.",
+      "ckb": "کورمانجی یەکەم وشەی ڕستە بە پیتی گەورە دەنووسێت. گەورەی i پیتی I ە و هی î پیتی Î، وەک ئەلفوبێی هاوار.",
+      "kmr": "Kurmancî peyva yekem a hevokê bi tîpa mezin dinivîse. Tîpa mezin a i I ye, û ya î Î ye, wek di alfabeya Hawarê de."
+    },
+    "examples": [
+      {
+        "wrong": "iro baran dibare.",
+        "right": "Iro baran dibare."
+      },
+      {
+        "wrong": "ez hatim.",
+        "right": "Ez hatim."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 2,
+        "anchor": "upper-and-lower-case",
+        "title": "The Hawar alphabet"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 5,
+        "anchor": "capital-letters-and-apostrophes",
+        "title": "Writing and reading"
+      }
+    ]
+  },
+  {
+    "id": "kmr.orth.cedilla",
+    "lang": "kmr",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.98,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This letter looks right but comes from another alphabet.",
+      "ckb": "ئەم پیتە ڕاست دیارە، بەڵام لە ئەلفوبێیەکی ترەوە هاتووە.",
+      "kmr": "Ev tîp rast xuya dike, lê ji alfabeyeke din e."
+    },
+    "reason": {
+      "en": "Romanian ș and Czech š and č look like ş and ç but are different characters, which breaks searching and spell-checking.",
+      "ckb": "ș ی ڕۆمانی و š و č ی چیکی لە ş و ç دەچن، بەڵام پیتی جیاوازن، گەڕان و پشکنینی ڕێنووس تێک دەدەن.",
+      "kmr": "ș ya romanî û š û č ya çekî dişibin ş û ç, lê tîpên cuda ne, û lêgerîn û kontrola rastnivîsê xera dikin."
+    },
+    "examples": [
+      {
+        "wrong": "șev",
+        "right": "şev"
+      },
+      {
+        "wrong": "čav",
+        "right": "çav"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "1-turkish-and-other-foreign-letters",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.orth.tripled",
+    "lang": "kmr",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This word has a letter or cluster Kurmanji does not write.",
+      "ckb": "ئەم وشەیە پیت یان کۆمەڵێک پیتی تێدایە کە کورمانجی نایاننووسێت.",
+      "kmr": "Di vê peyvê de tîp an komek tîp heye ku kurmancî nanivîse."
+    },
+    "reason": {
+      "en": "No Kurmanji letter is written three times, and four consonants in a row do not occur. It is usually a slip of the finger or an emphasis.",
+      "ckb": "هیچ پیتێکی کورمانجی سێ جار نانووسرێت، و چوار نەبزوێن لەسەر یەک نییە. زۆرجار هەڵەی پەنجەیە یان جەختکردنە.",
+      "kmr": "Tu tîpa kurmancî sê caran nayê nivîsîn, û çar dengdar li pey hev çênabin. Pir caran şaşiya tiliyê an giranî ye."
+    },
+    "examples": [
+      {
+        "wrong": "kurrrd",
+        "right": "kurd"
+      },
+      {
+        "wrong": "baaaş",
+        "right": "baş"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "3-what-the-validator-rejects",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.orth.turkish-letter",
+    "lang": "kmr",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.98,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This is a Turkish letter, not part of the Hawar alphabet.",
+      "ckb": "ئەمە پیتێکی تورکییە و لە ئەلفوبێی هاوار نییە.",
+      "kmr": "Ev tîpeke tirkî ye, ne ya alfabeya Hawarê ye."
+    },
+    "reason": {
+      "en": "Turkish keyboards produce ı and İ for the Kurmanji i and I, and ü for û. ğ and ö are not Kurmanji at all, though names may keep them.",
+      "ckb": "تەختەکلیلی تورکی ı و İ لە جیاتی i و I ی کورمانجی دەنووسێت، و ü لە جیاتی û. ğ و ö هەر کورمانجی نین، بەڵام ناو دەتوانێت بیانپارێزێت.",
+      "kmr": "Klavyeyên tirkî li şûna i û I ya kurmancî ı û İ, û li şûna û ü dinivîsin. ğ û ö qet ne kurmancî ne, lê nav dikarin wan biparêzin."
+    },
+    "examples": [
+      {
+        "wrong": "dıçım",
+        "right": "diçim"
+      },
+      {
+        "wrong": "İro",
+        "right": "Iro"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "1-turkish-and-other-foreign-letters",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 2,
+        "anchor": "letters-that-surprise-english-speakers",
+        "title": "The Hawar alphabet"
+      }
+    ]
+  },
+  {
+    "id": "kmr.spell.unknown",
+    "lang": "kmr",
+    "family": "spell",
+    "category": "spelling",
+    "severity": "warning",
+    "confidence": 0.7,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This word is not in the lexicon.",
+      "ckb": "ئەم وشەیە لە فەرهەنگەکەدا نییە.",
+      "kmr": "Ev peyv di ferhengê de tune ye."
+    },
+    "reason": {
+      "en": "It is not a known word and it does not break down into a known stem and endings. It may be a typing error, or a name or new word: add it to your dictionary if so.",
+      "ckb": "وشەیەکی ناسراو نییە و بۆ ڕەگ و پاشگری ناسراو دابەش نابێت. لەوانەیە هەڵەی نووسین بێت، یان ناو یان وشەیەکی نوێ: ئەگەر وابوو بیخە فەرهەنگی خۆت.",
+      "kmr": "Ne peyveke naskirî ye û li rehekî û paşgirên naskirî parçe nabe. Dibe ku şaşiya nivîsînê be, an nav an peyveke nû be: wê demê têxe ferhenga xwe."
+    },
+    "examples": [
+      {
+        "wrong": "kitab",
+        "right": "kitêb"
+      },
+      {
+        "wrong": "pirtuk",
+        "right": "pirtûk"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "3-what-the-validator-rejects",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.spell.variant",
+    "lang": "kmr",
+    "family": "spell",
+    "category": "spelling",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This is a non-standard spelling.",
+      "ckb": "ئەمە ڕێنووسێکی نەستانداردە.",
+      "kmr": "Ev rastnivîseke nestandard e."
+    },
+    "reason": {
+      "en": "Texts mostly write this word another way, and that spelling is the standard one. The current lexicon has no such pairs for Kurmanji, so this rule waits for them.",
+      "ckb": "دەقەکان زیاتر ئەم وشەیە بە شێوەیەکی تر دەنووسن، و ئەو ڕێنووسە ستانداردە.",
+      "kmr": "Nivîs bi piranî vê peyvê bi awayekî din dinivîsin, û ew rastnivîs standard e."
+    },
+    "examples": [
+      {
+        "wrong": "kitib",
+        "right": "kitêb"
+      },
+      {
+        "wrong": "pirtuke",
+        "right": "pirtûk"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.verb.future-particle",
+    "lang": "kmr",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After ê or dê the verb is in the subjunctive.",
+      "ckb": "دوای ê یان dê کردار لە داخوازیدایە.",
+      "kmr": "Piştî ê an dê lêker di raweya daxwazî de ye."
+    },
+    "reason": {
+      "en": "Kurmanji builds the future with ê or dê and the subjunctive: Ez ê biçim, \"I will go\".",
+      "ckb": "کورمانجی داهاتوو بە ê یان dê و داخوازی دروست دەکات: Ez ê biçim.",
+      "kmr": "Kurmancî dema bê bi ê an dê û raweya daxwazî çêdike: Ez ê biçim."
+    },
+    "examples": [
+      {
+        "wrong": "Ez ê diçim.",
+        "right": "Ez ê biçim."
+      },
+      {
+        "wrong": "Tu dê dibînî.",
+        "right": "Tu dê bibînî."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 12,
+        "anchor": "the-future",
+        "title": "Wishes, commands and the future"
+      }
+    ]
+  },
+  {
+    "id": "kmr.verb.ni-negation",
+    "lang": "kmr",
+    "family": "verb",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.95,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "zanîn and karîn are negated with ni-.",
+      "ckb": "zanîn و karîn بە ni- نەرێ دەکرێن.",
+      "kmr": "zanîn û karîn bi ni- tên neyînîkirin."
+    },
+    "reason": {
+      "en": "Most verbs take na- in the negative present, but zanîn, \"to know\", and karîn, \"can\", take ni-: nizanim, nikarim.",
+      "ckb": "زۆربەی کردارەکان لە ڕانەبردووی نەرێدا na- وەردەگرن، بەڵام zanîn و karîn ni-: nizanim، nikarim.",
+      "kmr": "Piraniya lêkeran di dema niha ya neyînî de na- digirin, lê zanîn û karîn ni-: nizanim, nikarim."
+    },
+    "examples": [
+      {
+        "wrong": "nazanim",
+        "right": "nizanim"
+      },
+      {
+        "wrong": "nakarim",
+        "right": "nikarim"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 21,
+        "anchor": "zanîn-to-know-and-karîn-can",
+        "title": "Irregular and special verbs"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.verb.oblique-intransitive-subject",
+    "lang": "kmr",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "An intransitive verb has a subject in the direct form.",
+      "ckb": "کرداری تێنەپەڕ بکەرێکی لە دۆخی بەرکەوتوو هەیە.",
+      "kmr": "Lêkera negerguhêz kirdeyeke di rewşa sade de heye."
+    },
+    "reason": {
+      "en": "Only transitive verbs switch in the past. With an intransitive verb the subject stays direct: Ez hatim, \"I came\".",
+      "ckb": "تەنیا کرداری تێپەڕ لە ڕابردوودا دەگۆڕێت. لەگەڵ کرداری تێنەپەڕ بکەر بەرکەوتوو دەمێنێتەوە: Ez hatim.",
+      "kmr": "Tenê lêkerên gerguhêz di dema borî de diguherin. Bi lêkera negerguhêz re kirde sade dimîne: Ez hatim."
+    },
+    "examples": [
+      {
+        "wrong": "Min hatim.",
+        "right": "Ez hatim."
+      },
+      {
+        "wrong": "Te hatî.",
+        "right": "Tu hatî."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 13,
+        "anchor": "the-simple-past",
+        "title": "The past tense I: intransitive verbs"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "kmr.verb.prefix-contraction",
+    "lang": "kmr",
+    "family": "verb",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This prefix contracts with the verb's stem.",
+      "ckb": "ئەم پێشگرە لەگەڵ ڕەگی کردارەکەدا کورت دەبێتەوە.",
+      "kmr": "Ev pêşgir bi rehê lêkerê re kurt dibe."
+    },
+    "reason": {
+      "en": "Stems that start in ê or î merge with the prefix: di + êm gives têm, na + êm gives nayêm, bi + êm gives bêm. Stems in a merge too: na + axivim gives naxivim.",
+      "ckb": "ئەو ڕەگانەی بە ê یان î دەست پێ دەکەن لەگەڵ پێشگر تێکەڵ دەبن: di + êm دەبێتە têm، na + êm دەبێتە nayêm، bi + êm دەبێتە bêm.",
+      "kmr": "Rehên ku bi ê an î dest pê dikin bi pêşgirê re dibin yek: di + êm dibe têm, na + êm dibe nayêm, bi + êm dibe bêm."
+    },
+    "examples": [
+      {
+        "wrong": "diêm",
+        "right": "têm"
+      },
+      {
+        "wrong": "naêm",
+        "right": "nayêm"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 10,
+        "anchor": "special-prefixes",
+        "title": "The present tense"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 21,
+        "anchor": "hatin-to-come",
+        "title": "Irregular and special verbs"
+      }
+    ]
+  },
+  {
+    "id": "kmr.verb.present-agreement",
+    "lang": "kmr",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This verb does not agree with its subject.",
+      "ckb": "ئەم کردارە لەگەڵ بکەرەکەی ناگونجێت.",
+      "kmr": "Ev lêker li gorî kirdeya xwe nîne."
+    },
+    "reason": {
+      "en": "In the present the verb's ending follows the subject: Ez diçim, Tu diçî, Ew diçe, Em diçin.",
+      "ckb": "لە ڕانەبردوودا کۆتایی کردار پەیڕەوی بکەر دەکات: Ez diçim، Tu diçî، Ew diçe، Em diçin.",
+      "kmr": "Di dema niha de dawiya lêkerê li gorî kirdeyê ye: Ez diçim, Tu diçî, Ew diçe, Em diçin."
+    },
+    "examples": [
+      {
+        "wrong": "Ez diçe.",
+        "right": "Ez diçim."
+      },
+      {
+        "wrong": "Tu diçim.",
+        "right": "Tu diçî."
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 10,
+        "anchor": "building-the-present",
+        "title": "The present tense"
+      }
+    ]
+  },
+  {
+    "id": "kmr.verb.preverb-bi",
+    "lang": "kmr",
+    "family": "verb",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After a preverb the bi- of the subjunctive is dropped.",
+      "ckb": "دوای پێشکردار bi- ی داخوازی لادەچێت.",
+      "kmr": "Piştî pêşlêkerê bi- ya daxwazî tê rakirin."
+    },
+    "reason": {
+      "en": "The preverb takes the place of bi-: bûn gives bibe, but rabûn gives rabe.",
+      "ckb": "پێشکردار جێی bi- دەگرێتەوە: bûn دەبێتە bibe، بەڵام rabûn دەبێتە rabe.",
+      "kmr": "Pêşlêker cihê bi- digire: bûn dibe bibe, lê rabûn dibe rabe."
+    },
+    "examples": [
+      {
+        "wrong": "birabe",
+        "right": "rabe"
+      },
+      {
+        "wrong": "bivekim",
+        "right": "vekim"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "kmr",
+        "lessonId": 20,
+        "anchor": "preverbs",
+        "title": "Preverbs and compound verbs"
+      },
+      {
+        "lang": "kmr",
+        "lessonId": 23,
+        "anchor": "4-real-words-wrong-place",
+        "title": "The written standard and common errors"
+      }
+    ]
   }
 ];

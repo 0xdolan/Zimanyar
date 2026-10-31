@@ -47,5 +47,31 @@ export const LEXICONS: Record<Variety, Lexicon> = {
       "پیاوێک",
     ],
   ),
-  kmr: makeLexicon("kmr", nouns([["kitêb", "f"]])),
+  kmr: makeLexicon(
+    "kmr",
+    [
+      ...nouns([
+        ["kitêb", "f"],
+        ["pirtûk", "f"],
+        ["mal", "f"],
+        ["jin", "f"],
+        ["keç", "f"],
+        ["şev", "f"],
+        ["bav", "m"],
+        ["mirov", "m"],
+        ["gund", "m"],
+        ["xanî", "m"],
+        ["çiya", "m"],
+        ["nan", "m"],
+        ["sêv", "f"],
+        ["dest", "m"],
+      ]),
+      ...rows("ADJ", "baş mezin"),
+    ],
+    [
+      { variant: "kitib", standard: "kitêb" },
+      { variant: "pirtuke", standard: "pirtûk" },
+    ],
+    ["kurd", "malê", "kitêba", "mirovekî", "dibînim", "Ez", "ez", "li", "12"],
+  ),
 };
