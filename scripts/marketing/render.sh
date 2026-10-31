@@ -15,6 +15,8 @@ CHROME="${CHROME:-$(command -v google-chrome || command -v chromium || command -
 PROFILE="$(mktemp -d)"
 trap 'rm -rf "$PROFILE"' EXIT
 FILTER="${1:-}"
+# Extra Chrome flags, for example CHROME_FLAGS=--no-sandbox on a CI runner.
+read -ra EXTRA_FLAGS <<<"${CHROME_FLAGS:-}"
 
 # output path | page | width | height
 JOBS=(
@@ -40,10 +42,13 @@ for job in "${JOBS[@]}"; do
   IFS='|' read -r out page w h <<<"$job"
   [[ -z "$FILTER" || "$out" == *"$FILTER"* ]] || continue
   mkdir -p "$OUT/$(dirname "$out")"
-  "$CHROME" --headless=new --disable-gpu --hide-scrollbars --no-first-run --no-default-browser-check \
+  rm -f "$OUT/$out"
+  "$CHROME" "${EXTRA_FLAGS[@]}" --headless=new --disable-gpu --hide-scrollbars --no-first-run --no-default-browser-check \
     --user-data-dir="$PROFILE" --force-device-scale-factor=1 --allow-file-access-from-files \
     --virtual-time-budget=3000 --window-size="$w,$h" --screenshot="$OUT/$out" \
-    "file://$HERE/$page" >/dev/null 2>&1
+    "file://$HERE/$page" >/dev/null 2>&1 || true
+  # Chrome can fail without saying so; a stale image must not pass for a fresh one.
+  [[ -s "$OUT/$out" ]] || { echo "Chrome did not render $out" >&2; exit 1; }
   count=$((count + 1))
 done
 echo "rendered $count marketing images into assets/marketing/"

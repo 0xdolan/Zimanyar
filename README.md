@@ -135,12 +135,12 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 
 | Path | What it holds |
 | --- | --- |
-| `assets/brand/` | The logo masters, wordmarks and [brand guide](assets/brand/README.md) |
+| `assets/brand/` | The logo masters, wordmarks, [brand guide](assets/brand/README.md) and [design decisions](assets/brand/design.md) |
 | `assets/icons/` | Rendered icons: PNG sizes, extension, web and PWA, the Linux hicolor tree |
 | `assets/marketing/` | Banner, social preview, store tiles and screenshots, ads in English, Sorani and Kurmanji |
 | `scripts/brand/` | The logo geometry and the icon renderer |
 | `scripts/marketing/` | HTML templates and the content of every marketing image |
-| `packages/config/` | Shared TypeScript and Vitest configuration |
+| `packages/config/` | Shared TypeScript and Vitest configuration, design tokens |
 | `scripts/checks/`, `scripts/release/` | Repository guards: dashes, Kurdish spelling, licences, attribution |
 | `docs/` | [The name and the logo](docs/STORY.md), [developer documentation](docs/dev/) |
 

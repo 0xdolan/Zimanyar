@@ -6,8 +6,8 @@ SHELL := bash
 SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh')
 
 .PHONY: help setup lint test coverage typecheck build format \
-	biome check-dashes check-spelling shellcheck actionlint ruff knip licenses \
-	attribution deps skills logo icons marketing brand
+	biome check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip licenses \
+	attribution deps skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -24,6 +24,8 @@ help:
 	@echo "make icons         logo + every icon size (assets/icons/), needs inkscape and ImageMagick"
 	@echo "make marketing     banner, store tiles, store screenshots, ads (assets/marketing/), needs Chrome"
 	@echo "make brand         icons + marketing"
+	@echo "make tokens        write packages/config/tokens.css from the design tokens"
+	@echo "make check-brand   render icons and marketing, and compare them with the committed images"
 
 setup:
 	pnpm install --frozen-lockfile
@@ -38,7 +40,7 @@ skills:
 	$(SKILLS) shadcn/ui -s shadcn
 	$(SKILLS) nextlevelbuilder/ui-ux-pro-max-skill -s ui-ux-pro-max
 
-lint: biome typecheck check-dashes check-spelling shellcheck actionlint ruff knip
+lint: biome typecheck check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip
 
 test:
 	pnpm exec turbo run test
@@ -63,6 +65,12 @@ check-dashes:
 
 check-spelling:
 	pnpm exec tsx scripts/checks/check-kurdish-spelling.ts
+
+check-contrast:
+	pnpm exec tsx scripts/checks/check-contrast.ts
+
+check-tokens:
+	pnpm exec tsx scripts/brand/make-tokens.ts --check
 
 shellcheck:
 	uv run --frozen shellcheck $(SHELL_SCRIPTS)
@@ -98,3 +106,9 @@ marketing:
 	scripts/marketing/render.sh
 
 brand: icons marketing
+
+tokens:
+	pnpm exec tsx scripts/brand/make-tokens.ts
+
+check-brand: brand
+	scripts/brand/compare-renders.sh
