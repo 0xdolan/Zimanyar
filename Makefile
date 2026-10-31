@@ -74,11 +74,11 @@ biome:
 	pnpm exec biome check .
 
 e2e:
-	pnpm --filter @zimanyar/ui demo:build
+	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
 	pnpm exec playwright test
 
 screenshots:
-	pnpm --filter @zimanyar/ui demo:build
+	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
 	UPDATE_SCREENSHOTS=1 pnpm exec playwright test scripts/screenshots/
 
 check-i18n:

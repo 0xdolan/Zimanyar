@@ -14,9 +14,16 @@ export default defineConfig({
     baseURL: "http://localhost:4173",
     ...(process.env["CI"] ? {} : { channel: "chrome" }),
   },
-  webServer: {
-    command: "pnpm --filter @zimanyar/ui demo:serve",
-    url: "http://localhost:4173",
-    reuseExistingServer: !process.env["CI"],
-  },
+  webServer: [
+    {
+      command: "pnpm --filter @zimanyar/ui demo:serve",
+      url: "http://localhost:4173",
+      reuseExistingServer: !process.env["CI"],
+    },
+    {
+      command: "pnpm --filter @zimanyar/editor demo:serve",
+      url: "http://localhost:4174",
+      reuseExistingServer: !process.env["CI"],
+    },
+  ],
 });
