@@ -1,0 +1,16 @@
+---
+import Default from "@astrojs/starlight/components/PageTitle.astro";
+import { createT, type UiLang } from "@zimanyar/i18n";
+
+const route = Astro.locals.starlightRoute;
+const t = createT((route.locale ?? "en") as UiLang);
+const { level, lesson } = route.entry.data as { level?: "beginner" | "intermediate" | "advanced"; lesson?: number };
+const LEVELS = {
+  beginner: `🟢 ${t("nav.beginner")}`,
+  intermediate: `🟡 ${t("nav.intermediate")}`,
+  advanced: `🔴 ${t("nav.advanced")}`,
+};
+---
+
+<Default />
+{level && lesson && <p class="zy-level">{LEVELS[level]} · {t("learn.lessonOf", { number: lesson, total: 23 })}</p>}

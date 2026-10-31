@@ -1,0 +1,28 @@
+---
+import { createT, type UiLang } from "@zimanyar/i18n";
+import SitePage from "../../components/SitePage.astro";
+import { linkTo, localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+const features = [
+  [t("desktop.editorTitle"), t("desktop.editorText")],
+  [t("desktop.filesTitle"), t("desktop.filesText")],
+  [t("desktop.quickTitle"), t("desktop.quickText")],
+  [t("desktop.offlineTitle"), t("desktop.offlineText")],
+];
+---
+
+<SitePage title={t("desktop.title")} description={t("desktop.description")}>
+  <p><span class="zy-status">{t("download.soon")}</span></p>
+  <p class="zy-lead">{t("desktop.lead")}</p>
+  <div class="zy-cards not-content">
+    {features.map(([title, text]) => <div class="zy-card"><h3>{title}</h3><p>{text}</p></div>)}
+  </div>
+  <h2>{t("desktop.installTitle")}</h2>
+  <p>{t("desktop.installText")}</p>
+  <div class="zy-actions not-content">
+    <a class="zy-button" href={linkTo(lang, "check/")}>{t("home.tryChecker")}</a>
+  </div>
+</SitePage>

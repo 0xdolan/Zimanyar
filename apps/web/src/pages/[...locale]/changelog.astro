@@ -1,0 +1,14 @@
+---
+import { createT, type UiLang } from "@zimanyar/i18n";
+import { Content } from "../../../../../CHANGELOG.md";
+import SitePage from "../../components/SitePage.astro";
+import { localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+---
+
+<SitePage title={t("changelog.title")} description={t("changelog.description")}>
+  <div lang="en" dir="ltr"><Content /></div>
+</SitePage>

@@ -19,6 +19,11 @@ target/
 __pycache__/
 *.py[oc]
 
+# generated for the website
+apps/web/public/api/
+apps/web/public/lexicons/
+apps/web/public/favicon.svg
+
 # generated data (icons and marketing images are committed: README and stores use them)
 packages/data/build/
 

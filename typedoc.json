@@ -1,0 +1,14 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["packages/core/src/index.ts", "packages/checker/src/index.ts"],
+  "name": "Zimanyar API",
+  "out": "apps/web/public/api",
+  "tsconfig": "packages/checker/tsconfig.json",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "githubPages": false,
+  "disableSources": true,
+  "skipErrorChecking": true,
+  "hideGenerator": true,
+  "readme": "none"
+}

@@ -11,9 +11,30 @@
       "entry": ["demo/*.{ts,tsx}"],
       "ignoreDependencies": ["tailwindcss"]
     },
+    "packages/content": {
+      "entry": ["src/rehype-kurdish.ts", "src/lesson-slugs.ts", "src/components.tsx"]
+    },
+    "apps/web": {
+      "entry": [
+        "astro.config.ts",
+        "src/route-data.ts",
+        "src/content.config.ts",
+        "src/components/*.astro",
+        "src/pages/**/*.astro",
+        "scripts/*.ts"
+      ],
+      "ignoreDependencies": [
+        "@fontsource/.*",
+        "tailwindcss",
+        "@astrojs/markdown-remark",
+        "@astrojs/starlight-tailwind",
+        "sharp",
+        "@zimanyar/config"
+      ]
+    },
     ".": {
       "ignoreDependencies": ["axe-core"]
     }
   },
-  "ignore": ["packages/core/src/generated/**"]
+  "ignore": ["packages/core/src/generated/**", "apps/web/public/**"]
 }

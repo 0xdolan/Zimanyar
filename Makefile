@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench e2e screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	attribution deps data bench lessons e2e screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -16,10 +16,11 @@ help:
 	@echo "make test          unit tests of every package"
 	@echo "make coverage      unit tests with coverage thresholds"
 	@echo "make build         build every package and app"
-	@echo "make e2e           build the demo and test it in a real browser, with accessibility checks"
+	@echo "make e2e           build the demos and the website and test them in a real browser"
 	@echo "make screenshots   regenerate assets/screenshots/; look at every changed image"
 	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
 	@echo "make rules         compile the rules' metadata into the catalogue"
+	@echo "make lessons       import the lessons from a zimankit checkout (ZIMANKIT_DIR)"
 	@echo "make bench         hold the engine to its performance budgets (needs make data)"
 	@echo "make data          fetch the pinned zimankit lexicon, verify it, export fixtures, compile the lexicons"
 	@echo "make format        format code with Biome"
@@ -75,10 +76,12 @@ biome:
 
 e2e:
 	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
+	pnpm --filter @zimanyar/web build
 	pnpm exec playwright test
 
 screenshots:
 	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
+	pnpm --filter @zimanyar/web build
 	UPDATE_SCREENSHOTS=1 pnpm exec playwright test scripts/screenshots/
 
 check-i18n:
@@ -89,6 +92,9 @@ corpus:
 
 rules:
 	pnpm exec tsx scripts/content/generate-rule-catalogue.ts
+
+lessons:
+	pnpm exec tsx scripts/content/import-zimankit-tutorials.ts
 
 check-rules:
 	pnpm exec tsx scripts/content/generate-rule-catalogue.ts --check
