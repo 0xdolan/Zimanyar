@@ -70,6 +70,15 @@ describe("Python semantics", () => {
       expect(pythonRegex("[(?P<]").test("<")).toBe(true);
     });
 
+    it("matches Python's end of text and dot", () => {
+      expect(pythonRegex("^a$").test("a\n")).toBe(true);
+      expect(pythonRegex("^a$").test("a\n\n")).toBe(false);
+      expect(pythonRegex("^.$").test("\r")).toBe(true);
+      expect(pythonRegex("^.$").test("\n")).toBe(false);
+      expect(pythonRegex("^[.$]$").test("$")).toBe(true);
+      expect(pythonRegex("^\\.$").test("a")).toBe(false);
+    });
+
     it("refuses a class it cannot translate", () => {
       expect(() => pythonRegex("[\\Sa]")).toThrow("cannot be translated");
       expect(() => pythonRegex("[\\Wa]")).toThrow("cannot be translated");

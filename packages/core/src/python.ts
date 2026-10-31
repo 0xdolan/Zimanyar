@@ -104,8 +104,10 @@ export function pythonRegex(python: string, flags = ""): RegExp {
     } else {
       if (character === "[") inClass = true;
       else if (character === "]") inClass = false;
-      // Python's $ also matches before a final newline.
-      out += character === "$" && !inClass ? "(?=\\n?$)" : character;
+      // Python's $ also matches before a final newline, and its dot excludes only a newline.
+      if (character === "$" && !inClass) out += "(?=\\n?$)";
+      else if (character === "." && !inClass) out += "[^\\n]";
+      else out += character;
     }
   }
   return new RegExp(out, `${flags}u`);
