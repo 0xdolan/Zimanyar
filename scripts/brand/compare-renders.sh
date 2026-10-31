@@ -4,10 +4,10 @@
 # changed PNG is allowed a small root mean square error (normalised 0 to 1).
 #
 #   scripts/brand/compare-renders.sh                 after make icons marketing
-#   BRAND_TOLERANCE=0.04 scripts/brand/compare-renders.sh
+#   BRAND_TOLERANCE=0.01 scripts/brand/compare-renders.sh
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-TOLERANCE="${BRAND_TOLERANCE:-0.04}"
+TOLERANCE="${BRAND_TOLERANCE:-0.01}"
 cd "$ROOT"
 
 work="$(mktemp -d)"
