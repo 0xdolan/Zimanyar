@@ -17,7 +17,7 @@ The logo is a sibling of the [Roj](https://github.com/0xdolan/roj) logo, which a
 | deq | `#1D4A2E` | the crown (deep green of deq ink) |
 | sun | `#FEBD11` | the Roj sun, the gold of the emblem; also the interface accent |
 
-The sun is the Roj emblem itself ([Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Roj_emblem.svg), public domain), used unchanged. Interface colours (error red, warning amber, hint blue) belong to the design tokens, not to the logo.
+The sun is the Roj emblem itself ([Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Roj_emblem.svg), public domain), used unchanged. Interface colours (error red, warning amber, hint blue) belong to the [design tokens](design.md), not to the logo.
 
 ## Files
 

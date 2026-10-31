@@ -1,5 +1,5 @@
 {
   "extends": "@zimanyar/config/tsconfig.base.json",
   "compilerOptions": { "noEmit": true, "types": ["node"] },
-  "include": ["checks/**/*.ts", "release/**/*.ts", "test/**/*.ts", "vitest.config.ts"]
+  "include": ["brand/**/*.ts", "checks/**/*.ts", "release/**/*.ts", "test/**/*.ts", "vitest.config.ts"]
 }

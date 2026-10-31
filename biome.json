@@ -1,6 +1,10 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
   "files": {
     "includes": [
       "**/*.{js,mjs,cjs,ts,tsx,jsx,json,jsonc,css}",
@@ -8,7 +12,8 @@
       "!**/coverage",
       "!assets",
       "!scripts/marketing",
-      "!scripts/brand"
+      "!scripts/brand/*.mjs",
+      "!packages/config/tokens.css"
     ]
   },
   "formatter": {
@@ -21,16 +26,36 @@
     "enabled": true,
     "rules": {
       "preset": "recommended",
-
       "security": {
         "noDangerouslySetInnerHtml": "error",
         "noDangerouslySetInnerHtmlWithChildren": "error",
         "noGlobalEval": "error"
       },
-      "suspicious": { "noConsole": "off" },
-      "style": { "useImportType": "error", "useNodejsImportProtocol": "error" }
+      "suspicious": {
+        "noConsole": "off"
+      },
+      "style": {
+        "useImportType": "error",
+        "useNodejsImportProtocol": "error"
+      }
     }
   },
-  "javascript": { "formatter": { "quoteStyle": "double", "trailingCommas": "all" } },
-  "assist": { "actions": { "source": { "organizeImports": "on" } } }
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "trailingCommas": "all"
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  }
 }

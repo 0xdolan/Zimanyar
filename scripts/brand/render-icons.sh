@@ -10,7 +10,9 @@ BRAND="$ROOT/assets/brand"
 OUT="$ROOT/assets/icons"
 
 command -v inkscape >/dev/null || { echo "inkscape is required" >&2; exit 1; }
-command -v magick >/dev/null || { echo "ImageMagick (magick) is required" >&2; exit 1; }
+# ImageMagick 7 installs magick, ImageMagick 6 (Ubuntu's package) installs convert.
+MAGICK="$(command -v magick || command -v convert || true)"
+[[ -n "$MAGICK" ]] || { echo "ImageMagick is required" >&2; exit 1; }
 
 node "$ROOT/scripts/brand/make-logo.mjs"
 
@@ -43,7 +45,7 @@ cp "$BRAND/logo-favicon.svg" "$OUT/web/favicon.svg" 2>/dev/null || { mkdir -p "$
 png "$BRAND/logo-favicon.svg" 16 "$OUT/web/.f16.png"
 png "$BRAND/logo-favicon.svg" 32 "$OUT/web/.f32.png"
 png "$BRAND/logo-small.svg" 48 "$OUT/web/.f48.png"
-magick "$OUT/web/.f16.png" "$OUT/web/.f32.png" "$OUT/web/.f48.png" "$OUT/web/favicon.ico"
+"$MAGICK" "$OUT/web/.f16.png" "$OUT/web/.f32.png" "$OUT/web/.f48.png" "$OUT/web/favicon.ico"
 rm -f "$OUT"/web/.f*.png
 png "$BRAND/logo-maskable.svg" 180 "$OUT/web/apple-touch-icon.png"
 png "$BRAND/logo.svg" 192 "$OUT/web/icon-192.png"

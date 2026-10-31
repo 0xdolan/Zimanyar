@@ -7,7 +7,9 @@
   "type": "module",
   "exports": {
     "./tsconfig.base.json": "./tsconfig.base.json",
-    "./vitest": "./vitest.shared.ts"
+    "./vitest": "./vitest.shared.ts",
+    "./tokens": "./tokens.ts",
+    "./tokens.css": "./tokens.css"
   },
   "devDependencies": {
     "typescript": "5.9.3",
