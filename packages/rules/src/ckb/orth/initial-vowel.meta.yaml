@@ -1,0 +1,20 @@
+id: ckb.orth.initial-vowel
+family: orth
+category: orthography
+severity: error
+confidence: 0.95
+safeFix: false
+message:
+  en: "A word cannot start with a bare vowel: write ئ first."
+  ckb: "وشە بە بزوێنی ڕووت دەست پێ ناکات: سەرەتا ئ بنووسە."
+  kmr: "Peyv bi dengdêreke tazî dest pê nake: pêşî ئ binivîse."
+reason:
+  en: "Every Sorani word that begins with a vowel writes the seat ئ before it."
+  ckb: "هەر وشەیەکی سۆرانی کە بە بزوێن دەست پێ بکات، پێش بزوێنەکە ئ دەنووسێت."
+  kmr: "Her peyveke soranî ya ku bi dengdêrê dest pê dike, berî wê ئ dinivîse."
+examples:
+  - { wrong: "اسپ", right: "ئەسپ" }
+  - { wrong: "او", right: "ئاو" }
+lessons:
+  - { lang: ckb, lessonId: 23, anchor: "3-initial-vowels-need-ئ" }
+  - { lang: ckb, lessonId: 2, anchor: "the-letter-ئ" }

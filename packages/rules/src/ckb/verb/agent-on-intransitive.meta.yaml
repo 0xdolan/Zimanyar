@@ -1,0 +1,20 @@
+id: ckb.verb.agent-on-intransitive
+family: verb
+category: agreement
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "An intransitive verb takes a verb ending, not a clitic."
+  ckb: "کرداری تێنەپەڕ کۆتایی کردار وەردەگرێت، نەک کلیتیک."
+  kmr: "Lêkera negerguhêz dawiya lêkerê digire, ne klîtîkê."
+reason:
+  en: "The clitics م ت ی مان تان یان mark the agent of a transitive verb. Intransitive verbs agree with their subject through the endings: هاتین, \"we came\"."
+  ckb: "کلیتیکەکانی م ت ی مان تان یان بکەری کرداری تێپەڕ نیشان دەدەن. کرداری تێنەپەڕ بە کۆتاییەکان لەگەڵ بکەرەکەی دەگونجێت: هاتین."
+  kmr: "Klîtîkên م ت ی مان تان یان kirdeya lêkera gerguhêz nîşan didin. Lêkerên negerguhêz bi dawiyan bi kirdeya xwe re li hev dikin: هاتین."
+examples:
+  - { wrong: "هاتمان", right: "هاتین" }
+  - { wrong: "چوویان", right: "چوون" }
+lessons:
+  - { lang: ckb, lessonId: 13, anchor: "the-simple-past" }
+  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }

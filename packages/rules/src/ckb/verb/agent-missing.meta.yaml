@@ -1,0 +1,21 @@
+id: ckb.verb.agent-missing
+family: verb
+category: agreement
+severity: error
+confidence: 0.8
+safeFix: false
+message:
+  en: "The agent's clitic is missing from the object."
+  ckb: "کلیتیکی بکەر لەسەر بەرکار نییە."
+  kmr: "Klîtîka kirde li ser bireserê tune ye."
+reason:
+  en: "In the past tense of a transitive verb the agent is marked by a clitic, and it sits on the first word before the verb: من نانم خوارد, \"I ate bread\"."
+  ckb: "لە ڕابردووی کرداری تێپەڕدا بکەر بە کلیتیک نیشان دەدرێت، و لەسەر یەکەم وشەی پێش کردارەکەیە: من نانم خوارد."
+  kmr: "Di dema borî ya lêkera gerguhêz de kirde bi klîtîkê tê nîşandan, û li ser peyva yekem a berî lêkerê ye: من نانم خوارد."
+examples:
+  - { wrong: "من نان خوارد", right: "من نانم خوارد" }
+  - { wrong: "ئێمە نان خوارد", right: "ئێمە نانمان خوارد" }
+lessons:
+  - { lang: ckb, lessonId: 14, anchor: "where-the-clitic-goes" }
+  - { lang: ckb, lessonId: 22, anchor: "the-hosting-rule" }
+  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }

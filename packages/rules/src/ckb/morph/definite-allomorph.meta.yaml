@@ -1,0 +1,20 @@
+id: ckb.morph.definite-allomorph
+family: morph
+category: morphology
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "After this stem the ending for \"the\" takes another form."
+  ckb: "دوای ئەم ڕەگە پاشگری ناسراوی شێوەیەکی ترە."
+  kmr: "Piştî vî rehî paşgira diyar şêweyeke din e."
+reason:
+  en: "Sorani chooses by sound: after a consonant ەکە or ەکان, after a vowel کە or کان. A final و or ی after a vowel letter counts as a consonant: پیاوەکە, but دەرگاکە."
+  ckb: "سۆرانی بە پێی دەنگ هەڵدەبژێرێت: دوای نەبزوێن ەکە یان ەکان، دوای بزوێن کە یان کان. و یان ی ی کۆتایی دوای پیتی بزوێن وەک نەبزوێن حیساب دەکرێت: پیاوەکە، بەڵام دەرگاکە."
+  kmr: "Soranî li gorî deng hildibijêre: piştî dengdar ەکە an ەکان, piştî dengdêr کە an کان. و an ی ya dawiyê piştî tîpeke dengdêr wek dengdar tê hesibandin: پیاوەکە, lê دەرگاکە."
+examples:
+  - { wrong: "دەرگاەکە", right: "دەرگاکە" }
+  - { wrong: "پیاوکە", right: "پیاوەکە" }
+lessons:
+  - { lang: ckb, lessonId: 7, anchor: "consonant-final-and-vowel-final" }
+  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }

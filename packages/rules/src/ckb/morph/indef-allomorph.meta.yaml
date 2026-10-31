@@ -1,0 +1,19 @@
+id: ckb.morph.indef-allomorph
+family: morph
+category: morphology
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "After this stem the ending for \"a\" takes another form."
+  ckb: "دوای ئەم ڕەگە پاشگری نەناسراوی شێوەیەکی ترە."
+  kmr: "Piştî vî rehî paşgira nediyar şêweyeke din e."
+reason:
+  en: "After a consonant it is ێک, after a vowel یەک: پیاوێک, دەرگایەک."
+  ckb: "دوای نەبزوێن ێک، دوای بزوێن یەک: پیاوێک، دەرگایەک."
+  kmr: "Piştî dengdar ێک, piştî dengdêr یەک: پیاوێک, دەرگایەک."
+examples:
+  - { wrong: "دەرگاێک", right: "دەرگایەک" }
+  - { wrong: "پیاویەک", right: "پیاوێک" }
+lessons:
+  - { lang: ckb, lessonId: 7, anchor: "consonant-final-and-vowel-final" }

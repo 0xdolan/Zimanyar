@@ -1,3 +1,4 @@
+export { KMR_CHAR_MAP } from "../generated/tables.js";
 export { attach, decline, functionWords, type Gender, KmrAnalyzer } from "./morphology.js";
 export {
   type KmrOrthographyOptions,

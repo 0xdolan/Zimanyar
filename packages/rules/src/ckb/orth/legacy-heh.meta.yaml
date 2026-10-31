@@ -1,0 +1,20 @@
+id: ckb.orth.legacy-heh
+family: orth
+category: orthography
+severity: error
+confidence: 0.95
+safeFix: true
+message:
+  en: "The vowel ە is written here as ه."
+  ckb: "بزوێنی ە لێرەدا بە ه نووسراوە."
+  kmr: "Dengdêra ە li vir wek ه hatiye nivîsîn."
+reason:
+  en: "Old keyboards and encodings typed ە as ه with a zero-width joiner, or as a final ه. They are different letters: ه is a consonant."
+  ckb: "تەختەکلیل و کۆدکردنە کۆنەکان ە یان بە ه و نیوەبۆشایی، یان بە ه ی کۆتایی دەنووسی. دوو پیتی جیاوازن: ه نەبزوێنە."
+  kmr: "Klavye û kodkirinên kevn ە bi ه û valahiya nîvî, an bi ه ya dawiyê dinivîsandin. Ew du tîpên cuda ne: ه dengdar e."
+examples:
+  - { wrong: "به‌ڕێوه‌به‌ر", right: "بەڕێوەبەر" }
+  - { wrong: "وێستگه", right: "وێستگە" }
+lessons:
+  - { lang: ckb, lessonId: 23, anchor: "4-old-encodings" }
+  - { lang: ckb, lessonId: 5 }

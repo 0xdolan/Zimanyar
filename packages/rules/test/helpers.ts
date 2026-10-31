@@ -15,20 +15,24 @@ type Noun = [lemma: string, gender?: string];
 /** A small lexicon of words the lessons use, so a rule's tests need no download. */
 export function makeLexicon(
   lang: Variety,
-  lemmas: readonly (LemmaRow & { forms?: readonly string[] })[],
+  lemmas: readonly LemmaRow[],
   variants: readonly { variant: string; standard: string }[] = [],
+  otherForms: readonly string[] = [],
 ): Lexicon {
-  const forms: FormRow[] = lemmas.flatMap((row) =>
-    [row.lemma, ...(row.forms ?? [])].map((word) => ({
-      word,
-      lemma: row.lemma,
-      upos: row.upos,
-      features: "{}",
-      attested: true,
-      zipf: row.zipf,
-      quality: "gold" as const,
-    })),
-  );
+  const form = (word: string, lemma: string, upos: string, zipf: number): FormRow => ({
+    word,
+    lemma,
+    upos,
+    features: "{}",
+    attested: true,
+    zipf,
+    quality: "gold",
+  });
+  const first = lemmas[0]?.lemma ?? "";
+  const forms: FormRow[] = [
+    ...lemmas.map((row) => form(row.lemma, row.lemma, row.upos, row.zipf)),
+    ...otherForms.map((word) => form(word, first, "NOUN", 3)),
+  ];
   return new Lexicon(buildLexicon({ lang, zimankit: "test", data: "test", forms, lemmas, variants }));
 }
 

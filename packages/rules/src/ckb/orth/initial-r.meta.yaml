@@ -1,0 +1,20 @@
+id: ckb.orth.initial-r
+family: orth
+category: orthography
+severity: error
+confidence: 0.97
+safeFix: true
+message:
+  en: "A word starts with ڕ, not ر."
+  ckb: "وشە بە ڕ دەست پێ دەکات، نەک ر."
+  kmr: "Peyv bi ڕ dest pê dike, ne bi ر."
+reason:
+  en: "At the start of a word this sound is always the trill, which is written ڕ."
+  ckb: "لە سەرەتای وشەدا ئەم دەنگە هەمیشە توندە و بە ڕ دەنووسرێت."
+  kmr: "Di destpêka peyvê de ev deng her tim hişk e û bi ڕ tê nivîsîn."
+examples:
+  - { wrong: "رۆژ", right: "ڕۆژ" }
+  - { wrong: "ئەو رۆژە", right: "ئەو ڕۆژە" }
+lessons:
+  - { lang: ckb, lessonId: 4, anchor: "pairs-that-change-meaning" }
+  - { lang: ckb, lessonId: 2, anchor: "letters-to-watch" }

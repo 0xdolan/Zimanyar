@@ -1,0 +1,20 @@
+id: ckb.verb.agent-doubled
+family: verb
+category: agreement
+severity: error
+confidence: 0.75
+safeFix: false
+message:
+  en: "The agent is marked twice."
+  ckb: "بکەر دوو جار نیشان دراوە."
+  kmr: "Kirde du caran hatiye nîşandan."
+reason:
+  en: "In the past of a transitive verb one clitic marks the agent. When the object already has it, the verb stays bare: نانم خوارد."
+  ckb: "لە ڕابردووی کرداری تێپەڕدا یەک کلیتیک بکەر نیشان دەدات. کاتێک بەرکار هەیبێت، کردار ڕووت دەمێنێتەوە: نانم خوارد."
+  kmr: "Di dema borî ya lêkera gerguhêz de yek klîtîk kirdeyê nîşan dide. Dema bireser wê hebe, lêker tazî dimîne: نانم خوارد."
+examples:
+  - { wrong: "نانم خواردم", right: "نانم خوارد" }
+  - { wrong: "کتێبمان کڕیمان", right: "کتێبمان کڕی" }
+lessons:
+  - { lang: ckb, lessonId: 14, anchor: "where-the-clitic-goes" }
+  - { lang: ckb, lessonId: 22, anchor: "the-hosting-rule" }

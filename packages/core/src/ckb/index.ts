@@ -1,3 +1,4 @@
+export { CKB_CHAR_MAP } from "../generated/tables.js";
 export {
   CkbAnalyzer,
   decline,

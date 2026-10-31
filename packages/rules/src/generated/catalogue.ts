@@ -186,5 +186,1010 @@ export const CATALOGUE = [
         "title": "Writing and reading"
       }
     ]
+  },
+  {
+    "id": "ckb.morph.definite-adjective-order",
+    "lang": "ckb",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "warning",
+    "confidence": 0.6,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "In \"the good man\" the definite ending goes on the adjective.",
+      "ckb": "لە «پیاوە باشەکە» پاشگری ناسراو دەچێتە سەر ئاوەڵناوەکە.",
+      "kmr": "Di «پیاوە باشەکە» de paşgira diyar li ser rengdêrê ye."
+    },
+    "reason": {
+      "en": "When a definite noun has an adjective, the noun takes ە and the adjective takes the ending: پیاوە باشەکە. پیاوەکە باشە is a different thing: a sentence, \"the man is good\".",
+      "ckb": "کاتێک ناوی ناسراو ئاوەڵناوی هەبێت، ناوەکە ە وەردەگرێت و ئاوەڵناوەکە پاشگرەکە: پیاوە باشەکە. پیاوەکە باشە شتێکی ترە: ڕستەیە.",
+      "kmr": "Dema navdêra diyar rengdêr hebe, navdêr ە digire û rengdêr paşgirê: پیاوە باشەکە. پیاوەکە باشە tiştekî din e: hevok e."
+    },
+    "examples": [
+      {
+        "wrong": "پیاوەکە باش",
+        "right": "پیاوە باشەکە"
+      },
+      {
+        "wrong": "ژنەکە جوان",
+        "right": "ژنە جوانەکە"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 9,
+        "anchor": "definite-the-good-man",
+        "title": "Ezafe: linking nouns and adjectives"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "7-grammar-errors-to-watch",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.morph.definite-allomorph",
+    "lang": "ckb",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After this stem the ending for \"the\" takes another form.",
+      "ckb": "دوای ئەم ڕەگە پاشگری ناسراوی شێوەیەکی ترە.",
+      "kmr": "Piştî vî rehî paşgira diyar şêweyeke din e."
+    },
+    "reason": {
+      "en": "Sorani chooses by sound: after a consonant ەکە or ەکان, after a vowel کە or کان. A final و or ی after a vowel letter counts as a consonant: پیاوەکە, but دەرگاکە.",
+      "ckb": "سۆرانی بە پێی دەنگ هەڵدەبژێرێت: دوای نەبزوێن ەکە یان ەکان، دوای بزوێن کە یان کان. و یان ی ی کۆتایی دوای پیتی بزوێن وەک نەبزوێن حیساب دەکرێت: پیاوەکە، بەڵام دەرگاکە.",
+      "kmr": "Soranî li gorî deng hildibijêre: piştî dengdar ەکە an ەکان, piştî dengdêr کە an کان. و an ی ya dawiyê piştî tîpeke dengdêr wek dengdar tê hesibandin: پیاوەکە, lê دەرگاکە."
+    },
+    "examples": [
+      {
+        "wrong": "دەرگاەکە",
+        "right": "دەرگاکە"
+      },
+      {
+        "wrong": "پیاوکە",
+        "right": "پیاوەکە"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 7,
+        "anchor": "consonant-final-and-vowel-final",
+        "title": "Nouns: the, a, and plurals"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "7-grammar-errors-to-watch",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.morph.ezafe-missing",
+    "lang": "ckb",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "warning",
+    "confidence": 0.6,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "A noun and its adjective are joined by the ezafe ی.",
+      "ckb": "ناو و ئاوەڵناوەکەی بە ئیزافەی ی بەیەکەوە دەبەسترێن.",
+      "kmr": "Navdêr û rengdêra wê bi îzafeya ی tên girêdan."
+    },
+    "reason": {
+      "en": "Sorani links a noun to the adjective after it with ی: پیاوی باش, \"a good man\". Without it the two words do not form a phrase.",
+      "ckb": "سۆرانی ناو بە ئاوەڵناوی دوای خۆی بە ی دەبەستێتەوە: پیاوی باش. بەبێ ئەوە دوو وشەکە فرێز پێک ناهێنن.",
+      "kmr": "Soranî navdêrê bi rengdêra piştî wê bi ی ve girê dide: پیاوی باش. Bêyî wê her du peyv hevokekê çênakin."
+    },
+    "examples": [
+      {
+        "wrong": "پیاو باش",
+        "right": "پیاوی باش"
+      },
+      {
+        "wrong": "کتێب نوێ",
+        "right": "کتێبی نوێ"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 9,
+        "anchor": "the-linking-vowel",
+        "title": "Ezafe: linking nouns and adjectives"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "7-grammar-errors-to-watch",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.morph.indef-allomorph",
+    "lang": "ckb",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After this stem the ending for \"a\" takes another form.",
+      "ckb": "دوای ئەم ڕەگە پاشگری نەناسراوی شێوەیەکی ترە.",
+      "kmr": "Piştî vî rehî paşgira nediyar şêweyeke din e."
+    },
+    "reason": {
+      "en": "After a consonant it is ێک, after a vowel یەک: پیاوێک, دەرگایەک.",
+      "ckb": "دوای نەبزوێن ێک، دوای بزوێن یەک: پیاوێک، دەرگایەک.",
+      "kmr": "Piştî dengdar ێک, piştî dengdêr یەک: پیاوێک, دەرگایەک."
+    },
+    "examples": [
+      {
+        "wrong": "دەرگاێک",
+        "right": "دەرگایەک"
+      },
+      {
+        "wrong": "پیاویەک",
+        "right": "پیاوێک"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 7,
+        "anchor": "consonant-final-and-vowel-final",
+        "title": "Nouns: the, a, and plurals"
+      }
+    ]
+  },
+  {
+    "id": "ckb.morph.plural-after-number",
+    "lang": "ckb",
+    "family": "morph",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After a number the noun stays singular.",
+      "ckb": "دوای ژمارە ناو تاک دەمێنێتەوە.",
+      "kmr": "Piştî hejmarê navdêr yekjimar dimîne."
+    },
+    "reason": {
+      "en": "The number already says how many, so the plural ending ان is not used: سێ پیاو. A definite plural is different: سێ پیاوەکە means \"the three men\".",
+      "ckb": "ژمارەکە خۆی دەڵێت چەندە، بۆیە پاشگری کۆی ان بەکار نایەت: سێ پیاو. کۆی ناسراو جیاوازە: سێ پیاوەکە واتە ئەو سێ پیاوە.",
+      "kmr": "Hejmar bi xwe dibêje çend in, ji ber vê paşgira pirjimar ان nayê bikaranîn: سێ پیاو. Pirjimara diyar cuda ye: سێ پیاوەکە tê wateya ew sê mêr."
+    },
+    "examples": [
+      {
+        "wrong": "سێ پیاوان",
+        "right": "سێ پیاو"
+      },
+      {
+        "wrong": "دوو کتێبان",
+        "right": "دوو کتێب"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 7,
+        "anchor": "counting",
+        "title": "Nouns: the, a, and plurals"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "7-grammar-errors-to-watch",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.arabic-codepoint",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.98,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This letter is Arabic or Persian. Use the Kurdish letter.",
+      "ckb": "ئەم پیتە عەرەبی یان فارسییە. پیتی کوردی بەکاربهێنە.",
+      "kmr": "Ev tîp erebî an farisî ye. Tîpa kurdî bi kar bîne."
+    },
+    "reason": {
+      "en": "Keyboards often produce look-alike letters from other languages. They look the same but break searching, sorting and spell-checking.",
+      "ckb": "تەختەکلیلەکان زۆرجار پیتی هاوشێوە لە زمانی ترەوە دەنووسن. هەمان شێوەیان هەیە، بەڵام گەڕان و ڕیزکردن و پشکنینی ڕێنووس تێک دەدەن.",
+      "kmr": "Klavye pir caran tîpên wekhev ji zimanên din dinivîsin. Wek hev xuya dikin, lê lêgerîn, rêzkirin û kontrola rastnivîsê xera dikin."
+    },
+    "examples": [
+      {
+        "wrong": "كتێب",
+        "right": "کتێب"
+      },
+      {
+        "wrong": "ماسي",
+        "right": "ماسی"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "1-use-kurdish-letters-not-arabic-or-persian-ones",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 2,
+        "anchor": "letters-to-watch",
+        "title": "The alphabet"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.arabic-only-letter",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "warning",
+    "confidence": 0.8,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This letter is not used in Kurdish spelling.",
+      "ckb": "ئەم پیتە لە ڕێنووسی کوردیدا بەکار نایەت.",
+      "kmr": "Ev tîp di rastnivîsa kurdî de nayê bikaranîn."
+    },
+    "reason": {
+      "en": "ث ذ ص ض ط ظ ء belong to Arabic. Loanwords are written in Kurdish with the letters for their Kurdish sounds. Names may keep their own spelling.",
+      "ckb": "ث ذ ص ض ط ظ ء هی عەرەبین. وشەی وەرگیراو بە پیتی دەنگە کوردییەکانی دەنووسرێت. ناو دەتوانێت ڕێنووسی خۆی بپارێزێت.",
+      "kmr": "ث ذ ص ض ط ظ ء yên erebî ne. Peyvên wergirtî bi tîpên dengên xwe yên kurdî tên nivîsîn. Nav dikarin rastnivîsa xwe biparêzin."
+    },
+    "examples": [
+      {
+        "wrong": "ثەورە",
+        "right": "سەورە"
+      },
+      {
+        "wrong": "صەد",
+        "right": "سەد"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "5-words-the-validator-rejects",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.digits-punct",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "punctuation",
+    "severity": "hint",
+    "confidence": 0.6,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "Sorani writes this with its own punctuation or digits.",
+      "ckb": "سۆرانی ئەمە بە خاڵبەندی یان ژمارەی خۆی دەنووسێت.",
+      "kmr": "Soranî vê bi xalbendî an hejmarên xwe dinivîse."
+    },
+    "reason": {
+      "en": "Arabic-script text normally uses ؟ ، ؛ and the digits ٠١٢٣. This is a matter of style, and some publishers prefer Latin digits.",
+      "ckb": "دەقی عەرەبی-نووس زۆرجار ؟ ، ؛ و ژمارەکانی ٠١٢٣ بەکاردەهێنێت. ئەمە پرسی شێوازە و هەندێک بڵاوکەرەوە ژمارەی لاتینی بەباشتر دەزانن.",
+      "kmr": "Nivîsa bi tîpên erebî bi gelemperî ؟ ، ؛ û hejmarên ٠١٢٣ bi kar tîne. Ev mijara şêwazê ye, û hin weşanxane hejmarên latînî tercîh dikin."
+    },
+    "examples": [
+      {
+        "wrong": "چۆنی?",
+        "right": "چۆنی؟"
+      },
+      {
+        "wrong": "ساڵی 2015",
+        "right": "ساڵی ٢٠١٥"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 5,
+        "anchor": "punctuation",
+        "title": "Writing and reading"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 5,
+        "anchor": "numbers",
+        "title": "Writing and reading"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.doubled-letter",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.98,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This letter is doubled.",
+      "ckb": "ئەم پیتە دووبارە نووسراوە.",
+      "kmr": "Ev tîp du caran hatiye nivîsîn."
+    },
+    "reason": {
+      "en": "ە, ڕ, ڵ and ئ are never written twice in a row, and و and ی at most twice.",
+      "ckb": "ە، ڕ، ڵ و ئ هەرگیز دوو جار لەسەر یەک نانووسرێن، و و ی زۆرترین دوو جار.",
+      "kmr": "ە, ڕ, ڵ û ئ tu carî du caran li pey hev nayên nivîsîn, و û ی herî zêde du caran."
+    },
+    "examples": [
+      {
+        "wrong": "مەەر",
+        "right": "مەر"
+      },
+      {
+        "wrong": "بووو",
+        "right": "بوو"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "5-words-the-validator-rejects",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 2,
+        "anchor": "letters-to-watch",
+        "title": "The alphabet"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.initial-r",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.97,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "A word starts with ڕ, not ر.",
+      "ckb": "وشە بە ڕ دەست پێ دەکات، نەک ر.",
+      "kmr": "Peyv bi ڕ dest pê dike, ne bi ر."
+    },
+    "reason": {
+      "en": "At the start of a word this sound is always the trill, which is written ڕ.",
+      "ckb": "لە سەرەتای وشەدا ئەم دەنگە هەمیشە توندە و بە ڕ دەنووسرێت.",
+      "kmr": "Di destpêka peyvê de ev deng her tim hişk e û bi ڕ tê nivîsîn."
+    },
+    "examples": [
+      {
+        "wrong": "رۆژ",
+        "right": "ڕۆژ"
+      },
+      {
+        "wrong": "ئەو رۆژە",
+        "right": "ئەو ڕۆژە"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 4,
+        "anchor": "pairs-that-change-meaning",
+        "title": "Consonants and pronunciation"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 2,
+        "anchor": "letters-to-watch",
+        "title": "The alphabet"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.initial-vowel",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.95,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "A word cannot start with a bare vowel: write ئ first.",
+      "ckb": "وشە بە بزوێنی ڕووت دەست پێ ناکات: سەرەتا ئ بنووسە.",
+      "kmr": "Peyv bi dengdêreke tazî dest pê nake: pêşî ئ binivîse."
+    },
+    "reason": {
+      "en": "Every Sorani word that begins with a vowel writes the seat ئ before it.",
+      "ckb": "هەر وشەیەکی سۆرانی کە بە بزوێن دەست پێ بکات، پێش بزوێنەکە ئ دەنووسێت.",
+      "kmr": "Her peyveke soranî ya ku bi dengdêrê dest pê dike, berî wê ئ dinivîse."
+    },
+    "examples": [
+      {
+        "wrong": "اسپ",
+        "right": "ئەسپ"
+      },
+      {
+        "wrong": "او",
+        "right": "ئاو"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "3-initial-vowels-need-ئ",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 2,
+        "anchor": "the-letter-ئ",
+        "title": "The alphabet"
+      }
+    ]
+  },
+  {
+    "id": "ckb.orth.legacy-heh",
+    "lang": "ckb",
+    "family": "orth",
+    "category": "orthography",
+    "severity": "error",
+    "confidence": 0.95,
+    "safeFix": true,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "The vowel ە is written here as ه.",
+      "ckb": "بزوێنی ە لێرەدا بە ه نووسراوە.",
+      "kmr": "Dengdêra ە li vir wek ه hatiye nivîsîn."
+    },
+    "reason": {
+      "en": "Old keyboards and encodings typed ە as ه with a zero-width joiner, or as a final ه. They are different letters: ه is a consonant.",
+      "ckb": "تەختەکلیل و کۆدکردنە کۆنەکان ە یان بە ه و نیوەبۆشایی، یان بە ه ی کۆتایی دەنووسی. دوو پیتی جیاوازن: ه نەبزوێنە.",
+      "kmr": "Klavye û kodkirinên kevn ە bi ه û valahiya nîvî, an bi ه ya dawiyê dinivîsandin. Ew du tîpên cuda ne: ه dengdar e."
+    },
+    "examples": [
+      {
+        "wrong": "به‌ڕێوه‌به‌ر",
+        "right": "بەڕێوەبەر"
+      },
+      {
+        "wrong": "وێستگه",
+        "right": "وێستگە"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "4-old-encodings",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 5,
+        "anchor": "",
+        "title": "Writing and reading"
+      }
+    ]
+  },
+  {
+    "id": "ckb.spell.missing-mark",
+    "lang": "ckb",
+    "family": "spell",
+    "category": "spelling",
+    "severity": "warning",
+    "confidence": 0.6,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This may be missing a mark on ڕ, ڵ, ێ or ۆ.",
+      "ckb": "لەوانەیە نیشانەی ڕ، ڵ، ێ یان ۆ کەم بێت.",
+      "kmr": "Dibe ku nîşana ڕ, ڵ, ێ an ۆ kêm be."
+    },
+    "reason": {
+      "en": "ڕ ڵ ێ ۆ are distinct letters, and dropping the mark can make another word. This word exists, but the marked one is far more common, so check which you mean.",
+      "ckb": "ڕ ڵ ێ ۆ پیتی جیاوازن، و لابردنی نیشانە دەتوانێت وشەیەکی تر دروست بکات. ئەم وشەیە هەیە، بەڵام ئەوەی نیشانەدار زۆر باوترە، بۆیە بپشکنە مەبەستت کامەیە.",
+      "kmr": "ڕ ڵ ێ ۆ tîpên cuda ne, û rakirina nîşanê dikare peyveke din çêke. Ev peyv heye, lê ya bi nîşan pir berbelavtir e, ji ber vê kontrol bike ka mebesta te kîjan e."
+    },
+    "examples": [
+      {
+        "wrong": "گول",
+        "right": "گوڵ"
+      },
+      {
+        "wrong": "مال",
+        "right": "ماڵ"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "2-dont-drop-the-marks",
+        "title": "The written standard and common errors"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 2,
+        "anchor": "letters-to-watch",
+        "title": "The alphabet"
+      }
+    ]
+  },
+  {
+    "id": "ckb.spell.unknown",
+    "lang": "ckb",
+    "family": "spell",
+    "category": "spelling",
+    "severity": "warning",
+    "confidence": 0.7,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This word is not in the lexicon.",
+      "ckb": "ئەم وشەیە لە فەرهەنگەکەدا نییە.",
+      "kmr": "Ev peyv di ferhengê de tune ye."
+    },
+    "reason": {
+      "en": "It is not a known word and it does not break down into a known stem and endings. It may be a typing error, or a name or new word: add it to your dictionary if so.",
+      "ckb": "وشەیەکی ناسراو نییە و بۆ ڕەگ و پاشگری ناسراو دابەش نابێت. لەوانەیە هەڵەی نووسین بێت، یان ناو یان وشەیەکی نوێ: ئەگەر وابوو بیخە فەرهەنگی خۆت.",
+      "kmr": "Ne peyveke naskirî ye û li rehekî û paşgirên naskirî parçe nabe. Dibe ku şaşiya nivîsînê be, an nav an peyveke nû be: wê demê têxe ferhenga xwe."
+    },
+    "examples": [
+      {
+        "wrong": "کتیب",
+        "right": "کتێب"
+      },
+      {
+        "wrong": "پیاف",
+        "right": "پیاو"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "6-real-words-in-the-wrong-spelling",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.spell.variant",
+    "lang": "ckb",
+    "family": "spell",
+    "category": "spelling",
+    "severity": "error",
+    "confidence": 0.9,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This is a non-standard spelling.",
+      "ckb": "ئەمە ڕێنووسێکی نەستانداردە.",
+      "kmr": "Ev rastnivîseke nestandard e."
+    },
+    "reason": {
+      "en": "Texts mostly write this word another way, and that spelling is the standard one.",
+      "ckb": "دەقەکان زیاتر ئەم وشەیە بە شێوەیەکی تر دەنووسن، و ئەو ڕێنووسە ستانداردە.",
+      "kmr": "Nivîs bi piranî vê peyvê bi awayekî din dinivîsin, û ew rastnivîs standard e."
+    },
+    "examples": [
+      {
+        "wrong": "بەلام",
+        "right": "بەڵام"
+      },
+      {
+        "wrong": "ڕای‌گەیاند",
+        "right": "ڕایگەیاند"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "6-real-words-in-the-wrong-spelling",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.syntax.verb-final",
+    "lang": "ckb",
+    "family": "syntax",
+    "category": "syntax",
+    "severity": "hint",
+    "confidence": 0.5,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "In a plain sentence the verb comes last.",
+      "ckb": "لە ڕستەی ئاساییدا کردار لە کۆتایی دێت.",
+      "kmr": "Di hevoka asayî de lêker li dawiyê tê."
+    },
+    "reason": {
+      "en": "Sorani puts the verb at the end: نانم دەخوارد. Another order can be fine for emphasis or in poetry, so this is only a hint.",
+      "ckb": "سۆرانی کردار دەخاتە کۆتایی: نانم دەخوارد. ڕیزێکی تر بۆ جەختکردن یان لە شیعردا دروستە، بۆیە ئەمە تەنیا ئاماژەیە.",
+      "kmr": "Soranî lêkerê dixe dawiyê: نانم دەخوارد. Rêzeke din ji bo giraniyê an di helbestê de dikare rast be, ji ber vê ev tenê şîret e."
+    },
+    "examples": [
+      {
+        "wrong": "دەمخوارد نان",
+        "right": "نانم دەخوارد"
+      },
+      {
+        "wrong": "خواردم نان",
+        "right": "نانم خوارد"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 10,
+        "anchor": "word-order-verb-last",
+        "title": "The present tense"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.agent-doubled",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.75,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "The agent is marked twice.",
+      "ckb": "بکەر دوو جار نیشان دراوە.",
+      "kmr": "Kirde du caran hatiye nîşandan."
+    },
+    "reason": {
+      "en": "In the past of a transitive verb one clitic marks the agent. When the object already has it, the verb stays bare: نانم خوارد.",
+      "ckb": "لە ڕابردووی کرداری تێپەڕدا یەک کلیتیک بکەر نیشان دەدات. کاتێک بەرکار هەیبێت، کردار ڕووت دەمێنێتەوە: نانم خوارد.",
+      "kmr": "Di dema borî ya lêkera gerguhêz de yek klîtîk kirdeyê nîşan dide. Dema bireser wê hebe, lêker tazî dimîne: نانم خوارد."
+    },
+    "examples": [
+      {
+        "wrong": "نانم خواردم",
+        "right": "نانم خوارد"
+      },
+      {
+        "wrong": "کتێبمان کڕیمان",
+        "right": "کتێبمان کڕی"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 14,
+        "anchor": "where-the-clitic-goes",
+        "title": "The past tense II: transitive verbs and ergativity"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 22,
+        "anchor": "the-hosting-rule",
+        "title": "Clitic placement and ergative syntax in depth"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.agent-misplaced",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "warning",
+    "confidence": 0.7,
+    "safeFix": false,
+    "standardOnly": true,
+    "notice": false,
+    "message": {
+      "en": "In the written standard the clitic goes on the object, not the verb.",
+      "ckb": "لە زمانی نووسیندا کلیتیک دەچێتە سەر بەرکار، نەک کردار.",
+      "kmr": "Di zimanê nivîsê de klîtîk li ser bireserê ye, ne li ser lêkerê."
+    },
+    "reason": {
+      "en": "The clitic sits on the first word before the verb when there is one: من نانم خوارد. من نان خواردم is common in speech, so Tolerant mode accepts it.",
+      "ckb": "کلیتیک لەسەر یەکەم وشەی پێش کردار دەبێت ئەگەر هەبێت: من نانم خوارد. من نان خواردم لە قسەکردندا باوە، بۆیە دۆخی لێبوردە قبووڵی دەکات.",
+      "kmr": "Klîtîk li ser peyva yekem a berî lêkerê ye heke hebe: من نانم خوارد. من نان خواردم di axaftinê de berbelav e, ji ber vê moda tolerant wê qebûl dike."
+    },
+    "examples": [
+      {
+        "wrong": "من نان خواردم",
+        "right": "من نانم خوارد"
+      },
+      {
+        "wrong": "نان خواردم",
+        "right": "نانم خوارد"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 22,
+        "anchor": "the-hosting-rule",
+        "title": "Clitic placement and ergative syntax in depth"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 14,
+        "anchor": "where-the-clitic-goes",
+        "title": "The past tense II: transitive verbs and ergativity"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.agent-missing",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.8,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "The agent's clitic is missing from the object.",
+      "ckb": "کلیتیکی بکەر لەسەر بەرکار نییە.",
+      "kmr": "Klîtîka kirde li ser bireserê tune ye."
+    },
+    "reason": {
+      "en": "In the past tense of a transitive verb the agent is marked by a clitic, and it sits on the first word before the verb: من نانم خوارد, \"I ate bread\".",
+      "ckb": "لە ڕابردووی کرداری تێپەڕدا بکەر بە کلیتیک نیشان دەدرێت، و لەسەر یەکەم وشەی پێش کردارەکەیە: من نانم خوارد.",
+      "kmr": "Di dema borî ya lêkera gerguhêz de kirde bi klîtîkê tê nîşandan, û li ser peyva yekem a berî lêkerê ye: من نانم خوارد."
+    },
+    "examples": [
+      {
+        "wrong": "من نان خوارد",
+        "right": "من نانم خوارد"
+      },
+      {
+        "wrong": "ئێمە نان خوارد",
+        "right": "ئێمە نانمان خوارد"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 14,
+        "anchor": "where-the-clitic-goes",
+        "title": "The past tense II: transitive verbs and ergativity"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 22,
+        "anchor": "the-hosting-rule",
+        "title": "Clitic placement and ergative syntax in depth"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "7-grammar-errors-to-watch",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.agent-on-intransitive",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "An intransitive verb takes a verb ending, not a clitic.",
+      "ckb": "کرداری تێنەپەڕ کۆتایی کردار وەردەگرێت، نەک کلیتیک.",
+      "kmr": "Lêkera negerguhêz dawiya lêkerê digire, ne klîtîkê."
+    },
+    "reason": {
+      "en": "The clitics م ت ی مان تان یان mark the agent of a transitive verb. Intransitive verbs agree with their subject through the endings: هاتین, \"we came\".",
+      "ckb": "کلیتیکەکانی م ت ی مان تان یان بکەری کرداری تێپەڕ نیشان دەدەن. کرداری تێنەپەڕ بە کۆتاییەکان لەگەڵ بکەرەکەی دەگونجێت: هاتین.",
+      "kmr": "Klîtîkên م ت ی مان تان یان kirdeya lêkera gerguhêz nîşan didin. Lêkerên negerguhêz bi dawiyan bi kirdeya xwe re li hev dikin: هاتین."
+    },
+    "examples": [
+      {
+        "wrong": "هاتمان",
+        "right": "هاتین"
+      },
+      {
+        "wrong": "چوویان",
+        "right": "چوون"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 13,
+        "anchor": "the-simple-past",
+        "title": "The past tense I: intransitive verbs"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 23,
+        "anchor": "7-grammar-errors-to-watch",
+        "title": "The written standard and common errors"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.irregular",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "This verb is irregular here.",
+      "ckb": "ئەم کردارە لێرەدا نائاساییە.",
+      "kmr": "Ev lêker li vir neasayî ye."
+    },
+    "reason": {
+      "en": "Some common verbs do not follow the regular pattern: the prohibitive of هاتن is مەیە, and ویستن marks its subject with a clitic: دەمەوێت, \"I want\".",
+      "ckb": "هەندێک کرداری باو پێڕەوی شێوەی ئاسایی ناکەن: نەهی هاتن مەیەیە، و ویستن بکەرەکەی بە کلیتیک نیشان دەدات: دەمەوێت.",
+      "kmr": "Hin lêkerên berbelav şêweya asayî naşopînin: neya هاتن مەیە ye, û ویستن kirdeya xwe bi klîtîkê nîşan dide: دەمەوێت."
+    },
+    "examples": [
+      {
+        "wrong": "مەێ",
+        "right": "مەیە"
+      },
+      {
+        "wrong": "دەوێم",
+        "right": "دەمەوێت"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 21,
+        "anchor": "هاتن-to-come",
+        "title": "Irregular and special verbs"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 21,
+        "anchor": "ویستن-to-want",
+        "title": "Irregular and special verbs"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.negation-clitic",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "agreement",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "In the negative past the clitic follows نە.",
+      "ckb": "لە ڕابردووی نەرێدا کلیتیک دوای نە دێت.",
+      "kmr": "Di dema borî ya neyînî de klîtîk piştî نە tê."
+    },
+    "reason": {
+      "en": "The clitic of a transitive verb moves onto the first part of the word: نەمخوارد, \"I did not eat\".",
+      "ckb": "کلیتیکی کرداری تێپەڕ دەچێتە سەر بەشی یەکەمی وشەکە: نەمخوارد.",
+      "kmr": "Klîtîka lêkera gerguhêz diçe ser beşa yekem a peyvê: نەمخوارد."
+    },
+    "examples": [
+      {
+        "wrong": "نەخواردم",
+        "right": "نەمخوارد"
+      },
+      {
+        "wrong": "نەکڕیمان",
+        "right": "نەمانکڕی"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 14,
+        "anchor": "where-the-clitic-goes",
+        "title": "The past tense II: transitive verbs and ergativity"
+      },
+      {
+        "lang": "ckb",
+        "lessonId": 22,
+        "anchor": "the-hosting-rule",
+        "title": "Clitic placement and ergative syntax in depth"
+      }
+    ]
+  },
+  {
+    "id": "ckb.verb.preverb-b",
+    "lang": "ckb",
+    "family": "verb",
+    "category": "morphology",
+    "severity": "error",
+    "confidence": 0.85,
+    "safeFix": false,
+    "standardOnly": false,
+    "notice": false,
+    "message": {
+      "en": "After a preverb the ب of the subjunctive is dropped.",
+      "ckb": "دوای پێشکردار ب ی داخوازی لادەچێت.",
+      "kmr": "Piştî pêşlêkerê ب ya daxwazî tê rakirin."
+    },
+    "reason": {
+      "en": "The preverb takes the place of ب: گرتن gives بگرە, but هەڵگرتن gives هەڵگرە.",
+      "ckb": "پێشکردار جێی ب دەگرێتەوە: گرتن دەبێتە بگرە، بەڵام هەڵگرتن دەبێتە هەڵگرە.",
+      "kmr": "Pêşlêker cihê ب digire: گرتن dibe بگرە, lê هەڵگرتن dibe هەڵگرە."
+    },
+    "examples": [
+      {
+        "wrong": "هەڵبگرە",
+        "right": "هەڵگرە"
+      },
+      {
+        "wrong": "وەربگرە",
+        "right": "وەرگرە"
+      }
+    ],
+    "lessons": [
+      {
+        "lang": "ckb",
+        "lessonId": 20,
+        "anchor": "1-preverbs",
+        "title": "Preverbs, -ەوە verbs and compound verbs"
+      }
+    ]
   }
 ];
