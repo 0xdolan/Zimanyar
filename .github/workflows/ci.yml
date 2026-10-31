@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop, "feature/**", "release/**", "hotfix/**"]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: make lint
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: make coverage
+      - name: Upload coverage
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: coverage
+          path: "**/coverage/"
+          if-no-files-found: ignore
+          retention-days: 14
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: make build
+
+  data:
+    name: Data
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: make data
+      - name: Everything committed matches what the pinned bundle produces
+        run: git diff --exit-code -- packages/data packages/core/src/generated
+      - name: Check the compiled lexicons against the bundle
+        run: pnpm --filter @zimanyar/data test
+      - name: Check the engine against the full fixtures
+        run: pnpm --filter @zimanyar/core test
+      - name: Hold the engine to its performance budgets
+        run: pnpm --filter @zimanyar/core bench
+      - name: Sizes
+        run: |
+          {
+            echo '| file | bytes |'
+            echo '| --- | --- |'
+            for file in packages/data/build/lexicon-*.bin.gz; do
+              echo "| $(basename "$file") | $(stat -c %s "$file") |"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"

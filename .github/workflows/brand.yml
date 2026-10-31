@@ -1,0 +1,43 @@
+name: Brand
+
+# The icons and marketing images are generated: rendering them again must give the same
+# pictures, and they must be committed whenever their sources change.
+on:
+  push:
+    branches: [main, develop, "feature/**", "release/**"]
+    paths: &paths
+      - assets/**
+      - scripts/brand/**
+      - scripts/marketing/**
+      - .github/workflows/brand.yml
+  pull_request:
+    branches: [main, develop]
+    paths: *paths
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: brand-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    name: Render icons and marketing
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Install renderers and fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            inkscape imagemagick fonts-vazirmatn fonts-ibm-plex fonts-dejavu-core
+      - name: Render and compare
+        env:
+          CHROME_FLAGS: --no-sandbox
+        run: make check-brand

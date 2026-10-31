@@ -1,0 +1,28 @@
+{
+  "name": "@zimanyar/data",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kurdish lexicon automata, rule data and parity fixtures for Zimanyar, built from the zimankit bundle",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./builder": "./src/builder.ts",
+    "./node": "./src/node.ts"
+  },
+  "scripts": {
+    "build": "tsx ../../scripts/data/build-lexicon.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/config": "workspace:*",
+    "fast-check": "4.10.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  }
+}

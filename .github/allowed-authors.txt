@@ -1,0 +1,5 @@
+# Author and committer addresses allowed in Zimanyar's history (CLAUDE.md, Attribution).
+# noreply@github.com is accepted as committer of merge commits made in the GitHub UI only;
+# scripts/release/verify-contributors.sh handles that case.
+0xdolan@gmail.com
+18519747+0xdolan@users.noreply.github.com

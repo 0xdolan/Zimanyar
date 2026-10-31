@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="340" viewBox="0 0 450 340">
+  <title>Taj, the crown deq sign</title>
+  <g fill="none" stroke="#1D4A2E" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M420,262 L350,300 L190,40"/><path d="M30,262 L100,300 L260,40"/><path d="M95,138 L170,186"/><path d="M355,138 L280,186"/>
+  </g>
+  <circle cx="225" cy="255" r="13" fill="#1D4A2E"/>
+</svg>

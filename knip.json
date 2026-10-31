@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    "scripts": {
+      "entry": ["checks/*.ts", "brand/*.ts", "brand/*.mjs", "marketing/*.js"]
+    }
+  },
+  "ignore": ["packages/core/src/generated/**"]
+}

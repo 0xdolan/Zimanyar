@@ -1,0 +1,29 @@
+{
+  "name": "@zimanyar/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kurdish linguistic engine for Zimanyar: a TypeScript port of zimankit",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "bench": "tsx bench/budgets.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/config": "workspace:*",
+    "fast-check": "4.10.2",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5",
+    "tsx": "4.23.15"
+  },
+  "dependencies": {
+    "@zimanyar/data": "workspace:*"
+  }
+}

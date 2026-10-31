@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" style="--w:1280px;--h:800px">
+<head>
+<meta charset="utf-8">
+<title>Zimanyar store screenshot</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+<script src="components.js"></script>
+<style>
+  .caption { position: absolute; left: 64px; top: 52px; right: 64px; display: flex; align-items: center; gap: 18px; }
+  .caption img { width: 54px; height: 54px; }
+  .caption h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.3px; }
+  .caption p { color: var(--muted); font-size: 19px; margin-top: 4px; }
+  .stage { position: absolute; left: 64px; right: 64px; top: 150px; bottom: 56px; }
+  .abs { position: absolute; }
+
+  /* learn view */
+  .lessonwin { display: grid; grid-template-columns: 290px 1fr; height: 100%; }
+  .toc { background: #f1f2ef; border-inline-end: 1px solid var(--line-dark); padding: 22px 18px; font-size: 15px; }
+  .toc h4 { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #7d837f; margin: 4px 0 12px; }
+  .toc div { padding: 8px 10px; border-radius: 8px; color: #3d423f; }
+  .toc div.on { background: rgba(254, 189, 17, 0.25); font-weight: 700; color: #2b2400; }
+  .doc { padding: 26px 36px; overflow: hidden; }
+  .crumbs { font-size: 14px; color: #7d837f; }
+  .doc h2 { font-size: 27px; margin: 8px 0 10px; letter-spacing: -0.2px; }
+  .doc p { color: #4c524e; font-size: 16px; line-height: 1.55; margin-bottom: 14px; }
+  .note { border-inline-start: 4px solid var(--sun); background: rgba(254, 189, 17, 0.12); padding: 10px 14px; border-radius: 8px; font-size: 15px; color: #4c524e; margin-top: 14px; }
+  .pn { display: flex; justify-content: space-between; margin-top: 16px; font-size: 14px; font-weight: 600; color: #1d6e34; }
+
+  /* everywhere view */
+  .popup { width: 330px; }
+  .popup .body { padding: 18px; display: flex; flex-direction: column; gap: 14px; font-size: 15px; }
+  .row { display: flex; justify-content: space-between; align-items: center; }
+  .switch { width: 44px; height: 24px; border-radius: 999px; background: var(--green-deep); position: relative; }
+  .switch::after { content: ""; position: absolute; right: 3px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .counts { display: flex; gap: 8px; }
+  .count { flex: 1; border-radius: 10px; padding: 10px; text-align: center; font-weight: 700; font-size: 22px; }
+  .count small { display: block; font-size: 12px; font-weight: 600; opacity: 0.8; }
+  .btn { border-radius: 10px; padding: 10px; text-align: center; font-weight: 700; background: var(--paper-ink); color: #fff; }
+  .label { position: absolute; font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sun); }
+</style>
+</head>
+<body>
+<div class="rays"></div>
+<div class="caption" id="caption"></div>
+<div class="stage" id="stage"></div>
+<div class="preview-tag">Design preview</div>
+<script>
+  const view = param("view", "check");
+  const captions = {
+    check: ["Underlines mistakes as you type", "Sorani and Kurmanji, in any text field, completely offline."],
+    explain: ["Explains why, not just what", "Every finding has a reason, a fix with pronunciation, examples and a lesson."],
+    learn: ["Learn the rule behind the fix", "46 lessons from the alphabet to ergativity, with tables computed by the checker itself."],
+    everywhere: ["Everywhere you write", "Chrome, Firefox and Safari extension, Linux desktop app and a command-line tool."],
+  };
+  const [title, sub] = captions[view];
+  document.getElementById("caption").innerHTML =
+    `<img src="../../assets/icons/png/logo-128.png" alt=""><div><h1>${title}</h1><p>${sub}</p></div>`;
+  const stage = document.getElementById("stage");
+
+  if (view === "check") {
+    stage.innerHTML = `
+      <div class="abs" style="left:0;top:0">${browserHTML("ckb", { width: 760 })}</div>
+      <div class="abs" style="left:520px;top:150px">${cardHTML("ckb", "door")}</div>
+      <div class="abs" style="left:0;top:330px;width:470px"><div class="findings">
+        ${["door", "agent", "station"].map((id) => {
+          const f = Z.ckb.findings[id];
+          const col = { error: "var(--red)", warning: "var(--amber)", orthography: "var(--blue)" }[f.severity];
+          return `<div class="finding-row"><span class="bar" style="background:${col}"></span>
+            <span>${bdi(f.fixes[0].t)}</span><span style="color:var(--muted);font-size:14px">${esc(f.rule)}</span></div>`;
+        }).join("")}
+      </div></div>`;
+  }
+
+  if (view === "explain") {
+    stage.innerHTML = `
+      <div class="abs" style="left:0;top:0">${browserHTML("kmr", { width: 700 })}</div>
+      <div class="abs" style="left:740px;top:0">${cardHTML("kmr", "agree", { dark: false }).replace('class="card"', 'class="card" style="--card-w:412px"')}</div>
+      <div class="abs" style="left:0;top:262px">${cardHTML("kmr", "case", { dark: true, examples: 1, lessons: 1 }).replace('class="card dark"', 'class="card dark" style="--card-w:340px"')}</div>
+      <div class="abs" style="left:360px;top:262px">${cardHTML("kmr", "turkish", { dark: true, examples: 1, lessons: 1 }).replace('class="card dark"', 'class="card dark" style="--card-w:340px"')}</div>`;
+  }
+
+  if (view === "learn") {
+    const L = Z.lesson;
+    stage.innerHTML = `<div class="window" style="height:100%">
+      <div class="titlebar"><div class="lights"><span></span><span></span><span></span></div><div class="url">Zimanyar · Learn</div></div>
+      <div class="lessonwin" style="height:calc(100% - 44px)">
+        <div class="toc"><h4>Kurmanji course</h4>${L.toc.map(([lvl, t, on]) => `<div class="${on ? "on" : ""}">${lvl} ${esc(t)}</div>`).join("")}</div>
+        <div class="doc">
+          <div class="crumbs">${esc(L.crumbs)}</div>
+          <h2>${esc(L.title)}</h2>
+          <p>${esc(L.intro)}</p>
+          <table class="paradigm"><tr><th>person</th><th>agent (oblique)</th><th>object (direct)</th><th>simple past of dîtin</th></tr>
+            ${L.rows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td><b>${r[3]}</b><small>${r[4]}</small></td></tr>`).join("")}
+          </table>
+          <div class="note"><b>Min tu dîtî.</b> I saw you: the verb ends in -î because the object is <b>tu</b>.</div>
+          <div class="pn"><span>← 13. Past tense I</span><span>15. Past progressive →</span></div>
+        </div>
+      </div></div>`;
+  }
+
+  if (view === "everywhere") {
+    stage.innerHTML = `
+      <span class="label" style="left:0;top:-4px">Browser popup</span>
+      <div class="abs window" style="left:0;top:22px;width:330px"><div class="body" style="padding:18px;display:flex;flex-direction:column;gap:14px;font-size:15px">
+        <div class="row"><b>Zimanyar on mail.example</b><span class="switch"></span></div>
+        <div class="row" style="color:#5b615d"><span>Field language</span><b>Kurmancî</b></div>
+        <div class="counts"><div class="count" style="background:rgba(229,72,77,.12);color:#c0262c">1<small>error</small></div>
+          <div class="count" style="background:rgba(240,160,32,.15);color:#a8670a">1<small>warning</small></div>
+          <div class="count" style="background:rgba(91,156,240,.14);color:#2a64b8">1<small>spelling</small></div></div>
+        <div class="btn">Open full view</div></div></div>
+      <span class="label" style="left:370px;top:-4px">Linux desktop</span>
+      <div class="abs window dark" style="left:370px;top:22px;width:782px">
+        <div class="titlebar"><div class="lights"><span></span><span></span><span></span></div><span>Zimanyar · essay.md</span></div>
+        <div style="display:grid;grid-template-columns:1fr 300px">
+          <div class="editor" dir="rtl" lang="ckb" style="font-size:24px">${editorHTML("ckb")}</div>
+          <div style="padding:18px;border-inline-start:1px solid var(--line)"><div class="findings">
+            ${["door", "agent", "station"].map((id) => `<div class="finding-row"><b>${bdi(Z.ckb.findings[id].fixes[0].t)}</b></div>`).join("")}
+          </div></div></div></div>
+      <span class="label" style="left:0;top:356px">Command line</span>
+      <div class="abs window dark" style="left:0;top:382px;width:1152px"><div class="terminal">${Z.cli.join("<br>")}</div></div>`;
+  }
+</script>
+</body>
+</html>

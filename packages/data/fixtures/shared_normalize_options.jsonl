@@ -1,0 +1,21 @@
+{"digits_arabic":"","digits_latin":"","input":"","keep_all":"","plain":"","strip_mentions":""}
+{"digits_arabic":"","digits_latin":"","input":" ","keep_all":"","plain":"","strip_mentions":""}
+{"digits_arabic":"","digits_latin":"","input":"\n","keep_all":"","plain":"","strip_mentions":""}
+{"digits_arabic":"کوردی","digits_latin":"کوردی","input":"﻿کوردی","keep_all":"کوردی","plain":"کوردی","strip_mentions":"کوردی"}
+{"digits_arabic":"ab cd ef gh","digits_latin":"ab cd ef gh","input":"a​b c d e­f g⁠h","keep_all":"ab cd ef gh","plain":"ab cd ef gh","strip_mentions":"ab cd ef gh"}
+{"digits_arabic":"مال‌ه اب ب ب ب‌ب ب‌ب","digits_latin":"مال‌ه اب ب ب ب‌ب ب‌ب","input":"مال‌ه ا‌ب ‌ب ب‌ ب‌‌ب ب‍ب","keep_all":"مال‌ه اب ب ب ب‌ب ب‌ب","plain":"مال‌ه اب ب ب ب‌ب ب‌ب","strip_mentions":"مال‌ه اب ب ب ب‌ب ب‌ب"}
+{"digits_arabic":"ب ب a b","digits_latin":"ب ب a b","input":"‎ب‏ ‪ب‬ ⁦a⁩ ؜b","keep_all":"ب ب a b","plain":"ب ب a b","strip_mentions":"ب ب a b"}
+{"digits_arabic":"ٱکالا الله لا﻾","digits_latin":"ٱکالا الله لا﻾","input":"ﭐﮎﺎﻻ ﷲ ﻼ﻾","keep_all":"ٱکالا الله لا﻾","plain":"ٱکالا الله لا﻾","strip_mentions":"ٱکالا الله لا﻾"}
+{"digits_arabic":"é ä ئ آ","digits_latin":"é ä ئ آ","input":"é ä ئ آ","keep_all":"é ä ئ آ","plain":"é ä ئ آ","strip_mentions":"é ä ئ آ"}
+{"digits_arabic":"see and now","digits_latin":"see and now","input":"see https://example.org/a?b=1 and WWW.Example.org. HTTP://X now","keep_all":"see https://example.org/a?b=1 and WWW.Example.org. HTTP://X now","plain":"see and now","strip_mentions":"see and now"}
+{"digits_arabic":"mail , ! @name #tag @کوردی x@y","digits_latin":"mail , ! @name #tag @کوردی x@y","input":"mail me@example.org, a.b+c@x-y.co.uk! @name #tag @کوردی x@y","keep_all":"mail me@example.org, a.b+c@x-y.co.uk! @name #tag @کوردی x@y","plain":"mail , ! @name #tag @کوردی x@y","strip_mentions":"mail , ! x@y"}
+{"digits_arabic":"ok ١","digits_latin":"ok 1","input":"😀 ok ❤️ 1️⃣ 🇰🇷 ☀ ➿","keep_all":"😀 ok ❤️ 1️⃣ 🇰🇷 ☀ ➿","plain":"ok 1","strip_mentions":"ok 1"}
+{"digits_arabic":"١ ٢ ١٢ ١٢ ٣.٥ ٤,٥ ٣٫٤ ٥٬٦ ٧. .٨","digits_latin":"1 2 12 12 3.5 4,5 3٫4 5٬6 7. .8","input":"1 2 ١٢ ۱۲ 3.5 4,5 ٣٫٤ ٥٬٦ 7. .8","keep_all":"1 2 ١٢ ۱۲ 3.5 4,5 ٣٫٤ ٥٬٦ 7. .8","plain":"1 2 ١٢ ۱۲ 3.5 4,5 ٣٫٤ ٥٬٦ 7. .8","strip_mentions":"1 2 ١٢ ۱۲ 3.5 4,5 ٣٫٤ ٥٬٦ 7. .8"}
+{"digits_arabic":"a b c def g h i j k l m","digits_latin":"a b c def g h i j k l m","input":"a b c d e f g　h\ti\u000bj\fk\u001clm","keep_all":"a b c def g h i j k l m","plain":"a b c def g h i j k l m","strip_mentions":"a b c def g h i j k l m"}
+{"digits_arabic":"a\nb\nc\nd\ne","digits_latin":"a\nb\nc\nd\ne","input":"a\r\nb\rc\n\n\nd\n \n e  \n\n","keep_all":"a\nb\nc\n\n\nd\n\ne","plain":"a\nb\nc\nd\ne","strip_mentions":"a\nb\nc\nd\ne"}
+{"digits_arabic":"leading and trailing","digits_latin":"leading and trailing","input":"  leading and trailing　","keep_all":"leading and trailing","plain":"leading and trailing","strip_mentions":"leading and trailing"}
+{"digits_arabic":"HDP'yî 'quoted' don't o'clock ' a'","digits_latin":"HDP'yî 'quoted' don't o'clock ' a'","input":"HDP'yî 'quoted' don't o'clock ' a'","keep_all":"HDP'yî 'quoted' don't o'clock ' a'","plain":"HDP'yî 'quoted' don't o'clock ' a'","strip_mentions":"HDP'yî 'quoted' don't o'clock ' a'"}
+{"digits_arabic":"Kurd-î a-b-c ب-پ -a b- --","digits_latin":"Kurd-î a-b-c ب-پ -a b- --","input":"Kurd-î a-b-c ب-پ -a b- --","keep_all":"Kurd-î a-b-c ب-پ -a b- --","plain":"Kurd-î a-b-c ب-پ -a b- --","strip_mentions":"Kurd-î a-b-c ب-پ -a b- --"}
+{"digits_arabic":"буква Abب Ḁỹ ɐ Āɏ","digits_latin":"буква Abب Ḁỹ ɐ Āɏ","input":"буква Abب Ḁỹ ɐ Āɏ","keep_all":"буква Abب Ḁỹ ɐ Āɏ","plain":"буква Abب Ḁỹ ɐ Āɏ","strip_mentions":"буква Abب Ḁỹ ɐ Āɏ"}
+{"digits_arabic":"Yes? No! بلێ؟ ئەو۔ Done. Next.\nLine\nLine","digits_latin":"Yes? No! بلێ؟ ئەو۔ Done. Next.\nLine\nLine","input":"Yes? No! بلێ؟ ئەو۔ Done.  Next.\nLine\n\nLine","keep_all":"Yes? No! بلێ؟ ئەو۔ Done. Next.\nLine\n\nLine","plain":"Yes? No! بلێ؟ ئەو۔ Done. Next.\nLine\nLine","strip_mentions":"Yes? No! بلێ؟ ئەو۔ Done. Next.\nLine\nLine"}
+{"digits_arabic":"𝐀 𐀀x","digits_latin":"𝐀 𐀀x","input":"𝐀 𐀀x 😀😀","keep_all":"𝐀 𐀀x 😀😀","plain":"𝐀 𐀀x","strip_mentions":"𝐀 𐀀x"}

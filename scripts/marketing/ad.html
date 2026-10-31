@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zimanyar ad</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+<script src="components.js"></script>
+<style>
+  .wrap { position: absolute; inset: 0; display: flex; flex-direction: column; padding: var(--pad); gap: var(--gap); }
+  .headline { font-size: var(--hl); }
+  .sub { font-size: var(--sb); }
+  .chip { font-size: var(--chip); }
+  .demo { position: relative; flex: 1; }
+  .demo .window { position: absolute; left: 0; top: 0; }
+  .demo .card { position: absolute; }
+  .cta { display: flex; justify-content: space-between; align-items: center; }
+  .cta .get { background: var(--sun); color: #1b1600; font-weight: 800; border-radius: 999px; padding: 16px 30px; font-size: var(--cta); }
+  .cta .footer-line { font-size: var(--ft); }
+  [dir="rtl"] .cta { flex-direction: row-reverse; }
+</style>
+</head>
+<body>
+<div class="rays"></div>
+<div class="wrap" id="wrap"></div>
+<script>
+  const lang = param("lang", "en");
+  const format = param("format", "square");
+  const size = { square: [1080, 1080], landscape: [1200, 675], story: [1080, 1920] }[format];
+  const vars = {
+    square: { pad: "64px 72px", gap: "24px", hl: "60px", sb: "24px", chip: "20px", cta: "24px", ft: "19px", logo: 88, name: 56, w: 820, card: [330, 150] },
+    landscape: { pad: "56px 64px", gap: "20px", hl: "50px", sb: "21px", chip: "18px", cta: "20px", ft: "16px", logo: 76, name: 48, w: 0, card: [0, 0] },
+    story: { pad: "120px 80px", gap: "46px", hl: "86px", sb: "34px", chip: "26px", cta: "30px", ft: "24px", logo: 128, name: 76, w: 700, card: [200, 170], zoom: 1.32 },
+  }[format];
+  const root = document.documentElement;
+  root.style.setProperty("--w", size[0] + "px");
+  root.style.setProperty("--h", size[1] + "px");
+  for (const k of ["pad", "gap", "hl", "sb", "chip", "cta", "ft"]) root.style.setProperty("--" + k, vars[k]);
+
+  const c = Z.copy[lang];
+  const rtl = lang === "ckb";
+  const demoLang = lang === "kmr" ? "kmr" : "ckb";
+  const demoId = demoLang === "kmr" ? "agree" : "door";
+  const get = { en: "Free · Chrome · Firefox · Safari · Linux", ckb: "بێبەرامبەر · Chrome · Firefox · Safari · Linux", kmr: "Belaş · Chrome · Firefox · Safari · Linux" }[lang];
+  const demo = vars.w
+    ? `<div class="demo" dir="ltr" style="zoom:${vars.zoom || 1}">${browserHTML(demoLang, { width: vars.w })}
+         <div class="card-holder" style="position:absolute;left:${vars.card[0]}px;top:${vars.card[1]}px">${cardHTML(demoLang, demoId, { examples: 1, lessons: 1 })}</div></div>`
+    : "";
+  const wrap = document.getElementById("wrap");
+  if (rtl) { wrap.setAttribute("dir", "rtl"); wrap.setAttribute("lang", "ckb"); }
+  wrap.innerHTML = `
+    ${brandHTML({ logo: vars.logo, name: vars.name })}
+    <div class="headline">${c.headline}</div>
+    <div class="sub">${c.sub}</div>
+    ${chipsHTML(lang, format === "landscape" ? 3 : 4)}
+    ${demo}
+    <div class="cta"><span class="get">${{ en: "Install free", ckb: "دابەزاندنی بێبەرامبەر", kmr: "Belaş daxe" }[lang]}</span>
+      <span class="footer-line" dir="ltr">github.com/0xdolan/Zimanyar</span></div>`;
+  if (format === "landscape") {
+    wrap.style.width = "640px";
+    const side = document.createElement("div");
+    side.style.cssText = "position:absolute;right:-60px;top:70px";
+    side.innerHTML = browserHTML(demoLang, { width: 560 }) +
+      `<div style="position:absolute;left:120px;top:150px">${cardHTML(demoLang, demoId, { examples: 1, lessons: 1 })}</div>`;
+    document.body.appendChild(side);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" style="--w:440px;--h:280px">
+<head>
+<meta charset="utf-8">
+<title>Chrome Web Store small tile</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+<script src="components.js"></script>
+<style>
+  body { display: flex; align-items: center; justify-content: center; }
+  .box { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+  .tag { font-size: 18px; color: var(--muted); font-weight: 500; }
+  .langs { font-size: 15px; color: var(--sun); font-weight: 600; letter-spacing: 0.6px; }
+</style>
+</head>
+<body>
+<div class="rays"></div>
+<div class="box" id="box"></div>
+<script>
+  document.getElementById("box").innerHTML = `
+    ${brandHTML({ logo: 84, name: 50 })}
+    <div class="tag">Kurdish grammar checker and teacher</div>
+    <div class="langs">SORANI · KURMANJI · OFFLINE</div>`;
+</script>
+</body>
+</html>
