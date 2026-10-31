@@ -1,3 +1,4 @@
+export * as ckb from "./ckb/index.js";
 export { identify, isLang, type LidLang, type LidResult } from "./lid.js";
 export { cleanZwnj, type DigitTarget, type NormalizeOptions, normalizeText } from "./normalize/shared.js";
 export {
@@ -8,6 +9,13 @@ export {
   sonority,
   syllabify,
 } from "./phonology/core.js";
+export {
+  type Analysis,
+  emptyLexicon,
+  type LexiconLike,
+  SimpleLexicon,
+  segmentation,
+} from "./schema.js";
 export {
   CKB_LETTER_CLASS,
   charScript,

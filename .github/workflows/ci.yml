@@ -69,6 +69,8 @@ jobs:
         run: git diff --exit-code -- packages/data packages/core/src/generated
       - name: Check the compiled lexicons against the bundle
         run: pnpm --filter @zimanyar/data test
+      - name: Check the engine against the full fixtures
+        run: pnpm --filter @zimanyar/core test
       - name: Sizes
         run: |
           {
