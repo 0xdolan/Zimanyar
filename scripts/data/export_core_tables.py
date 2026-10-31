@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from importlib import resources
 
 from common import ROOT
 from zimankit import __version__
@@ -24,6 +25,10 @@ from zimankit.shared_utils import (
     tokenizer,
     unicode_tables,
 )
+from zimankit.skills_ckb import morphology as ckb_morphology
+from zimankit.skills_ckb import orthography as ckb_orthography
+from zimankit.skills_ckb import phonology_ipa as ckb_phonology
+from zimankit.skills_ckb import verbs as ckb_verbs
 
 TARGET = ROOT / "packages" / "core" / "src" / "generated" / "tables.ts"
 TABLES = {
@@ -38,6 +43,24 @@ TABLES = {
     lid: ["ARABIC_SCRIPT_PROFILES", "LATIN_SCRIPT_PROFILES"],
     phonology_core: ["FRICATIVES", "GLIDES", "LIQUIDS", "NASALS", "SIBILANTS", "STOPS"],
 }  # fmt: skip
+# The same, where two varieties use one name: exported as CKB_<name without leading underscore>.
+PREFIXED = {
+    "CKB": {
+        ckb_orthography: ["VARIANT_SWAPS", "_ILLEGAL_SEQUENCES"],
+        ckb_phonology: ["CONSONANTS", "IPA_TO_LATIN", "LATIN_STYLES", "VOWELS"],
+        ckb_morphology: ["CLITICS", "PERSONS", "POS_PRIORITY", "PROCLITICS"],
+        ckb_verbs: ["CLITIC_SUBJECT_PRESENT", "IRREGULAR", "PASSIVE_STEM", "PREVERBS", "SET2", "VOWEL_END"],
+    },
+}
+PREFIXED_REGEXES = {
+    "CKB": {
+        ckb_orthography: [
+            "_INITIAL_R_RE", "_INITIAL_VOWEL_RE", "_LEGACY_FINAL_HEH_RE", "_LEGACY_HEH_ZWNJ_RE", "_SEQ_RE",
+            "_VALID_RE",
+        ],
+    },
+}  # fmt: skip
+DATA_FILES = ["ckb_function_words", "ckb_verbs_core", "kmr_function_words", "kmr_verbs_core"]
 # Compiled regexes, as Python source. packages/core/src/python.ts translates the syntax.
 REGEXES = {
     normalizer: [
@@ -55,8 +78,21 @@ def plain(value: object) -> object:
     if isinstance(value, tuple | list):
         return [plain(item) for item in value]
     if isinstance(value, dict):
-        return {key: plain(item) for key, item in value.items()}
+        # A tuple key, such as (tense, person), becomes "tense|person".
+        return {
+            ("|".join(key) if isinstance(key, tuple) else key): plain(item) for key, item in value.items()
+        }
     return value
+
+
+def affix(item: ckb_morphology.Affix) -> dict:
+    return {
+        "form": item.form,
+        "tag": item.tag,
+        "features": dict(item.features),
+        "after": item.after,
+        "posHint": item.pos_hint,
+    }
 
 
 def char_script_runs() -> list[list]:
@@ -87,6 +123,25 @@ def render() -> str:
             pattern = getattr(module, name)
             flags = "i" if pattern.flags & re.IGNORECASE else ""
             lines.append(f"export const {name.lstrip('_')} = {json.dumps([pattern.pattern, flags])};")
+    for prefix, modules in PREFIXED.items():
+        for module, names in modules.items():
+            for name in names:
+                text = json.dumps(plain(getattr(module, name)), ensure_ascii=True)
+                lines.append(f"export const {prefix}_{name.lstrip('_')} = {text};")
+    for prefix, modules in PREFIXED_REGEXES.items():
+        for module, names in modules.items():
+            for name in names:
+                source = json.dumps([getattr(module, name).pattern, ""])
+                lines.append(f"export const {prefix}_{name.lstrip('_')} = {source};")
+    pairs = [[pattern.pattern, rep] for pattern, rep in ckb_orthography._INITIAL_ALEF_HAMZA]
+    lines.append(f"export const CKB_INITIAL_ALEF_HAMZA = {json.dumps(pairs)};")
+    pairs = [[pattern.pattern, rep] for pattern, rep in ckb_orthography._SQUEEZE]
+    lines.append(f"export const CKB_SQUEEZE = {json.dumps(pairs)};")
+    slots = [[name, [affix(item) for item in items]] for name, items in ckb_morphology.SLOTS]
+    lines.append(f"export const CKB_SLOTS = {json.dumps(slots)};")
+    for name in DATA_FILES:
+        text = (resources.files("zimankit.data") / f"{name}.tsv").read_text(encoding="utf-8")
+        lines.append(f"export const {name.upper()}_TSV = {json.dumps(text)};")
     lines.append(f"export const CHAR_SCRIPT_RUNS = {json.dumps(char_script_runs())};")
     features = {
         lang: [[pattern.pattern, weight] for pattern, weight in rows]

@@ -6,7 +6,9 @@
 | --- | --- | --- | --- | --- |
 | `tokenize` | offsets count code points | offsets count UTF-16 code units | browsers, editors and the language server all use UTF-16; the tests convert before comparing | `parity-shared.test.ts` |
 
-Scores and distances are compared to six decimal places.
+Scores and distances are compared to six decimal places. `Verb` and the analyzer's `features` hold the same values under the same names, in camelCase where a name is ours.
+
+The analyzers are tested two ways: without a lexicon, on a sample that runs everywhere, and with the full lemma table, which needs `make data` and runs in CI's Data job.
 
 ## How differences between the languages are handled
 

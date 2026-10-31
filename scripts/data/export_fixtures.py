@@ -46,6 +46,7 @@ SIZES = {
     "lexicon_verbs": 500,
     "nouns": 2_000,
     "analyze": 30_000,
+    "analyze_no_lexicon": 5_000,
     "alignment": 2_000,
     "lid": 5_000,
     "text": 2_000,
@@ -112,17 +113,20 @@ SEGMENT_SYMBOLS = (
 VOWEL_SYMBOLS = ("a\u02d0", "\u00e6", "i\u02d0", "u\u02d0", "e\u02d0")
 
 
-def write(name: str, records: Iterable[dict]) -> int:
+def write(name: str, records: Iterable[dict], sample: bool = True) -> int:
     """Write the whole fixture to the build folder and an even sample of it to the package."""
     rows = [json.dumps(r, ensure_ascii=False, sort_keys=True, separators=(",", ":")) for r in records]
     full = BUILD / "fixtures" / f"{name}.jsonl"
     full.parent.mkdir(parents=True, exist_ok=True)
     full.write_text("".join(f"{r}\n" for r in rows), encoding="utf-8")
+    if not sample:
+        print(f"{name}: {len(rows)} lines (not sampled)", file=sys.stderr)
+        return len(rows)
     # Some lines are whole verb paradigms, so the sample is limited in bytes as well as lines.
     average = max(1, sum(len(r.encode("utf-8")) for r in rows) // max(1, len(rows)))
     wanted = max(1, min(SAMPLE_LINES, SAMPLE_BYTES // average))
-    sample = rows[:: max(1, len(rows) // wanted)][:wanted]
-    (DATA / "fixtures" / f"{name}.jsonl").write_text("".join(f"{r}\n" for r in sample), encoding="utf-8")
+    kept = rows[:: max(1, len(rows) // wanted)][:wanted]
+    (DATA / "fixtures" / f"{name}.jsonl").write_text("".join(f"{r}\n" for r in kept), encoding="utf-8")
     print(f"{name}: {len(rows)} lines", file=sys.stderr)
     return len(rows)
 
@@ -162,11 +166,38 @@ def analysis(a) -> dict:
     }
 
 
-def verb_record(verb, conjugate: Callable) -> dict:
+def verb_record(verb, conjugate: Callable, made_from: dict | None = None) -> dict:
     return {
         "verb": asdict(verb),
+        "made_from": made_from,
         "forms": [[f.form, f.lemma, f.features] for f in conjugate(verb)],
     }
+
+
+def stem(value: str | None) -> str | None:
+    # The lemma table writes an em dash for "this verb has no such stem".
+    return None if value == "\u2014" else value
+
+
+def lexicon_verbs(module, core: list, lemmas: list[dict]) -> Iterable[dict]:
+    """Paradigms of the most frequent verbs outside the core list, with what built each verb."""
+    known = {v.infinitive: v for v in core}
+    rows = [r for r in lemmas if r["upos"] == "VERB" and r["lemma"] not in known][: SIZES["lexicon_verbs"]]
+    for r in rows:
+        transitive = r["transitivity"] == "transitive"
+        present = stem(r["present_stem"])
+        verb = module.make_verb(r["lemma"], transitive, present, known=known)
+        made_from = {"infinitive": r["lemma"], "transitive": transitive, "present": present}
+        if verb:
+            yield verb_record(verb, module.conjugate, made_from)
+        else:
+            yield {"verb": None, "made_from": made_from, "forms": []}
+
+
+def lemma_table(lemmas: list[dict]) -> Iterable[dict]:
+    """What the analyzers' scores depend on. Large, so parity with it needs make data."""
+    for r in lemmas:
+        yield {"lemma": r["lemma"], "pos": r["upos"], "gender": r["gender"], "frequency": r["frequency"] or 0}
 
 
 def export_ckb(words: list[dict], lemmas: list[dict], rng: random.Random) -> None:
@@ -183,6 +214,19 @@ def export_ckb(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
                 "validate_word": ckb_orthography.validate_word(w),
                 "is_legacy_encoded": ckb_orthography.is_legacy_encoded(w),
                 "spelling_variants": ckb_orthography.spelling_variants(w),
+                "normalize_legacy": ckb_orthography.normalize(
+                    w, ckb_orthography.CkbOrthographyOptions(legacy="yes", digits="latin")
+                ),
+                "normalize_off": ckb_orthography.normalize(
+                    w,
+                    ckb_orthography.CkbOrthographyOptions(
+                        legacy="no",
+                        fix_initial_r=False,
+                        add_initial_hamza=False,
+                        kurdish_punctuation=False,
+                        digits="keep",
+                    ),
+                ),
             }
             for w in [*inputs, *corrupted]
         ),
@@ -195,21 +239,35 @@ def export_ckb(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
                 "ipa": ckb_phonology.to_ipa(w),
                 "syllables": ckb_phonology.syllables(w),
                 "latin": ckb_phonology.to_latin(w),
+                "latin_accented": ckb_phonology.to_latin(w, "accented"),
+                "ipa_plain": ckb_phonology.to_ipa(
+                    w,
+                    ckb_phonology.G2POptions(
+                        mark_epenthesis=False, glottal_onset=False, hiatus_glides=False, syllable_dots=True
+                    ),
+                    True,
+                ),
                 "segments": [list(s) for s in ckb_phonology.segments(w)],
             }
             for w in frequent[: SIZES["phonology"]]
         ),
     )
     core = ckb_verbs.load_core_verbs()
-    known = {v.infinitive: v for v in core}
-    verbs = [r for r in lemmas if r["upos"] == "VERB" and r["lemma"] not in known]
-    made = (
-        ckb_verbs.make_verb(r["lemma"], r["transitivity"] == "transitive", r["present_stem"], known=known)
-        for r in verbs[: SIZES["lexicon_verbs"]]
+    write(
+        "ckb_verbs",
+        [*(verb_record(v, ckb_verbs.conjugate) for v in core), *lexicon_verbs(ckb_verbs, core, lemmas)],
     )
-    write("ckb_verbs", (verb_record(v, ckb_verbs.conjugate) for v in [*core, *(m for m in made if m)]))
     nouns = [r["lemma"] for r in lemmas if r["upos"] == "NOUN"][: SIZES["nouns"]]
     write("ckb_decline", ({"stem": n, "forms": [list(f) for f in ckb_morphology.decline(n)]} for n in nouns))
+    plain_analyzer = ckb_morphology.CkbAnalyzer()
+    write(
+        "ckb_analyze_no_lexicon",
+        (
+            {"input": w, "readings": [analysis(a) for a in plain_analyzer.analyze(w)[:3]]}
+            for w in [*frequent[: SIZES["analyze_no_lexicon"]], *corrupted[:500]]
+        ),
+    )
+    write("ckb_lemmas", lemma_table(lemmas), sample=False)
     analyzer = ckb_morphology.CkbAnalyzer(public_lexicon(lemmas))
     write(
         "ckb_analyze",
@@ -254,13 +312,10 @@ def export_kmr(words: list[dict], lemmas: list[dict], rng: random.Random) -> Non
         ),
     )
     core = kmr_verbs.load_core_verbs()
-    known = {v.infinitive: v for v in core}
-    verbs = [r for r in lemmas if r["upos"] == "VERB" and r["lemma"] not in known]
-    made = (
-        kmr_verbs.make_verb(r["lemma"], r["transitivity"] == "transitive", r["present_stem"], known=known)
-        for r in verbs[: SIZES["lexicon_verbs"]]
+    write(
+        "kmr_verbs",
+        [*(verb_record(v, kmr_verbs.conjugate) for v in core), *lexicon_verbs(kmr_verbs, core, lemmas)],
     )
-    write("kmr_verbs", (verb_record(v, kmr_verbs.conjugate) for v in [*core, *(m for m in made if m)]))
     nouns = [r for r in lemmas if r["upos"] == "NOUN" and r["gender"] in ("f", "m")][: SIZES["nouns"]]
     write(
         "kmr_decline",

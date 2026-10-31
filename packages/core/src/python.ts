@@ -30,6 +30,35 @@ export function count(text: string, part: string): number {
   return found;
 }
 
+/** Python's len(), which counts code points. */
+export const length = (text: string): number => Array.from(text).length;
+
+/** Python's sort order for strings: by code point, where JavaScript sorts by UTF-16 unit. */
+export function compareStrings(a: string, b: string): number {
+  const [x, y] = [Array.from(a), Array.from(b)];
+  const shared = Math.min(x.length, y.length);
+  for (let i = 0; i < shared; i++) {
+    const difference =
+      ((x[i] as string).codePointAt(0) as number) - ((y[i] as string).codePointAt(0) as number);
+    if (difference !== 0) return difference;
+  }
+  return x.length - y.length;
+}
+
+/** Python's str.lstrip(chars) and str.rstrip(chars) for one character. */
+export function trimStart(text: string, character: string): string {
+  let at = 0;
+  while (text.startsWith(character, at)) at += character.length;
+  return text.slice(at);
+}
+
+export function trimEnd(text: string, character: string): string {
+  let end = text.length;
+  while (end >= character.length && text.startsWith(character, end - character.length))
+    end -= character.length;
+  return text.slice(0, end);
+}
+
 /** Python's str.translate(): replace or drop single characters. */
 export function translate(text: string, table: ReadonlyMap<string, string>): string {
   let out = "";
@@ -75,7 +104,8 @@ export function pythonRegex(python: string, flags = ""): RegExp {
     } else {
       if (character === "[") inClass = true;
       else if (character === "]") inClass = false;
-      out += character;
+      // Python's $ also matches before a final newline.
+      out += character === "$" && !inClass ? "(?=\\n?$)" : character;
     }
   }
   return new RegExp(out, `${flags}u`);

@@ -16,6 +16,11 @@ export function loadLexiconFile(lang: Lang, directory = BUILD_DIR): Promise<Lexi
   return loadLexicon(readFileSync(lexiconPath(lang, directory)));
 }
 
+/** Whether make data has written the full fixture, for tests that the committed sample cannot serve. */
+export function hasFullFixture(name: string, directory = BUILD_DIR): boolean {
+  return existsSync(resolve(directory, "fixtures", `${name}.jsonl`));
+}
+
 /**
  * The input and output pairs exported from zimankit: the full fixture when make data has run,
  * otherwise the small sample that is committed.

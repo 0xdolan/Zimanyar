@@ -39,6 +39,9 @@ LEMMA_COLUMNS = (
 
 def clean(value: object) -> str:
     text = "" if value is None else str(value)
+    # The lemma table writes an em dash for "this verb has no such stem".
+    if text == "\u2014":
+        return ""
     if "\t" in text or "\n" in text:
         raise ValueError(f"a tab or newline inside a value: {text!r}")
     return text
