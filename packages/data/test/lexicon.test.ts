@@ -34,7 +34,7 @@ const input: LexiconInput = {
     { word: "jinan", lemma: "jin", upos: "NOUN", features: "{}", attested: true, zipf: 3, quality: "gold" },
   ],
   lemmas: [
-    { lemma: "jin", upos: "NOUN", gender: "f", zipf: 5.5 },
+    { lemma: "jin", upos: "NOUN", gender: "f", zipf: 5.5, count: 1234 },
     {
       lemma: "dîtin",
       upos: "VERB",
@@ -83,7 +83,13 @@ describe("Lexicon", () => {
   });
 
   it("finds a lemma with its stems", () => {
-    expect(lexicon.lemma("jin")).toEqual({ lemma: "jin", upos: "NOUN", gender: "f", frequency: 22 });
+    expect(lexicon.lemma("jin")).toEqual({
+      lemma: "jin",
+      upos: "NOUN",
+      gender: "f",
+      frequency: 22,
+      count: 1234,
+    });
     expect(lexicon.lemma("dîtin")).toEqual({
       lemma: "dîtin",
       upos: "VERB",
@@ -93,8 +99,15 @@ describe("Lexicon", () => {
       variantOf: "dîtin",
       seeAlso: "dît",
       frequency: 16,
+      count: 0,
     });
     expect(lexicon.lemma("tune")).toBeNull();
+  });
+
+  it("reads lemmas by rank without building entries", () => {
+    const rank = lexicon.lemmaAutomaton.rank("jin");
+    expect(lexicon.lemmaAttributesAt(rank)).toEqual({ upos: "NOUN", gender: "f" });
+    expect(lexicon.lemmaCountAt(rank)).toBe(1234);
   });
 
   it("maps a non-standard spelling to the standard one", () => {
@@ -106,6 +119,7 @@ describe("Lexicon", () => {
     const rank = lexicon.automaton.rank("jin");
     expect(lexicon.frequencyAt(rank)).toBe(21);
     expect(lexicon.attestedAt(rank)).toBe(true);
+    expect(lexicon.qualityAt(rank)).toBe("silver");
     expect(lexicon.attestedAt(lexicon.automaton.rank("dît"))).toBe(false);
     expect(lexicon.formAt(rank).word).toBe("jin");
   });

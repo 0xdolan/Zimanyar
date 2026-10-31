@@ -24,6 +24,7 @@ The repository root is also a [uv](https://docs.astral.sh/uv/) project (`pyproje
 | `make tokens` | writes `packages/config/tokens.css` from the design tokens |
 | `make check-brand` | renders icons and marketing and compares them with the committed images |
 | `make data` | fetches and verifies the pinned lexicon, exports the fixtures and compiles the lexicons ([data.md](data.md)) |
+| `make bench` | holds the engine to its performance budgets; needs `make data` |
 | `make licenses` | production dependencies against the GPL-3.0 compatible allow list |
 | `make attribution` | authors, committers and trailers of the commits on this branch |
 | `make deps` | dependency report (outdated, audit, uv upgrades); never changes files |

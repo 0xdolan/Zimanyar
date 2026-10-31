@@ -122,6 +122,9 @@ const CONFUSABLE_PAIRS = new Set(
   }),
 );
 
+/** Whether writers confuse these two letters, which makes swapping them a cheap edit. */
+export const isConfusable = (a: string, b: string): boolean => CONFUSABLE_PAIRS.has(`${a}\0${b}`);
+
 /** Levenshtein distance where letters that writers confuse cost less to swap. */
 export function weightedDistance(first: string, second: string, confusableCost = 0.3): number {
   const a = Array.from(first);

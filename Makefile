@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data skills tokens logo icons marketing brand check-brand
+	attribution deps data bench skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -16,6 +16,7 @@ help:
 	@echo "make test          unit tests of every package"
 	@echo "make coverage      unit tests with coverage thresholds"
 	@echo "make build         build every package and app"
+	@echo "make bench         hold the engine to its performance budgets (needs make data)"
 	@echo "make data          fetch the pinned zimankit lexicon, verify it, export fixtures, compile the lexicons"
 	@echo "make format        format code with Biome"
 	@echo "make licenses      check that production dependencies are GPL-3.0 compatible"
@@ -67,6 +68,9 @@ format:
 
 biome:
 	pnpm exec biome check .
+
+bench:
+	pnpm --filter @zimanyar/core bench
 
 check-dashes:
 	scripts/checks/check-dashes.sh

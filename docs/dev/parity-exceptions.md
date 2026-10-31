@@ -8,7 +8,19 @@
 
 Scores and distances are compared to six decimal places. `Verb` and the analyzer's `features` hold the same values under the same names, in camelCase where a name is ours.
 
-The analyzers are tested two ways: without a lexicon, on a sample that runs everywhere, and with the full lemma table, which needs `make data` and runs in CI's Data job.
+The analyzers are tested three ways: without a lexicon, on a sample that runs everywhere; with the full lemma table in memory; and reading the compiled lexicon file through `lexiconAdapter`. The last two need `make data` and run in CI's Data job.
+
+## Not in zimankit
+
+Spelling suggestions (`suggest`) and completion (`complete`) are new in Zimanyar. zimankit has the building blocks (`spelling_variants`, `weighted_distance`), but no search over a compiled lexicon, so there is nothing to compare them with. They have their own tests.
+
+## Known issues in zimankit that Zimanyar matches
+
+Parity means matching these until zimankit changes.
+
+- `DERIVATIONS` in `skills_kmr/morphology.py`: a comment on the previous item swallows `geh`, `xane` and `ane`, so they are not recognised as Kurmanji derivational suffixes.
+- The published lemma table has an em dash as the present stem of `hebûn`, meaning "no such stem". The data scripts treat it as missing.
+- The Kurmanji lexicon holds 70 forms and 4 lemmas in Arabic script, such as `چێشتن`.
 
 ## How differences between the languages are handled
 

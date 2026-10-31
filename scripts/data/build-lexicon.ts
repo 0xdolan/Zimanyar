@@ -47,7 +47,8 @@ function readForm(fields: string[]): FormRow {
 }
 
 function readLemma(fields: string[]): LemmaRow {
-  const [lemma, upos, gender, transitivity, present, past, variantOf, seeAlso, zipf] = fields as [
+  const [lemma, upos, gender, transitivity, present, past, variantOf, seeAlso, zipf, count] = fields as [
+    string,
     string,
     string,
     string,
@@ -68,6 +69,7 @@ function readLemma(fields: string[]): LemmaRow {
     ...optional("variantOf", variantOf),
     ...optional("seeAlso", seeAlso),
     zipf: Number(zipf),
+    count: Number(count),
   };
 }
 

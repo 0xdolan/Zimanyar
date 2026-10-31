@@ -90,6 +90,14 @@ describe.skipIf(!existsSync(lexiconPath("ckb")) || !existsSync(lexiconPath("kmr"
         expect(wrong).toEqual([]);
       }, 120_000);
 
+      it("holds every lemma's exact count", async () => {
+        const lex = await load();
+        const wrong = rows(lang, "lemmas").filter(
+          (fields) => lex.lemma(fields[0] as string)?.count !== Number(fields[9]),
+        );
+        expect(wrong).toEqual([]);
+      }, 120_000);
+
       it("maps every spelling variant", async () => {
         const lex = await load();
         for (const [variant, standard] of rows(lang, "variants") as [string, string][]) {
