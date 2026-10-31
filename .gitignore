@@ -20,7 +20,6 @@ __pycache__/
 *.py[oc]
 
 # generated for the website
-apps/web/public/api/
 apps/web/public/lexicons/
 apps/web/public/favicon.svg
 

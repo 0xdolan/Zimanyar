@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "prebuild": "tsx scripts/copy-assets.ts && cd ../.. && typedoc",
+    "prebuild": "tsx scripts/copy-assets.ts",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --port 4175 --host localhost --ignore-lock",
     "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro sync && tsc --noEmit"

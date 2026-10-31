@@ -585,8 +585,9 @@ const plainSlug = (lang: Course, infinitive: string): string =>
     return SLUG_LETTERS[lowered] ?? lowered;
   })
     .join("")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+    .split(/[^a-z0-9]+/)
+    .filter((part) => part !== "")
+    .join("-");
 
 const slugMemo = new Map<Course, Map<string, string>>();
 

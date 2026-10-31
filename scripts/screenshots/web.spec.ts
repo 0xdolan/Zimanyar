@@ -156,9 +156,14 @@ test.describe("the built site", () => {
     const forbidden = new RegExp(`[${String.fromCodePoint(0x2014, 0x2013, 0x2212, 0x2015)}]`);
     const found: string[] = [];
     for (const file of htmlFiles()) {
+      // Only what a reader sees counts, so everything between < and > goes, along with scripts and styles.
       const text = readFileSync(join(DIST, file), "utf8")
-        .replace(/<(script|style)[\s\S]*?<\/\1>/g, "")
-        .replace(/<[^>]+>/g, "");
+        .split(/<(?:script|style)\b/)
+        .map((part, index) => (index === 0 ? part : part.slice(part.search(/<\/(?:script|style)>/) + 1)))
+        .join("")
+        .split("<")
+        .map((part) => part.slice(part.indexOf(">") + 1))
+        .join(" ");
       if (forbidden.test(text)) found.push(relative(DIST, join(DIST, file)));
     }
     expect(found.slice(0, 20)).toEqual([]);
@@ -321,7 +326,7 @@ test.describe("speed", () => {
     const lesson = readFileSync(join(DIST, "learn/sorani/07-nouns/index.html"), "utf8");
     expect(lesson).not.toContain("<astro-island");
     const undescribed = htmlFiles().filter((file) => {
-      if (file.startsWith("api/") || file === "404.html") return false;
+      if (file === "404.html") return false;
       return !/<meta name="description" content="[^"]+"/.test(readFileSync(join(DIST, file), "utf8"));
     });
     expect(undescribed.slice(0, 10)).toEqual([]);
