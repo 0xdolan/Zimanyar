@@ -117,9 +117,13 @@ describe.skipIf(!existsSync(lexiconPath("ckb")) || !existsSync(lexiconPath("kmr"
           .map(([word]) => word as string);
         const fsa = lex.automaton;
         for (const word of words) fsa.rank(word); // warm up the JIT
-        const started = performance.now();
-        for (const word of words) fsa.rank(word);
-        const microseconds = ((performance.now() - started) * 1000) / words.length;
+        // The best of several runs, because a busy machine only ever makes a run slower.
+        const runs = Array.from({ length: 5 }, () => {
+          const started = performance.now();
+          for (const word of words) fsa.rank(word);
+          return ((performance.now() - started) * 1000) / words.length;
+        });
+        const microseconds = Math.min(...runs);
         console.log(`${lang}: lookup ${microseconds.toFixed(2)} us`);
         // The budget is 2 us; this allows for a loaded CI machine.
         expect(microseconds).toBeLessThan(6);

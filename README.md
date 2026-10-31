@@ -141,6 +141,7 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 | `assets/marketing/` | Banner, social preview, store tiles and screenshots, ads in English, Sorani and Kurmanji |
 | `scripts/brand/` | The logo geometry and the icon renderer |
 | `scripts/marketing/` | HTML templates and the content of every marketing image |
+| `packages/core/` | The linguistic engine, a TypeScript port of zimankit |
 | `packages/data/` | The compiled lexicon format and loaders, parity fixtures, and tables from zimankit |
 | `packages/config/` | Shared TypeScript and Vitest configuration, design tokens |
 | `scripts/checks/`, `scripts/release/` | Repository guards: dashes, Kurdish spelling, licences, attribution |

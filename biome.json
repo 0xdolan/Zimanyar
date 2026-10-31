@@ -16,7 +16,8 @@
       "!packages/config/tokens.css",
       "!packages/data/rules",
       "!packages/data/fixtures",
-      "!packages/data/tables"
+      "!packages/data/tables",
+      "!packages/core/src/generated"
     ]
   },
   "formatter": {

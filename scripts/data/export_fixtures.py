@@ -9,8 +9,9 @@ The corpus behind zimankit is private, so sentences here are built from the publ
     uv run scripts/data/export_fixtures.py
 """
 
-# Seeded generators make the fixtures reproducible; nothing here is cryptographic.
-# ruff: noqa: S311
+# Seeded generators make the fixtures reproducible; nothing here is cryptographic. The edge cases
+# are long lines of escapes, clearest kept whole.
+# ruff: noqa: S311, E501
 from __future__ import annotations
 
 import json
@@ -22,7 +23,7 @@ from dataclasses import asdict
 import pyarrow.parquet as pq
 import zimankit
 from common import BUILD, BUNDLE_DIR, DATA, read_version
-from zimankit.shared_utils import lid, normalizer, text_helpers, tokenizer
+from zimankit.shared_utils import lid, normalizer, phonology_core, text_helpers, tokenizer
 from zimankit.shared_utils.schema import SimpleLexicon
 from zimankit.skills_ckb import morphology as ckb_morphology
 from zimankit.skills_ckb import orthography as ckb_orthography
@@ -61,6 +62,54 @@ OTHER_LANGUAGE_SAMPLES = {
     "zza": "Ez nika şina keye. Ti koti ra yena? Mi va ke to rê kitab biyaro",
     "hac": "من مەشوو پەی کارێ وێم و ئەو ئامانێ پەی لای ئێمە نیشتەنێ",
 }
+
+
+# Text the random sentences never produce: what the cleaning steps and the tokenizer exist for.
+EDGE_TEXTS = (
+    "",
+    " ",
+    "\n",
+    "\ufeff\u06a9\u0648\u0631\u062f\u06cc",
+    "a\u200bb c\u2009d e\u00adf g\u2060h",
+    "\u0645\u0627\u0644\u200c\u0647 \u0627\u200c\u0628 \u200c\u0628 \u0628\u200c \u0628\u200c\u200c\u0628 \u0628\u200d\u0628",
+    "\u200e\u0628\u200f \u202a\u0628\u202c \u2066a\u2069 \u061cb",
+    "\ufb50\ufb8e\ufe8e\ufefb \ufdf2 \ufefc\ufefe",
+    "e\u0301 a\u0308 \u064a\u0654 \u0627\u0653",
+    "see https://example.org/a?b=1 and WWW.Example.org. HTTP://X now",
+    "mail me@example.org, a.b+c@x-y.co.uk! @name #tag @\u06a9\u0648\u0631\u062f\u06cc x@y",
+    "\U0001f600 ok \u2764\ufe0f 1\ufe0f\u20e3 \U0001f1f0\U0001f1f7 \u2600 \u27bf",
+    "1 2 \u0661\u0662 \u06f1\u06f2 3.5 4,5 \u0663\u066b\u0664 \u0665\u066c\u0666 7. .8",
+    "a\u00a0b\u1680c\u2000d\u200ae\u202ff\u205fg\u3000h\ti\x0bj\x0ck\x1cl\x85m",
+    "a\r\nb\rc\n\n\nd\n \n e  \n\n",
+    "  leading and trailing\u3000",
+    "HDP'y\u00ee 'quoted' don't o'clock ' a'",
+    "Kurd-\u00ee a-b-c \u0628-\u067e -a b- --",
+    "\u0431\u0443\u043a\u0432\u0430 Ab\u0628 \u1e00\u1ef9 \u0250 \u0100\u024f",
+    "Yes? No! \u0628\u0644\u06ce\u061f \u0626\u06d5\u0648\u06d4 Done.  Next.\nLine\n\nLine",
+    "\U0001d400 \U00010000x \U0001f600\U0001f600",
+)
+SEGMENT_SYMBOLS = (
+    "p",
+    "b",
+    "t",
+    "k",
+    "t\u0283",
+    "f",
+    "s",
+    "z",
+    "\u0283",
+    "x",
+    "h",
+    "m",
+    "n",
+    "\u014b",
+    "l",
+    "\u027e",
+    "r",
+    "w",
+    "j",
+)
+VOWEL_SYMBOLS = ("a\u02d0", "\u00e6", "i\u02d0", "u\u02d0", "e\u02d0")
 
 
 def write(name: str, records: Iterable[dict]) -> int:
@@ -285,6 +334,31 @@ def export_shared(ckb: list[str], kmr: list[str], rng: random.Random) -> None:
         texts.append(
             "".join(sentence(pool, 1, 5) + rng.choice(punctuation) for _ in range(rng.randint(1, 4)))
         )
+    edge = [*EDGE_TEXTS]
+    write(
+        "shared_normalize_options",
+        (
+            {
+                "input": t,
+                "plain": normalizer.normalize_text(t),
+                "digits_latin": normalizer.normalize_text(t, normalizer.NormalizeOptions(digits="latin")),
+                "digits_arabic": normalizer.normalize_text(
+                    t, normalizer.NormalizeOptions(digits="arabic-indic")
+                ),
+                "keep_all": normalizer.normalize_text(
+                    t,
+                    normalizer.NormalizeOptions(
+                        strip_urls=False, strip_emails=False, strip_emoji=False, collapse_blank_lines=False
+                    ),
+                ),
+                "strip_mentions": normalizer.normalize_text(
+                    t, normalizer.NormalizeOptions(strip_mentions=True)
+                ),
+            }
+            for t in edge
+        ),
+    )
+    texts = [*edge, *texts]
     write(
         "shared_text",
         (
@@ -344,6 +418,52 @@ def export_shared(ckb: list[str], kmr: list[str], rng: random.Random) -> None:
     write("shared_lid", (lid_record(p) for p in paragraphs))
 
 
+def export_phonology_core(rng: random.Random) -> None:
+    runs = [[rng.choice(SEGMENT_SYMBOLS) for _ in range(rng.randint(1, 5))] for _ in range(SIZES["text"])]
+    write(
+        "shared_phonology_clusters",
+        (
+            {
+                "cluster": run,
+                "onset_initial": phonology_core.legal_onset(run, True),
+                "onset_medial": phonology_core.legal_onset(run, False),
+                "coda_final": phonology_core.legal_coda(run, True),
+                "coda_medial": phonology_core.legal_coda(run, False),
+                "sonority": [phonology_core.sonority(c) for c in run],
+            }
+            for run in runs
+        ),
+    )
+    words = []
+    for _ in range(SIZES["text"]):
+        word = []
+        for _ in range(rng.randint(1, 8)):
+            if rng.random() < 0.3:
+                word.append((rng.choice(VOWEL_SYMBOLS), "V"))
+            else:
+                word.append((rng.choice(SEGMENT_SYMBOLS), "C"))
+        words.append(word)
+
+    def record(word: list[tuple[str, str]]) -> dict:
+        repaired = phonology_core.break_clusters(word)
+        return {
+            "segments": [list(s) for s in word],
+            "repaired": [list(s) for s in repaired],
+            "syllables": [[list(s) for s in syl] for syl in phonology_core.syllabify(repaired)],
+        }
+
+    write("shared_phonology_words", (record(w) for w in words))
+    # Which script zimankit gives every letter of the basic plane, as runs of code points.
+    runs_of_script: list[list] = []
+    for code in range(0x10000):
+        script = text_helpers.char_script(chr(code))
+        if runs_of_script and runs_of_script[-1][2] == script:
+            runs_of_script[-1][1] = code
+        else:
+            runs_of_script.append([code, code, script])
+    write("shared_char_script", ({"from": a, "to": b, "script": c} for a, b, c in runs_of_script))
+
+
 def lid_record(text: str) -> dict:
     result = lid.identify(text)
     return {
@@ -379,6 +499,7 @@ def main() -> int:
         )
     export_ckb(*tables["ckb"], random.Random(SEED))
     export_kmr(*tables["kmr"], random.Random(SEED + 1))
+    export_phonology_core(random.Random(SEED + 3))
     export_shared(
         [r["word"] for r in tables["ckb"][0][:5000]],
         [r["word"] for r in tables["kmr"][0][:5000]],

@@ -4,5 +4,6 @@
     "scripts": {
       "entry": ["checks/*.ts", "brand/*.ts", "brand/*.mjs", "marketing/*.js"]
     }
-  }
+  },
+  "ignore": ["packages/core/src/generated/**"]
 }
