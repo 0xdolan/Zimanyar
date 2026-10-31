@@ -13,9 +13,12 @@
   "devDependencies": {
     "@types/node": "^22",
     "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/checker": "workspace:*",
     "@zimanyar/config": "workspace:*",
     "@zimanyar/data": "workspace:*",
+    "@zimanyar/rules": "workspace:*",
     "typescript": "5.9.3",
-    "vitest": "5.0.5"
+    "vitest": "5.0.5",
+    "yaml": "2.9.1"
   }
 }

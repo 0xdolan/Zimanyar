@@ -1,0 +1,27 @@
+{
+  "name": "@zimanyar/rules",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zimanyar's checking rules, with their explanations, examples and lesson links",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@zimanyar/core": "workspace:*",
+    "@zimanyar/data": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/config": "workspace:*",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  }
+}

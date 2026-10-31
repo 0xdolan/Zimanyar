@@ -6,8 +6,8 @@ SHELL := bash
 SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh')
 
 .PHONY: help setup lint test coverage typecheck build format \
-	biome check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench skills tokens logo icons marketing brand check-brand
+	biome check-dashes check-spelling check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
+	attribution deps data bench corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -16,6 +16,8 @@ help:
 	@echo "make test          unit tests of every package"
 	@echo "make coverage      unit tests with coverage thresholds"
 	@echo "make build         build every package and app"
+	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
+	@echo "make rules         compile the rules' metadata into the catalogue"
 	@echo "make bench         hold the engine to its performance budgets (needs make data)"
 	@echo "make data          fetch the pinned zimankit lexicon, verify it, export fixtures, compile the lexicons"
 	@echo "make format        format code with Biome"
@@ -42,7 +44,7 @@ skills:
 	$(SKILLS) shadcn/ui -s shadcn
 	$(SKILLS) nextlevelbuilder/ui-ux-pro-max-skill -s ui-ux-pro-max
 
-lint: biome typecheck check-dashes check-spelling check-contrast check-tokens shellcheck actionlint ruff knip check-imports
+lint: biome typecheck check-dashes check-spelling check-contrast check-tokens check-rules shellcheck actionlint ruff knip check-imports
 
 test:
 	pnpm exec turbo run test
@@ -68,6 +70,15 @@ format:
 
 biome:
 	pnpm exec biome check .
+
+corpus:
+	pnpm exec tsx scripts/corpus/report.ts
+
+rules:
+	pnpm exec tsx scripts/content/generate-rule-catalogue.ts
+
+check-rules:
+	pnpm exec tsx scripts/content/generate-rule-catalogue.ts --check
 
 bench:
 	pnpm --filter @zimanyar/core bench

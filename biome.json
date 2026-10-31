@@ -17,7 +17,8 @@
       "!packages/data/rules",
       "!packages/data/fixtures",
       "!packages/data/tables",
-      "!packages/core/src/generated"
+      "!packages/core/src/generated",
+      "!packages/rules/src/generated"
     ]
   },
   "formatter": {

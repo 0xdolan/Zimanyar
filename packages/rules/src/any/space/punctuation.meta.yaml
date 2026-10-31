@@ -1,0 +1,21 @@
+id: any.space.punctuation
+family: space
+category: punctuation
+severity: warning
+confidence: 0.95
+safeFix: true
+message:
+  en: "Check the spacing around this punctuation."
+  ckb: "بۆشایی دەوروبەری ئەم خاڵبەندییە بپشکنە."
+  kmr: "Valahiya li dora vê xalbendiyê kontrol bike."
+reason:
+  en: "Punctuation sits directly after a word and has one space after it. There is one space between words."
+  ckb: "خاڵبەندی ڕاستەوخۆ دوای وشە دێت و بۆشاییەکی لە دوایە. لە نێوان وشەکاندا یەک بۆشایی هەیە."
+  kmr: "Xalbendî rasterast piştî peyvê tê û valahiyek li pey wê heye. Di navbera peyvan de yek valahî heye."
+examples:
+  - { wrong: "Ez hatim .", right: "Ez hatim." }
+  - { wrong: "Ez  hatim.", right: "Ez hatim." }
+  - { wrong: "من هاتم ، ئەو ڕۆیشت", right: "من هاتم، ئەو ڕۆیشت" }
+lessons:
+  - { lang: ckb, lessonId: 5 }
+  - { lang: kmr, lessonId: 5 }
