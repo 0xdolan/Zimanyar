@@ -18,7 +18,8 @@
       "!packages/data/fixtures",
       "!packages/data/tables",
       "!packages/core/src/generated",
-      "!packages/rules/src/generated"
+      "!packages/rules/src/generated",
+      "!packages/ui/src/components/ui"
     ]
   },
   "formatter": {

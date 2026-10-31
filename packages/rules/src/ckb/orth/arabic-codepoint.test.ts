@@ -1,6 +1,5 @@
 import { describe } from "vitest";
 import { ruleCases } from "../../../test/helpers.js";
-import { LEXICONS } from "../../../test/test-lexicons.js";
 import { arabicCodepoint } from "./arabic-codepoint.js";
 
 describe("ckb.orth.arabic-codepoint", () => {

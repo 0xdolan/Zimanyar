@@ -1,6 +1,5 @@
 import { describe } from "vitest";
 import { ruleCases } from "../../../test/helpers.js";
-import { LEXICONS } from "../../../test/test-lexicons.js";
 import { sentenceCapital } from "./capital.js";
 
 describe("kmr.orth.capital", () => {

@@ -3,6 +3,12 @@
   "workspaces": {
     "scripts": {
       "entry": ["checks/*.ts", "brand/*.ts", "brand/*.mjs", "marketing/*.js", "content/*.ts", "corpus/*.ts"]
+    },
+    "packages/ui": {
+      "entry": ["src/components/ui/*.tsx", "demo/*.{ts,tsx}"]
+    },
+    ".": {
+      "ignoreDependencies": ["axe-core"]
     }
   },
   "ignore": ["packages/core/src/generated/**"]
