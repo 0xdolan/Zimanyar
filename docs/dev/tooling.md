@@ -18,7 +18,7 @@ The repository root is also a [uv](https://docs.astral.sh/uv/) project (`pyproje
 | target | does |
 | --- | --- |
 | `make setup` | `pnpm install --frozen-lockfile`, `uv sync --frozen`, installs the git hooks |
-| `make lint` | Biome, TypeScript, dashes, Kurdish spelling, contrast, tokens in sync, shellcheck, actionlint, ruff, knip |
+| `make lint` | Biome, TypeScript, dashes, Kurdish spelling, contrast, tokens in sync, shellcheck, actionlint, ruff, knip, imports |
 | `make test` / `make coverage` | Vitest in every workspace, through Turborepo |
 | `make build` | builds every package and app |
 | `make tokens` | writes `packages/config/tokens.css` from the design tokens |
@@ -44,6 +44,7 @@ The repository root is also a [uv](https://docs.astral.sh/uv/) project (`pyproje
 | `scripts/checks/check-kurdish-spelling.ts` | Arabic-script misspellings of Kurdish and Kurdistan; calling Kurdish "Iranian" (a line with `kurdish-spelling: allow` is skipped) |
 | `scripts/checks/check-contrast.ts` | design token colour pairs below WCAG 2.2 AA, in either theme |
 | `scripts/brand/compare-renders.sh` | rendered images that differ from the committed ones beyond a small tolerance, generated SVGs that differ at all |
+| `scripts/checks/check-imports.ts` | circular imports, and a package importing from a higher layer |
 | `scripts/checks/check-licenses.ts` | production dependencies with licences that cannot be combined with GPL-3.0 |
 | `scripts/release/verify-attribution.sh` | commit messages that credit an AI assistant or a bot |
 | `scripts/release/verify-contributors.sh` | commits by anyone not in `.github/allowed-authors.txt`, and Dependabot or Renovate configuration |
