@@ -6,8 +6,8 @@ SHELL := bash
 SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh')
 
 .PHONY: help setup lint test coverage typecheck build format \
-	biome check-dashes check-spelling check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
+	attribution deps data bench e2e screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -16,6 +16,8 @@ help:
 	@echo "make test          unit tests of every package"
 	@echo "make coverage      unit tests with coverage thresholds"
 	@echo "make build         build every package and app"
+	@echo "make e2e           build the demo and test it in a real browser, with accessibility checks"
+	@echo "make screenshots   regenerate assets/screenshots/; look at every changed image"
 	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
 	@echo "make rules         compile the rules' metadata into the catalogue"
 	@echo "make bench         hold the engine to its performance budgets (needs make data)"
@@ -44,7 +46,7 @@ skills:
 	$(SKILLS) shadcn/ui -s shadcn
 	$(SKILLS) nextlevelbuilder/ui-ux-pro-max-skill -s ui-ux-pro-max
 
-lint: biome typecheck check-dashes check-spelling check-contrast check-tokens check-rules shellcheck actionlint ruff knip check-imports
+lint: biome typecheck check-dashes check-spelling check-contrast check-tokens check-rules check-i18n shellcheck actionlint ruff knip check-imports
 
 test:
 	pnpm exec turbo run test
@@ -70,6 +72,17 @@ format:
 
 biome:
 	pnpm exec biome check .
+
+e2e:
+	pnpm --filter @zimanyar/ui demo:build
+	pnpm exec playwright test
+
+screenshots:
+	pnpm --filter @zimanyar/ui demo:build
+	UPDATE_SCREENSHOTS=1 pnpm exec playwright test scripts/screenshots/
+
+check-i18n:
+	pnpm exec tsx scripts/checks/check-i18n.ts
 
 corpus:
 	pnpm exec tsx scripts/corpus/report.ts

@@ -1,6 +1,5 @@
 import { describe } from "vitest";
 import { ruleCases } from "../../../test/helpers.js";
-import { LEXICONS } from "../../../test/test-lexicons.js";
 import { wrongCedilla } from "./cedilla.js";
 
 describe("kmr.orth.cedilla", () => {

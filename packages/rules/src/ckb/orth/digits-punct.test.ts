@@ -1,6 +1,5 @@
 import { describe } from "vitest";
 import { ruleCases } from "../../../test/helpers.js";
-import { LEXICONS } from "../../../test/test-lexicons.js";
 import { digitsPunct } from "./digits-punct.js";
 
 describe("ckb.orth.digits-punct", () => {

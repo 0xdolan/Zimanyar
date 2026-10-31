@@ -1,0 +1,23 @@
+{
+  "name": "@zimanyar/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zimanyar's interface strings in English, Sorani and Kurmanji",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/config": "workspace:*",
+    "typescript": "5.9.3",
+    "vitest": "5.0.5"
+  }
+}
