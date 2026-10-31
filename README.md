@@ -7,7 +7,7 @@
 
 زمانیار · Zimanyar · *language helper* in Kurdish
 
-[![Status: in design](https://img.shields.io/badge/status-in%20design-febd11)](#status)
+[![Status: in development](https://img.shields.io/badge/status-in%20development-febd11)](#status)
 [![Sorani and Kurmanji](https://img.shields.io/badge/languages-Sorani%20%C2%B7%20Kurmanji-1d4a2e)](#what-it-checks)
 [![Offline](https://img.shields.io/badge/checking-100%25%20offline-1d4a2e)](#private-by-design)
 [![Built on zimankit](https://img.shields.io/badge/built%20on-zimankit-4a86cf)](https://github.com/0xdolan/zimankit)
@@ -24,7 +24,7 @@ The name joins *ziman*, language, and *yar*, friend and helper; the logo joins t
 
 ## Status
 
-Zimanyar is **in design** and is being built on the `develop` branch. The images in this README are design previews of the planned interface, rendered from HTML templates; every Kurdish example and every finding in them is a real rule. There are no releases yet.
+Zimanyar is **in development** on the `develop` branch. Version 0.1.0 is a snapshot of the foundations: the lexicon pipeline and the linguistic engine, proven against zimankit. There is no checker, extension, app or package to install yet. The images in this README are design previews of the planned interface, rendered from HTML templates; every Kurdish example and every finding in them is a real rule.
 
 ## Features
 

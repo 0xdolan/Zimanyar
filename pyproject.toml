@@ -1,6 +1,6 @@
 [project]
 name = "zimanyar-data"
-version = "0.0.0"
+version = "0.1.0"
 description = "Data and fixture export for Zimanyar (zimankit to TypeScript); not a Python package"
 requires-python = ">=3.13"
 dependencies = [
