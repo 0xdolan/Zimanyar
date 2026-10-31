@@ -1,0 +1,172 @@
+/* Shared look for the marketing images rendered by scripts/marketing/render.sh.
+   Same family as Roj's marketing: dark ground, the gold glow of the Roj sun, the round logo. */
+
+:root {
+  --sun: #febd11;
+  --sun-deep: #c98f00;
+  --green: #2fa35a;
+  --green-deep: #278e43;
+  --red: #e5484d;
+  --amber: #f0a020;
+  --blue: #5b9cf0;
+  --bg: #0f1412;
+  --panel: #181d1b;
+  --panel-2: #20262a;
+  --paper: #f8f8f6;
+  --paper-ink: #16181a;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-dark: rgba(0, 0, 0, 0.09);
+  --text: #f3f3f1;
+  --muted: #a6aca8;
+  --latin: "IBM Plex Sans", sans-serif;
+  --arabic: "Vazirmatn", "IBM Plex Sans Arabic", sans-serif;
+  --mono: "DejaVu Sans Mono", monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: var(--w); height: var(--h); overflow: hidden; }
+
+body {
+  position: relative;
+  font-family: var(--latin);
+  color: var(--text);
+  background:
+    radial-gradient(1000px 640px at 86% 120%, rgba(254, 189, 17, 0.24), transparent 62%),
+    radial-gradient(900px 520px at -12% -24%, rgba(47, 163, 90, 0.14), transparent 60%),
+    linear-gradient(160deg, #141a18 0%, #0d1110 55%, #121006 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+[lang="ckb"], .ar { font-family: var(--arabic); }
+[dir="rtl"] { text-align: right; }
+
+/* Sun rays rising from the bottom edge, echoing the logo. */
+.rays {
+  position: absolute; left: 50%; bottom: -62%; width: 140%; aspect-ratio: 1; transform: translateX(-50%);
+  background: repeating-conic-gradient(from 0deg, rgba(254, 189, 17, 0.045) 0deg 4deg, transparent 4deg 17.14deg);
+  -webkit-mask: radial-gradient(circle, #000 0 30%, transparent 62%);
+  mask: radial-gradient(circle, #000 0 30%, transparent 62%);
+  pointer-events: none;
+}
+
+/* Brand block */
+.brand { display: flex; align-items: center; gap: 22px; }
+.brand img { width: var(--logo, 96px); height: var(--logo, 96px); filter: drop-shadow(0 10px 30px rgba(254, 189, 17, 0.28)); }
+.brand .name { font-weight: 700; font-size: var(--name, 64px); letter-spacing: -0.5px; line-height: 1; }
+.brand .name small { display: block; font-family: var(--arabic); font-weight: 600; font-size: 0.5em; color: var(--muted); margin-top: 8px; letter-spacing: 0; }
+
+.headline { font-weight: 700; line-height: 1.12; letter-spacing: -0.4px; }
+.sub { color: var(--muted); line-height: 1.45; }
+.kurdish-line { display: flex; gap: 18px; align-items: center; color: var(--text); opacity: 0.92; }
+.kurdish-line .dot { color: var(--muted); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); font-weight: 600; font-size: 19px;
+}
+.chip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.footer-line { color: var(--muted); font-size: 18px; }
+.footer-line b { color: var(--text); }
+
+.preview-tag {
+  position: absolute; right: 22px; bottom: 18px; font-size: 13px; font-weight: 600; letter-spacing: 1.4px;
+  text-transform: uppercase; color: rgba(255, 255, 255, 0.45);
+}
+
+/* ---------- Mock UI ---------- */
+
+.window {
+  border-radius: 18px; overflow: hidden; background: var(--paper); color: var(--paper-ink);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.window.dark { background: var(--panel); color: var(--text); }
+.titlebar {
+  height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 16px;
+  background: #eceeeb; border-bottom: 1px solid var(--line-dark); font-size: 14px; color: #5a5f5c;
+}
+.window.dark .titlebar { background: #1f2523; border-color: var(--line); color: var(--muted); }
+.titlebar .lights { display: flex; gap: 7px; margin-inline-end: 10px; }
+.titlebar .lights span { width: 12px; height: 12px; border-radius: 50%; background: #d4d7d4; }
+.window.dark .titlebar .lights span { background: #3a413e; }
+.titlebar .url {
+  flex: 1; height: 28px; border-radius: 8px; background: #fff; display: flex; align-items: center; padding: 0 12px;
+  color: #6b716d; font-size: 13px;
+}
+.window.dark .titlebar .url { background: #141917; color: var(--muted); }
+.titlebar .ext { width: 26px; height: 26px; }
+
+.editor { padding: 26px 30px; font-size: 26px; line-height: 2; }
+.editor[dir="rtl"] { font-family: var(--arabic); font-size: 28px; }
+
+/* Finding underlines */
+.err, .warn, .orth { position: relative; text-decoration-thickness: 2.5px; text-underline-offset: 7px; }
+.err { text-decoration: underline wavy var(--red); }
+.warn { text-decoration: underline wavy var(--amber); }
+.orth { text-decoration: underline var(--blue); text-decoration-style: dashed; }
+.active { background: rgba(229, 72, 77, 0.12); border-radius: 6px; }
+
+/* Finding card */
+.card {
+  width: var(--card-w, 440px); border-radius: 16px; background: #fff; color: var(--paper-ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 0, 0, 0.06); overflow: hidden; font-size: 16px;
+}
+.card.dark { background: var(--panel-2); color: var(--text); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--line); }
+.card .head { display: flex; align-items: center; gap: 10px; padding: 16px 18px 6px; }
+.badge { font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+.badge.error { background: rgba(229, 72, 77, 0.14); color: #c0262c; }
+.badge.warning { background: rgba(240, 160, 32, 0.16); color: #a8670a; }
+.badge.orthography { background: rgba(91, 156, 240, 0.15); color: #2a64b8; }
+.card.dark .badge.error { color: #ff8a8e; }
+.card.dark .badge.warning { color: #ffc266; }
+.rule { font-family: var(--mono); font-size: 12px; color: #8a908c; margin-inline-start: auto; }
+.card .msg { padding: 4px 18px 0; font-weight: 700; font-size: 18px; line-height: 1.35; }
+.card .why { padding: 8px 18px 0; color: #5b615d; line-height: 1.5; font-size: 15px; }
+.card.dark .why { color: var(--muted); }
+.fixes { display: flex; gap: 10px; padding: 14px 18px 4px; flex-wrap: wrap; }
+.fix {
+  display: inline-flex; flex-direction: column; gap: 2px; padding: 8px 14px; border-radius: 10px;
+  background: rgba(39, 142, 67, 0.12); color: #1d6e34; font-weight: 700; font-size: 19px;
+  border: 1px solid rgba(39, 142, 67, 0.28);
+}
+.card.dark .fix { color: #6fd38e; }
+.fix small { font-family: var(--mono); font-weight: 400; font-size: 12px; color: #6d7570; }
+.examples { margin: 12px 18px 0; border-radius: 10px; background: rgba(0, 0, 0, 0.035); padding: 10px 12px; font-size: 15px; }
+.card.dark .examples { background: rgba(255, 255, 255, 0.04); }
+.examples div { display: flex; gap: 10px; padding: 3px 0; align-items: baseline; }
+.examples .x { color: var(--red); font-weight: 700; }
+.examples .ok { color: var(--green); font-weight: 700; }
+.lessons { display: flex; gap: 8px; padding: 12px 18px 16px; flex-wrap: wrap; }
+.lesson {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding: 6px 11px; border-radius: 999px;
+  background: rgba(254, 189, 17, 0.18); color: #7a5d00;
+}
+.card.dark .lesson { color: var(--sun); background: rgba(254, 189, 17, 0.12); }
+
+/* Findings list */
+.findings { display: flex; flex-direction: column; gap: 10px; }
+.finding-row {
+  display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); font-size: 16px;
+}
+.finding-row .bar { width: 4px; align-self: stretch; border-radius: 4px; }
+.finding-row b { font-weight: 700; }
+
+/* Table */
+table.paradigm { border-collapse: collapse; width: 100%; font-size: 17px; }
+table.paradigm th { text-align: start; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; color: #7d837f; padding: 8px 10px; border-bottom: 1px solid var(--line-dark); }
+table.paradigm td { padding: 9px 10px; border-bottom: 1px solid var(--line-dark); }
+table.paradigm td b { font-weight: 700; }
+table.paradigm td small { display: block; font-family: var(--arabic); color: #7d837f; font-size: 13px; }
+
+/* Terminal */
+.terminal { white-space: pre; background: #0b0e0d; color: #d6dbd8; font-family: var(--mono); font-size: 15px; line-height: 1.6; padding: 18px 20px; }
+.terminal .p { color: var(--sun); }
+.terminal .e { color: #ff8a8e; }
+.terminal .w { color: #ffc266; }
+.terminal .g { color: #6fd38e; }
+.terminal .m { color: #8b938f; }
+
+/* Interface mock-ups are English UI: keep them left to right inside RTL pages. */
+.demo, .card { text-align: left; }

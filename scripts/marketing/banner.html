@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" style="--w:1280px;--h:640px">
+<head>
+<meta charset="utf-8">
+<title>Zimanyar banner</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+<script src="components.js"></script>
+<style>
+  .left { position: absolute; left: 64px; top: 64px; width: 560px; display: flex; flex-direction: column; gap: 26px; }
+  .headline { font-size: 46px; }
+  .kurdish-line { font-size: 22px; }
+  .right { position: absolute; right: -40px; top: 44px; width: 640px; height: 560px; }
+  .right .window { position: absolute; left: 0; top: 0; }
+  .right .card { position: absolute; left: 150px; top: 196px; --card-w: 440px; }
+  .right .card.back { left: 330px; top: 120px; transform: rotate(2deg); opacity: 0.9; --card-w: 360px; }
+</style>
+</head>
+<body>
+<div class="rays"></div>
+<div class="left" id="left"></div>
+<div class="right" id="right"></div>
+<script>
+  const c = Z.copy.en;
+  document.getElementById("left").innerHTML = `
+    ${brandHTML({ logo: 92, name: 62 })}
+    <div class="headline">${c.headline}</div>
+    <div class="kurdish-line"><span class="ar" dir="rtl">${Z.copy.ckb.headline}</span><span class="dot">·</span><span>${Z.copy.kmr.headline}</span></div>
+    ${chipsHTML("en")}
+    <div class="footer-line">${c.footer}</div>`;
+  document.getElementById("right").innerHTML =
+    browserHTML("ckb", { width: 600 }) + cardHTML("ckb", "door", { examples: 1, lessons: 1 });
+</script>
+</body>
+</html>
