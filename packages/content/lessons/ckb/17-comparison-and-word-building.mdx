@@ -1,0 +1,63 @@
+---
+title: "17. Comparison and building new words"
+description: "Sorani lesson 17: Comparison and building new words"
+course: ckb
+lesson: 17
+level: intermediate
+rules: []
+---
+
+import { Analyze, Sentences } from "../../src/components.tsx";
+
+## Comparative and superlative
+
+| | ending | example |
+|---|---|---|
+| comparative *-er* | **-تر** | گەورە*تر* *bigger* |
+| superlative *-est* | **-ترین** | گەورە*ترین* *biggest* |
+
+* *than* is **لە**: ئەو **لە** من گەورەترە. *He is bigger / older than me.*
+* The superlative stands **before** the noun, without ezafe: گەورەترین شار *the biggest city*.
+
+<Sentences lang="ckb" ipa items={[["هەولێر لە سلێمانی گەورەترە.","Erbil is bigger than Sulaymaniyah."],["ئەمە باشترین کتێبە.","This is the best book."],["براکەم لە من بچووکترە.","My brother is younger than me."]]} />
+
+## Building words with suffixes
+
+Sorani creates many words with a small set of suffixes. Once you know them you can guess the meaning of thousands of new words:
+
+| suffix | makes | example | from |
+|---|---|---|---|
+| **-ی** | adjectives of origin, languages | کوردی *Kurdish* | کورد *Kurd* |
+| **-ایەتی / -یەتی** | abstract nouns | مرۆڤایەتی *humanity* | مرۆڤ *human* |
+| **-ستان** | places, countries | کوردستان *Kurdistan* | کورد |
+| **-کار** | people who do something | کرێکار *worker* | کرێ *wage* |
+| **-دار** | people/things that have something | پارەدار *rich* | پارە *money* |
+| **-انە** | adverbs (*-ly*), *-wise* | ڕۆژانە *daily* | ڕۆژ *day* |
+
+## How zimankit takes words apart
+
+The analyzer recognises these suffixes and also tells you when it is unsure:
+
+<Analyze lang="ckb" words="گەورەتر,گەورەترین,کوردستان,ڕۆژانە,پارەدار,کرێکار" />
+
+Derivational suffixes are less reliable than inflectional ones. *-ی* can be a nisba, an ezafe or a clitic, and many words that look derived are simply lemmas, so the analyzer gives them a lower score unless the stem is a known word.
+
+## Practice
+
+1. *smaller* (بچووک *small*).
+2. *the most beautiful city.*
+3. What does **ئازادانە** mean? (ئازاد *free*)
+
+<details>
+<summary>Answers</summary>
+
+1. بچووکتر
+2. جوانترین شار
+3. *freely*
+
+</details>
+
+## Summary
+
+* **-تر** comparative with **لە** *than*; **-ترین** superlative before the noun.
+* Word-building suffixes: -ی، -ایەتی، -ستان، -کار، -دار، -انە.

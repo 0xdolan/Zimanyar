@@ -1,0 +1,78 @@
+---
+title: "21. Irregular and special verbs"
+description: "Kurmanji lesson 21: Irregular and special verbs"
+course: kmr
+lesson: 21
+level: advanced
+rules: ["kmr.verb.ni-negation","kmr.verb.prefix-contraction"]
+---
+
+import { LessonRules, VerbTable } from "../../src/components.tsx";
+
+Kurmanji endings are regular. What you have to memorise is the **present stem** of each verb and a few contractions.
+
+## hatin *to come*
+
+Present stem **ê**, which contracts with the prefixes: **têm** (di + ê), **nayêm**, **bêm**, **neyêm**; imperative **were / werin**, prohibitive **neyê / neyên**.
+
+<VerbTable lang="kmr" verb="hatin" cells="present,present_neg,subj,imperative" />
+
+## anîn *to bring*
+
+Present stem **în**: **tînim** *I bring*, **nayînim**, **bînim**.
+
+<VerbTable lang="kmr" verb="anîn" cells="present,present_neg,subj,past" />
+
+## çûn *to go*
+
+Regular present (*diçim*), but the imperative is **here / herin** *go!*
+
+<VerbTable lang="kmr" verb="çûn" cells="present,past,imperative" />
+
+## zanîn *to know* and karîn *can*
+
+Negated with **ni-** instead of *na-*: **nizanim** *I don't know*, **nikarim** *I can't*.
+
+<VerbTable lang="kmr" verb="zanîn" cells="present,present_neg,past" />
+
+## bûn *to be, to become*
+
+*bûn* is *to become* and supplies the subjunctive and past of *to be*: **dibim** *I become*, **bibim** *(that) I be*, **bûm** *I was / became*. The present *am / is / are* is the copula of lesson 6.
+
+<VerbTable lang="kmr" verb="bûn" cells="present,subj,past,perfect" />
+
+*To have* in the past and subjunctive uses **hebûn**: *pirtûkeke min hebû* “I had a book”.
+
+## Unpredictable present stems
+
+These are the stems to memorise. The endings are regular:
+
+| infinitive | present stem | 1sg present |
+|---|---|---|
+| kirin *do* | k | dikim |
+| xwarin *eat* | xw | dixwim |
+| dîtin *see* | bîn | dibînim |
+| gotin *say* | bêj | dibêjim |
+| dan *give* | d | didim |
+| birin *carry* | b | dibim |
+| xwestin *want* | xwaz | dixwazim |
+| man *stay* | mîn | dimînim |
+| kuştin *kill* | kuj | dikujim |
+| şûştin *wash* | şo | dişom |
+| hiştin *leave* | hêl | dihêlim |
+| bihîstin *hear* | bihîz | dibihîzim |
+| firotin *sell* | firoş | difiroşim |
+
+Notice that *dibim* is both *I become* (bûn) and *I carry* (birin). Context decides; the analyzer returns both readings.
+
+## Summary
+
+* hatin: têm / nayêm / bêm / were; anîn: tînim.
+* çûn: here!, zanîn, karîn: ni-.
+* bûn: become / was; hebûn: had.
+* Learn the present stem of every verb.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={21} />

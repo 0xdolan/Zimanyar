@@ -1,0 +1,20 @@
+---
+import Default from "@astrojs/starlight/components/Header.astro";
+import { createT, type UiLang } from "@zimanyar/i18n";
+import { linkTo } from "../lib/site";
+
+const lang = (Astro.locals.starlightRoute.locale ?? "en") as UiLang;
+const t = createT(lang);
+const links = [
+  { href: linkTo(lang, "check/"), label: t("nav.check") },
+  { href: linkTo(lang, "learn/"), label: t("nav.learn") },
+  { href: linkTo(lang, "rules/"), label: t("nav.rules") },
+  { href: linkTo(lang, "download/"), label: t("nav.download") },
+  { href: linkTo(lang, "docs/"), label: t("nav.docs") },
+];
+---
+
+<div class="zy-head"><Default><slot /></Default></div>
+<nav aria-label={t("nav.main")} class="zy-nav">
+  {links.map((link) => <a href={link.href}>{link.label}</a>)}
+</nav>

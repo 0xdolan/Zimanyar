@@ -172,3 +172,18 @@ describe("suggestions left out of a check", () => {
     expect(finding).not.toHaveProperty("lookup");
   });
 });
+
+describe("Kurmanji typed on a Turkish keyboard", () => {
+  it.each(["Ez dıçım malê.", "Min tu dîtim. Ez dıçım malê. Ez ez nazanim.", "Ez dıçım."])(
+    "%s is checked as Kurmanji",
+    (text) => {
+      const paragraph = buildParagraph(text);
+      expect(paragraph.lang).toBe("kmr");
+      expect(paragraph.otherLanguage).toBeNull();
+    },
+  );
+
+  it("does not take Turkish for Kurmanji", () => {
+    expect(buildParagraph("Ben eve gidiyorum.").otherLanguage).toBe("tur");
+  });
+});

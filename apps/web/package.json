@@ -1,0 +1,44 @@
+{
+  "name": "@zimanyar/web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zimanyar's website: the checker, the course, the rules and the docs",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "prebuild": "tsx scripts/copy-assets.ts",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --port 4175 --host localhost --ignore-lock",
+    "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro sync && tsc --noEmit"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.4",
+    "@astrojs/react": "7.1.1",
+    "@astrojs/starlight": "0.42.7",
+    "@astrojs/starlight-tailwind": "5.0.0",
+    "@fontsource/dejavu-mono": "5.3.0",
+    "@fontsource/ibm-plex-sans": "5.3.0",
+    "@fontsource/vazirmatn": "5.3.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@zimanyar/checker": "workspace:*",
+    "@zimanyar/config": "workspace:*",
+    "@zimanyar/content": "workspace:*",
+    "@zimanyar/editor": "workspace:*",
+    "@zimanyar/i18n": "workspace:*",
+    "@zimanyar/rules": "workspace:*",
+    "@zimanyar/ui": "workspace:*",
+    "astro": "7.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5",
+    "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

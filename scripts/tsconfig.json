@@ -1,8 +1,15 @@
 {
   "extends": "@zimanyar/config/tsconfig.base.json",
-  "compilerOptions": { "noEmit": true, "types": ["node"] },
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "lib": ["ES2023", "DOM"]
+  },
   "include": [
     "brand/**/*.ts",
+    "content/**/*.ts",
     "checks/**/*.ts",
     "data/**/*.ts",
     "release/**/*.ts",

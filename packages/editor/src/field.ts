@@ -16,6 +16,8 @@ export interface TextField {
   replace(start: number, end: number, text: string): void;
   /** The boxes a range is drawn in: one per line, and more in mixed-direction text. */
   rects(start: number, end: number): Rect[];
+  /** Select a range and scroll it into view. */
+  reveal(start: number, end: number): void;
   destroy(): void;
 }
 
@@ -147,6 +149,14 @@ function controlField(element: HTMLTextAreaElement | HTMLInputElement, container
         bottom: rect.bottom + y,
       }));
     },
+    reveal(start, end) {
+      element.focus();
+      element.setSelectionRange(start, end);
+      const [first] = this.rects(start, end);
+      if (first === undefined) return;
+      const box = element.getBoundingClientRect();
+      element.scrollTop += first.top - box.top - element.clientHeight / 2;
+    },
     destroy: () => mirror.remove(),
   };
 }
@@ -273,6 +283,15 @@ function editableField(element: HTMLElement): TextField {
         right,
         bottom,
       }));
+    },
+    reveal(start, end) {
+      const range = rangeOf(start, end);
+      if (range === null) return;
+      element.focus();
+      const selection = document.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+      range.startContainer.parentElement?.scrollIntoView({ block: "nearest" });
     },
     destroy: () => {},
   };

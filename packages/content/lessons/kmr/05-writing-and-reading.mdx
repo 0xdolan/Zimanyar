@@ -1,0 +1,57 @@
+---
+title: "5. Writing and reading"
+description: "Kurmanji lesson 5: Writing and reading"
+course: kmr
+lesson: 5
+level: beginner
+rules: ["any.repeat.word","any.script.mixed","any.space.punctuation","kmr.orth.apostrophe","kmr.orth.capital"]
+---
+
+import { LessonRules, Sentences } from "../../src/components.tsx";
+
+## Words and spaces
+
+Kurmanji is written left to right with spaces between words, like English. Unlike Sorani, most grammatical pieces are **separate words**: prepositions (*li malê* “at home”), the copula (*ez kurd im* “I am Kurdish”) and the future particle (*ez ê biçim*). Only real suffixes (case, ezafe, *-ek*, plural *-an*) and verb prefixes (*di-, bi-, na-*) are attached.
+
+| written apart | attached |
+|---|---|
+| ez kurd **im** *I am Kurdish* | **di**xwînim *I read* |
+| **li** malê *at home* | mal**ê** *house (oblique)* |
+| **ji** min **re** *for me* | pirtûk**ek** *a book* |
+
+## Capital letters and apostrophes
+
+Capitals start sentences and names. When a case or ezafe ending is added to a name, especially a foreign one or an abbreviation, an **apostrophe** separates it: *Amedê* but *HDP'ê*. Native Kurdish names usually take the ending directly: *Rojdayê*.
+
+## Numbers
+
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|
+| yek | du | sê | çar | pênc | şeş | heft | heşt | neh | deh |
+
+<Sentences lang="kmr" ipa items={[["yek, du, sê, çar, pênc","one, two, three, four, five"],["şeş, heft, heşt, neh, deh","six, seven, eight, nine, ten"]]} />
+
+## Punctuation
+
+The same as English: . , ; : ? ! « » ( ). Quotation marks are often « ».
+
+## Kurmanji in Arabic script
+
+In Behdînan (Duhok) and in Rojhilat, Kurmanji is also written in the Kurdish Arabic alphabet of the Sorani course. zimankit transliterates automatically. Note how short *i* disappears, because that script does not write it:
+
+<Sentences lang="kmr" items={[["Ez kurd im.","I am Kurdish."],["Navê min Rojda ye.","My name is Rojda."],["Em li Amedê dijîn.","We live in Diyarbakır."]]} />
+
+## Reading practice
+
+<Sentences lang="kmr" ipa items={[["Bavê min mamoste ye.","My father is a teacher."],["Jin nan dikire.","The woman is buying bread."],["Ez kitêbekê dixwînim.","I am reading a book."]]} />
+
+## Summary
+
+* Spaces separate prepositions, the copula and particles; only suffixes and verb prefixes attach.
+* Names + endings often take an apostrophe: HDP'ê.
+* Numbers: yek du sê çar pênc şeş heft heşt neh deh.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={5} />

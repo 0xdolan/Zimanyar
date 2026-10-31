@@ -47,7 +47,7 @@ const RULE_DOCUMENTS = [
 ];
 
 /** Content where Sorani کردی is the past of کردن (to do). */
-const KURDISH_TEXT = ["packages/content/lessons/", "packages/data/", "corpus/"];
+const KURDISH_TEXT = ["packages/content/lessons/", "packages/content/fixtures/", "packages/data/", "corpus/"];
 
 export const RULES: readonly Rule[] = [
   {

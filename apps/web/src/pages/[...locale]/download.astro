@@ -1,0 +1,29 @@
+---
+import { createT, type UiLang } from "@zimanyar/i18n";
+import SitePage from "../../components/SitePage.astro";
+import { linkTo, localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+const items = [
+  [t("download.web"), t("download.webText"), t("download.ready")],
+  [t("download.chrome"), t("download.extensionText"), t("download.soon")],
+  [t("download.firefox"), t("download.extensionText"), t("download.soon")],
+  [t("download.safari"), t("download.safariText"), t("download.soon")],
+  [t("download.linux"), t("download.linuxText"), t("download.soon")],
+  [t("download.cli"), t("download.cliText"), t("download.soon")],
+  [t("download.lsp"), t("download.lspText"), t("download.soon")],
+];
+---
+
+<SitePage title={t("download.title")} description={t("download.description")}>
+  <p class="zy-lead">{t("download.lead")}</p>
+  <div class="zy-cards not-content">
+    {items.map(([name, text, status]) => <div class="zy-card"><h3>{name}</h3><p>{text}</p><p><span class="zy-status">{status}</span></p></div>)}
+  </div>
+  <div class="zy-actions not-content">
+    <a class="zy-button" href={linkTo(lang, "check/")}>{t("home.tryChecker")}</a>
+    <a class="zy-button zy-button-quiet" href="https://github.com/0xdolan/Zimanyar">{t("download.source")}</a>
+  </div>
+</SitePage>

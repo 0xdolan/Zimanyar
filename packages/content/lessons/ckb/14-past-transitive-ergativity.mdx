@@ -1,0 +1,100 @@
+---
+title: "14. The past tense II: transitive verbs and ergativity"
+description: "Sorani lesson 14: The past tense II: transitive verbs and ergativity"
+course: ckb
+lesson: 14
+level: intermediate
+rules: ["ckb.verb.agent-doubled","ckb.verb.agent-misplaced","ckb.verb.agent-missing","ckb.verb.negation-clitic"]
+---
+
+import { LessonRules, Sentences, VerbTable } from "../../src/components.tsx";
+
+## The surprise
+
+Compare:
+
+| | present | past |
+|---|---|---|
+| intransitive *come* | دێ**م** *I come* | هات**م** *I came* |
+| transitive *do* | دەکە**م** *I do* | کرد**م** *I did* |
+
+So far nothing looks different. But try *I ate bread*:
+
+<Sentences lang="ckb" ipa items={[["من نان دەخۆم.","I eat bread."],["من نانم خوارد.","I ate bread."]]} />
+
+In the past, the **-م** that means *I* has jumped from the verb onto **نان**! This is **ergativity**, the most famous feature of Kurdish grammar.
+
+## What is going on
+
+In the past tenses of **transitive** verbs, the doer (the *agent*) is not marked by a verb ending. It is marked by a **personal clitic**, the same م ت ی مان تان یان you learned as *my, your, …* in lesson 11. Think of *I ate bread* as something like *bread was eaten by-me*.
+
+| person | clitic | خواردن *to eat*, no object | with the object نان |
+|---|---|---|---|
+| 1sg | -م | خواردم *I ate* | نانم خوارد |
+| 2sg | -ت | خواردت *you ate* | نانت خوارد |
+| 3sg | -ی | خواردی *he/she ate* | نانی خوارد |
+| 1pl | -مان | خواردمان *we ate* | نانمان خوارد |
+| 2pl | -تان | خواردتان *you ate* | نانتان خوارد |
+| 3pl | -یان | خواردیان *they ate* | نانیان خوارد |
+
+## Where the clitic goes
+
+The agent clitic attaches to the **first word of the verb phrase**, the first thing that comes before the verb itself:
+
+1. if there is an **object**, to the object: **نانم** خوارد;
+2. if the verb is **negative**, to نە: **نەم**خوارد *I didn't eat*;
+3. otherwise to the verb: **خواردم**.
+
+The pronoun subject (من، تۆ…) can be added for emphasis, but it is not what carries the person: **من** نانم خوارد.
+
+## Generated paradigms
+
+<VerbTable lang="ckb" verb="کردن" cells="past,past_neg" />
+
+<VerbTable lang="ckb" verb="نووسین" cells="past,past_neg" />
+
+<VerbTable lang="ckb" verb="بینین" cells="past,past_neg" />
+
+## In sentences
+
+<Sentences lang="ckb" ipa items={[["نامەیەکم نووسی.","I wrote a letter."],["کتێبەکەت خوێند؟","Did you read the book?"],["ئەو هیچی نەگوت.","He didn't say anything."],["ئێمە ئۆتۆمبێلێکمان کڕی.","We bought a car."],["پیاوەکەیان بینی.","They saw the man."]]} />
+
+Notice **پیاوەکەیان بینی**: -یان on پیاوەکە here means *they*, not *their*. Only the past transitive verb tells you which. In the present, پیاوەکەیان دەبینن would mean *they see their man*.
+
+## Why it matters
+
+Ergativity is where learners and grammar checkers make the most mistakes. Three typical errors:
+
+| wrong | right | problem |
+|---|---|---|
+| \* من نان خواردم | من نانم خوارد | the clitic must go on the first element (the object) |
+| \* نانم خواردم | نانم خوارد | the agent is marked twice |
+| \* نەخواردم | نەمخوارد | in the negative the clitic goes on نە |
+
+The first one, *من نان خواردم*, is common in speech in some dialects. The written standard prefers نانم خوارد.
+
+## Practice
+
+1. *You wrote.*, *You wrote the letter* (نامەکە).
+2. *They didn't buy bread.*
+3. *We saw.*, *We didn't see.*
+
+<details>
+<summary>Answers</summary>
+
+1. نووسیت, نامەکەت نووسی
+2. نانیان نەکڕی
+3. بینیمان, نەمانبینی
+
+</details>
+
+## Summary
+
+* Past of **transitive** verbs: the agent is a **clitic** (م ت ی مان تان یان), not an ending.
+* The clitic sits on the first element before the verb: object, نە, or the verb itself.
+* Intransitive verbs keep normal endings (هاتم); only transitive verbs are ergative.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="ckb" lesson={14} />

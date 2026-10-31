@@ -1,0 +1,91 @@
+---
+title: "3. Vowels and the hidden i"
+description: "Sorani lesson 3: Vowels and the hidden i"
+course: ckb
+lesson: 3
+level: beginner
+rules: []
+---
+
+import { Words } from "../../src/components.tsx";
+
+## The vowel letters
+
+Sorani has eight vowels. Six are written with their own letters, one is written with a double letter, and one is not written at all:
+
+| letter | Latin | IPA | sounds like | example |
+|---|---|---|---|---|
+| **ا** | a | aː | *a* in *father*, long | باران *rain* |
+| **ە** | e | æ | *a* in *cat* | ئەسپ *horse* |
+| **ێ** | ê | eː | *ay* in *say*, without the glide | سێو *apple* |
+| **ۆ** | o | oː | *o* in *more* | ڕۆژ *day* |
+| **وو** | û | uː | *oo* in *food* | بوون *to be* |
+| **و** | u | u / ʊ | *u* in *put* (between consonants) | کورد *Kurd* |
+| **ی** | î | iː | *ee* in *see* (between consonants) | شیر *milk* |
+| · | i | ɯ | a short, central *i* (the **bizroke**) | not written: من *min* “I” |
+
+<Words lang="ckb" words="باران,ئەسپ,سێو,ڕۆژ,بوون,کورد,شیر" />
+
+## و and ی have two jobs
+
+**و** and **ی** are vowels *or* consonants, depending on what is around them:
+
+| position | و | ی |
+|---|---|---|
+| next to a vowel letter | consonant **w** · ئاو *aw* “water” | consonant **y** · پیاو *pyaw* “man” |
+| between consonants or at the end after a consonant | vowel **u** · کورد *kurd* | vowel **î** · شیر *şîr* |
+| doubled | long **û** · وو in بوون *bûn* | **î + y** where a vowel meets a glide · ماسییەکە *masîyeke* “the fish” |
+
+zimankit's pronunciation engine applies exactly these rules (`skills_ckb/phonology_ipa.py`), so you can check any word:
+
+<Words lang="ckb" words="ئاو,پیاو,چاو,خواردن,چای,ماسی,کوردی" />
+
+Notice چای *tea* (*çay*): the final ی comes right after the vowel ا, so it is the consonant *y*. In ماسی *fish* (*masî*) it follows the consonant س, so it is the vowel *î*.
+
+## The bizroke: the vowel you do not write
+
+Sorani has a short vowel *i* (IPA ɯ) that is **never written**. Readers insert it automatically wherever two or three consonants would otherwise be hard to pronounce together:
+
+| written | consonants | said | meaning |
+|---|---|---|---|
+| من | m-n | **min** | I |
+| کتێب | k-t-ê-b | **kitêb** | book |
+| بزن | b-z-n | **bizin** | goat |
+| کردن | k-r-d-n | **kirdin** | to do |
+
+The rule zimankit uses (and that native readers follow without thinking) is:
+
+1. A syllable may start with **one consonant**, or a consonant + *w*/*y* (خوا *xwa*, پیا *pya*), and at the start of a word also *s/ş* + consonant (ستێرە *stêre*).
+2. A syllable may end with one consonant, or a falling cluster such as *rd*, *nd*, *st*, *şk*.
+3. Wherever this is impossible, insert *i*, building syllables from the **end** of the word.
+
+In the IPA column the inserted vowel appears as `(ɯ)`, so you can see where it goes:
+
+<Words lang="ckb" words="من,کتێب,بزن,کردن,مشک,کوردستان,هەڵبژاردن" />
+
+## Long and short
+
+Vowel length changes meaning, so hold the long vowels (ا ێ ۆ وو ی) a little longer than ە, و (u) and the hidden *i*:
+
+<Words lang="ckb" words="کەر,کار,شیر,شەر" />
+
+## Practice
+
+1. Is the ی in **پیاو** a vowel or a consonant? And in **شیر**?
+2. Where does the hidden *i* go in **بزن** and **کردن**?
+3. Pronounce: ئاو، سێو، ڕۆژ، بوون، کورد.
+
+<details>
+<summary>Answers</summary>
+
+1. پیاو: consonant *y* (before the vowel ا) → *pyaw*. شیر: vowel *î* (between ش and ر) → *şîr*.
+2. *bizin* (b-i-z-i-n), *kirdin* (k-i-r-d-i-n).
+3. *aw, sêw, roj, bûn, kurd*.
+
+</details>
+
+## Summary
+
+* Written vowels: ا ە ێ ۆ وو, plus و (u) and ی (î) between consonants.
+* و and ی are *w* and *y* next to a vowel letter.
+* The short *i* (bizroke) is never written; insert it to break up impossible consonant clusters, working from the end of the word.

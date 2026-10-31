@@ -1,0 +1,25 @@
+---
+title: Architecture
+description: How the packages fit together.
+sidebar:
+  order: 1
+---
+
+Zimanyar is a TypeScript monorepo. Each package may import only those in lower layers, and `make check-imports` holds it to that.
+
+| layer | packages | does |
+|---|---|---|
+| 0 | `config` | shared settings and design tokens |
+| 1 | `data` | loads the compiled lexicons |
+| 2 | `core` | the linguistic engine, a port of zimankit |
+| 3 | `rules` | the document model and every checking rule |
+| 4 | `checker`, `i18n` | runs rules in a worker with a cache; the interface strings |
+| 5 | `ui`, `content` | the components; the lessons |
+| 6 | `editor` | underlines and cards on any text field |
+| apps | `web` | this website |
+
+`core` uses no DOM, browser or Node-only APIs, so the same engine runs in a worker, in Node and in the desktop app.
+
+Parity fixtures exported from zimankit decide what the engine should do. The tables in the lessons are computed by the engine at build time, and a test holds each one to zimankit's output.
+
+See [`docs/dev`](https://github.com/0xdolan/Zimanyar/tree/main/docs/dev) in the repository for more.

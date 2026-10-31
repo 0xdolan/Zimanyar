@@ -18,6 +18,8 @@ export const definiteAllomorph: Rule = {
       const [, stem = "", ending = "", rest = ""] = shape;
       const longForm = ending.startsWith("ە");
       const plural = ending.endsWith("ان");
+      // ماسییەکە is ماسی, the glide and یەکە: read as ماسیی and ەکە it only looks wrong.
+      if (longForm && stem.endsWith("یی")) continue;
       const vowelFinal = ckb.endsWithVowel(stem);
       if (longForm && vowelFinal && (context.lexicon === null || isLemma(stem, context))) {
         // After ی or ێ a glide is written: ماسییەکە.

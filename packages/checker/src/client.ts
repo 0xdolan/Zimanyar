@@ -5,7 +5,7 @@ import type { WorkerResponse } from "./protocol.js";
 
 /** The part of a Worker the client needs, so that tests can pass something else. */
 export interface WorkerPort {
-  postMessage(message: unknown, transfer?: ArrayBuffer[]): void;
+  postMessage(message: unknown, options?: { transfer: ArrayBuffer[] }): void;
   addEventListener(type: "message", listener: (event: { data: unknown }) => void): void;
 }
 
@@ -35,7 +35,7 @@ export class CheckerClient {
     const id = this.next++;
     const response = await new Promise<WorkerResponse>((resolve, reject) => {
       this.pending.set(id, { resolve, reject });
-      this.port.postMessage({ ...message, id }, transfer);
+      this.port.postMessage({ ...message, id }, transfer && { transfer });
     });
     if (response.type !== expected) throw new Error(`expected ${expected}, got ${response.type}`);
     return response as Extract<WorkerResponse, { type: Type }>;

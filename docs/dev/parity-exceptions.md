@@ -32,3 +32,11 @@ These are not exceptions, because the behaviour is the same:
 - `charScript` uses zimankit's answers as generated ranges, because zimankit reads Unicode character names, which JavaScript cannot.
 - The Sorani generator treats دا as a preverb that drops the subjunctive ب, giving داخە, but zimankit's own lessons write دابخە. The port matches the generator, and `ckb.verb.preverb-b` follows the lessons by not flagging دابخە.
 - The Kurmanji generator gives dijîyî for the 2sg present of jiyan, but zimankit's own lessons write Tu li ku dijî. The port matches the generator, and `kmr.verb.present-agreement` does not judge vowel-final present stems.
+
+## Page names of verbs
+
+zimankit names a verb's reference page by its Latin spelling with marks removed, so *kirin* (to do) and *kirîn* (to buy) both become `kirin.md`, and the second overwrites the first. Here the later verb gets a number: `kirin-2`. Tested in `packages/content/test/tables.test.ts`.
+
+## Kurmanji typed on a Turkish keyboard
+
+zimankit's `identify` is unchanged, and calls *Ez dıçım malê.* Turkish because of the dotless ı. The checker should fix that letter, not fall silent, so `buildParagraph` in `packages/rules` treats a paragraph as Kurmanji when it was identified as Turkish but has letters Turkish lacks (ê, x, w, q) or Kurmanji function words. Tested in `packages/rules/test/run.test.ts`.

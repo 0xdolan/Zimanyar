@@ -1,0 +1,21 @@
+---
+import { createT, type UiLang } from "@zimanyar/i18n";
+import SitePage from "../../components/SitePage.astro";
+import { localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+---
+
+<SitePage title={t("privacy.title")} description={t("privacy.description")}>
+  <p class="zy-lead">{t("privacy.lead")}</p>
+  <h2>{t("privacy.textTitle")}</h2>
+  <p>{t("privacy.textBody")}</p>
+  <h2>{t("privacy.storedTitle")}</h2>
+  <p>{t("privacy.storedBody")}</p>
+  <h2>{t("privacy.siteTitle")}</h2>
+  <p>{t("privacy.siteBody")}</p>
+  <h2>{t("privacy.shareTitle")}</h2>
+  <p>{t("privacy.shareBody")}</p>
+</SitePage>

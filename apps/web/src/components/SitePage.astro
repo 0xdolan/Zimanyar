@@ -1,0 +1,19 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  /** A full-width page, with no sidebar. */
+  wide?: boolean;
+  hideTitle?: boolean;
+}
+
+const { title, description, wide = true } = Astro.props;
+---
+
+<StarlightPage
+  frontmatter={{ title, description, template: wide ? "splash" : "doc", tableOfContents: false, editUrl: false, prev: false, next: false }}
+>
+  <slot />
+</StarlightPage>

@@ -549,6 +549,51 @@ describe("the finding card", () => {
   });
 });
 
+describe("from a findings panel", () => {
+  it("selects a finding's text", async () => {
+    const { handle } = attach();
+    await settled(handle);
+    const finding = handle.findings()[0] as Finding;
+    handle.reveal(finding.id);
+    expect(textarea.selectionStart).toBe(finding.range.start);
+    expect(textarea.selectionEnd).toBe(finding.range.end);
+    expect(document.activeElement).toBe(textarea);
+  });
+
+  it("selects it in a contenteditable element too", async () => {
+    const editable = document.createElement("div");
+    editable.setAttribute("contenteditable", "true");
+    editable.textContent = TEXT;
+    document.body.append(editable);
+    const { handle } = attach({}, editable);
+    await settled(handle);
+    const finding = handle.findings()[0] as Finding;
+    Element.prototype.scrollIntoView = vi.fn();
+    handle.reveal(finding.id);
+    expect(document.getSelection()?.toString()).toBe(TEXT.slice(finding.range.start, finding.range.end));
+    editable.remove();
+  });
+
+  it("ignores a finding", async () => {
+    const onFindings = vi.fn();
+    const { handle } = attach({ onFindings });
+    await settled(handle);
+    const finding = handle.findings()[0] as Finding;
+    handle.ignore(finding.id);
+    expect(handle.findings().map((found) => found.id)).not.toContain(finding.id);
+    expect(onFindings.mock.lastCall?.[0]).toEqual(handle.findings());
+  });
+
+  it("does nothing for a finding that is gone", async () => {
+    const { handle } = attach();
+    await settled(handle);
+    const count = handle.findings().length;
+    handle.reveal("nope");
+    handle.ignore("nope");
+    expect(handle.findings()).toHaveLength(count);
+  });
+});
+
 describe("fixing every safe finding", () => {
   it("applies deterministic fixes and leaves the rest", async () => {
     const { handle } = attach();
