@@ -15,6 +15,18 @@
     "test:coverage": {
       "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
+    },
+    "@zimanyar/data#build": {
+      "cache": false
+    },
+    "@zimanyar/data#test": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "@zimanyar/data#test:coverage": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "outputs": ["coverage/**"]
     }
   }
 }

@@ -13,7 +13,10 @@
       "!assets",
       "!scripts/marketing",
       "!scripts/brand/*.mjs",
-      "!packages/config/tokens.css"
+      "!packages/config/tokens.css",
+      "!packages/data/rules",
+      "!packages/data/fixtures",
+      "!packages/data/tables"
     ]
   },
   "formatter": {
@@ -37,6 +40,9 @@
       "style": {
         "useImportType": "error",
         "useNodejsImportProtocol": "error"
+      },
+      "complexity": {
+        "useLiteralKeys": "off"
       }
     }
   },

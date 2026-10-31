@@ -1,0 +1,97 @@
+# Northern Kurdish closed-class words (authored reference data).
+# word	upos	features
+ez	PRON	person=1sg|case=dir
+tu	PRON	person=2sg|case=dir
+ew	PRON	person=3sg|case=dir|deixis=distal
+em	PRON	person=1pl|case=dir
+hûn	PRON	person=2pl|case=dir
+ev	PRON	person=3sg|case=dir|deixis=proximal
+min	PRON	person=1sg|case=obl
+te	PRON	person=2sg|case=obl
+wî	PRON	person=3sg|case=obl|gender=m|deixis=distal
+wê	PRON	person=3sg|case=obl|gender=f|deixis=distal
+vî	PRON	person=3sg|case=obl|gender=m|deixis=proximal
+vê	PRON	person=3sg|case=obl|gender=f|deixis=proximal
+me	PRON	person=1pl|case=obl
+we	PRON	person=2pl|case=obl
+wan	PRON	person=3pl|case=obl|deixis=distal
+van	PRON	person=3pl|case=obl|deixis=proximal
+xwe	PRON	reflexive=yes
+yê	PRON	prontype=ezafe|gender=m|number=sg
+ya	PRON	prontype=ezafe|gender=f|number=sg
+yên	PRON	prontype=ezafe|number=pl
+kî	PRON	prontype=int
+çi	PRON	prontype=int
+kîjan	DET	prontype=int
+çend	DET	prontype=int
+kengî	ADV	prontype=int
+çawa	ADV	prontype=int
+çima	ADV	prontype=int
+her	DET	prontype=tot
+hemû	DET	prontype=tot
+tu	DET	prontype=neg
+hin	DET	prontype=ind
+di	ADP	adptype=prep
+ji	ADP	adptype=prep
+bi	ADP	adptype=prep
+li	ADP	adptype=prep
+bo	ADP	adptype=prep
+jibo	ADP	adptype=prep
+ber	ADP	adptype=prep
+bê	ADP	adptype=prep
+heta	ADP	adptype=prep
+ta	ADP	adptype=prep
+ligel	ADP	adptype=prep
+digel	ADP	adptype=prep
+nav	ADP	adptype=prep
+navbera	ADP	adptype=prep
+ser	ADP	adptype=prep
+bin	ADP	adptype=prep
+wek	ADP	adptype=prep
+de	ADP	adptype=post
+da	ADP	adptype=post
+re	ADP	adptype=post
+ra	ADP	adptype=post
+ve	ADP	adptype=post
+û	CCONJ
+an	CCONJ
+yan	CCONJ
+lê	CCONJ
+belê	CCONJ
+ku	SCONJ
+heke	SCONJ
+eger	SCONJ
+wekî	SCONJ
+jî	PART	additive=yes
+ne	PART	polarity=neg
+na	PART	polarity=neg
+dê	AUX	tense=fut
+ê	AUX	tense=fut
+ma	PART	prontype=int
+e	AUX	copula=yes|person=3sg
+ye	AUX	copula=yes|person=3sg
+im	AUX	copula=yes|person=1sg
+in	AUX	copula=yes|person=pl
+heye	VERB	existential=yes|polarity=pos
+tune	VERB	existential=yes|polarity=neg
+tuneye	VERB	existential=yes|polarity=neg
+gelek	ADV	degree=yes
+pir	ADV	degree=yes
+niha	ADV
+îro	ADV
+duh	ADV
+sibê	ADV
+vir	ADV
+wir	ADV
+yek	NUM	numtype=card
+du	NUM	numtype=card
+sê	NUM	numtype=card
+çar	NUM	numtype=card
+pênc	NUM	numtype=card
+şeş	NUM	numtype=card
+heft	NUM	numtype=card
+heşt	NUM	numtype=card
+neh	NUM	numtype=card
+deh	NUM	numtype=card
+sed	NUM	numtype=card
+hezar	NUM	numtype=card

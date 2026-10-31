@@ -1,0 +1,12 @@
+Zimanyar
+https://github.com/0xdolan/Zimanyar
+
+The code is licensed under GPL-3.0-or-later (see LICENSE).
+
+The lexical data is the Kurdish Lexicon, built with zimankit
+(https://github.com/0xdolan/zimankit) and licensed under CC BY-SA 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+The data is distributed as separate files beside the program: the compiled lexicons, and
+the fixtures, tables and rules in packages/data/. packages/data/NOTICE has its full notice.
+Zimanyar compiles the lexicon into its own format and keeps only the columns it needs.

@@ -127,6 +127,7 @@ You need Node 22 or newer with pnpm 10, [uv](https://docs.astral.sh/uv/), git an
 make setup           # dependencies, git hooks and the UI skills
 make lint            # Biome, TypeScript, dashes, Kurdish spelling, shellcheck, actionlint, ruff, knip
 make test            # unit tests
+make data            # fetch and verify the zimankit lexicon, export fixtures, compile the lexicons
 make logo            # the logo SVG variants, from scripts/brand/make-logo.mjs
 make icons           # every icon size for the extension, the web and Linux (Inkscape, ImageMagick)
 make marketing       # banner, store tiles, store screenshots and ads (headless Chrome)
@@ -140,6 +141,7 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 | `assets/marketing/` | Banner, social preview, store tiles and screenshots, ads in English, Sorani and Kurmanji |
 | `scripts/brand/` | The logo geometry and the icon renderer |
 | `scripts/marketing/` | HTML templates and the content of every marketing image |
+| `packages/data/` | The compiled lexicon format and loaders, parity fixtures, and tables from zimankit |
 | `packages/config/` | Shared TypeScript and Vitest configuration, design tokens |
 | `scripts/checks/`, `scripts/release/` | Repository guards: dashes, Kurdish spelling, licences, attribution |
 | `docs/` | [The name and the logo](docs/STORY.md), [developer documentation](docs/dev/) |
@@ -159,6 +161,6 @@ Zimanyar follows git flow. Work happens on `feature/NAME` branches from `develop
 
 ## License
 
-Code: [GPL-3.0-or-later](LICENSE) © 0xdolan. Bundled lexical data: CC BY-SA 4.0.
+Code: [GPL-3.0-or-later](LICENSE) © 0xdolan. Bundled lexical data: CC BY-SA 4.0, see [NOTICE](NOTICE).
 
 <p align="center"><img src="assets/icons/png/wordmark-light.png" width="360" alt="Zimanyar"></p>

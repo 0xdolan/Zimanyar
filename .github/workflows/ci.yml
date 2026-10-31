@@ -54,3 +54,27 @@ jobs:
           persist-credentials: false
       - uses: ./.github/actions/setup
       - run: make build
+
+  data:
+    name: Data
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: make data
+      - name: Everything committed matches what the pinned bundle produces
+        run: git diff --exit-code -- packages/data
+      - name: Check the compiled lexicons against the bundle
+        run: pnpm --filter @zimanyar/data test
+      - name: Sizes
+        run: |
+          {
+            echo '| file | bytes |'
+            echo '| --- | --- |'
+            for file in packages/data/build/lexicon-*.bin.gz; do
+              echo "| $(basename "$file") | $(stat -c %s "$file") |"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"

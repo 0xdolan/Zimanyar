@@ -14,6 +14,7 @@
     "@types/node": "^22",
     "@vitest/coverage-v8": "5.0.5",
     "@zimanyar/config": "workspace:*",
+    "@zimanyar/data": "workspace:*",
     "typescript": "5.9.3",
     "vitest": "5.0.5"
   }

@@ -3,7 +3,11 @@ name = "zimanyar-data"
 version = "0.0.0"
 description = "Data and fixture export for Zimanyar (zimankit to TypeScript); not a Python package"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pyarrow>=26.0.0",
+    "zimankit==0.2.0",
+    "zstandard>=0.25.0",
+]
 
 [dependency-groups]
 dev = [
@@ -17,6 +21,8 @@ dev = [
 package = false
 # Wait seven days before resolving a newly published version (supply-chain safety).
 exclude-newer = "7 days"
+# zimankit is our own package, pinned to one version; it does not need to wait.
+exclude-newer-package = { zimankit = "2026-12-31T00:00:00Z" }
 
 [tool.ruff]
 line-length = 110
