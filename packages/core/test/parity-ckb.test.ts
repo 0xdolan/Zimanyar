@@ -3,8 +3,7 @@ import { describe, it } from "vitest";
 import { CkbAnalyzer, decline } from "../src/ckb/morphology.js";
 import {
   isLegacyEncoded,
-  normalize,
-  normalizeWord,
+  normalizeOnce as normalize,
   spellingVariants,
   validateWord,
 } from "../src/ckb/orthography.js";
@@ -39,7 +38,7 @@ describe("parity with zimankit: Sorani", () => {
     expectParity<Line>("ckb_orthography", (r) => ({
       actual: [
         normalize(r.input),
-        normalizeWord(r.input),
+        normalize(r.input, { digits: "keep", kurdishPunctuation: false, legacy: "no" }),
         normalize(r.input, { legacy: "yes", digits: "latin" }),
         normalize(r.input, {
           legacy: "no",

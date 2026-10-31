@@ -17,8 +17,8 @@ import {
   TATWEEL,
   ZWNJ,
 } from "../generated/tables.js";
-import { cleanZwnj, type DigitTarget, normalizeText } from "../normalize/shared.js";
-import { compareStrings, count, length, pythonRegex, translate } from "../python.js";
+import { cleanZwnj, type DigitTarget, normalizeTextOnce } from "../normalize/shared.js";
+import { compareStrings, count, length, pythonRegex, translate, untilStable } from "../python.js";
 
 const AE = "ە"; // ە
 const HEH = "ه"; // ه
@@ -65,8 +65,8 @@ export interface CkbOrthographyOptions {
   addInitialHamza?: boolean;
 }
 
-/** Text in standard Central Kurdish Unicode orthography. */
-export function normalize(input: string, options: CkbOrthographyOptions = {}): string {
+/** One pass of normalize: exactly what zimankit does, and what the parity tests compare. */
+export function normalizeOnce(input: string, options: CkbOrthographyOptions = {}): string {
   const {
     digits = "arabic-indic",
     kurdishPunctuation = true,
@@ -74,7 +74,7 @@ export function normalize(input: string, options: CkbOrthographyOptions = {}): s
     fixInitialR = true,
     addInitialHamza = true,
   } = options;
-  let text = normalizeText(input, { digits });
+  let text = normalizeTextOnce(input, { digits });
   text = text.replace(SEQUENCES, (sequence) => SEQUENCE_MAP[sequence] as string);
   for (const [pattern, to] of INITIAL_ALEF_HAMZA) text = text.replace(pattern, to);
   text = translate(text, CHAR_TABLE);
@@ -88,6 +88,11 @@ export function normalize(input: string, options: CkbOrthographyOptions = {}): s
   for (const [pattern, to] of SQUEEZE) text = text.replace(pattern, to);
   if (kurdishPunctuation) text = translate(text, PUNCTUATION);
   return cleanZwnj(text);
+}
+
+/** Text in standard Central Kurdish Unicode orthography. */
+export function normalize(input: string, options: CkbOrthographyOptions = {}): string {
+  return untilStable(input, (text) => normalizeOnce(text, options));
 }
 
 /** Normalize one token: no punctuation or digit handling, and no guessing at legacy text. */

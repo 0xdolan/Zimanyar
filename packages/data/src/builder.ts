@@ -31,6 +31,8 @@ export interface LemmaRow {
   variantOf?: string;
   seeAlso?: string;
   zipf: number;
+  /** How often the lemma occurs in the corpus. */
+  count?: number;
 }
 
 export interface LexiconInput {
@@ -91,6 +93,7 @@ export function buildLexicon(input: LexiconInput): Uint8Array {
   const lemmaDetails: LexiconHeader["lemmaDetails"] = {};
   const attributeColumn = new Uint8Array(lemmas.length);
   const lemmaMeta = new Uint8Array(lemmas.length);
+  const lemmaFrequency = new Uint32Array(lemmas.length);
   lemmas.forEach((row, rank) => {
     attributeColumn[rank] = interned(
       lemmaAttributes,
@@ -103,6 +106,7 @@ export function buildLexicon(input: LexiconInput): Uint8Array {
       }),
     );
     lemmaMeta[rank] = frequencyBucket(row.zipf);
+    lemmaFrequency[rank] = row.count ?? 0;
     const details = {
       ...(row.present ? { present: row.present } : {}),
       ...(row.past ? { past: row.past } : {}),
@@ -130,6 +134,7 @@ export function buildLexicon(input: LexiconInput): Uint8Array {
     lemmaAlphabet: lemmaFsa.tables.alphabet,
     lemmaAttributes: attributeColumn,
     lemmaMeta,
+    lemmaFrequency,
     variantArcs: variantFsa.tables.arcs,
     variantAlphabet: variantFsa.tables.alphabet,
     variantTargets,

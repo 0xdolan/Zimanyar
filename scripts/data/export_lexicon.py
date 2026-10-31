@@ -70,10 +70,9 @@ def export_language(bundle: Path, lang: str) -> None:
         for r in words
     ]  # fmt: skip
     write_tsv(RAW / lang / "forms.tsv", forms)
-    lemmas = pq.read_table(
-        bundle / f"kurdish_lemmas_{lang}.parquet", columns=[*LEMMA_COLUMNS, "zipf"]
-    ).to_pylist()
-    write_tsv(RAW / lang / "lemmas.tsv", [[clean(r[c]) for c in (*LEMMA_COLUMNS, "zipf")] for r in lemmas])
+    lemma_columns = (*LEMMA_COLUMNS, "zipf", "frequency")
+    lemmas = pq.read_table(bundle / f"kurdish_lemmas_{lang}.parquet", columns=list(lemma_columns)).to_pylist()
+    write_tsv(RAW / lang / "lemmas.tsv", [[clean(r[c]) for c in lemma_columns] for r in lemmas])
     variants: list[list[str]] = []
     table = bundle / f"kurdish_spelling_variants_{lang}.csv"
     if table.exists():

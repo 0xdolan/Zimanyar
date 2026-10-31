@@ -9,7 +9,6 @@ import {
   legalCoda,
   legalOnset,
   levenshtein,
-  normalizeText,
   type Segment,
   sentences,
   sonority,
@@ -18,6 +17,7 @@ import {
   weightedDistance,
   words,
 } from "../src/index.js";
+import { normalizeTextOnce as normalizeText } from "../src/normalize/shared.js";
 import { round } from "../src/python.js";
 import { expectParity } from "./parity-helpers.js";
 

@@ -11,15 +11,19 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "bench": "tsx bench/budgets.ts"
   },
   "devDependencies": {
     "@types/node": "^22",
     "@vitest/coverage-v8": "5.0.5",
     "@zimanyar/config": "workspace:*",
-    "@zimanyar/data": "workspace:*",
     "fast-check": "4.10.2",
     "typescript": "5.9.3",
-    "vitest": "5.0.5"
+    "vitest": "5.0.5",
+    "tsx": "4.23.15"
+  },
+  "dependencies": {
+    "@zimanyar/data": "workspace:*"
   }
 }

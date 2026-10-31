@@ -4,13 +4,13 @@
   "ckb": {
     "forms": 329190,
     "lemmas": 100848,
-    "bytes": 4293963,
-    "sha256": "765c0d44d465a7bd5a13478fba053880046fb193b55f585de2c3e3b10fdd6d6e"
+    "bytes": 4697407,
+    "sha256": "e95170790733b74d09b3b2c8c314589351be038504aa4c91812a436ada6fc7b7"
   },
   "kmr": {
     "forms": 506407,
     "lemmas": 122110,
-    "bytes": 6668224,
-    "sha256": "73a4a987c1dc8eb69fb9f6b7621fc02e3a2180ac5739213a1c6e024746e1374b"
+    "bytes": 7156716,
+    "sha256": "4f3c965780590dcc55746005331bd7bd4e1964ce7847bda14527e0ba78344f75"
   }
 }

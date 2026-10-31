@@ -40,10 +40,11 @@ The header holds the versions, the shared tables and where each section is. The 
 | `formMeta` | form | frequency (5 bits), quality tier (2), attested (1) |
 | `lemmaArcs`, `lemmaAlphabet` | | the automaton of lemmas |
 | `lemmaAttributes` | lemma | index of its part of speech, gender and transitivity |
-| `lemmaMeta` | lemma | frequency |
+| `lemmaMeta` | lemma | frequency in five bits |
+| `lemmaFrequency` | lemma | the exact count in the corpus, which the analyzer's scores use |
 | `variantArcs`, `variantAlphabet`, `variantTargets` | variant | non-standard spellings and the rank of the standard form |
 
-Because a form's data is found by rank, no form stores a pointer, which is most of why 500 000 forms fit in under 2 MB. Stems and cross references, which few lemmas have, are in the header.
+Because a form's data is found by rank, no form stores a pointer, which is most of why 500 000 forms fit in about 2 MB. Stems and cross references, which few lemmas have, are in the header.
 
 Definitions, IPA and segmentation are left out. IPA and segmentation are computed by the engine, and definitions would multiply the size.
 

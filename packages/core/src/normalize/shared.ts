@@ -17,7 +17,7 @@ import {
   ZWNJ_EDGE_RE,
   ZWNJ_RUN_RE,
 } from "../generated/tables.js";
-import { pythonRegex, strip, translate } from "../python.js";
+import { pythonRegex, strip, translate, untilStable } from "../python.js";
 
 export type DigitTarget = "keep" | "latin" | "arabic-indic";
 
@@ -78,11 +78,8 @@ export function cleanZwnj(text: string): string {
     .replace(ZWNJ_EDGE, "");
 }
 
-/**
- * Script-independent cleaning, safe for any text: it never changes a letter's identity, only the
- * invisible machinery around it. Letter rules live in the ckb and kmr orthography modules.
- */
-export function normalizeText(input: string, options: NormalizeOptions = {}): string {
+/** One pass of normalizeText: exactly what zimankit does, and what the parity tests compare. */
+export function normalizeTextOnce(input: string, options: NormalizeOptions = {}): string {
   const {
     digits = "keep",
     stripUrls = true,
@@ -104,4 +101,12 @@ export function normalizeText(input: string, options: NormalizeOptions = {}): st
   text = text.replace(HSPACE, " ");
   if (collapseBlankLines) text = text.replace(BLANK_LINES, "\n");
   return strip(text.split("\n").map(strip).join("\n"));
+}
+
+/**
+ * Script-independent cleaning, safe for any text: it never changes a letter's identity, only the
+ * invisible machinery around it. Letter rules live in the ckb and kmr orthography modules.
+ */
+export function normalizeText(input: string, options: NormalizeOptions = {}): string {
+  return untilStable(input, (text) => normalizeTextOnce(text, options));
 }

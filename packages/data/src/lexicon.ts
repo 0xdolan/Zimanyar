@@ -11,7 +11,7 @@ export type QualityTier = (typeof QUALITY_TIERS)[number];
 export type Lang = "ckb" | "kmr";
 
 export const FORMAT_MAGIC = 0x584c4d5a; // "ZMLX", little endian
-export const FORMAT_VERSION = 1;
+export const FORMAT_VERSION = 2;
 const HEADER_START = 12;
 
 export const SECTION_TYPES = {
@@ -24,6 +24,7 @@ export const SECTION_TYPES = {
   lemmaAlphabet: 2,
   lemmaAttributes: 1,
   lemmaMeta: 1,
+  lemmaFrequency: 4,
   variantArcs: 4,
   variantAlphabet: 2,
   variantTargets: 4,
@@ -66,6 +67,8 @@ export interface LemmaEntry {
   seeAlso?: string;
   /** Zipf frequency in quarter steps, from 0 to 31. */
   frequency: number;
+  /** How often the lemma occurs in the corpus. The analyzer's scores depend on the exact count. */
+  count: number;
 }
 
 export class InvalidLexiconError extends Error {
@@ -112,6 +115,7 @@ export class Lexicon {
   private readonly formMeta: Uint8Array;
   private readonly lemmaAttributes: Uint8Array;
   private readonly lemmaMeta: Uint8Array;
+  private readonly lemmaFrequency: Uint32Array;
   private readonly variantTargets: Uint32Array;
   private readonly header: LexiconHeader;
 
@@ -161,6 +165,7 @@ export class Lexicon {
     this.formMeta = new Uint8Array(get("formMeta").buffer);
     this.lemmaAttributes = new Uint8Array(get("lemmaAttributes").buffer);
     this.lemmaMeta = new Uint8Array(get("lemmaMeta").buffer);
+    this.lemmaFrequency = new Uint32Array(get("lemmaFrequency").buffer);
     this.variantTargets = new Uint32Array(get("variantTargets").buffer);
 
     const formCount = this.forms.wordCount;
@@ -171,6 +176,7 @@ export class Lexicon {
       [this.formMeta, formCount, "formMeta"],
       [this.lemmaAttributes, lemmaCount, "lemmaAttributes"],
       [this.lemmaMeta, lemmaCount, "lemmaMeta"],
+      [this.lemmaFrequency, lemmaCount, "lemmaFrequency"],
       [this.variantTargets, this.variants.wordCount, "variantTargets"],
     ];
     for (const [column, expected, name] of sizes) {
@@ -247,7 +253,29 @@ export class Lexicon {
       ...attributes,
       ...this.header.lemmaDetails?.[rank],
       frequency: this.lemmaMeta[rank] as number,
+      count: this.lemmaFrequency[rank] as number,
     };
+  }
+
+  /** The lemma automaton, for checks that run many times per token, which build no entry. */
+  get lemmaAutomaton(): Fsa {
+    return this.lemmas;
+  }
+
+  /** The part of speech and gender of a lemma by its rank. */
+  lemmaAttributesAt(rank: number): LexiconHeader["lemmaAttributes"][number] {
+    return this.header.lemmaAttributes[
+      this.lemmaAttributes[rank] as number
+    ] as LexiconHeader["lemmaAttributes"][number];
+  }
+
+  lemmaCountAt(rank: number): number {
+    return this.lemmaFrequency[rank] as number;
+  }
+
+  /** The quality of a form by its rank, without building its entry: for ranking candidates. */
+  qualityAt(rank: number): QualityTier {
+    return QUALITY_TIERS[((this.formMeta[rank] as number) >>> TIER_SHIFT) & TIER_MASK] ?? "bronze";
   }
 
   /** The standard spelling of a known non-standard one. */
