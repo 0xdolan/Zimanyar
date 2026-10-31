@@ -77,6 +77,20 @@ export function round(value: number, digits: number): number {
   return Number(value.toFixed(digits));
 }
 
+/**
+ * Repeat a cleaning step until the text stops changing. Removing one thing can expose another: a
+ * dropped mark leaves a leading space, and a dropped ZWNJ lets two characters compose.
+ */
+export function untilStable(text: string, step: (text: string) => string): string {
+  let current = text;
+  for (let i = 0; i < 8; i++) {
+    const next = step(current);
+    if (next === current) return next;
+    current = next;
+  }
+  return current;
+}
+
 /** Translate a Python pattern to JavaScript. Always uses the u flag, as Python matches code points. */
 export function pythonRegex(python: string, flags = ""): RegExp {
   const source = python.replaceAll(HORIZONTAL_SPACE, HORIZONTAL_SPACE_CLASS);

@@ -1,7 +1,7 @@
 import { hasFullFixture, readFixture } from "@zimanyar/data/node";
 import { describe, it } from "vitest";
 import { decline, type Gender, KmrAnalyzer } from "../src/kmr/morphology.js";
-import { lower, normalize, normalizeWord, upper, validateWord } from "../src/kmr/orthography.js";
+import { lower, normalizeOnce as normalize, upper, validateWord } from "../src/kmr/orthography.js";
 import { segments, syllables, toIpa } from "../src/kmr/phonology.js";
 import { type AlignmentRecord, detectAlignment } from "../src/kmr/syntax.js";
 import { toArabic } from "../src/kmr/translit.js";
@@ -67,8 +67,8 @@ describe("parity with zimankit: Kurmanji", () => {
         lower(r.input),
         upper(r.input),
         normalize(r.input),
-        normalizeWord(r.input),
-        normalizeWord(r.input, false),
+        normalize(r.input, { lowercase: true }),
+        normalize(r.input, { lowercase: false }),
         normalize(r.input, { lowercase: true, keepApostrophe: false }),
         validateWord(r.input),
       ],

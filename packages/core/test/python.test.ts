@@ -1,8 +1,10 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
 import {
+  ckb,
   identify,
   isLang,
+  kmr,
   normalizeText,
   PATTERNS,
   type PatternName,
@@ -10,7 +12,7 @@ import {
   tokenize,
   words,
 } from "../src/index.js";
-import { count, isSpace, pythonRegex, round, strip, translate } from "../src/python.js";
+import { count, isSpace, pythonRegex, round, strip, translate, untilStable } from "../src/python.js";
 
 describe("Python semantics", () => {
   it("rounds like Python, with true ties to the even digit", () => {
@@ -106,15 +108,56 @@ describe("properties", () => {
     ),
     maxLength: 60,
   });
+  const messyText = fc
+    .array(
+      fc.constantFrom(
+        ..."ab \n\t.,'\u2019-\u200c\u200d\u200e\u00a0\u0628\u0627\u06a9\u0631\u0647\u06d5\u0648\u06cc\u0643\u064a\u0629\u0626\u0654\u064e1\u0661@#?I\u0130\u0131\u015e\u00eae\u0302\u00e9\ufb50/:".split(
+          "",
+        ),
+        "\u{1f600}",
+        "https://x",
+        "www.y",
+        "a@b.c",
+      ),
+      { maxLength: 30 },
+    )
+    .map((parts) => parts.join(""));
 
-  it("normalizeText is idempotent", () => {
+  it.each<[string, (text: string) => string]>([
+    ["normalizeText", (t) => normalizeText(t)],
+    ["ckb.normalize", (t) => ckb.normalize(t)],
+    ["ckb.normalizeWord", ckb.normalizeWord],
+    ["kmr.normalize", (t) => kmr.normalize(t)],
+    ["kmr.normalizeWord", (t) => kmr.normalizeWord(t)],
+  ])("%s is idempotent", (_name, normalizer) => {
     fc.assert(
-      fc.property(text, (t) => {
-        const once = normalizeText(t);
-        expect(normalizeText(once)).toBe(once);
+      fc.property(messyText, (t) => {
+        const once = normalizer(t);
+        expect(normalizer(once)).toBe(once);
       }),
-      { numRuns: 1000 },
+      { numRuns: 5000 },
     );
+  });
+
+  // Inputs where zimankit's one pass is not stable: recorded in docs/dev/parity-exceptions.md.
+  it.each<[string, (text: string) => string, string, string]>([
+    ["a stripped email strands a ZWNJ", (t) => normalizeText(t), "\u06a9\u200c\u0628@a.b", "\u06a9"],
+    ["a removed ZWNJ lets two characters compose", (t) => normalizeText(t), "\u0627\u200c\u0654", "\u0623"],
+    ["a dropped mark leaves a leading space", (t) => ckb.normalize(t), "\u064e a", "a"],
+    ["a dropped apostrophe leaves a leading space", (t) => kmr.normalize(t), "\u2019\ta", "a"],
+  ])("%s", (_name, normalizer, input, expected) => {
+    expect(normalizer(input)).toBe(expected);
+  });
+
+  it("stops repeating even if a step never settles", () => {
+    let calls = 0;
+    expect(
+      untilStable("a", (t) => {
+        calls++;
+        return `${t}a`;
+      }).length,
+    ).toBe(9);
+    expect(calls).toBe(8);
   });
 
   it("tokens are in order, match their offsets, and cover everything but spaces", () => {

@@ -5,8 +5,8 @@ import {
   KMR_LETTERS,
   KMR_VALID_RE,
 } from "../generated/tables.js";
-import { normalizeText } from "../normalize/shared.js";
-import { compareStrings, length, pythonRegex, translate } from "../python.js";
+import { normalizeTextOnce } from "../normalize/shared.js";
+import { compareStrings, length, pythonRegex, translate, untilStable } from "../python.js";
 
 const CHAR_TABLE = new Map(Object.entries(KMR_CHAR_MAP));
 const TO_LOWER = new Map([
@@ -52,13 +52,18 @@ export interface KmrOrthographyOptions {
   keepApostrophe?: boolean;
 }
 
-/** Text in the Hawar alphabet, with look-alike letters folded. */
-export function normalize(input: string, options: KmrOrthographyOptions = {}): string {
+/** One pass of normalize: exactly what zimankit does, and what the parity tests compare. */
+export function normalizeOnce(input: string, options: KmrOrthographyOptions = {}): string {
   const { lowercase = false, keepApostrophe = true } = options;
-  let text = translate(normalizeText(input, { digits: "latin" }), CHAR_TABLE);
+  let text = translate(normalizeTextOnce(input, { digits: "latin" }), CHAR_TABLE);
   if (text.includes("'")) text = text.replace(APOSTROPHE_EDGE, "");
   if (!keepApostrophe) text = text.replaceAll("'", "");
   return lowercase ? lower(text) : text;
+}
+
+/** Text in the Hawar alphabet, with look-alike letters folded. */
+export function normalize(input: string, options: KmrOrthographyOptions = {}): string {
+  return untilStable(input, (text) => normalizeOnce(text, options));
 }
 
 export function normalizeWord(word: string, lowercase = true): string {
