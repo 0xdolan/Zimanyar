@@ -8,6 +8,7 @@ header = """
 All notable changes to Zimanyar are listed here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
+
 """
 body = """
 {% if version %}\
@@ -33,13 +34,14 @@ filter_commits = false
 tag_pattern = "v[0-9]*"
 sort_commits = "oldest"
 commit_parsers = [
+  { message = "^[a-z]+(\\(.+\\))?: merge ", skip = true },
+  { message = "^chore\\(release\\)", skip = true },
+  { message = "^fix\\(security\\)", group = "<!-- 5 -->Security" },
   { message = "^feat", group = "<!-- 0 -->Added" },
   { message = "^fix", group = "<!-- 1 -->Fixed" },
   { message = "^perf", group = "<!-- 2 -->Changed" },
   { message = "^refactor", group = "<!-- 2 -->Changed" },
   { message = "^docs", group = "<!-- 3 -->Documentation" },
   { message = "^revert", group = "<!-- 4 -->Removed" },
-  { body = ".*security", group = "<!-- 5 -->Security" },
-  { message = "^chore\\(release\\)", skip = true },
   { message = "^(chore|ci|build|test|style)", skip = true },
 ]
