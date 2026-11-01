@@ -152,9 +152,14 @@ export function rewriteLinks(text: string, file: string, lang: Course): string {
   return text.replace(/\]\(([^)\s]+?\.md)(#[^)\s]*)?\)/g, (_all, href: string, hash = "") => {
     const resolved = posix.normalize(posix.join(lang, posix.dirname(file), href));
     const [course, ...rest] = resolved.split("/");
+    if (course !== "ckb" && course !== "kmr") {
+      // Outside the courses: the rest of zimankit's documentation lives with zimankit.
+      const docs = posix.normalize(posix.join("docs/tutorials", resolved));
+      return `](https://github.com/0xdolan/zimankit/blob/main/${docs}${hash})`;
+    }
     const here = posix.join(COURSE_PATH[lang], targetOf(file));
     // Links between the two courses go by address, which is not the folder's name.
-    const there = posix.join(COURSE_PATH[course as Course], targetOf(rest.join("/")));
+    const there = posix.join(COURSE_PATH[course], targetOf(rest.join("/")));
     const path = posix.relative(here, there);
     return `](${path === "" ? "./" : `${path}/`}${hash})`;
   });
@@ -211,6 +216,7 @@ function main(): void {
   const zimankit = resolve(ROOT, process.env["ZIMANKIT_DIR"] ?? "../ku/zimankit");
   const tutorials = join(zimankit, "docs/tutorials");
   const out = join(ROOT, "packages/content/lessons");
+  writeVocabulary(tutorials);
   rmSync(out, { recursive: true, force: true });
   const write = (file: string, content: string) => {
     mkdirSync(dirname(join(out, file)), { recursive: true });

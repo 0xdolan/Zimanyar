@@ -17,4 +17,4 @@ examples:
   - { wrong: "کتێب نوێ", right: "کتێبی نوێ" }
 lessons:
   - { lang: ckb, lessonId: 9, anchor: "the-linking-vowel" }
-  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }
+  - { lang: ckb, lessonId: 23, anchor: "8-grammar-errors-to-watch" }

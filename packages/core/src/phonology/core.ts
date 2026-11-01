@@ -29,7 +29,7 @@ export function legalOnset(cluster: readonly string[], initial: boolean): boolea
   }
   if (cluster.length === 3 && initial) {
     const [a, b, c] = cluster as [string, string, string];
-    return sibilants.has(a) && stops.has(b) && glides.has(c);
+    return sibilants.has(a) && stops.has(b) && (glides.has(c) || liquids.has(c));
   }
   return false;
 }
@@ -111,10 +111,14 @@ function repairRun(run: readonly string[], leftVowel: boolean, rightVowel: boole
     const prefix = run.slice(0, -onsetSize);
     const head: Segment[] = legalOnset(prefix, true)
       ? [...consonants(prefix), [e, "E"]]
-      : [...closedSyllables(prefix.slice(0, -1), e, false), [prefix.at(-1) as string, "C"], [e, "E"]];
+      : prefix.length % 2 === 0
+        ? // Closed syllables use the whole prefix: mɯn.daːɫ, not mɯ.nɯ.daːɫ.
+          closedSyllables(prefix, e, false)
+        : [...closedSyllables(prefix.slice(0, -1), e, false), [prefix.at(-1) as string, "C"], [e, "E"]];
     return [...head, ...consonants(onset)];
   }
-  if (run.length === 1) return plain;
+  // چ is çi: a word has a vowel.
+  if (run.length === 1) return [...plain, [e, "E"]];
   return closedSyllables(run, e, true);
 }
 

@@ -14,7 +14,7 @@
     "build": "tsx ../../scripts/data/build-lexicon.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "ZIMANYAR_COVERAGE=1 vitest run --coverage"
   },
   "devDependencies": {
     "@types/node": "^22",

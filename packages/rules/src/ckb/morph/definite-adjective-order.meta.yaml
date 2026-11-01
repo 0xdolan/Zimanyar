@@ -17,4 +17,4 @@ examples:
   - { wrong: "ژنەکە جوان", right: "ژنە جوانەکە" }
 lessons:
   - { lang: ckb, lessonId: 9, anchor: "definite-the-good-man" }
-  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }
+  - { lang: ckb, lessonId: 23, anchor: "8-grammar-errors-to-watch" }

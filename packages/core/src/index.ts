@@ -16,6 +16,7 @@ export {
 export {
   type Analysis,
   emptyLexicon,
+  gloss,
   type LexiconLike,
   SimpleLexicon,
   segmentation,
