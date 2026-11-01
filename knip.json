@@ -32,6 +32,9 @@
         "@zimanyar/config"
       ]
     },
+    "apps/extension": {
+      "entry": ["wxt.config.ts", "src/entrypoints/**/*.{ts,tsx}", "scripts/*.ts"]
+    },
     ".": {
       "ignoreDependencies": ["axe-core"]
     }

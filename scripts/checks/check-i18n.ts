@@ -32,7 +32,7 @@ export function findProblems(
   for (const key of used)
     if (!reference.includes(key)) problems.push(`code uses ${key}, which no catalogue has`);
   for (const key of reference) {
-    const dynamic = /^(category|severity|lang|theme|nav|starlight)\./.test(key);
+    const dynamic = /^(category|severity|lang|theme|nav|starlight|family)\./.test(key);
     if (!used.has(key) && !dynamic) problems.push(`no code uses ${key}`);
   }
   return problems;

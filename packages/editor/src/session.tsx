@@ -6,7 +6,7 @@ import { createRoot } from "react-dom/client";
 import { fieldFor, isCheckable, type Rect, type TextField } from "./field.js";
 import { addStyles, OVERLAY_CSS, splitStyles } from "./styles.js";
 import { type CompletionView, kindOf, Surface, type Underline } from "./surface.js";
-import { shiftFindings, varietyOf, wordBefore } from "./text.js";
+import { helperLetter, shiftFindings, varietyOf, wordBefore } from "./text.js";
 
 /** The checker as the editor sees it: CheckerClient fits, and so does anything else with these. */
 export interface EditorBackend {
@@ -34,6 +34,13 @@ export interface EditorOptions {
   css?: string;
   theme?: "light" | "dark" | "system";
   autocomplete?: boolean;
+  /** How many words to offer. */
+  completions?: number;
+  /** Show the reason, examples and lessons on a card, not only the fix. */
+  teaching?: boolean;
+  /** Turn e^ into ê and s, into ş while typing, for Kurmanji without its keyboard. */
+  typingHelper?: boolean;
+  underline?: "thin" | "thick";
   /** Pages cannot reach into a closed shadow root. Only tests have reason to open it. */
   shadow?: ShadowRootMode;
   ipaOf?: (suggestion: string) => string | null;
@@ -52,6 +59,10 @@ export interface EditorHandle {
   apply(findingId: string, suggestion: string): void;
   /** Select a finding's text and bring it into view, for a findings panel beside the text. */
   reveal(findingId: string): void;
+  /** Open the card of the next finding after the caret, or the one before it, and move focus to it. */
+  move(step: 1 | -1): void;
+  /** Apply the first suggestion of the finding at the caret. */
+  applyFirst(): void;
   /** Stop showing a finding, and others like it, until the page is reloaded. */
   ignore(findingId: string): void;
   /** Apply every deterministic fix. */
@@ -80,7 +91,17 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
   const element = candidate;
   const document = element.ownerDocument;
   const window = document.defaultView as Window & typeof globalThis;
-  const { backend, uiLang, autocomplete = true, shadow = "closed", theme = "system" } = options;
+  const {
+    backend,
+    uiLang,
+    autocomplete = true,
+    completions = COMPLETIONS,
+    shadow = "closed",
+    theme = "system",
+    teaching = false,
+    typingHelper = false,
+    underline = "thin",
+  } = options;
 
   const host = document.createElement("div");
   host.style.setProperty("all", "initial");
@@ -96,7 +117,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
   ];
   const mount = document.createElement("div");
   mount.setAttribute("lang", uiLang);
-  mount.className = "zy-root";
+  mount.className = underline === "thick" ? "zy-root zy-thick" : "zy-root";
   root.append(mount);
   document.documentElement.append(host);
 
@@ -177,6 +198,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
             if (!inside) closeSoon();
           }}
           onCloseCard={() => closeCard(true)}
+          teaching={teaching}
           onIgnore={(finding) => {
             ignored.add(ignoreKey(finding));
             closeCard(true);
@@ -251,7 +273,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
       return;
     }
     timers.complete = window.setTimeout(() => {
-      backend.complete(found.word, varietyOf(found.word), COMPLETIONS).then(
+      backend.complete(found.word, varietyOf(found.word), completions).then(
         (items) => {
           if (id !== completeId || signal.aborted) return;
           const others = items.filter((item) => item.word !== found.word);
@@ -270,6 +292,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
   function sync(): void {
     const next = field.text();
     if (next === snapshot) return;
+    if (typingHelper && !composing && !replacing && applyTypingHelper(next)) return;
     findings = shiftFindings(findings, snapshot, next);
     snapshot = next;
     card = null;
@@ -282,6 +305,15 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
     if (replacing) completeId++;
     else askCompletions();
     publish();
+  }
+
+  /** Replace what was just typed if it spells a letter. The replacement comes back here as a change of its own. */
+  function applyTypingHelper(text: string): boolean {
+    const caret = field.caret();
+    const letter = caret === null ? undefined : helperLetter(text, caret);
+    if (caret === null || letter === undefined) return false;
+    field.replace(caret - 2, caret, letter);
+    return true;
   }
 
   function replace(start: number, end: number, text: string): void {
@@ -487,6 +519,24 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
     },
     open: (findingId) => openCard(findingId, true),
     apply,
+    move(step) {
+      const here = [...visible()].sort((a, b) => a.range.start - b.range.start);
+      if (here.length === 0) return;
+      const caret = field.caret() ?? 0;
+      const next =
+        step === 1
+          ? (here.find((found) => found.range.start > caret) ?? here[0])
+          : (here.findLast((found) => found.range.end < caret) ?? here.at(-1));
+      if (next === undefined) return;
+      field.reveal(next.range.start, next.range.start);
+      openCard(next.id, true);
+    },
+    applyFirst() {
+      const caret = field.caret() ?? 0;
+      const finding = visible().find((found) => caret >= found.range.start && caret <= found.range.end);
+      const first = finding?.suggestions[0];
+      if (finding !== undefined && first !== undefined) apply(finding.id, first.text);
+    },
     reveal(findingId) {
       const finding = byId(findingId);
       if (finding !== undefined) field.reveal(finding.range.start, finding.range.end);
@@ -498,16 +548,21 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
       publish();
     },
     fixSafe() {
-      // From the end, so the earlier offsets stay right.
+      // One edit from the first fix to the last, so that one undo takes them all back.
       const safe = visible()
         .filter((finding) => finding.safeFix && finding.suggestions[0] !== undefined)
-        .sort((a, b) => b.range.start - a.range.start);
-      let limit = snapshot.length;
+        .sort((a, b) => a.range.start - b.range.start);
+      const first = safe[0];
+      if (first === undefined) return;
+      let fixed = "";
+      let at = first.range.start;
       for (const finding of safe) {
-        if (finding.range.end > limit) continue;
-        limit = finding.range.start;
-        replace(finding.range.start, finding.range.end, finding.suggestions[0]?.text as string);
+        // Two fixes for one span would corrupt each other. The later one waits for the next check.
+        if (finding.range.start < at) continue;
+        fixed += snapshot.slice(at, finding.range.start) + (finding.suggestions[0]?.text as string);
+        at = finding.range.end;
       }
+      replace(first.range.start, at, fixed);
     },
     destroy() {
       controller.abort();

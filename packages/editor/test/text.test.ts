@@ -1,6 +1,6 @@
 import type { Finding } from "@zimanyar/rules";
 import { describe, expect, it } from "vitest";
-import { changedRange, shiftFindings, varietyOf, wordBefore } from "../src/text.js";
+import { changedRange, helperLetter, shiftFindings, varietyOf, wordBefore } from "../src/text.js";
 
 const finding = (start: number, end: number) => ({ id: `${start}`, range: { start, end } }) as Finding;
 const ranges = (found: readonly Finding[]) => found.map(({ range }) => [range.start, range.end]);
@@ -61,5 +61,18 @@ describe("varietyOf", () => {
   it("goes by the script", () => {
     expect(varietyOf("کتێب")).toBe("ckb");
     expect(varietyOf("kitêb")).toBe("kmr");
+  });
+});
+
+describe("helperLetter", () => {
+  it("spells Kurmanji letters from what a keyboard has", () => {
+    expect(helperLetter("e^", 2)).toBe("ê");
+    expect(helperLetter("as,", 3)).toBe("ş");
+    expect(helperLetter("U^", 2)).toBe("Û");
+  });
+
+  it("leaves everything else alone", () => {
+    expect(helperLetter("ab", 2)).toBeUndefined();
+    expect(helperLetter("e", 1)).toBeUndefined();
   });
 });

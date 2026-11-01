@@ -19,6 +19,34 @@ const SEVERITY_CLASS: Record<Severity, string> = {
   hint: "bg-hint-soft text-hint",
 };
 
+/** Who does what in a Kurmanji past tense: the verb agrees with the object, not the doer. */
+function ErgativityDiagram({ lang }: { lang: UiLang }) {
+  const t = createT(lang);
+  const box = "border-border bg-muted rounded-md border px-2 py-1 text-center text-xs";
+  return (
+    <figure aria-label={t("ergativity.summary")} className="flex flex-col gap-1">
+      <div aria-hidden="true" className="grid grid-cols-3 items-center gap-1" dir="ltr">
+        <span className={box}>
+          min
+          <br />
+          {t("ergativity.agent")}
+        </span>
+        <span className={box}>
+          tu
+          <br />
+          {t("ergativity.object")}
+        </span>
+        <span className={`${box} border-success font-semibold`}>
+          dîtî
+          <br />
+          {t("ergativity.verb")}
+        </span>
+      </div>
+      <figcaption className="text-muted-foreground text-xs">{t("ergativity.summary")}</figcaption>
+    </figure>
+  );
+}
+
 export interface FindingCardProps {
   finding: Finding;
   /** The interface language. */
@@ -157,6 +185,8 @@ export function FindingCard({
             </p>
           </div>
 
+          {finding.ruleId.startsWith("kmr.ergative.") && <ErgativityDiagram lang={lang} />}
+
           {finding.examples.length > 0 && (
             <table className="w-full text-sm">
               <caption className="pb-1 text-start font-semibold">{t("finding.examples")}</caption>
@@ -185,13 +215,13 @@ export function FindingCard({
             </table>
           )}
 
-          {finding.lessons.length > 0 && (
+          {finding.lessons.length > 0 && onLearn && (
             <nav aria-label={t("finding.lessons")} className="flex flex-wrap gap-2">
               {finding.lessons.map((lesson) => (
                 <Button
                   key={`${lesson.lang}${lesson.lessonId}${lesson.anchor}`}
-                  className="h-auto min-h-7 max-w-full whitespace-normal text-start"
-                  onClick={() => onLearn?.(lesson)}
+                  className="h-auto min-h-7 max-w-full text-xs whitespace-normal text-start"
+                  onClick={() => onLearn(lesson)}
                   size="sm"
                   variant="outline"
                 >
@@ -213,8 +243,8 @@ export function FindingCard({
       )}
 
       <footer className="flex flex-wrap gap-2">
-        {!teaching && finding.lessons[0] && (
-          <Button onClick={() => onLearn?.(finding.lessons[0] as LessonRef)} size="sm" variant="outline">
+        {!teaching && onLearn && finding.lessons[0] && (
+          <Button onClick={() => onLearn(finding.lessons[0] as LessonRef)} size="sm" variant="outline">
             <BookOpen aria-hidden="true" data-icon="inline-start" />
             {t("finding.learn")}
           </Button>

@@ -143,6 +143,8 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 | `scripts/marketing/` | HTML templates and the content of every marketing image |
 | `packages/rules/`, `packages/checker/` | The rules with their explanations, and the runner with its incremental cache and worker |
 | `packages/i18n/`, `packages/ui/` | Interface strings in three languages, and the components |
+| `apps/extension/` | The browser extension for Chrome and Firefox |
+| `packages/settings/` | One validated settings schema for every surface |
 | `apps/web/` | The website: the checker, the courses, the rules and the docs |
 | `packages/content/` | The lessons, with tables rendered from the engine |
 | `packages/editor/` | Underlines, the finding card and autocomplete on any text field |

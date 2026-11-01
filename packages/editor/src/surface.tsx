@@ -39,6 +39,7 @@ export interface SurfaceProps {
   direction: "ltr" | "rtl";
   card: CardView | null;
   completion: CompletionView | null;
+  teaching: boolean;
   ipaOf?: (suggestion: string) => string | null;
   onApply: (finding: Finding, suggestion: string) => void;
   onIgnore: (finding: Finding) => void;
@@ -63,9 +64,10 @@ function floatingStyle(anchor: Rect, viewport: { width: number; height: number }
     direction === "rtl"
       ? { right: Math.max(MARGIN, Math.min(viewport.width - anchor.right, furthest)) }
       : { left: Math.max(MARGIN, Math.min(anchor.left, furthest)) };
+  // A tall card scrolls inside the room it has, rather than running off the screen.
   return viewport.height - anchor.bottom < ROOM_BELOW
-    ? { ...side, bottom: viewport.height - anchor.top + GAP }
-    : { ...side, top: anchor.bottom + GAP };
+    ? { ...side, bottom: viewport.height - anchor.top + GAP, maxHeight: anchor.top - GAP - MARGIN }
+    : { ...side, top: anchor.bottom + GAP, maxHeight: viewport.height - anchor.bottom - GAP - MARGIN };
 }
 
 /** Everything drawn over a text field. Drawing only: the session owns the state and the keyboard. */
@@ -78,6 +80,7 @@ export function Surface({
   direction,
   card,
   completion,
+  teaching,
   ipaOf,
   onApply,
   onIgnore,
@@ -140,6 +143,7 @@ export function Surface({
             onApply={(suggestion) => onApply(card.finding, suggestion)}
             onClose={onCloseCard}
             onIgnore={() => onIgnore(card.finding)}
+            teaching={teaching}
             variant="compact"
             {...(ipaOf !== undefined ? { ipaOf } : {})}
             {...(onAddToDictionary !== undefined

@@ -538,6 +538,15 @@ describe("the finding card", () => {
     expect(Number(host.style.zIndex)).toBe(closed);
   });
 
+  it("scrolls inside the room it has", async () => {
+    const { handle, shadow } = attach();
+    await settled(handle);
+    handle.open(firstFinding(handle).id);
+    const room = Number.parseFloat((cardOf(shadow) as HTMLElement).style.maxHeight);
+    expect(room).toBeGreaterThan(0);
+    expect(room).toBeLessThan(window.innerHeight);
+  });
+
   it("opens above the text when there is no room below", async () => {
     const { handle, shadow } = attach();
     await settled(handle);
@@ -594,6 +603,87 @@ describe("from a findings panel", () => {
   });
 });
 
+describe("from the keyboard, through the handle", () => {
+  it("moves between findings, wrapping around", async () => {
+    const { handle, shadow } = attach();
+    await settled(handle);
+    const sorted = [...handle.findings()].sort((a, b) => a.range.start - b.range.start);
+    textarea.focus();
+    textarea.setSelectionRange(0, 0);
+    handle.move(1);
+    expect(shadow.querySelector(".zy-floating")).not.toBeNull();
+    textarea.focus();
+    textarea.setSelectionRange(TEXT.length, TEXT.length);
+    handle.move(1);
+    expect(textarea.selectionStart).toBe(sorted[0]?.range.start);
+    textarea.focus();
+    textarea.setSelectionRange(0, 0);
+    handle.move(-1);
+    expect(textarea.selectionStart).toBe(sorted.at(-1)?.range.start);
+  });
+
+  it("does nothing to move to when nothing is wrong", async () => {
+    textarea.value = "Ez hatim.";
+    const { handle, shadow } = attach();
+    await Promise.resolve();
+    handle.move(1);
+    expect(shadow.querySelector(".zy-floating")).toBeNull();
+  });
+
+  it("applies the first suggestion of the finding at the caret", async () => {
+    const [finding] = checker.check(TEXT, { lang: "kmr" }) as [Finding];
+    const { handle } = attach({ backend: backendOf({ check: async () => [finding] }) });
+    await settled(handle);
+    textarea.focus();
+    textarea.setSelectionRange(finding.range.start, finding.range.start);
+    handle.applyFirst();
+    expect(textarea.value).toBe(
+      TEXT.slice(0, finding.range.start) + finding.suggestions[0]?.text + TEXT.slice(finding.range.end),
+    );
+  });
+
+  it("applies nothing away from a finding", async () => {
+    textarea.value = "Ez hatim.";
+    const { handle } = attach();
+    await Promise.resolve();
+    handle.applyFirst();
+    expect(textarea.value).toBe("Ez hatim.");
+  });
+});
+
+describe("options", () => {
+  it("shows the reason and examples when teaching", async () => {
+    const { handle, shadow } = attach({ teaching: true });
+    await settled(handle);
+    handle.open((handle.findings()[0] as Finding).id);
+    expect(shadow.querySelector(".zy-floating")?.textContent).toContain("Why");
+  });
+
+  it("marks thick underlines", () => {
+    expect(attach({ underline: "thick" }).shadow.querySelector(".zy-thick")).not.toBeNull();
+  });
+
+  it("asks for as many words as it was told to", async () => {
+    const backend = backendOf();
+    attach({ backend, completions: 3 });
+    type("ez kit");
+    await vi.waitFor(() => expect(backend.complete).toHaveBeenCalledWith("kit", "kmr", 3));
+  });
+
+  it("turns typed pairs into Kurmanji letters when asked", () => {
+    attach({ typingHelper: true });
+    type("de^");
+    expect(textarea.value).toBe("dê");
+    expect(textarea.selectionStart).toBe(2);
+  });
+
+  it("leaves typed pairs alone otherwise", () => {
+    attach();
+    type("de^");
+    expect(textarea.value).toBe("de^");
+  });
+});
+
 describe("fixing every safe finding", () => {
   it("applies deterministic fixes and leaves the rest", async () => {
     const { handle } = attach();
@@ -618,7 +708,37 @@ describe("fixing every safe finding", () => {
     });
     await settled(handle);
     handle.fixSafe();
-    expect(textarea.value).toBe(`Ez ${"B"}tim .`);
+    expect(textarea.value).toBe("A hatim .");
+  });
+
+  it("does nothing when nothing is safe to fix", async () => {
+    const [finding] = checker.check(TEXT, { lang: "kmr" }) as [Finding];
+    const { handle } = attach({
+      backend: backendOf({ check: async () => [{ ...finding, safeFix: false }] }),
+    });
+    await settled(handle);
+    handle.fixSafe();
+    expect(textarea.value).toBe(TEXT);
+  });
+
+  it("makes one edit of them all, so that one undo takes them all back", async () => {
+    const [finding] = checker.check(TEXT, { lang: "kmr" }) as [Finding];
+    const safe = (start: number, end: number, text: string): Finding => ({
+      ...finding,
+      id: `${start}`,
+      safeFix: true,
+      range: { start, end },
+      suggestions: [{ text }],
+    });
+    const { handle } = attach({
+      backend: backendOf({ check: async () => [safe(6, 11, "X"), safe(0, 2, "Y")] }),
+    });
+    await settled(handle);
+    const heard = vi.fn();
+    textarea.addEventListener("input", heard);
+    handle.fixSafe();
+    expect(textarea.value).toBe("Y ez X .");
+    expect(heard).toHaveBeenCalledOnce();
   });
 });
 
@@ -782,6 +902,12 @@ describe("styles", () => {
     expect(outer).toContain("@font-face");
     expect(outer).toContain("@property --tw-x");
     expect(outer).not.toContain(".a{");
+  });
+
+  it("turns rem into pixels, as a page can change what a rem is", () => {
+    expect(splitStyles(".a{margin:.25rem 1.5rem}.b{width:2rem}.c-1rem{top:0}").shadow).toBe(
+      ".a{margin:4px 24px}.b{width:32px}.c-1rem{top:0}",
+    );
   });
 
   it("handles a stylesheet with nothing to move", () => {
