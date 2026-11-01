@@ -4,10 +4,11 @@ import type { RawFinding, Rule } from "../../model.js";
 /** Letters that are never written double, or more than double. */
 const SQUEEZE: readonly (readonly [RegExp, string])[] = [
   [/ە{2,}/gu, "ە"],
-  [/ڕ{2,}|رڕ|ڕر/gu, "ڕ"],
-  [/ڵ{2,}|لڵ|ڵل/gu, "ڵ"],
+  [/ڕ{2,}/gu, "ڕ"],
+  // ڵڵ and ییی are written: ئەڵڵا, سنەییی.
+  [/ڵ{3,}/gu, "ڵڵ"],
   [/و{3,}/gu, "وو"],
-  [/ی{3,}/gu, "یی"],
+  [/ی{4,}/gu, "ییی"],
   [/ئ{2,}/gu, "ئ"],
 ];
 

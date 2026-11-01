@@ -18,4 +18,4 @@ examples:
 lessons:
   - { lang: ckb, lessonId: 14, anchor: "where-the-clitic-goes" }
   - { lang: ckb, lessonId: 22, anchor: "the-hosting-rule" }
-  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }
+  - { lang: ckb, lessonId: 23, anchor: "8-grammar-errors-to-watch" }

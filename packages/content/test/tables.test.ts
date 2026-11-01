@@ -43,6 +43,7 @@ function cellText(cell: FormCell): string {
   if (cell === null) return EMPTY;
   return [
     `**${cell.form}**`,
+    ...(cell.solid !== undefined ? [`<sub>also ${cell.solid}</sub>`] : []),
     ...(cell.other !== undefined ? [`<sub>${cell.other}</sub>`] : []),
     ...(cell.ipa !== undefined ? [`<sub>/${cell.ipa}/</sub>`] : []),
   ].join("<br>");
@@ -237,7 +238,7 @@ describe.each(["ckb", "kmr"] as const)("tables for %s match zimankit's", (lang) 
 describe("reference pages", () => {
   it.each(["ckb", "kmr"] as const)("%s has a page for each verb, with a name of its own", (lang) => {
     const verbs = referenceVerbs(lang);
-    expect(verbs.length).toBe(lang === "ckb" ? 100 : 65);
+    expect(verbs.length).toBe(lang === "ckb" ? 123 : 65);
     expect(new Set(verbs.map((verb) => verbSlug(lang, verb))).size).toBe(verbs.length);
     expect(verbIndexRows(lang)).toHaveLength(verbs.length);
   });
@@ -257,9 +258,9 @@ describe("reference pages", () => {
   });
 
   it("leaves a verb's page without the sections it has no forms for", () => {
-    expect(verbSections("kmr", "hatin").map((section) => section.title)).not.toContain("Passive");
-    expect(verbSections("ckb", "خواردن").map((section) => section.title)).toContain("Passive");
-    expect(verbSections("ckb", "هاتن").map((section) => section.title)).not.toContain("Passive");
+    expect(verbSections("kmr", "hatin").map((section) => section.title)).not.toContain("Passive: past");
+    expect(verbSections("ckb", "خواردن").map((section) => section.title)).toContain("Passive: past");
+    expect(verbSections("ckb", "هاتن").map((section) => section.title)).not.toContain("Passive: past");
   });
 
   it("lists forms without a person", () => {

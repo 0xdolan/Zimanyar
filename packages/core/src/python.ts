@@ -111,7 +111,8 @@ export function pythonRegex(python: string, flags = ""): RegExp {
       if (translated === undefined && inClass && (next === "S" || next === "W")) {
         throw new Error(`\\${next} inside a character class cannot be translated: ${source}`);
       }
-      out += translated ?? `\\${next}`;
+      // Under the u flag only syntax characters may be escaped, and Python allows any: \" is ".
+      out += translated ?? (/[\w^$\\.*+?()[\]{}|/-]/.test(next) ? `\\${next}` : next);
     } else if (!inClass && character === "(" && source.startsWith("(?P<", i)) {
       out += "(?<";
       i += 3;

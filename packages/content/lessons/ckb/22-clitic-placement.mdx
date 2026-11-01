@@ -11,15 +11,17 @@ import { LessonRules, Sentences } from "../../src/components.tsx";
 
 The personal clitics (م ت ی مان تان یان) are the heart of Sorani syntax. This lesson collects every rule about where they go and what they mean.
 
-## Three jobs of the clitics
+## Five jobs of the clitics
 
 | job | tense | example | meaning |
 |---|---|---|---|
 | **possessor** | any | کتێبە**کەم** | my book |
 | **agent** (doer) | past of transitive verbs | نان**م** خوارد | I ate bread |
 | **object** | present of transitive verbs | دە**ی**بینم | I see him/her |
+| **object** | past, beside the agent | گرت**م**ی | he caught me |
+| **complement** (to, from, with me) | any, on an adposition | بۆ**م** هێنا | he brought it to me |
 
-The set-1 **endings** (م یت ێت ین ن ن) do the opposite job in each tense:
+The set-1 **endings** (present م یت ێت/ات ین ن ن; past م یت, ین ن ن) do the opposite job in each tense. Kurdish school books number these differently: کۆمەڵەی یەکەم is م ت ی مان تان یان, دووەم the past endings, سێیەم the present endings and چوارەم the imperative ە ن.
 
 | tense | agent (doer) marked by | object marked by |
 |---|---|---|
@@ -34,11 +36,16 @@ This role reversal is Sorani ergativity in a nutshell:
 
 A clitic attaches to the **first element of the verb phrase** that can host it. In order of priority:
 
-1. a **noun phrase** before the verb (the object, or a prepositional phrase): **نانم** خوارد, **لێم** پرسی *I asked him* (لێ = from him, م = I as agent);
-2. a **preverb** or the noun part of a compound verb: **هەڵم**گرت, **دەستم** پێکرد;
-3. the negation **نە**: **نەم**خوارد;
-4. the aspect prefix **دە**: **دەم**خوارد *I was eating*;
-5. otherwise the verb itself: **خواردم**.
+1. the **object**, whatever the verb: **نانم** خوارد;
+2. with no object, a **preverb** or the noun part of a compound verb: **هەڵم** گرت, **دەستم** پێ کرد;
+3. on a simple verb, the negation **نە**: **نەم**خوارد;
+4. on a simple verb, the aspect prefix **دە**: **دەم**خوارد *I was eating*;
+5. inside the perfect: خواردوو**مە**;
+6. otherwise the end of the verb: **خواردم**.
+
+A clitic on an adposition is the agent only if there is no object and no other clitic: **لێم** پرسی *I asked him*. In **نامەکەی بۆم هێنا**, ی is the agent and م means *to me*, and **بۆمی هێنا** keeps both on بۆ.
+
+With a third person agent, an object clitic comes first: **گرتمی** *he caught me*. With a first or second person agent, the object ending comes last: **بینیمیت** *I saw you*. Up to three clitics can appear together (بۆتی دەنێرم).
 
 Only one agent clitic appears in the verb phrase. A subject pronoun can precede everything for emphasis: **من** نانم خوارد.
 
@@ -59,12 +66,12 @@ The ergative pattern is where most writing mistakes happen, so it is the first t
 | \* ئەوان هاتیان. | ✘ | هاتن is intransitive: هاتن *they came* |
 | \* من دەمخوارد نان. | ✘ | the object must precede the verb |
 
-zimankit's paradigm index knows the transitivity of every verb, which is the information needed to catch the second and third errors automatically.
+zimankit's sentence parser warns about the first two kinds of mistake in its `notes`: a past transitive verb with no agent, and a clitic on an intransitive verb.
 
 ## Summary
 
-* Clitics = possessor, past agent, present object; endings = present subject, past object.
-* The clitic attaches to the first host of the verb phrase: object > preverb > نە > دە > verb.
+* Clitics = possessor, past agent, present object, past object, adposition complement; endings = present subject, past object.
+* The clitic goes on the object; failing that, on the first part of the verb, and on a simple verb after نە or دە, inside the perfect, or at the end.
 * Intransitive verbs never take an agent clitic.
 
 

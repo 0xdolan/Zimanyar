@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ckb, SimpleLexicon, segmentation } from "../src/index.js";
+import { ckb, gloss, SimpleLexicon, segmentation } from "../src/index.js";
 
 const {
   CkbAnalyzer,
@@ -74,10 +74,47 @@ describe("verbs", () => {
     expect(forms("هاتن")).toContain("وەرە");
   });
 
-  it("gives ویستن clitic subjects, no imperative and no passive", () => {
-    const features = conjugate(known.get("ویستن") as ckb.Verb).map((form) => form.features);
+  it("gives ویستن clitic subjects, and its rare imperative and passive", () => {
     expect(forms("ویستن")).toContain("دەمەوێت");
-    expect(features.some((f) => f["mood"] === "imperative" || f["voice"] === "passive")).toBe(false);
+    expect(forms("ویستن")).toContain("بتەوێ");
+    expect(forms("ویستن")).toContain("ویسترا");
+  });
+
+  it("puts ب after a preverb, with the bare form as a variant", () => {
+    const verb = makeVerb("هەڵگرتن", null, null, "core", known) as ckb.Verb;
+    const found = conjugate(verb).filter(
+      (form) => form.features["mood"] === "imperative" && form.features["person"] === "2sg",
+    );
+    expect(found.find((form) => !form.features["polarity"] && !form.features["variant"])?.form).toBe(
+      "هەڵبگرە",
+    );
+    expect(found.find((form) => form.features["variant"] === "no_b")?.form).toBe("هەڵگرە");
+  });
+
+  it("spaces a form as the written standard does", () => {
+    const spell = (infinitive: string, form: string) => {
+      const verb = makeVerb(infinitive, null, null, "core", known) as ckb.Verb;
+      const found = conjugate(verb).find((f) => f.form === form && !f.features["variant"]) as ckb.VerbForm;
+      return ckb.standardSpelling(verb, found);
+    };
+    expect(spell("هەڵگرتن", "هەڵمگرت")).toBe("هەڵم گرت");
+    expect(spell("هەڵگرتن", "هەڵدەگرم")).toBe("هەڵدەگرم");
+    expect(spell("دەستپێکردن", "دەستپێدەکەم")).toBe("دەست پێ دەکەم");
+    expect(spell("دەستپێکردن", "دەستپێمکرد")).toBe("دەستم پێ کرد");
+    expect(spell("خواردن", "خواردم")).toBe("خواردم");
+  });
+
+  it("reads a verb written over several tokens, and leaves ordinary pairs alone", () => {
+    const index = new FormIndex([
+      ...core,
+      makeVerb("هەڵگرتن", null, null, "core", known) as ckb.Verb,
+      makeVerb("دەستپێکردن", null, null, "core", known) as ckb.Verb,
+    ]);
+    expect(index.lookupSplit(["هەڵم", "گرت"])?.[0]).toBe(2);
+    expect(index.lookupSplit(["دەست", "پێ", "دەکەم"])?.[0]).toBe(3);
+    expect(index.lookupSplit(["دەستم", "پێ", "کرد"])?.[0]).toBe(3);
+    expect(index.lookupSplit(["پیاو", "هات"])).toBeNull();
+    expect(index.lookupSplit(["هات"])).toBeNull();
   });
 
   it("builds verbs it was never told about", () => {
@@ -91,7 +128,8 @@ describe("verbs", () => {
   it("guesses a present stem from a past one", () => {
     expect(ckb.guessPresentStem("شکاند")).toBe("شکێن");
     expect(ckb.guessPresentStem("نارد")).toBe("نێر");
-    expect(ckb.guessPresentStem("بوو")).toBe("ب");
+    expect(ckb.guessPresentStem("دروو")).toBe("دروو");
+    expect(ckb.guessPresentStem("دڕا", false)).toBe("دڕێ");
     expect(ckb.guessPresentStem("زز")).toBe("زز");
     expect(ckb.pastStemOf("کردنەوە")).toBe("کرد");
     expect(ckb.pastStemOf("زز")).toBeNull();
@@ -173,7 +211,84 @@ describe("the analyzer", () => {
 });
 
 describe("known zimankit limitations, to improve on and then record as exceptions", () => {
-  it.todo("the agent clitic of a noun and light verb belongs on the noun part");
+  it("puts the agent clitic of a noun and light verb on the noun part", () => {
+    const verb = ckb.defaultIndex().verbs.get("دەستپێکردن") as ckb.Verb;
+    const found = conjugate(verb).find(
+      (form) =>
+        form.features["agent"] === "1sg" &&
+        form.features["tense"] === "past" &&
+        form.features["aspect"] === "perfective" &&
+        !form.features["variant"] &&
+        !form.features["polarity"],
+    ) as ckb.VerbForm;
+    expect(ckb.standardSpelling(verb, found)).toBe("دەستم پێ کرد");
+  });
+
+  it("keeps both readings of vowel + یان: مامۆستایان", () => {
+    const glosses = new ckb.CkbAnalyzer().analyze("مامۆستایان").map(gloss);
+    expect(glosses).toContain("STEM+PL");
+    expect(glosses).toContain("STEM+3PL");
+  });
+
+  it("puts the clitic before دە in the progressive of a preverb verb", () => {
+    const verb = ckb.defaultIndex().verbs.get("هەڵگرتن") as ckb.Verb;
+    const found = conjugate(verb).filter(
+      (form) =>
+        form.features["agent"] === "3sg" &&
+        form.features["aspect"] === "progressive" &&
+        !form.features["polarity"],
+    );
+    expect(found.find((form) => !form.features["variant"])?.form).toBe("هەڵیدەگرت");
+    expect(found.find((form) => form.features["variant"] === "clitic_late")?.form).toBe("هەڵدەیگرت");
+  });
+
   it.todo("vowel + یان uses the sentence to choose plural or the 3pl clitic");
-  it.todo("the progressive of a preverb verb puts the clitic before دە");
+
+  it("reads object clitics, the eastern marker and more", () => {
+    const analyzer = new ckb.CkbAnalyzer();
+    expect(analyzer.analyze("دەتبینم")[0]).toMatchObject({ lemma: "بینین", features: { object: "2sg" } });
+    expect(analyzer.analyze("ئەچم")[0]).toMatchObject({ lemma: "چوون", features: { variant: "dialect_ae" } });
+    expect(analyzer.analyze("گرتمی")[0]).toMatchObject({
+      lemma: "گرتن",
+      features: { object: "1sg", agent: "3sg" },
+    });
+    expect(analyzer.analyze("بینیمیت")[0]).toMatchObject({ lemma: "بینین", features: { object: "2sg" } });
+    expect(analyzer.analyze("بۆمی")[0]).toMatchObject({ lemma: "بۆ", pos: "ADP" });
+  });
+
+  it("reads words built from known words", () => {
+    const lexicon = new SimpleLexicon();
+    lexicon.add("کار", "NOUN");
+    lexicon.add("گوڵ", "NOUN");
+    lexicon.add("گەنم", "NOUN");
+    lexicon.add("خێرا", "ADJ");
+    lexicon.add("ڕەش", "ADJ");
+    lexicon.add("ماسی", "NOUN");
+    lexicon.add("پەنجەرە", "NOUN");
+    const analyzer = new ckb.CkbAnalyzer(lexicon);
+    expect(analyzer.analyze("بێکار").map(gloss)).toContain("PRIV+STEM");
+    expect(analyzer.analyze("گوڵەگەنم").map(gloss)).toContain("STEM+LINK+STEM");
+    expect(analyzer.analyze("بەخێرایی").map(gloss)).toContain("CONFIX.BE+STEM+CONFIX.Y");
+    expect(analyzer.analyze("ماسێکە").map((reading) => reading.lemma)).toContain("ماسی");
+    expect(analyzer.analyze("پەنجەران").map((reading) => reading.lemma)).toContain("پەنجەرە");
+  });
+
+  it("reports the written standard, separately from what is impossible", () => {
+    expect(ckb.validateWord("نیە")).toContain("the standard spelling is نییە");
+    expect(ckb.structuralProblems("نیە")).toEqual([]);
+    expect(ckb.validateWord("ڵات")).toContain("initial ڵ");
+    expect(ckb.validateWord("چو").join()).toContain("final و");
+    expect(ckb.validateWord(`سپی${String.fromCodePoint(0x200c)}یە`).join()).toContain("ZWNJ");
+    expect(ckb.validateWord("ووشە").join()).toContain("initial وو");
+    expect(ckb.validateWord("سەیییی").join()).toContain("more than three");
+    expect(ckb.validateWord("")).toEqual(["empty"]);
+  });
+
+  it("keeps ڵڵ and ییی, and tells ر from ڕ", () => {
+    const zwnj = String.fromCodePoint(0x200c);
+    expect(ckb.normalize("ئەڵڵا")).toBe("ئەڵڵا");
+    expect(ckb.normalize("سنەییی")).toBe("سنەییی");
+    expect(ckb.normalize(`من${zwnj}و تۆ`)).toBe("من و تۆ");
+    expect(ckb.normalize(`سپی${zwnj}یە`)).toBe("سپییە");
+  });
 });

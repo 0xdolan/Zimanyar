@@ -24,7 +24,6 @@ import { agentMissing } from "./ckb/verb/agent-missing.js";
 import { agentOnIntransitive } from "./ckb/verb/agent-on-intransitive.js";
 import { irregularForm } from "./ckb/verb/irregular.js";
 import { negationClitic } from "./ckb/verb/negation-clitic.js";
-import { preverbB } from "./ckb/verb/preverb-b.js";
 import { ergativeAgreement } from "./kmr/ergative/agreement.js";
 import { directAgent } from "./kmr/ergative/direct-agent.js";
 import { obliqueObject } from "./kmr/ergative/oblique-object.js";
@@ -73,7 +72,6 @@ const CKB_RULES: readonly Rule[] = [
   agentOnIntransitive,
   irregularForm,
   negationClitic,
-  preverbB,
 ];
 const KMR_RULES: readonly Rule[] = [
   ergativeAgreement,

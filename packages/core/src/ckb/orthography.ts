@@ -2,6 +2,7 @@ import {
   ARABIC_DIACRITICS,
   ARABIC_ONLY_LETTERS,
   CKB_CHAR_MAP,
+  CKB_FINAL_U_OK,
   CKB_ILLEGAL_SEQUENCES,
   CKB_INITIAL_ALEF_HAMZA,
   CKB_INITIAL_R_RE,
@@ -12,8 +13,11 @@ import {
   CKB_SEQ_RE,
   CKB_SEQUENCE_MAP,
   CKB_SQUEEZE,
+  CKB_STANDARD_OVERRIDES,
   CKB_VALID_RE,
   CKB_VARIANT_SWAPS,
+  CKB_ZWNJ_AND_RE,
+  CKB_ZWNJ_YI_RE,
   TATWEEL,
   ZWNJ,
 } from "../generated/tables.js";
@@ -37,6 +41,8 @@ const INITIAL_VOWEL = global(CKB_INITIAL_VOWEL_RE);
 const LEGACY_HEH_ZWNJ = global(CKB_LEGACY_HEH_ZWNJ_RE);
 const LEGACY_FINAL_HEH = global(CKB_LEGACY_FINAL_HEH_RE);
 const VALID = pythonRegex(CKB_VALID_RE[0] as string);
+const ZWNJ_YI = global(CKB_ZWNJ_YI_RE);
+const ZWNJ_AND = global(CKB_ZWNJ_AND_RE);
 const HAMZA_IN_HIATUS = /[اەێۆوی]ئ|ئ[اەێۆوی]/u;
 
 const CHAR_TABLE = new Map(Object.entries(CKB_CHAR_MAP));
@@ -87,6 +93,8 @@ export function normalizeOnce(input: string, options: CkbOrthographyOptions = {}
   if (addInitialHamza) text = text.replace(INITIAL_VOWEL, `${HAMZA}$1`);
   for (const [pattern, to] of SQUEEZE) text = text.replace(pattern, to);
   if (kurdishPunctuation) text = translate(text, PUNCTUATION);
+  text = text.replace(ZWNJ_YI, "یی"); // سپی‌یە -> سپییە
+  text = text.replace(ZWNJ_AND, " و"); // من‌و تۆ -> من و تۆ
   return cleanZwnj(text);
 }
 
@@ -100,8 +108,11 @@ export function normalizeWord(word: string): string {
   return normalize(word, { digits: "keep", kurdishPunctuation: false, legacy: "no" });
 }
 
-/** What is wrong with a word's spelling; an empty list means it is valid. */
-export function validateWord(word: string): string[] {
+/**
+ * What makes a word impossible; the lexicon builder rejects on these only. Corpus evidence decides what is
+ * recognised, so a common non-standard spelling stays in the lexicon.
+ */
+export function structuralProblems(word: string): string[] {
   if (word === "") return ["empty"];
   const problems: string[] = [];
   const characters = Array.from(word);
@@ -130,6 +141,31 @@ export function validateWord(word: string): string[] {
   ) {
     problems.push("possible legacy heh for ae");
   }
+  return problems;
+}
+
+const finalUOk = new Set(CKB_FINAL_U_OK);
+const OVERRIDES = CKB_STANDARD_OVERRIDES as Record<string, string>;
+
+/** What is wrong with a word's spelling against the written standard; an empty list means nothing is. */
+export function validateWord(word: string): string[] {
+  const problems = structuralProblems(word);
+  if (word === "") return problems;
+  if (word[0] === "ڵ") problems.push("initial ڵ");
+  if (length(word) > 2 && word.startsWith("وو"))
+    problems.push("initial وو: write و, the bizroke follows (وشە, ورچ)");
+  if (
+    length(word) > 1 &&
+    !finalUOk.has(word) &&
+    word.endsWith("و") &&
+    !`اەۆێوی${ZWNJ}`.includes(word.at(-2) as string)
+  ) {
+    problems.push("final و after a consonant: write وو (چوو, مێژوو), or a separate و 'and'");
+  }
+  if (word.includes(`ی${ZWNJ}ی`)) problems.push("ZWNJ inside یی: write it solid (سپییە, چییە)");
+  if (word.includes("یییی")) problems.push("more than three ی");
+  const standard = OVERRIDES[word];
+  if (standard !== undefined) problems.push(`the standard spelling is ${standard}`);
   return problems;
 }
 

@@ -48,18 +48,101 @@ const none = null;
 const CKB_CELLS: Record<string, CellSpec> = {
   present: ["Present", { tense: "present", mood: "indicative", polarity: none, voice: none, goal: none }],
   present_neg: ["Present negative", { tense: "present", mood: "indicative", polarity: "neg", voice: none }],
-  subj: ["Subjunctive", { mood: "subjunctive", polarity: none }],
-  subj_neg: ["Subjunctive negative", { mood: "subjunctive", polarity: "neg" }],
+  subj: [
+    "Subjunctive",
+    { tense: "present", mood: "subjunctive", polarity: none, voice: none, variant: none },
+  ],
+  subj_neg: ["Subjunctive negative", { tense: "present", mood: "subjunctive", polarity: "neg", voice: none }],
   past: ["Simple past", { tense: "past", aspect: "perfective", polarity: none, voice: none, variant: none }],
-  past_neg: ["Past negative", { tense: "past", aspect: "perfective", polarity: "neg" }],
-  past_prog: ["Past progressive", { tense: "past", aspect: "progressive", polarity: none }],
-  past_prog_neg: ["Past progressive negative", { tense: "past", aspect: "progressive", polarity: "neg" }],
-  perfect: ["Present perfect", { tense: "present_perfect", voice: none }],
-  pluperfect: ["Past perfect", { tense: "past_perfect" }],
-  passive_present: ["Passive present", { tense: "present", voice: "passive", polarity: none }],
-  passive_present_neg: ["Passive present negative", { tense: "present", voice: "passive", polarity: "neg" }],
-  passive_past: ["Passive past", { tense: "past", voice: "passive" }],
-  imperative: ["Imperative", { mood: "imperative", polarity: none }],
+  past_neg: [
+    "Past negative",
+    { tense: "past", aspect: "perfective", polarity: "neg", voice: none, variant: none },
+  ],
+  past_prog: [
+    "Past progressive",
+    { tense: "past", aspect: "progressive", polarity: none, voice: none, variant: none },
+  ],
+  past_prog_neg: [
+    "Past progressive negative",
+    { tense: "past", aspect: "progressive", polarity: "neg", voice: none, variant: none },
+  ],
+  perfect: ["Present perfect", { tense: "present_perfect", voice: none, polarity: none, variant: none }],
+  perfect_neg: [
+    "Perfect negative",
+    { tense: "present_perfect", voice: none, polarity: "neg", variant: none },
+  ],
+  pluperfect: ["Past perfect", { tense: "past_perfect", voice: none, polarity: none, variant: none }],
+  pluperfect_neg: [
+    "Past perfect negative",
+    { tense: "past_perfect", voice: none, polarity: "neg", variant: none },
+  ],
+  past_subj: ["Past subjunctive", { tense: "past_subj", voice: none, polarity: none, variant: none }],
+  past_subj_neg: [
+    "Past subjunctive negative",
+    { tense: "past_subj", voice: none, polarity: "neg", variant: none },
+  ],
+  perfect_subj: [
+    "Perfect subjunctive",
+    { tense: "perfect_subj", voice: none, polarity: none, variant: none },
+  ],
+  perfect_subj_neg: [
+    "Perfect subjunctive negative",
+    { tense: "perfect_subj", voice: none, polarity: "neg", variant: none },
+  ],
+  pluperfect_subj: [
+    "Past perfect subjunctive",
+    { tense: "pluperfect_subj", voice: none, polarity: none, variant: none },
+  ],
+  pluperfect_subj_neg: [
+    "Past perfect subjunctive negative",
+    { tense: "pluperfect_subj", voice: none, polarity: "neg", variant: none },
+  ],
+  passive_present: ["Passive present", { tense: "present", mood: none, voice: "passive", polarity: none }],
+  passive_present_neg: [
+    "Passive present negative",
+    { tense: "present", mood: none, voice: "passive", polarity: "neg" },
+  ],
+  passive_subj: [
+    "Passive subjunctive",
+    { tense: "present", mood: "subjunctive", voice: "passive", polarity: none },
+  ],
+  passive_subj_neg: [
+    "Passive subjunctive negative",
+    { tense: "present", mood: "subjunctive", voice: "passive", polarity: "neg" },
+  ],
+  passive_past: ["Passive past", { tense: "past", aspect: none, voice: "passive", polarity: none }],
+  passive_past_neg: [
+    "Passive past negative",
+    { tense: "past", aspect: none, voice: "passive", polarity: "neg" },
+  ],
+  passive_past_prog: [
+    "Passive past progressive",
+    { tense: "past", aspect: "progressive", voice: "passive", polarity: none },
+  ],
+  passive_past_prog_neg: [
+    "Passive past progressive negative",
+    { tense: "past", aspect: "progressive", voice: "passive", polarity: "neg" },
+  ],
+  passive_perfect: ["Passive perfect", { tense: "present_perfect", voice: "passive", polarity: none }],
+  passive_perfect_neg: [
+    "Passive perfect negative",
+    { tense: "present_perfect", voice: "passive", polarity: "neg" },
+  ],
+  passive_pluperfect: ["Passive past perfect", { tense: "past_perfect", voice: "passive", polarity: none }],
+  passive_pluperfect_neg: [
+    "Passive past perfect negative",
+    { tense: "past_perfect", voice: "passive", polarity: "neg" },
+  ],
+  passive_past_subj: ["Passive past subjunctive", { tense: "past_subj", voice: "passive", polarity: none }],
+  passive_perfect_subj: [
+    "Passive perfect subjunctive",
+    { tense: "perfect_subj", voice: "passive", polarity: none },
+  ],
+  passive_pluperfect_subj: [
+    "Passive past perfect subjunctive",
+    { tense: "pluperfect_subj", voice: "passive", polarity: none },
+  ],
+  imperative: ["Imperative", { mood: "imperative", polarity: none, variant: none }],
   prohibitive: ["Prohibitive", { mood: "imperative", polarity: "neg" }],
 };
 const KMR_CELLS: Record<string, CellSpec> = {
@@ -158,41 +241,42 @@ export function verbOf(lang: Course, infinitive: string): AnyVerb {
 const conjugated = (lang: Course, verb: AnyVerb): AnyForm[] =>
   lang === "ckb" ? ckb.conjugate(verb as ckb.Verb) : kmr.conjugate(verb as kmr.Verb);
 
-/** Several forms can fill one cell. Teach the standard one: in Sorani the agent clitic follows the preverb. */
-function preferred(lang: Course, verb: AnyVerb, forms: string[]): string {
-  if (lang === "ckb" && verb.preverb && !(verb as ckb.Verb).light && forms.length > 1) {
-    for (const form of forms) {
-      if (!form.slice(verb.preverb.length).startsWith(verb.past)) return form;
-    }
-  }
-  return forms[0] as string;
-}
+/** The standard spelling of a form, split where the written standard splits it, and its solid form. */
+const solidForms = new Map<string, string>();
 
 /** Person to form, for one cell of a paradigm. Kurmanji's one plural form fills all three plural persons. */
 export function verbCell(lang: Course, verb: AnyVerb, cell: string): Record<string, string> {
   const spec = cellsOf(lang)[cell];
   if (spec === undefined) throw new Error(`${lang}: unknown verb cell ${cell}`);
-  const candidates = new Map<string, string[]>();
-  for (const { form, features } of conjugated(lang, verb)) {
+  const candidates = new Map<string, string>();
+  for (const found of conjugated(lang, verb)) {
+    const { features } = found;
     if (!Object.entries(spec[1]).every(([key, value]) => (features[key] ?? null) === value)) continue;
     const person = features["person"] ?? features["agent"];
     if (!person || person === "external") continue;
+    const form = lang === "ckb" ? ckb.standardSpelling(verb as ckb.Verb, found) : found.form;
+    solidForms.set(form, found.form);
+    // Several forms can fill one cell. The filters leave out variants, so the first is the standard one.
     for (const one of person === "pl" ? ["1pl", "2pl", "3pl"] : person.split("|")) {
-      candidates.set(one, [...(candidates.get(one) ?? []), form]);
+      if (!candidates.has(one)) candidates.set(one, form);
     }
   }
-  return Object.fromEntries([...candidates].map(([person, forms]) => [person, preferred(lang, verb, forms)]));
+  return Object.fromEntries(candidates);
 }
 
 /** A form with what is shown beneath it. Null when the form does not exist. */
-export type FormCell = { form: string; other?: string; ipa?: string } | null;
+export type FormCell = { form: string; solid?: string; other?: string; ipa?: string } | null;
 
 function formCell(lang: Course, form: string | null | undefined, show: string): FormCell {
   if (!form) return null;
+  const parts = form.split(" ");
+  const solid = solidForms.get(form);
   return {
     form,
-    ...(show.includes("translit") ? { other: otherOf(lang, form) } : {}),
-    ...(show.includes("ipa") ? { ipa: ipaOf(lang, form) } : {}),
+    // The standard splits it, and the solid form is allowed and common.
+    ...(parts.length > 1 && solid !== undefined ? { solid } : {}),
+    ...(show.includes("translit") ? { other: parts.map((part) => otherOf(lang, part)).join(" ") } : {}),
+    ...(show.includes("ipa") ? { ipa: parts.map((part) => ipaOf(lang, part)).join(" ") } : {}),
   };
 }
 
@@ -252,14 +336,35 @@ export function verbSections(lang: Course, infinitive: string): { title: string;
     ["Subjunctive", ["subj", "subj_neg"]],
     ["Simple past", ["past", "past_neg"]],
     ["Past progressive", ["past_prog", "past_prog_neg"]],
-    ["Perfect tenses", ["perfect", "pluperfect"]],
+    ["Perfect tenses", ["perfect", "perfect_neg", "pluperfect", "pluperfect_neg"]],
+    ["Past subjunctive", ["past_subj", "perfect_subj", "pluperfect_subj"]],
+    ["Past subjunctive negative", ["past_subj_neg", "perfect_subj_neg", "pluperfect_subj_neg"]],
     ...(lang === "ckb" && verb.transitive
-      ? ([["Passive", ["passive_present", "passive_present_neg", "passive_past"]]] as [string, string[]][])
+      ? ([
+          [
+            "Passive: present and subjunctive",
+            ["passive_present", "passive_present_neg", "passive_subj", "passive_subj_neg"],
+          ],
+          [
+            "Passive: past",
+            ["passive_past", "passive_past_neg", "passive_past_prog", "passive_past_prog_neg"],
+          ],
+          [
+            "Passive: perfect tenses",
+            ["passive_perfect", "passive_perfect_neg", "passive_pluperfect", "passive_pluperfect_neg"],
+          ],
+          [
+            "Passive: past subjunctive",
+            ["passive_past_subj", "passive_perfect_subj", "passive_pluperfect_subj"],
+          ],
+        ] as [string, string[]][])
       : []),
     ["Imperative", ["imperative", "prohibitive"]],
   ];
   return groups.flatMap(([title, cells]) => {
-    const present = cells.filter((cell) => Object.keys(verbCell(lang, verb, cell)).length > 0);
+    const present = cells.filter(
+      (cell) => cellsOf(lang)[cell] !== undefined && Object.keys(verbCell(lang, verb, cell)).length > 0,
+    );
     return present.length > 0 ? [{ title, cells: present }] : [];
   });
 }
@@ -563,9 +668,12 @@ const EXTRA_VERBS: Record<Course, string[]> = {
 };
 
 /** Every verb with its own page. */
-export const referenceVerbs = (lang: Course): string[] => [
-  ...new Set([...coreVerbs(lang).keys(), ...EXTRA_VERBS[lang]]),
-];
+export const referenceVerbs = (lang: Course): string[] =>
+  [
+    // A verb that is only the base of others (نان, of دانان) has no page: its meaning belongs to the noun.
+    ...new Set([...coreVerbs(lang).keys()].filter((verb) => lang !== "ckb" || !(verb in ckb.HIDDEN_FORMS))),
+    ...EXTRA_VERBS[lang],
+  ].filter((verb, index, all) => all.indexOf(verb) === index);
 
 const SLUG_LETTERS: Record<string, string> = {
   ç: "c",

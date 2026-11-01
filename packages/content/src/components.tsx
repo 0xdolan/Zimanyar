@@ -70,6 +70,14 @@ function FormView({ lang, cell }: { lang: Course; cell: FormCell }) {
       <K lang={lang} strong>
         {cell.form}
       </K>
+      {cell.solid !== undefined && (
+        <>
+          <br />
+          <sub>
+            also <K lang={lang}>{cell.solid}</K>
+          </sub>
+        </>
+      )}
       {cell.other !== undefined && (
         <>
           <br />

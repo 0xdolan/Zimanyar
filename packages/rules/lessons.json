@@ -82,7 +82,9 @@
         "consonant-final-and-vowel-final",
         "the-noun-in-sentences",
         "counting",
+        "collective-nouns",
         "how-zimankit-reads-these-forms",
+        "calling-someone",
         "practice",
         "summary"
       ]
@@ -137,6 +139,7 @@
       "title": "Wishes, possibilities and commands",
       "anchors": [
         "the-subjunctive",
+        "the-past-subjunctive",
         "when-to-use-it",
         "i-want-ویستن",
         "i-can-توانین",
@@ -229,7 +232,7 @@
       "file": "3-advanced/22-clitic-placement.md",
       "title": "Clitic placement and ergative syntax in depth",
       "anchors": [
-        "three-jobs-of-the-clitics",
+        "five-jobs-of-the-clitics",
         "the-hosting-rule",
         "present-tense-the-object-clitic",
         "checking-agreement",
@@ -246,7 +249,8 @@
         "4-old-encodings",
         "5-words-the-validator-rejects",
         "6-real-words-in-the-wrong-spelling",
-        "7-grammar-errors-to-watch",
+        "7-the-spelling-standard",
+        "8-grammar-errors-to-watch",
         "summary"
       ]
     }
