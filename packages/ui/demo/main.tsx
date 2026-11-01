@@ -45,6 +45,7 @@ function Demo() {
           onAddToDictionary={() => {}}
           onClose={() => {}}
           onIgnore={() => {}}
+          onLearn={() => {}}
         />
       )}
       {selected && (
@@ -53,6 +54,7 @@ function Demo() {
           lang={lang}
           onClose={() => {}}
           onIgnore={() => {}}
+          onLearn={() => {}}
           variant="compact"
         />
       )}

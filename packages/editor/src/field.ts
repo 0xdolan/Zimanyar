@@ -94,7 +94,12 @@ function controlField(element: HTMLTextAreaElement | HTMLInputElement, container
   mirror.setAttribute("aria-hidden", "true");
   container.appendChild(mirror);
 
+  let measured = "";
   const layOut = (): void => {
+    // Styles are read once per text and width: a long text has hundreds of underlines to place.
+    const key = `${element.clientWidth}\0${element.clientHeight}\0${element.value}`;
+    if (key === measured) return;
+    measured = key;
     const style = getComputedStyle(element);
     for (const name of COPIED_STYLES) mirror.style.setProperty(name, style.getPropertyValue(name));
     mirror.style.setProperty("position", "fixed");

@@ -9,7 +9,8 @@
     ".": "./src/index.ts",
     "./components": "./src/components.tsx",
     "./lesson-slugs": "./src/lesson-slugs.ts",
-    "./rehype": "./src/rehype-kurdish.ts"
+    "./rehype": "./src/rehype-kurdish.ts",
+    "./lessons/*": "./lessons/*"
   },
   "scripts": {
     "typecheck": "tsc --noEmit",

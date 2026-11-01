@@ -1,0 +1,75 @@
+@import "@zimanyar/ui/styles.css";
+
+@source "../";
+@source "../../../../packages/content/src";
+@source "../../../../packages/editor/src";
+
+.zy-lesson {
+  max-width: var(--measure);
+}
+
+.zy-lesson :is(h2, h3) {
+  font-weight: 600;
+  margin-block: 1.5em 0.5em;
+  scroll-margin-block-start: 1rem;
+}
+
+.zy-lesson h2 {
+  font-size: 1.375rem;
+}
+
+.zy-lesson h3 {
+  font-size: 1.125rem;
+}
+
+.zy-lesson :is(p, ul, ol, table, blockquote, details) {
+  margin-block: 0.75em;
+}
+
+.zy-lesson :is(ul, ol) {
+  padding-inline-start: 1.5em;
+  list-style: revert;
+}
+
+.zy-lesson a {
+  color: var(--ring);
+  text-decoration: underline;
+}
+
+.zy-lesson table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.zy-lesson :is(th, td) {
+  border-block-end: 1px solid var(--border);
+  padding: 0.375rem 0.625rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+.zy-lesson blockquote {
+  border-inline-start: 3px solid var(--border);
+  padding-inline-start: 1em;
+}
+
+.zy-lesson sub {
+  color: var(--muted-foreground);
+  font-size: 0.8em;
+  vertical-align: baseline;
+}
+
+.zy-ipa {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.zy-empty {
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+[lang="kmr-Arab"] {
+  font-family: var(--font-arabic);
+}

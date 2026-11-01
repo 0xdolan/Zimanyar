@@ -220,7 +220,7 @@ export function FindingCard({
               {finding.lessons.map((lesson) => (
                 <Button
                   key={`${lesson.lang}${lesson.lessonId}${lesson.anchor}`}
-                  className="h-auto min-h-7 max-w-full whitespace-normal text-start"
+                  className="h-auto min-h-7 max-w-full text-xs whitespace-normal text-start"
                   onClick={() => onLearn(lesson)}
                   size="sm"
                   variant="outline"

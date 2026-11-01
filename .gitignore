@@ -19,7 +19,8 @@ target/
 __pycache__/
 *.py[oc]
 
-# generated for the website
+# generated for the website and the extension
+apps/extension/public/
 apps/web/public/lexicons/
 apps/web/public/favicon.svg
 

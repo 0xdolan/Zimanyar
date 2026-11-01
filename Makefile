@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench lessons e2e screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	attribution deps data bench lessons e2e extension-lint screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -17,6 +17,7 @@ help:
 	@echo "make coverage      unit tests with coverage thresholds"
 	@echo "make build         build every package and app"
 	@echo "make e2e           build the demos and the website and test them in a real browser"
+	@echo "make extension-lint  check the Firefox build with Mozilla's linter"
 	@echo "make screenshots   regenerate assets/screenshots/; look at every changed image"
 	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
 	@echo "make rules         compile the rules' metadata into the catalogue"
@@ -77,12 +78,20 @@ biome:
 e2e:
 	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
 	pnpm --filter @zimanyar/web build
+	pnpm --filter @zimanyar/extension build:e2e
 	pnpm exec playwright test
 
 screenshots:
 	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
 	pnpm --filter @zimanyar/web build
+	pnpm --filter @zimanyar/extension build:e2e
 	UPDATE_SCREENSHOTS=1 pnpm exec playwright test scripts/screenshots/
+
+# Mozilla's linter on the Firefox build. Run in isolation: it brings packages with advisories that have no fix.
+extension-lint:
+	pnpm --filter @zimanyar/extension build
+	pnpm dlx addons-linter@10.14.0 --self-hosted --output json apps/extension/.output/firefox-mv3 > apps/extension/.output/lint.json || true
+	pnpm exec tsx scripts/checks/check-extension-lint.ts apps/extension/.output/lint.json
 
 check-i18n:
 	pnpm exec tsx scripts/checks/check-i18n.ts

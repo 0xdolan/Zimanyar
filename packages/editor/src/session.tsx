@@ -548,16 +548,21 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
       publish();
     },
     fixSafe() {
-      // From the end, so the earlier offsets stay right.
+      // One edit from the first fix to the last, so that one undo takes them all back.
       const safe = visible()
         .filter((finding) => finding.safeFix && finding.suggestions[0] !== undefined)
-        .sort((a, b) => b.range.start - a.range.start);
-      let limit = snapshot.length;
+        .sort((a, b) => a.range.start - b.range.start);
+      const first = safe[0];
+      if (first === undefined) return;
+      let fixed = "";
+      let at = first.range.start;
       for (const finding of safe) {
-        if (finding.range.end > limit) continue;
-        limit = finding.range.start;
-        replace(finding.range.start, finding.range.end, finding.suggestions[0]?.text as string);
+        // Two fixes for one span would corrupt each other. The later one waits for the next check.
+        if (finding.range.start < at) continue;
+        fixed += snapshot.slice(at, finding.range.start) + (finding.suggestions[0]?.text as string);
+        at = finding.range.end;
       }
+      replace(first.range.start, at, fixed);
     },
     destroy() {
       controller.abort();

@@ -538,6 +538,15 @@ describe("the finding card", () => {
     expect(Number(host.style.zIndex)).toBe(closed);
   });
 
+  it("scrolls inside the room it has", async () => {
+    const { handle, shadow } = attach();
+    await settled(handle);
+    handle.open(firstFinding(handle).id);
+    const room = Number.parseFloat((cardOf(shadow) as HTMLElement).style.maxHeight);
+    expect(room).toBeGreaterThan(0);
+    expect(room).toBeLessThan(window.innerHeight);
+  });
+
   it("opens above the text when there is no room below", async () => {
     const { handle, shadow } = attach();
     await settled(handle);
@@ -699,7 +708,37 @@ describe("fixing every safe finding", () => {
     });
     await settled(handle);
     handle.fixSafe();
-    expect(textarea.value).toBe(`Ez ${"B"}tim .`);
+    expect(textarea.value).toBe("A hatim .");
+  });
+
+  it("does nothing when nothing is safe to fix", async () => {
+    const [finding] = checker.check(TEXT, { lang: "kmr" }) as [Finding];
+    const { handle } = attach({
+      backend: backendOf({ check: async () => [{ ...finding, safeFix: false }] }),
+    });
+    await settled(handle);
+    handle.fixSafe();
+    expect(textarea.value).toBe(TEXT);
+  });
+
+  it("makes one edit of them all, so that one undo takes them all back", async () => {
+    const [finding] = checker.check(TEXT, { lang: "kmr" }) as [Finding];
+    const safe = (start: number, end: number, text: string): Finding => ({
+      ...finding,
+      id: `${start}`,
+      safeFix: true,
+      range: { start, end },
+      suggestions: [{ text }],
+    });
+    const { handle } = attach({
+      backend: backendOf({ check: async () => [safe(6, 11, "X"), safe(0, 2, "Y")] }),
+    });
+    await settled(handle);
+    const heard = vi.fn();
+    textarea.addEventListener("input", heard);
+    handle.fixSafe();
+    expect(textarea.value).toBe("Y ez X .");
+    expect(heard).toHaveBeenCalledOnce();
   });
 });
 

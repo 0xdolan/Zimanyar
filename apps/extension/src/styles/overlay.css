@@ -1,0 +1,31 @@
+/* The stylesheet of the overlay on web pages. Only the Arabic-script font comes along: Latin text falls back to
+   the page's system font, which keeps the content script small. */
+@import "tailwindcss";
+@import "@zimanyar/config/tokens.css";
+
+@source "../../../../packages/ui/src";
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-weight: 400;
+  src: url("@fontsource/vazirmatn/files/vazirmatn-arabic-400-normal.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+200C-200E;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-weight: 600;
+  src: url("@fontsource/vazirmatn/files/vazirmatn-arabic-600-normal.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+200C-200E;
+}
+
+[lang="ckb"],
+:lang(ckb) {
+  font-family: var(--font-arabic);
+  line-height: var(--leading-arabic);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}

@@ -64,9 +64,10 @@ function floatingStyle(anchor: Rect, viewport: { width: number; height: number }
     direction === "rtl"
       ? { right: Math.max(MARGIN, Math.min(viewport.width - anchor.right, furthest)) }
       : { left: Math.max(MARGIN, Math.min(anchor.left, furthest)) };
+  // A tall card scrolls inside the room it has, rather than running off the screen.
   return viewport.height - anchor.bottom < ROOM_BELOW
-    ? { ...side, bottom: viewport.height - anchor.top + GAP }
-    : { ...side, top: anchor.bottom + GAP };
+    ? { ...side, bottom: viewport.height - anchor.top + GAP, maxHeight: anchor.top - GAP - MARGIN }
+    : { ...side, top: anchor.bottom + GAP, maxHeight: viewport.height - anchor.bottom - GAP - MARGIN };
 }
 
 /** Everything drawn over a text field. Drawing only: the session owns the state and the keyboard. */
