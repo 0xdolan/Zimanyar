@@ -17,7 +17,7 @@ Two invisible characters matter in typed Sorani:
 
 | character | use | example |
 |---|---|---|
-| **ZWNJ** (zero-width non-joiner, U+200C) | keeps two parts of one word apart without a space, mostly in compounds | پێش‌نیاز *suggestion* |
+| **ZWNJ** (zero-width non-joiner, U+200C) | not part of standard spelling. You will meet it in older text, but compounds are written solid (پێشنیاز *suggestion*), and forms such as سپی‌یە or من‌و تۆ are errors | سپی‌یە → سپییە |
 | ordinary space | separates words | من دەچم |
 
 Older texts sometimes used ه + ZWNJ to imitate ە, because early keyboards had no ە key: you will see به‌ڕێوه‌به‌ر where the standard is بەڕێوەبەر. zimankit's normaliser repairs such text automatically (lesson 23).
@@ -46,6 +46,8 @@ Sorani uses the Eastern Arabic digits, written left to right inside right-to-lef
 
 <Sentences lang="ckb" items={[["یەک، دوو، سێ، چوار، پێنج","one, two, three, four, five"],["شەش، حەوت، هەشت، نۆ، دە","six, seven, eight, nine, ten"],["ساڵی ٢٠٢٦","the year 2026"]]} />
 
+Numbers 11 to 19 are one word (یازدە, نۆزدە). The others are written apart: بیست و یەک *21*, دوو سەد *200*, یەک هەزار *1000*. A number + noun that makes a new word is solid: دووشەممە *Monday*, یەکشاخ *one-horned*.
+
 ## Punctuation
 
 | Sorani | English | name |
@@ -57,7 +59,7 @@ Sorani uses the Eastern Arabic digits, written left to right inside right-to-lef
 
 ## Latin transliteration
 
-Kurds in Başûr occasionally write Sorani in Latin letters, usually with the Hawar letters of Kurmanji. zimankit's transliterator (`to_latin`) follows that convention and writes the hidden *i*:
+Kurds in Başûr occasionally write Sorani in Latin letters, usually with the Hawar letters of Kurmanji. zimankit's transliterator (`to_latin`) follows that convention, with extra marks for sounds Hawar's 31 letters do not separate (ḧ, ẍ, ', rr, ll), and writes the hidden *i*:
 
 <Sentences lang="ckb" items={[["ئەمڕۆ هەوا خۆشە.","The weather is nice today."],["من کوردم و لە هەولێر دەژیم.","I am Kurdish and I live in Erbil."],["ئەم کتێبە زۆر باشە.","This book is very good."]]} />
 

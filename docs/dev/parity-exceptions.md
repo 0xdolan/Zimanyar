@@ -40,3 +40,7 @@ zimankit names a verb's reference page by its Latin spelling with marks removed,
 ## Kurmanji typed on a Turkish keyboard
 
 zimankit's `identify` is unchanged, and calls *Ez dıçım malê.* Turkish because of the dotless ı. The checker should fix that letter, not fall silent, so `buildParagraph` in `packages/rules` treats a paragraph as Kurmanji when it was identified as Turkish but has letters Turkish lacks (ê, x, w, q) or Kurmanji function words. Tested in `packages/rules/test/run.test.ts`.
+
+## Limitations zimankit 0.3.0 removed
+
+The agent clitic of a noun and light verb on the noun part, the clitic before دە in the progressive of a preverb verb, and both readings of مامۆستایان now come from zimankit itself, and are tested in `packages/core/test/ckb.test.ts`. Choosing between those two readings from the sentence is still open.

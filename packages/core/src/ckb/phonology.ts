@@ -142,13 +142,19 @@ export type LatinStyle = "hawar" | "accented";
 /** Kurdish-Latin transliteration; the bizroke is written as i. */
 export function toLatin(word: string, style: LatinStyle = "hawar"): string {
   const overrides = styles[style] ?? {};
-  return segments(word, { markEpenthesis: false })
+  const latin = segments(word, { markEpenthesis: false })
     .map(([symbol], i) => {
       if (symbol === "ʔ") return i === 0 ? "" : "'";
       if (symbol === "r" && i === 0) return "r";
       return overrides[symbol] ?? ipaToLatin.get(symbol) ?? symbol;
     })
     .join("");
+  // An ezafe after a final î is written: masîy, ماسیی.
+  const before = word.at(-3);
+  if (word.endsWith("یی") && before !== undefined && !"اەۆێوی".includes(before) && latin.endsWith("î")) {
+    return `${latin}y`;
+  }
+  return latin;
 }
 
 export function textToIpa(text: string, options: G2POptions = {}): string {

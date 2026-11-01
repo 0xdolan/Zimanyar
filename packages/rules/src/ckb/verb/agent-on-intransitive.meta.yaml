@@ -17,4 +17,4 @@ examples:
   - { wrong: "چوویان", right: "چوون" }
 lessons:
   - { lang: ckb, lessonId: 13, anchor: "the-simple-past" }
-  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }
+  - { lang: ckb, lessonId: 23, anchor: "8-grammar-errors-to-watch" }

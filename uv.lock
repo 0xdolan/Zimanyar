@@ -117,11 +117,11 @@ wheels = [
 
 [[package]]
 name = "zimankit"
-version = "0.2.0"
+version = "0.3.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/bb/1b/80af4d2eada5e195ebb8a591a858c7c9414c45500c58843917df6d709523/zimankit-0.2.0.tar.gz", hash = "sha256:6f756b5415f89c09925159c4863e6718e744e231aa3f24d6e40075966e2f7d66", size = 120339, upload-time = "2026-10-31T07:54:31.544Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/df/80/301d041c6b0dce744e40817332b1ed1ca05589bc5e358754f9fcb5322a97/zimankit-0.3.1.tar.gz", hash = "sha256:b9f0b84c8818db7a3a814999acef5a1ba1b56b635ece057e1ee310fb4ac668d5", size = 144332, upload-time = "2026-11-01T21:33:09.196Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4c/3c/08be23e7784486f11b83df2da40c568ae63081939b8fe91beb27cb5e1740/zimankit-0.2.0-py3-none-any.whl", hash = "sha256:6641683cdc6d5a3dc563684985f9bc7d39168326c3b7742245cc8addd5ed4ada", size = 118784, upload-time = "2026-10-31T07:54:30.066Z" },
+    { url = "https://files.pythonhosted.org/packages/13/b4/8e0932f42bacee05c5a2b88d8af2e86e27a9d88d7e3ec7c7c3c5c636b1fb/zimankit-0.3.1-py3-none-any.whl", hash = "sha256:1791455450410b59e0ba0646e16ca3ac6661d7624f947ada39a2646193b652ef", size = 134189, upload-time = "2026-11-01T21:33:07.531Z" },
 ]
 
 [[package]]
@@ -145,7 +145,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "pyarrow", specifier = ">=26.0.0" },
-    { name = "zimankit", specifier = "==0.2.0" },
+    { name = "zimankit", specifier = "==0.3.1" },
     { name = "zstandard", specifier = ">=0.25.0" },
 ]
 

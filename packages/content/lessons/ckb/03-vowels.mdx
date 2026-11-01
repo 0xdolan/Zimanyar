@@ -33,7 +33,8 @@ Sorani has eight vowels. Six are written with their own letters, one is written 
 | position | و | ی |
 |---|---|---|
 | next to a vowel letter | consonant **w** · ئاو *aw* “water” | consonant **y** · پیاو *pyaw* “man” |
-| between consonants or at the end after a consonant | vowel **u** · کورد *kurd* | vowel **î** · شیر *şîr* |
+| between consonants | vowel **u** · کورد *kurd* | vowel **î** · شیر *şîr* |
+| at the end, after a consonant | written **وو**, long **û** · چوو *çû*, مێژوو *mêjû* | vowel **î** · ماسی *masî* |
 | doubled | long **û** · وو in بوون *bûn* | **î + y** where a vowel meets a glide · ماسییەکە *masîyeke* “the fish” |
 
 zimankit's pronunciation engine applies exactly these rules (`skills_ckb/phonology_ipa.py`), so you can check any word:
@@ -44,7 +45,7 @@ Notice چای *tea* (*çay*): the final ی comes right after the vowel ا, so it
 
 ## The bizroke: the vowel you do not write
 
-Sorani has a short vowel *i* (IPA ɯ) that is **never written**. Readers insert it automatically wherever two or three consonants would otherwise be hard to pronounce together:
+Sorani has an eighth vowel, a very short *i* (IPA ɯ) called the **بزرۆکە** ("the hidden one"). It is really there in speech but has no letter in this alphabet, so readers supply it:
 
 | written | consonants | said | meaning |
 |---|---|---|---|
@@ -55,7 +56,7 @@ Sorani has a short vowel *i* (IPA ɯ) that is **never written**. Readers insert 
 
 The rule zimankit uses (and that native readers follow without thinking) is:
 
-1. A syllable may start with **one consonant**, or a consonant + *w*/*y* (خوا *xwa*, پیا *pya*), and at the start of a word also *s/ş* + consonant (ستێرە *stêre*).
+1. A syllable may start with **one consonant**, or a consonant + *w*/*y* (خوا *xwa*, پیا *pya*), and at the start of a word also *s/ş* + consonant (ستێرە *stêre*), and in a few words three consonants (ستران *stran*).
 2. A syllable may end with one consonant, or a falling cluster such as *rd*, *nd*, *st*, *şk*.
 3. Wherever this is impossible, insert *i*, building syllables from the **end** of the word.
 

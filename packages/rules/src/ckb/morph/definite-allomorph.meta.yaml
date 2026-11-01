@@ -17,4 +17,4 @@ examples:
   - { wrong: "پیاوکە", right: "پیاوەکە" }
 lessons:
   - { lang: ckb, lessonId: 7, anchor: "consonant-final-and-vowel-final" }
-  - { lang: ckb, lessonId: 23, anchor: "7-grammar-errors-to-watch" }
+  - { lang: ckb, lessonId: 23, anchor: "8-grammar-errors-to-watch" }

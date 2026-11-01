@@ -227,7 +227,7 @@ export const CATALOGUE = [
       {
         "lang": "ckb",
         "lessonId": 23,
-        "anchor": "7-grammar-errors-to-watch",
+        "anchor": "8-grammar-errors-to-watch",
         "title": "The written standard and common errors"
       }
     ]
@@ -272,7 +272,7 @@ export const CATALOGUE = [
       {
         "lang": "ckb",
         "lessonId": 23,
-        "anchor": "7-grammar-errors-to-watch",
+        "anchor": "8-grammar-errors-to-watch",
         "title": "The written standard and common errors"
       }
     ]
@@ -317,7 +317,7 @@ export const CATALOGUE = [
       {
         "lang": "ckb",
         "lessonId": 23,
-        "anchor": "7-grammar-errors-to-watch",
+        "anchor": "8-grammar-errors-to-watch",
         "title": "The written standard and common errors"
       }
     ]
@@ -401,7 +401,7 @@ export const CATALOGUE = [
       {
         "lang": "ckb",
         "lessonId": 23,
-        "anchor": "7-grammar-errors-to-watch",
+        "anchor": "8-grammar-errors-to-watch",
         "title": "The written standard and common errors"
       }
     ]
@@ -1013,7 +1013,7 @@ export const CATALOGUE = [
       {
         "lang": "ckb",
         "lessonId": 23,
-        "anchor": "7-grammar-errors-to-watch",
+        "anchor": "8-grammar-errors-to-watch",
         "title": "The written standard and common errors"
       }
     ]
@@ -1058,7 +1058,7 @@ export const CATALOGUE = [
       {
         "lang": "ckb",
         "lessonId": 23,
-        "anchor": "7-grammar-errors-to-watch",
+        "anchor": "8-grammar-errors-to-watch",
         "title": "The written standard and common errors"
       }
     ]
@@ -1150,45 +1150,6 @@ export const CATALOGUE = [
         "lessonId": 22,
         "anchor": "the-hosting-rule",
         "title": "Clitic placement and ergative syntax in depth"
-      }
-    ]
-  },
-  {
-    "id": "ckb.verb.preverb-b",
-    "lang": "ckb",
-    "family": "verb",
-    "category": "morphology",
-    "severity": "error",
-    "confidence": 0.85,
-    "safeFix": false,
-    "standardOnly": false,
-    "notice": false,
-    "message": {
-      "en": "After a preverb the ب of the subjunctive is dropped.",
-      "ckb": "دوای پێشکردار ب ی داخوازی لادەچێت.",
-      "kmr": "Piştî pêşlêkerê ب ya daxwazî tê rakirin."
-    },
-    "reason": {
-      "en": "The preverb takes the place of ب: گرتن gives بگرە, but هەڵگرتن gives هەڵگرە.",
-      "ckb": "پێشکردار جێی ب دەگرێتەوە: گرتن دەبێتە بگرە، بەڵام هەڵگرتن دەبێتە هەڵگرە.",
-      "kmr": "Pêşlêker cihê ب digire: گرتن dibe بگرە, lê هەڵگرتن dibe هەڵگرە."
-    },
-    "examples": [
-      {
-        "wrong": "هەڵبگرە",
-        "right": "هەڵگرە"
-      },
-      {
-        "wrong": "وەربگرە",
-        "right": "وەرگرە"
-      }
-    ],
-    "lessons": [
-      {
-        "lang": "ckb",
-        "lessonId": 20,
-        "anchor": "1-preverbs",
-        "title": "Preverbs, -ەوە verbs and compound verbs"
       }
     ]
   },
