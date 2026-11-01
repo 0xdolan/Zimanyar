@@ -41,3 +41,20 @@ export function wordBefore(text: string, caret: number): { start: number; word: 
 
 /** The variety a word is written in, by its script. */
 export const varietyOf = (word: string): Variety => (/\p{Script=Arabic}/u.test(word) ? "ckb" : "kmr");
+
+const HELPER: Readonly<Record<string, string>> = {
+  "e^": "ê",
+  "i^": "î",
+  "u^": "û",
+  "s,": "ş",
+  "c,": "ç",
+  "E^": "Ê",
+  "I^": "Î",
+  "U^": "Û",
+  "S,": "Ş",
+  "C,": "Ç",
+};
+
+/** The Kurmanji letter spelled by the two characters before the caret, as on a keyboard without them. */
+export const helperLetter = (text: string, caret: number): string | undefined =>
+  caret < 2 ? undefined : HELPER[text.slice(caret - 2, caret)];

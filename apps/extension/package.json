@@ -1,0 +1,12 @@
+{
+  "name": "@zimanyar/extension",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zimanyar for Chrome, Firefox and Safari",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "devDependencies": {
+    "wxt": "0.21.4",
+    "@wxt-dev/module-react": "1.2.2"
+  }
+}

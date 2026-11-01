@@ -71,7 +71,22 @@ describe("FindingCard", () => {
   it("works with no handlers", () => {
     render(<FindingCard finding={ergative} lang="en" />);
     fireEvent.click(screen.getByRole("button", { name: "Replace with dîtî" }));
-    fireEvent.click(screen.getAllByRole("button", { name: /Lesson/ })[0] as HTMLElement);
+  });
+
+  it("offers no lesson without a way to open it", () => {
+    render(<FindingCard finding={ergative} lang="en" />);
+    expect(screen.queryByRole("button", { name: /Lesson/ })).toBeNull();
+    cleanup();
+    render(<FindingCard finding={ergative} lang="en" teaching={false} />);
+    expect(screen.queryByRole("button", { name: "Learn" })).toBeNull();
+  });
+
+  it("draws who agrees with whom for Kurmanji's ergative past, and only there", () => {
+    render(<FindingCard finding={ergative} lang="en" />);
+    expect(screen.getByRole("figure").textContent).toContain("min tu dîtî");
+    cleanup();
+    render(<FindingCard finding={sorani} lang="en" />);
+    expect(screen.queryByRole("figure")).toBeNull();
   });
 
   it("closes on Esc, and only then", () => {
@@ -107,7 +122,7 @@ describe("FindingCard", () => {
   });
 
   it("names a lesson by number where its title is not translated", () => {
-    render(<FindingCard finding={ergative} lang="ckb" />);
+    render(<FindingCard finding={ergative} lang="ckb" onLearn={() => {}} />);
     expect(screen.getByRole("button", { name: /وانەی ١٤/ }).textContent).not.toMatch(/[a-z]/);
   });
 

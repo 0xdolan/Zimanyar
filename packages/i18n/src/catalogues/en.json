@@ -251,5 +251,9 @@
   "starlight.pagefind.search_label": "Search this site",
   "starlight.pagefind.filters_label": "Filters",
   "starlight.pagefind.zero_results": "No results for [SEARCH_TERM]",
-  "starlight.pagefind.searching": "Searching for [SEARCH_TERM]..."
+  "starlight.pagefind.searching": "Searching for [SEARCH_TERM]...",
+  "ergativity.agent": "The doer",
+  "ergativity.object": "The object",
+  "ergativity.verb": "The verb",
+  "ergativity.summary": "In the past the verb agrees with the object: min tu dîtî, I saw you."
 }

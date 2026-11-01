@@ -15,6 +15,7 @@ export const OVERLAY_CSS = `
     linear-gradient(135deg, transparent 40%, var(--zy-wave) 40%, var(--zy-wave) 60%, transparent 60%) 0 0 / 6px 3px repeat-x,
     linear-gradient(45deg, transparent 40%, var(--zy-wave) 40%, var(--zy-wave) 60%, transparent 60%) 3px 0 / 6px 3px repeat-x;
 }
+.zy-thick .zy-underline { height: 4px; border-block-end-width: 3px; }
 .zy-floating { position: fixed; pointer-events: auto; max-width: min(24rem, calc(100vw - 16px)); max-height: calc(100vh - 16px); overflow: auto; }
 .zy-badge {
   position: fixed; pointer-events: auto; min-width: 1.5rem; height: 1.5rem; padding-inline: 0.375rem;
@@ -27,6 +28,7 @@ export const OVERLAY_CSS = `
 `;
 
 const HOISTED = /@(?:font-face|property)[^{}@]*\{[^{}]*\}/g;
+const REM = /(?<![\w.-])(\d*\.?\d+)rem\b/g;
 const ROOT = /:root((?:\[[^\]]*\]|:not\([^)]*\))*)/g;
 
 /**
@@ -37,7 +39,9 @@ export function splitStyles(css: string): { shadow: string; document: string } {
   const hoisted = css.match(HOISTED) ?? [];
   const shadow = css
     .replace(HOISTED, "")
-    .replace(ROOT, (_match, states: string) => (states === "" ? ":host" : `:host(${states})`));
+    .replace(ROOT, (_match, states: string) => (states === "" ? ":host" : `:host(${states})`))
+    // A rem follows the page's root font size, and many pages change it, which would rescale the overlay.
+    .replace(REM, (_match, size: string) => `${Number(size) * 16}px`);
   return { shadow, document: hoisted.join("\n") };
 }
 

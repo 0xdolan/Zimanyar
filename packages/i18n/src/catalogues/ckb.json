@@ -251,5 +251,9 @@
   "starlight.pagefind.search_label": "لەم ماڵپەڕەدا بگەڕێ",
   "starlight.pagefind.filters_label": "پاڵێوەرەکان",
   "starlight.pagefind.zero_results": "هیچ ئەنجامێک بۆ [SEARCH_TERM] نییە",
-  "starlight.pagefind.searching": "گەڕان بۆ [SEARCH_TERM]..."
+  "starlight.pagefind.searching": "گەڕان بۆ [SEARCH_TERM]...",
+  "ergativity.agent": "بکەر",
+  "ergativity.object": "بەرکار",
+  "ergativity.verb": "کردار",
+  "ergativity.summary": "لە ڕابردوودا کردار لەگەڵ بەرکار دەگونجێت: min tu dîtî، من تۆم بینی."
 }

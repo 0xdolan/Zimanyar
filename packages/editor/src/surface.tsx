@@ -39,6 +39,7 @@ export interface SurfaceProps {
   direction: "ltr" | "rtl";
   card: CardView | null;
   completion: CompletionView | null;
+  teaching: boolean;
   ipaOf?: (suggestion: string) => string | null;
   onApply: (finding: Finding, suggestion: string) => void;
   onIgnore: (finding: Finding) => void;
@@ -78,6 +79,7 @@ export function Surface({
   direction,
   card,
   completion,
+  teaching,
   ipaOf,
   onApply,
   onIgnore,
@@ -140,6 +142,7 @@ export function Surface({
             onApply={(suggestion) => onApply(card.finding, suggestion)}
             onClose={onCloseCard}
             onIgnore={() => onIgnore(card.finding)}
+            teaching={teaching}
             variant="compact"
             {...(ipaOf !== undefined ? { ipaOf } : {})}
             {...(onAddToDictionary !== undefined

@@ -251,5 +251,9 @@
   "starlight.pagefind.search_label": "Li vê malperê bigere",
   "starlight.pagefind.filters_label": "Parzûn",
   "starlight.pagefind.zero_results": "Ji bo [SEARCH_TERM] encam tune",
-  "starlight.pagefind.searching": "Li [SEARCH_TERM] tê gerîn..."
+  "starlight.pagefind.searching": "Li [SEARCH_TERM] tê gerîn...",
+  "ergativity.agent": "Kirde",
+  "ergativity.object": "Bireser",
+  "ergativity.verb": "Lêker",
+  "ergativity.summary": "Di dema borî de lêker li gorî bireserê ye: min tu dîtî, min tu dîtî."
 }
