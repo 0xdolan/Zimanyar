@@ -95,7 +95,7 @@ screenshots:
 extension-lint:
 	pnpm --filter @zimanyar/extension build
 	pnpm dlx addons-linter@10.14.0 --self-hosted --output json apps/extension/.output/firefox-mv3 > apps/extension/.output/lint.json || true
-	pnpm exec tsx scripts/checks/check-extension-lint.ts apps/extension/.output/lint.json
+	pnpm exec tsx scripts/checks/check-extension-lint.ts apps/extension/.output/lint.json apps/extension/.output/firefox-mv3
 
 # Build the desktop packages and check them, in a container, with nothing installed on your own system.
 desktop-docker:

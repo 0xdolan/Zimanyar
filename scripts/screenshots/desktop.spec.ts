@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { expect, type Page, test } from "@playwright/test";
@@ -138,9 +138,9 @@ test.describe("privacy", () => {
   test("the only fetch in the build reads its own lexicons", () => {
     const found: string[] = [];
     const walk = (folder: string) => {
-      for (const name of readdirSync(folder)) {
-        const path = join(folder, name);
-        if (statSync(path).isDirectory()) walk(path);
+      for (const entry of readdirSync(folder, { withFileTypes: true })) {
+        const path = join(folder, entry.name);
+        if (entry.isDirectory()) walk(path);
         else if (path.endsWith(".js")) {
           const code = readFileSync(path, "utf8");
           for (const hit of code.match(/\b(?:XMLHttpRequest|WebSocket|EventSource|sendBeacon)\b/g) ?? []) {
