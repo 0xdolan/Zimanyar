@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github._0xdolan.Zimanyar</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Zimanyar</name>
+  <summary>Check and learn Kurdish as you write</summary>
+  <description>
+    <p>
+      Zimanyar finds mistakes in Sorani and Kurmanji as you write, explains each one, and teaches the grammar
+      behind it. Everything runs on your own computer, and nothing is ever sent anywhere.
+    </p>
+    <ul>
+      <li>Spelling, letter and grammar checks, including ergativity in the past tense</li>
+      <li>A reason, examples and a lesson for every finding</li>
+      <li>Two full courses of 23 lessons, with verb and noun tables</li>
+      <li>Check the clipboard from anywhere with a keyboard shortcut</li>
+      <li>Open and save text and Markdown files</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">Zimanyar.desktop</launchable>
+  <url type="homepage">https://0xdolan.github.io/Zimanyar/</url>
+  <url type="bugtracker">https://github.com/0xdolan/Zimanyar/issues</url>
+  <url type="vcs-browser">https://github.com/0xdolan/Zimanyar</url>
+  <developer id="io.github._0xdolan">
+    <name>Dolan H.</name>
+  </developer>
+  <categories>
+    <category>Education</category>
+    <category>Languages</category>
+  </categories>
+  <content_rating type="oars-1.1" />
+  <provides>
+    <binary>zimanyar-desktop</binary>
+  </provides>
+  <releases>
+    <release version="0.1.0" date="2026-11-01">
+      <description>
+        <p>The first version.</p>
+      </description>
+    </release>
+  </releases>
+</component>

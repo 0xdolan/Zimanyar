@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Zimanyar",
+  "mainBinaryName": "zimanyar-desktop",
+  "version": "0.1.0",
+  "identifier": "io.github.zimanyar.desktop",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build:web",
+    "beforeDevCommand": "pnpm exec vite"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Zimanyar",
+        "url": "index.html",
+        "width": 1100,
+        "height": 760,
+        "minWidth": 480,
+        "minHeight": 400,
+        "dragDropEnabled": false
+      },
+      {
+        "label": "quick",
+        "title": "Zimanyar",
+        "url": "quick.html",
+        "width": 560,
+        "height": 640,
+        "visible": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:; worker-src 'self' blob:; connect-src 'self' ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; form-action 'none'",
+      "assetProtocol": { "enable": false },
+      "freezePrototype": true
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb", "rpm", "appimage"],
+    "category": "Education",
+    "shortDescription": "Check and learn Kurdish as you write",
+    "longDescription": "Zimanyar finds mistakes in Sorani and Kurmanji as you write, explains each\none, and teaches the grammar behind it. Everything runs on your own\ncomputer and nothing is ever sent anywhere.",
+    "publisher": "Dolan H. <0xdolan@gmail.com>",
+    "copyright": "Copyright 2026 Dolan H.",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://0xdolan.github.io/Zimanyar/",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/256x256.png", "icons/512x512.png"],
+    "linux": {
+      "deb": {
+        "section": "text",
+        "depends": ["libc6", "libgcc-s1"],
+        "priority": "optional",
+        "desktopTemplate": "../../../packaging/linux/zimanyar.desktop",
+        "files": {
+          "/usr/share/metainfo/io.github._0xdolan.Zimanyar.metainfo.xml": "../../../packaging/linux/io.github._0xdolan.Zimanyar.metainfo.xml",
+          "/usr/share/doc/zimanyar/copyright": "../../../packaging/linux/copyright",
+          "/usr/share/doc/zimanyar/changelog.gz": "generated/changelog.gz",
+          "/usr/share/man/man1/zimanyar-desktop.1.gz": "generated/zimanyar-desktop.1.gz"
+        }
+      },
+      "rpm": {
+        "release": "1",
+        "desktopTemplate": "../../../packaging/linux/zimanyar.desktop",
+        "files": {
+          "/usr/share/metainfo/io.github._0xdolan.Zimanyar.metainfo.xml": "../../../packaging/linux/io.github._0xdolan.Zimanyar.metainfo.xml"
+        }
+      }
+    }
+  }
+}
