@@ -11,6 +11,9 @@
       "entry": ["demo/*.{ts,tsx}"],
       "ignoreDependencies": ["tailwindcss"]
     },
+    "packages/app": {
+      "entry": ["vite.ts"]
+    },
     "packages/content": {
       "entry": ["src/rehype-kurdish.ts", "src/lesson-slugs.ts", "src/components.tsx"]
     },
@@ -33,7 +36,12 @@
       ]
     },
     "apps/extension": {
-      "entry": ["wxt.config.ts", "src/entrypoints/**/*.{ts,tsx}", "scripts/*.ts"]
+      "entry": ["wxt.config.ts", "src/entrypoints/**/*.{ts,tsx}", "scripts/*.ts"],
+      "ignoreDependencies": ["tailwindcss"]
+    },
+    "apps/desktop": {
+      "entry": ["vite.config.ts", "src/main.tsx", "src/settings.tsx", "src/quick.tsx", "scripts/*.ts"],
+      "ignoreDependencies": ["tailwindcss"]
     },
     ".": {
       "ignoreDependencies": ["axe-core"]

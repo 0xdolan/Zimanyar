@@ -1,9 +1,9 @@
+import overlayCss from "@zimanyar/app/overlay.css?inline";
 import { CheckerPanel } from "@zimanyar/editor";
 import type { Settings } from "@zimanyar/settings";
 import { useCallback, useMemo, useRef } from "react";
 import { browser } from "wxt/browser";
 import { backendFor } from "../lib/browser-backend";
-import overlayCss from "../styles/overlay.css?inline";
 
 /** A small text field to try something in, without going to a page. */
 export function QuickCheck({ settings }: { settings: Settings }) {

@@ -2,9 +2,7 @@ import { createT, type MessageKey } from "@zimanyar/i18n";
 import { parseDictionary, ruleFamilies, type Settings, withWord } from "@zimanyar/settings";
 import { Button } from "@zimanyar/ui";
 import { type ChangeEvent, type ReactNode, useEffect, useState } from "react";
-import { browser } from "wxt/browser";
-import { saveSettings } from "../lib/browser-settings";
-import { matchPatternOf } from "../lib/messages";
+import type { Platform } from "./platform";
 
 function Section({ title, query, children }: { title: string; query: string; children: ReactNode }) {
   const [matches, setMatches] = useState(true);
@@ -81,13 +79,13 @@ const download = (name: string, content: string) => {
 };
 
 /** Every setting, saved as it changes. */
-export function SettingsPage({ settings: stored }: { settings: Settings }) {
+export function SettingsPage({ settings: stored, platform }: { settings: Settings; platform: Platform }) {
   // Shown at once, ahead of storage answering, so that a control never seems to ignore a click.
   const [settings, setSettings] = useState(stored);
   useEffect(() => setSettings(stored), [stored]);
   const save = (next: Settings) => {
     setSettings(next);
-    return saveSettings(next);
+    return platform.saveSettings(next);
   };
   const t = createT(settings.interface.uiLang);
   const [query, setQuery] = useState("");
@@ -96,8 +94,8 @@ export function SettingsPage({ settings: stored }: { settings: Settings }) {
   const [commands, setCommands] = useState<{ description?: string; shortcut?: string }[]>([]);
 
   useEffect(() => {
-    void browser.commands.getAll().then(setCommands);
-  }, []);
+    void platform.shortcuts().then(setCommands);
+  }, [platform]);
 
   const change = <Group extends keyof Settings>(group: Group, values: Partial<Settings[Group]>) =>
     void save({ ...settings, [group]: { ...(settings[group] as object), ...values } });
@@ -126,14 +124,12 @@ export function SettingsPage({ settings: stored }: { settings: Settings }) {
 
   const everywhere = async (on: boolean) => {
     // Asked only here, with the reason beside it, and only when someone chooses this.
-    if (on && !(await browser.permissions.request({ origins: ["<all_urls>"] }))) return;
-    if (!on) await browser.permissions.remove({ origins: ["<all_urls>"] }).catch(() => {});
-    change("sites", { everywhere: on });
+    if (await platform.sites?.setEverywhere(on)) change("sites", { everywhere: on });
   };
 
   const removeSite = async (site: string) => {
     change("sites", { enabled: settings.sites.enabled.filter((item) => item !== site) });
-    await browser.permissions.remove({ origins: [matchPatternOf(site)] }).catch(() => {});
+    await platform.sites?.forget(site);
   };
 
   const familyName = (family: string) => t(`family.${family}` as MessageKey);
@@ -314,29 +310,31 @@ export function SettingsPage({ settings: stored }: { settings: Settings }) {
         )}
       </Section>
 
-      <Section query={query} title={t("settings.sites")}>
-        <p className="text-muted-foreground text-sm">{t("settings.sitesHelp")}</p>
-        <Toggle
-          checked={settings.sites.everywhere}
-          label={t("settings.everywhere")}
-          onChange={(on) => void everywhere(on)}
-        />
-        <ul className="flex flex-col gap-1">
-          {settings.sites.enabled.map((site) => (
-            <li className="flex items-center gap-2" key={site}>
-              <span dir="ltr">{site}</span>
-              <Button
-                aria-label={t("settings.removeSite", { site })}
-                onClick={() => void removeSite(site)}
-                size="sm"
-                variant="ghost"
-              >
-                ×
-              </Button>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      {platform.sites !== undefined && (
+        <Section query={query} title={t("settings.sites")}>
+          <p className="text-muted-foreground text-sm">{t("settings.sitesHelp")}</p>
+          <Toggle
+            checked={settings.sites.everywhere}
+            label={t("settings.everywhere")}
+            onChange={(on) => void everywhere(on)}
+          />
+          <ul className="flex flex-col gap-1">
+            {settings.sites.enabled.map((site) => (
+              <li className="flex items-center gap-2" key={site}>
+                <span dir="ltr">{site}</span>
+                <Button
+                  aria-label={t("settings.removeSite", { site })}
+                  onClick={() => void removeSite(site)}
+                  size="sm"
+                  variant="ghost"
+                >
+                  ×
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
 
       <Section query={query} title={t("settings.interface")}>
         <Choice
@@ -404,14 +402,14 @@ export function SettingsPage({ settings: stored }: { settings: Settings }) {
           >
             {t("settings.exportAll")}
           </Button>
-          <Button onClick={() => void browser.storage.local.clear()} size="sm" variant="destructive">
+          <Button onClick={() => void platform.clearData()} size="sm" variant="destructive">
             {t("settings.clearAll")}
           </Button>
         </div>
       </Section>
 
       <Section query={query} title={t("about.title")}>
-        <p dir="ltr">Zimanyar {browser.runtime.getManifest().version}</p>
+        <p dir="ltr">Zimanyar {platform.version}</p>
         <p>{t("about.lead")}</p>
         <p dir="ltr">GPL-3.0-or-later · CC BY-SA 4.0</p>
       </Section>

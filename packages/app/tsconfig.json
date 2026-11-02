@@ -1,0 +1,13 @@
+{
+  "extends": "@zimanyar/config/tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "types": ["node", "vite/client"],
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "test/**/*", "vite.ts", "vitest.config.ts"]
+}

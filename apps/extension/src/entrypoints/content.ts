@@ -1,10 +1,10 @@
+import overlayCss from "@zimanyar/app/overlay.css?inline";
 import { attachEditor, type EditorHandle, isCheckable } from "@zimanyar/editor";
 import { checkOptionsFrom, parseSettings, type Settings, withWord } from "@zimanyar/settings";
 import { browser } from "wxt/browser";
 import { backendFor } from "../lib/browser-backend";
 import { loadSettings, onSettingsChanged, saveSettings } from "../lib/browser-settings";
 import { type PageStatus, toContent } from "../lib/messages";
-import overlayCss from "../styles/overlay.css?inline";
 
 declare const __ZIMANYAR_E2E__: boolean;
 

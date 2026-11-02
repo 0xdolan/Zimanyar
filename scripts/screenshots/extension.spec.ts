@@ -294,6 +294,10 @@ test.describe("extension pages", () => {
   async function seriousViolations(page: Page) {
     // The extension's own policy refuses a script tag, as it should. Evaluating goes around a policy.
     await page.evaluate(AXE);
+    // A button part way through a change of colour is not a contrast problem.
+    await page.evaluate(() =>
+      Promise.allSettled(document.getAnimations().map((animation) => animation.finished)),
+    );
     return page.evaluate(async () => {
       const results = await (
         window as unknown as {

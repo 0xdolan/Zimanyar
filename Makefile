@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench lessons e2e extension-lint screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -18,6 +18,8 @@ help:
 	@echo "make build         build every package and app"
 	@echo "make e2e           build the demos and the website and test them in a real browser"
 	@echo "make extension-lint  check the Firefox build with Mozilla's linter"
+	@echo "make desktop-docker  build and check the desktop packages in a container"
+	@echo "make desktop-smoke   install the .deb in a clean container and start it"
 	@echo "make screenshots   regenerate assets/screenshots/; look at every changed image"
 	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
 	@echo "make rules         compile the rules' metadata into the catalogue"
@@ -79,12 +81,14 @@ e2e:
 	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
 	pnpm --filter @zimanyar/web build
 	pnpm --filter @zimanyar/extension build:e2e
+	pnpm --filter @zimanyar/desktop build:web
 	pnpm exec playwright test
 
 screenshots:
 	pnpm --filter @zimanyar/ui --filter @zimanyar/editor demo:build
 	pnpm --filter @zimanyar/web build
 	pnpm --filter @zimanyar/extension build:e2e
+	pnpm --filter @zimanyar/desktop build:web
 	UPDATE_SCREENSHOTS=1 pnpm exec playwright test scripts/screenshots/
 
 # Mozilla's linter on the Firefox build. Run in isolation: it brings packages with advisories that have no fix.
@@ -92,6 +96,14 @@ extension-lint:
 	pnpm --filter @zimanyar/extension build
 	pnpm dlx addons-linter@10.14.0 --self-hosted --output json apps/extension/.output/firefox-mv3 > apps/extension/.output/lint.json || true
 	pnpm exec tsx scripts/checks/check-extension-lint.ts apps/extension/.output/lint.json
+
+# Build the desktop packages and check them, in a container, with nothing installed on your own system.
+desktop-docker:
+	packaging/linux/in-docker.sh bash -c 'pnpm --filter @zimanyar/desktop exec tauri build --bundles deb,rpm --ci && mkdir -p apps/desktop/.output && cp -f /cache/target/release/bundle/deb/*.deb /cache/target/release/bundle/rpm/*.rpm apps/desktop/.output/ && packaging/linux/check-package.sh apps/desktop/.output/*.deb'
+
+# Install the .deb in a clean container and start it on a virtual screen.
+desktop-smoke:
+	docker run --rm -v "$$PWD:/repo" -w /repo ubuntu:24.04 bash -c 'apt-get update -qq && apt-get install -y -qq --no-install-recommends ./apps/desktop/.output/*.deb xvfb xauth dbus-x11 xdotool xclip imagemagick > /dev/null && mkdir -p apps/desktop/.output && packaging/linux/smoke-test.sh apps/desktop/.output/smoke.png; status=$$?; chown -R $(shell id -u):$(shell id -g) apps/desktop/.output; exit $$status'
 
 check-i18n:
 	pnpm exec tsx scripts/checks/check-i18n.ts

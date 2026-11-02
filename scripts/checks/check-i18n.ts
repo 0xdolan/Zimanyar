@@ -53,9 +53,13 @@ function main(): number {
   const catalogues = Object.fromEntries(
     LANGS.map((lang) => [lang, JSON.parse(readFileSync(join(CATALOGUES, `${lang}.json`), "utf8"))]),
   );
-  const files = ["packages/ui/src", "packages/editor/src", "packages/editor/demo", "apps"].flatMap((dir) =>
-    sourceFiles(join(ROOT, dir)),
-  );
+  const files = [
+    "packages/ui/src",
+    "packages/editor/src",
+    "packages/editor/demo",
+    "packages/app/src",
+    "apps",
+  ].flatMap((dir) => sourceFiles(join(ROOT, dir)));
   const used = new Set(files.flatMap((file) => usedKeys(readFileSync(file, "utf8"))));
   const problems = findProblems(catalogues, used);
   for (const problem of problems) console.error(problem);

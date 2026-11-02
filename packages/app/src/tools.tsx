@@ -1,6 +1,6 @@
 import { createT, type UiLang } from "@zimanyar/i18n";
 import { useState } from "react";
-import { pronounce, transliterate } from "../lib/writing";
+import { pronounce, transliterate } from "./writing";
 
 /** The other script and the pronunciation of any text. */
 export function Tools({ lang }: { lang: UiLang }) {

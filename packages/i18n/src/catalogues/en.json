@@ -116,8 +116,8 @@
   "check.fixAll": "Fix all safe",
   "check.share": "Share",
   "check.copied": "Link copied",
-  "check.private": "Your text stays in this browser.",
-  "check.hint": "Press an underlined word. Your text stays in this browser.",
+  "check.private": "Your text stays on this device.",
+  "check.hint": "Press an underlined word. Your text stays on this device.",
   "learn.title": "Learn Kurdish",
   "learn.description": "Two courses of 23 lessons, from the alphabet to the written standard, with tables from the engine that checks your text.",
   "learn.lead": "Choose a course. Every table of forms is computed by the same engine that checks your writing.",
@@ -318,5 +318,13 @@
   "family.space": "Spacing",
   "family.spell": "Spelling",
   "family.syntax": "Word order",
-  "family.verb": "Verbs"
+  "family.verb": "Verbs",
+  "desktop.open": "Open",
+  "desktop.save": "Save",
+  "desktop.saveAs": "Save as",
+  "desktop.wrongKind": "Only .txt and .md files can be opened.",
+  "desktop.tooBig": "That file is too big to open.",
+  "desktop.quickCheck": "Check the clipboard",
+  "desktop.clipboardEmpty": "The clipboard has no text. Copy some, then press the shortcut.",
+  "desktop.copyBack": "Copy back and close"
 }

@@ -1,9 +1,10 @@
+import { lessonRoute } from "@zimanyar/app/routes";
+import { pronounce, transliterate } from "@zimanyar/app/writing";
 import { Checker, createHandler } from "@zimanyar/checker";
 import { loadLexicon } from "@zimanyar/data";
 import { parseSettings } from "@zimanyar/settings";
 import { browser } from "wxt/browser";
-import { isCheckerRequest, lessonRoute, lexiconsFor, matchPatternOf, toBackground } from "../lib/messages";
-import { pronounce, transliterate } from "../lib/writing";
+import { isCheckerRequest, lexiconsFor, matchPatternOf, toBackground } from "../lib/messages";
 
 const SCRIPT_ID = "zimanyar-sites";
 const CONTENT_SCRIPT = "content-scripts/content.js";

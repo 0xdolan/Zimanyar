@@ -2,20 +2,17 @@ import { createT, type UiLang } from "@zimanyar/i18n";
 import lessons from "@zimanyar/rules/lessons.json";
 import { Button } from "@zimanyar/ui";
 import { type ComponentType, type MouseEvent, useEffect, useRef, useState } from "react";
-import { browser } from "wxt/browser";
-import { routeOfLessonLink } from "../lib/messages";
+import { routeOfLessonLink } from "./routes";
 
 type Course = "ckb" | "kmr";
 const index = lessons as Record<Course, Record<string, { file: string; title: string }>>;
 
 /** Lessons load one at a time, compiled when the extension is built. */
-const MODULES = import.meta.glob<{ default: ComponentType }>(
-  "../../../../packages/content/lessons/*/[0-9]*.mdx",
-);
+const MODULES = import.meta.glob<{ default: ComponentType }>("../../content/lessons/*/[0-9]*.mdx");
 
 const moduleOf = (course: Course, lesson: number) => {
   const slug = index[course]?.[String(lesson)]?.file.split("/").at(-1)?.replace(".md", "");
-  return MODULES[`../../../../packages/content/lessons/${course}/${slug}.mdx`];
+  return MODULES[`../../content/lessons/${course}/${slug}.mdx`];
 };
 
 function LessonLinks({ course, lang }: { course: Course; lang: UiLang }) {
@@ -37,7 +34,15 @@ function LessonLinks({ course, lang }: { course: Course; lang: UiLang }) {
 }
 
 /** The courses inside the extension, so that a finding's lesson opens with no network. */
-export function LessonReader({ lang, route }: { lang: UiLang; route: string }) {
+export function LessonReader({
+  lang,
+  route,
+  onExternal,
+}: {
+  lang: UiLang;
+  route: string;
+  onExternal: (url: string) => void;
+}) {
   const t = createT(lang);
   const [, , courseName, number, anchor] = route.split("/");
   const course: Course = courseName === "kmr" ? "kmr" : "ckb";
@@ -62,7 +67,7 @@ export function LessonReader({ lang, route }: { lang: UiLang; route: string }) {
     if (!href || href.startsWith("#")) return;
     event.preventDefault();
     if (/^https:\/\//.test(href)) {
-      void browser.tabs.create({ url: href });
+      onExternal(href);
       return;
     }
     const next = routeOfLessonLink(href, course, lesson);
