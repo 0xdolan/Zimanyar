@@ -72,7 +72,7 @@ All surfaces share one engine, one rule set and one interface.
 | Firefox | in-page checking, popup, settings, sidebar | Firefox Add-ons |
 | Safari | the same extension | Xcode project in the GitHub releases |
 | Linux desktop | editor, lessons, tools; a global shortcut checks the clipboard | `.deb`, `.rpm`, AppImage; Flatpak later |
-| Command line | `zimanyar check`, with text, JSON and SARIF output for CI | npm and `.deb` |
+| Command line | `zimanyar check`, with text, JSON and SARIF output for CI, and the word tools and lessons | npm, `.deb`, a single executable |
 | Editors | diagnostics, quick fixes, hovers and completion over LSP | `zimanyar-lsp` |
 | Web | a live checker, the lessons and the rule catalogue | <https://0xdolan.github.io/Zimanyar/> |
 
@@ -145,6 +145,7 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 | `packages/i18n/`, `packages/ui/` | Interface strings in three languages, and the components |
 | `apps/desktop/` | The Linux desktop app, with `packaging/` for its packages |
 | `packages/app/` | The complete app the extension and desktop share |
+| `apps/cli/`, `debian/` | The command line, and the Debian package of it |
 | `apps/extension/` | The browser extension for Chrome and Firefox |
 | `packages/settings/` | One validated settings schema for every surface |
 | `apps/web/` | The website: the checker, the courses, the rules and the docs |

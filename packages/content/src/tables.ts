@@ -444,6 +444,23 @@ export function nounReference(lang: Course, noun: string): { label: string; form
   );
 }
 
+/** Every form of any noun, for one that is not in the vocabulary too. Kurmanji needs its gender. */
+export function declension(
+  lang: Course,
+  noun: string,
+  gender: "f" | "m" = "m",
+): { cell: string; label: string; form: string }[] {
+  const labels = nounLabels(lang);
+  const forms = lang === "ckb" ? ckb.decline(noun) : kmr.decline(noun, gender);
+  return forms.flatMap(([cell, form]) => (form ? [{ cell, label: labels[cell] ?? cell, form }] : []));
+}
+
+/** The person labels of a paradigm, with their pronouns. */
+export const personsOf = (lang: Course): readonly [person: string, pronoun: string][] => PERSONS[lang];
+
+/** The title of a verb paradigm's cell, such as "Past negative". */
+export const verbCellTitle = (lang: Course, cell: string): string => cellsOf(lang)[cell]?.[0] ?? cell;
+
 export const nounsOf = (lang: Course): string[] =>
   Object.entries(VOCABULARY[lang]).flatMap(([word, [, note]]) =>
     ["f", "m", "n"].includes(note) ? [word] : [],
