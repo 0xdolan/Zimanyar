@@ -38,3 +38,9 @@ Global shortcuts need X11 or XWayland, and the tray needs a desktop that shows o
 
 - `scripts/screenshots/desktop.spec.ts` runs the app's pages in a browser, without the shell, where `native.ts` keeps settings in `localStorage` and the quick window's clipboard in `sessionStorage`.
 - `packaging/linux/smoke-test.sh` runs the installed app on a virtual screen. It shows that the app starts and draws, then goes through the quick check for real: the shortcut, the clipboard, the fix, and the corrected text back on the clipboard. It does not use the tray or the file dialogs.
+
+## Where the packages run
+
+The packages CI built for 0.1.0 passed `smoke-test.sh` on Ubuntu 24.04 and 26.04, Debian 12 and 13 (`.deb`) and Fedora 43 (`.rpm`). The binary needs glibc 2.34 or later. It also names two glibc 2.39 functions, `pidfd_spawnp` and `pidfd_getpid`, but Rust's standard library binds those weakly and does without them, so on Debian 12 (glibc 2.36) the loader prints a warning about a weak version and the app runs normally.
+
+The AppImage carries GTK and WebKit but, like every AppImage made with `linuxdeploy`, leaves out what any graphical desktop already has: X11 and xcb, Wayland, GL, EGL and GLES, `libdrm`, `libgbm`, fontconfig, freetype, harfbuzz, fribidi and expat. It passed on Ubuntu 24.04 with only those libraries installed and no GTK or WebKit from the distribution.
