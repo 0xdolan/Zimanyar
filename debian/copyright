@@ -1,0 +1,42 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Zimanyar
+Upstream-Contact: Dolan H. <0xdolan@gmail.com>
+Source: https://github.com/0xdolan/Zimanyar
+Comment:
+ /usr/bin/zimanyar is a single executable: a copy of the Node.js runtime,
+ with the bundled command line and the word data written into it. Node.js
+ is Copyright Node.js contributors and licensed under the Expat licence,
+ and it contains components under their own licences; its complete licence
+ text is in /usr/share/doc/zimanyar-cli/NODE-LICENSE.txt. The JavaScript
+ packages bundled into the command line are listed with their licences in
+ /usr/share/doc/zimanyar-cli/THIRD-PARTY-NOTICES.txt.
+
+Files: *
+Copyright: 2026 Dolan H.
+License: GPL-3+
+
+Files: packages/data/*
+Copyright: 2026 Dolan H. and the contributors listed in the zimankit data notice
+License: CC-BY-SA-4.0
+ The word data comes from zimankit. See https://github.com/0xdolan/zimankit
+ .
+ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+ International License. See https://creativecommons.org/licenses/by-sa/4.0/
+
+Files: debian/*
+Copyright: 2026 Dolan H.
+License: GPL-3+
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 3 can be found in `/usr/share/common-licenses/GPL-3'.

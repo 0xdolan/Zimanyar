@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+# The package holds one program: Node.js with the bundled command line and the lexicons inside it,
+# built by make cli-sea. Its tests run in CI, where pnpm is available.
+
+NODE_LICENSE := $(dir $(realpath $(shell command -v node)))../LICENSE
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+
+override_dh_auto_configure:
+
+override_dh_auto_build:
+	test -x apps/cli/dist/zimanyar || $(MAKE) cli-sea
+
+override_dh_auto_test:
+
+override_dh_auto_install:
+	install -D -m 0755 apps/cli/dist/zimanyar debian/zimanyar-cli/usr/bin/zimanyar
+	install -D -m 0644 apps/cli/dist/THIRD-PARTY-NOTICES.txt debian/zimanyar-cli/usr/share/doc/zimanyar-cli/THIRD-PARTY-NOTICES.txt
+	install -D -m 0644 $(NODE_LICENSE) debian/zimanyar-cli/usr/share/doc/zimanyar-cli/NODE-LICENSE.txt
+
+# Stripping, or moving debug data out, would cut away the bundle that is injected into the program.
+override_dh_strip:
+
+override_dh_dwz:

@@ -1,0 +1,26 @@
+Source: zimanyar-cli
+Section: text
+Priority: optional
+Maintainer: Dolan H. <0xdolan@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://0xdolan.github.io/Zimanyar/
+Vcs-Browser: https://github.com/0xdolan/Zimanyar
+Vcs-Git: https://github.com/0xdolan/Zimanyar.git
+Rules-Requires-Root: no
+
+Package: zimanyar-cli
+Architecture: amd64 arm64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: offline grammar checker and teacher for Kurdish
+ Zimanyar finds mistakes in Sorani and Kurmanji, explains each one and
+ teaches the grammar behind it, entirely offline.
+ .
+ The zimanyar command checks files and standard input, with text, JSON
+ and SARIF reports and exit codes for continuous integration, applies
+ safe spelling fixes, and analyzes, conjugates and declines words. It
+ also writes pronunciation and the other script, identifies the
+ language of a text, and shows the lessons in the terminal.
+ .
+ The program carries its own copy of Node.js and its word lists, and
+ needs nothing else installed.
