@@ -4,19 +4,17 @@ import type { Settings } from "@zimanyar/settings";
 import { withWord } from "@zimanyar/settings";
 import { Button } from "@zimanyar/ui";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { browser } from "wxt/browser";
-import { backendFor } from "../lib/browser-backend";
-import { saveSettings } from "../lib/browser-settings";
-import { lessonRoute } from "../lib/messages";
-import overlayCss from "../styles/overlay.css?inline";
+
 import { LessonReader } from "./lesson-reader";
 import { ParadigmExplorer } from "./paradigm-explorer";
+import type { Platform } from "./platform";
+import { lessonRoute } from "./routes";
 import { Tools } from "./tools";
 
 const routeNow = () => location.hash.replace(/^#/, "") || "/check";
 
 /** The complete app: as a tab, and as Chrome's side panel or Firefox's sidebar. */
-export function FullApp({ settings }: { settings: Settings }) {
+export function FullApp({ settings, platform }: { settings: Settings; platform: Platform }) {
   const uiLang = settings.interface.uiLang;
   const t = createT(uiLang);
   const [route, setRoute] = useState(routeNow);
@@ -24,7 +22,7 @@ export function FullApp({ settings }: { settings: Settings }) {
   const [ready, setReady] = useState(false);
   const current = useRef(settings);
   current.current = settings;
-  const backend = useMemo(() => backendFor(() => current.current), []);
+  const backend = useMemo(() => platform.backend(() => current.current), [platform]);
 
   useEffect(() => {
     const changed = () => setRoute(routeNow());
@@ -32,17 +30,13 @@ export function FullApp({ settings }: { settings: Settings }) {
     return () => removeEventListener("hashchange", changed);
   }, []);
 
-  // Text sent here from the context menu waits once, in session storage.
+  // Text sent here from elsewhere waits once.
   useEffect(() => {
-    void browser.storage.session.get("pendingText").then(async (stored) => {
-      const text = stored["pendingText"];
-      if (typeof text === "string") {
-        setPending(text);
-        await browser.storage.session.remove("pendingText");
-      }
+    void platform.takePendingText().then((text) => {
+      setPending(text);
       setReady(true);
     });
-  }, []);
+  }, [platform]);
 
   const onLearn = useCallback(
     ({ lang, lessonId, anchor }: { lang: string; lessonId: number; anchor: string }) => {
@@ -51,8 +45,8 @@ export function FullApp({ settings }: { settings: Settings }) {
     [],
   );
   const onAddToDictionary = useCallback(
-    (word: string) => void saveSettings(withWord(current.current, word)),
-    [],
+    (word: string) => void platform.saveSettings(withWord(current.current, word)),
+    [platform],
   );
 
   const tabs = [
@@ -82,18 +76,13 @@ export function FullApp({ settings }: { settings: Settings }) {
             {label}
           </Button>
         ))}
-        <Button
-          className="ms-auto"
-          onClick={() => void browser.runtime.openOptionsPage()}
-          size="sm"
-          variant="outline"
-        >
+        <Button className="ms-auto" onClick={() => platform.openSettings()} size="sm" variant="outline">
           {t("popup.settings")}
         </Button>
       </nav>
       <main className="flex-1 p-4">
         {route.startsWith("/learn") ? (
-          <LessonReader lang={uiLang} route={route} />
+          <LessonReader lang={uiLang} onExternal={platform.openExternal} route={route} />
         ) : route.startsWith("/verbs") ? (
           <ParadigmExplorer lang={uiLang} />
         ) : route.startsWith("/tools") ? (
@@ -102,11 +91,12 @@ export function FullApp({ settings }: { settings: Settings }) {
           ready && (
             <CheckerPanel
               backend={backend}
-              css={overlayCss}
+              css={platform.overlayCss}
               lang={uiLang}
               onAddToDictionary={onAddToDictionary}
               onLearn={onLearn}
               {...(pending !== null ? { initialText: pending } : {})}
+              {...(platform.checkerActions !== undefined ? { actions: platform.checkerActions } : {})}
             />
           )
         )}

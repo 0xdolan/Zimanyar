@@ -11,6 +11,7 @@ Zimanyar's promise is that text never leaves the device. Each threat below has a
 | text leaks | no network code but the fetch of the extension's own lexicons, and CSP `connect-src 'self'` | `extension.spec.ts` |
 | over-broad permissions | host access is optional and per site; no `content_scripts` in the manifest | `extension.spec.ts` |
 | XSS through suggestions or lessons | text nodes only, and lessons compiled at build time | Biome, review |
+| a compromised page in the desktop app reaches the system | no remote URLs, a strict CSP, minimal capabilities per window, and files only through a dialog | `desktop.spec.ts` |
 | a damaged settings file | `parseSettings` answers with usable settings whatever it is given | `packages/settings/test` |
 | a shared link carries something hostile | its text is length-limited and only ever put in a text field | `web.spec.ts` |
 | a malicious data bundle | SHA-256 pinned in `packages/data/VERSION`, verified before use | `make data` |

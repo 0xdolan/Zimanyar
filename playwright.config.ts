@@ -30,5 +30,10 @@ export default defineConfig({
       url: "http://localhost:4175/Zimanyar/",
       reuseExistingServer: !process.env["CI"],
     },
+    {
+      command: "pnpm --filter @zimanyar/desktop preview",
+      url: "http://localhost:4177/",
+      reuseExistingServer: !process.env["CI"],
+    },
   ],
 });

@@ -1,0 +1,27 @@
+# Advisories we cannot act on, each with why, and a date to look again rather than a silence for ever.
+# All come through Tauri 2's Linux dependencies, and none has a version to upgrade to while Tauri stays on them.
+
+[[IgnoredVulns]]
+id = "RUSTSEC-2024-0429"
+ignoreUntil = 2027-05-01
+reason = "glib 0.18 VariantStrIter is unsound. The fix is gtk-rs 0.20, which Tauri 2 does not use, and nothing here calls that iterator."
+
+[[IgnoredVulns]]
+id = "RUSTSEC-2024-0370"
+ignoreUntil = 2027-05-01
+reason = "proc-macro-error is unmaintained: a build-time dependency of gtk-rs 0.18 that never reaches the app, and has no fixed version."
+
+[[IgnoredVulns]]
+id = "RUSTSEC-2026-0370"
+ignoreUntil = 2027-05-01
+reason = "zvariant is unmaintained, which is a notice and not a flaw. It comes through zbus, and has no fixed version."
+
+[[IgnoredVulns]]
+id = "RUSTSEC-2026-0371"
+ignoreUntil = 2027-05-01
+reason = "zbus_names is unmaintained, which is a notice and not a flaw. It comes through zbus, and has no fixed version."
+
+[[IgnoredVulns]]
+id = "RUSTSEC-2026-0372"
+ignoreUntil = 2027-05-01
+reason = "zvariant_derive is unmaintained, which is a notice and not a flaw. It comes through zbus, and has no fixed version."

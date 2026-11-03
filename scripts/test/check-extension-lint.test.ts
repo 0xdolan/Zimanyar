@@ -1,32 +1,32 @@
 import { describe, expect, it } from "vitest";
 import { findProblems } from "../checks/check-extension-lint.js";
 
-const react = { code: "UNSAFE_VAR_ASSIGNMENT", file: "content-scripts/content.js", message: "innerHTML" };
+const react = { code: "UNSAFE_VAR_ASSIGNMENT", file: "chunks/a.js", message: "innerHTML" };
+const holdsReact = (file: string) => file === "chunks/a.js";
 
 describe("check-extension-lint", () => {
   it("passes a clean report", () => {
-    expect(findProblems({ errors: [], warnings: [] })).toEqual([]);
+    expect(findProblems({ errors: [], warnings: [] }, holdsReact)).toEqual([]);
   });
 
-  it("allows react-dom's own assignments", () => {
-    expect(findProblems({ errors: [], warnings: [react, react] })).toEqual([]);
-    expect(
-      findProblems({ errors: [], warnings: [{ ...react, file: "chunks/browser-page-AbC_1.js" }] }),
-    ).toEqual([]);
+  it("allows react-dom's own assignments, wherever they are bundled", () => {
+    expect(findProblems({ errors: [], warnings: [react, react] }, holdsReact)).toEqual([]);
   });
 
   it("notices one more than react-dom's", () => {
-    expect(findProblems({ errors: [], warnings: [react, react, react] })[0]).toContain("3 times");
+    expect(findProblems({ errors: [], warnings: [react, react, react] }, holdsReact)[0]).toContain("3 times");
   });
 
-  it("fails on an assignment anywhere else", () => {
-    expect(findProblems({ errors: [], warnings: [{ ...react, file: "background.js" }] })).toHaveLength(1);
+  it("fails on an assignment in a file without React", () => {
+    expect(
+      findProblems({ errors: [], warnings: [{ ...react, file: "background.js" }] }, holdsReact),
+    ).toHaveLength(1);
   });
 
   it("fails on any error and any other warning", () => {
-    const other = { code: "DANGEROUS_EVAL", file: "background.js", message: "eval" };
-    expect(findProblems({ errors: [other], warnings: [] })).toHaveLength(1);
-    expect(findProblems({ errors: [], warnings: [other] })).toHaveLength(1);
-    expect(findProblems({ errors: [], warnings: [{ code: "X", message: "m" }] })).toHaveLength(1);
+    const other = { code: "DANGEROUS_EVAL", file: "chunks/a.js", message: "eval" };
+    expect(findProblems({ errors: [other], warnings: [] }, holdsReact)).toHaveLength(1);
+    expect(findProblems({ errors: [], warnings: [other] }, holdsReact)).toHaveLength(1);
+    expect(findProblems({ errors: [], warnings: [{ code: "X", message: "m" }] }, holdsReact)).toHaveLength(1);
   });
 });

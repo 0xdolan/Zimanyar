@@ -93,7 +93,7 @@ export const underlines = {
 } as const satisfies Record<string, { color: ColorToken; style: string }>;
 
 export const fonts = {
-  latin: '"IBM Plex Sans", system-ui, sans-serif',
+  latin: '"IBM Plex Sans", "Vazirmatn", system-ui, sans-serif',
   arabic: '"Vazirmatn", "IBM Plex Sans Arabic", system-ui, sans-serif',
   mono: '"DejaVu Sans Mono", "Noto Sans Mono", monospace',
 } as const;

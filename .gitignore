@@ -21,6 +21,9 @@ __pycache__/
 
 # generated for the website and the extension
 apps/extension/public/
+apps/desktop/public/
+apps/desktop/src-tauri/generated/
+apps/desktop/src-tauri/gen/
 apps/web/public/lexicons/
 apps/web/public/favicon.svg
 

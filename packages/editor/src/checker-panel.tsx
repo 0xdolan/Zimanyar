@@ -1,7 +1,7 @@
 import { createT, dirOf, type UiLang } from "@zimanyar/i18n";
 import type { Finding, LessonRef, Variety } from "@zimanyar/rules";
 import { Button, FindingCard, FindingsPanel } from "@zimanyar/ui";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { attachEditor, type EditorBackend, type EditorHandle } from "./session.js";
 import { varietyOf } from "./text.js";
 
@@ -19,6 +19,8 @@ export interface CheckerPanelProps {
   css: string;
   /** Only the text field, as on a landing page. */
   compact?: boolean;
+  /** Leave out the sample texts, where the text comes from elsewhere. */
+  noSamples?: boolean;
   initialText?: string;
   initialMode?: CheckMode;
   /** Be told how to check again, for when a lexicon arrives. */
@@ -27,6 +29,8 @@ export interface CheckerPanelProps {
   onShare?: (text: string, mode: CheckMode) => Promise<void>;
   onLearn?: (lesson: LessonRef) => void;
   onAddToDictionary?: (word: string) => void;
+  /** More buttons beside the others, given a way to read and replace the text. */
+  actions?: (text: { get(): string; set(value: string): void }) => ReactNode;
   /** Called with each change of variety, for a caller that loads data per variety. */
   onModeChange?: (mode: CheckMode) => void;
 }
@@ -37,12 +41,14 @@ export function CheckerPanel({
   backend,
   css,
   compact = false,
+  noSamples = false,
   initialText,
   initialMode = "auto",
   onReady,
   onShare,
   onLearn,
   onAddToDictionary,
+  actions,
   onModeChange,
 }: CheckerPanelProps) {
   const t = createT(lang);
@@ -102,6 +108,12 @@ export function CheckerPanel({
     void editor.current?.refresh();
   };
 
+  const setText = (value: string) => {
+    if (field.current === null) return;
+    field.current.value = value;
+    void editor.current?.refresh();
+  };
+
   const textarea = (
     <textarea
       aria-label={t("editor.text")}
@@ -141,12 +153,16 @@ export function CheckerPanel({
             <option value="kmr">{t("lang.kmr")}</option>
           </select>
         </label>
-        <Button onClick={() => loadSample("ckb")} size="sm" variant="outline">
-          {t("check.sampleCkb")}
-        </Button>
-        <Button onClick={() => loadSample("kmr")} size="sm" variant="outline">
-          {t("check.sampleKmr")}
-        </Button>
+        {!noSamples && (
+          <>
+            <Button onClick={() => loadSample("ckb")} size="sm" variant="outline">
+              {t("check.sampleCkb")}
+            </Button>
+            <Button onClick={() => loadSample("kmr")} size="sm" variant="outline">
+              {t("check.sampleKmr")}
+            </Button>
+          </>
+        )}
         <Button
           disabled={!findings.some((found) => found.safeFix)}
           onClick={() => editor.current?.fixSafe()}
@@ -154,6 +170,7 @@ export function CheckerPanel({
         >
           {t("check.fixAll")}
         </Button>
+        {actions?.({ get: () => field.current?.value ?? "", set: setText })}
         {onShare !== undefined && (
           <Button
             onClick={() => void onShare(field.current?.value ?? "", mode).then(() => setCopied(true))}

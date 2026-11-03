@@ -3,7 +3,7 @@
 @import "tailwindcss";
 @import "@zimanyar/config/tokens.css";
 
-@source "../../../../packages/ui/src";
+@source "../../ui/src";
 
 @font-face {
   font-family: "Vazirmatn";

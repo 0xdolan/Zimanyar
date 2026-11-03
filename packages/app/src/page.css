@@ -1,8 +1,9 @@
 @import "@zimanyar/ui/styles.css";
 
-@source "../";
-@source "../../../../packages/content/src";
-@source "../../../../packages/editor/src";
+@source "./";
+@source "../../content/src";
+@source "../../editor/src";
+@source "../../ui/src";
 
 .zy-lesson {
   max-width: var(--measure);

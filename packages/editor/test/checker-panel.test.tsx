@@ -57,6 +57,11 @@ describe("CheckerPanel", () => {
     await waitFor(() => expect(screen.queryByRole("button", { name: /dîtim/ })).toBeNull());
   });
 
+  it("can leave out the samples", () => {
+    render(<CheckerPanel backend={backendOf()} css="" initialText="x" lang="en" noSamples />);
+    expect(screen.queryByRole("button", { name: "Sorani sample" })).toBeNull();
+  });
+
   it("loads samples", () => {
     render(<CheckerPanel backend={backendOf()} css="" initialText="x" lang="en" />);
     fireEvent.click(screen.getByRole("button", { name: "Sorani sample" }));
@@ -106,6 +111,26 @@ describe("CheckerPanel", () => {
     expect(screen.queryByRole("combobox")).toBeNull();
     onReady.mock.lastCall?.[0]();
     await waitFor(() => expect(vi.mocked(backend.check).mock.calls.length).toBeGreaterThan(1));
+  });
+
+  it("hands extra buttons a way to read and replace the text", async () => {
+    const backend = backendOf();
+    render(
+      <CheckerPanel
+        actions={(text) => (
+          <button onClick={() => text.set(`${text.get()}!`)} type="button">
+            more
+          </button>
+        )}
+        backend={backend}
+        css=""
+        initialText="x"
+        lang="en"
+      />,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "more" }));
+    expect(field().value).toBe("x!");
+    await waitFor(() => expect(backend.check).toHaveBeenLastCalledWith("x!", expect.anything()));
   });
 
   it("opens lessons through the caller", async () => {

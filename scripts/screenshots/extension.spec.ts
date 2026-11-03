@@ -1,4 +1,4 @@
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync } from "node:fs";
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -247,9 +247,9 @@ test.describe("privacy", () => {
   test("no network code in the extension but the fetch of its own lexicons", () => {
     const files: string[] = [];
     const walk = (folder: string) => {
-      for (const name of readdirSync(folder)) {
-        const path = join(folder, name);
-        if (statSync(path).isDirectory()) walk(path);
+      for (const entry of readdirSync(folder, { withFileTypes: true })) {
+        const path = join(folder, entry.name);
+        if (entry.isDirectory()) walk(path);
         else if (path.endsWith(".js")) files.push(path);
       }
     };
@@ -294,6 +294,10 @@ test.describe("extension pages", () => {
   async function seriousViolations(page: Page) {
     // The extension's own policy refuses a script tag, as it should. Evaluating goes around a policy.
     await page.evaluate(AXE);
+    // A button part way through a change of colour is not a contrast problem.
+    await page.evaluate(() =>
+      Promise.allSettled(document.getAnimations().map((animation) => animation.finished)),
+    );
     return page.evaluate(async () => {
       const results = await (
         window as unknown as {

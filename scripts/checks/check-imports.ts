@@ -20,6 +20,7 @@ export const LAYERS: Readonly<Record<string, number>> = {
   content: 5,
   ui: 5,
   editor: 6,
+  app: 7,
 };
 
 const IMPORT =

@@ -116,8 +116,8 @@
   "check.fixAll": "Yên ewle hemû rast bike",
   "check.share": "Parve bike",
   "check.copied": "Girêdan hat kopîkirin",
-  "check.private": "Nivîsa te di vê gerokê de dimîne.",
-  "check.hint": "Li ser peyveke binxêzkirî bitikîne. Nivîsa te di vê gerokê de dimîne.",
+  "check.private": "Nivîsa te li ser vê cîhazê dimîne.",
+  "check.hint": "Li ser peyveke binxêzkirî bitikîne. Nivîsa te li ser vê cîhazê dimîne.",
   "learn.title": "Fêrbûna kurdî",
   "learn.description": "Du kursên 23 dersî, ji alfabeyê heta standarda nivîskî, bi tabloyên wê motora ku nivîsa te kontrol dike.",
   "learn.lead": "Kursekê hilbijêre. Her tabloya forman bi heman motora ku nivîsa te kontrol dike tê hesabkirin.",
@@ -318,5 +318,13 @@
   "family.space": "Valahî",
   "family.spell": "Rastnivîs",
   "family.syntax": "Rêza peyvan",
-  "family.verb": "Lêker"
+  "family.verb": "Lêker",
+  "desktop.open": "Veke",
+  "desktop.save": "Tomar bike",
+  "desktop.saveAs": "Tomar bike wek",
+  "desktop.wrongKind": "Tenê pelên .txt û .md têne vekirin.",
+  "desktop.tooBig": "Ew pel ji bo vekirinê pir mezin e.",
+  "desktop.quickCheck": "Panoyê kontrol bike",
+  "desktop.clipboardEmpty": "Di panoyê de nivîs tune. Tiştek kopî bike, paşê kurterêyê bitikîne.",
+  "desktop.copyBack": "Dîsa kopî bike û bigire"
 }

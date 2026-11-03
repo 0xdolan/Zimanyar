@@ -1,9 +1,5 @@
-import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
-import { rehypeKurdish } from "@zimanyar/content/rehype";
-import rehypeSlug from "rehype-slug";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
+import { appPlugins } from "@zimanyar/app/vite";
 import { defineConfig } from "wxt";
 
 /** A test build may reach localhost without asking, as a browser test cannot press Allow. */
@@ -59,23 +55,7 @@ export default defineConfig({
       : {}),
   }),
   vite: () => ({
-    plugins: [
-      {
-        // zod tries eval to see whether it is allowed. Under our policy that can only fail, logging a violation.
-        name: "zimanyar:no-eval-probe",
-        enforce: "pre",
-        transform: (code: string, id: string) =>
-          /zod\/.*core\/util\.js/.test(id) ? code.replace('new F("");', 'throw new Error("no eval");') : null,
-      },
-      {
-        enforce: "pre",
-        ...mdx({
-          remarkPlugins: [remarkFrontmatter, remarkGfm],
-          rehypePlugins: [rehypeSlug, rehypeKurdish],
-        }),
-      },
-      tailwindcss(),
-    ],
+    plugins: [...appPlugins(), tailwindcss()],
     // Fonts small enough sit inside the stylesheet, as a page's policy may refuse a file from an extension.
     build: { assetsInlineLimit: 30_000, modulePreload: { polyfill: false } },
     define: { __ZIMANYAR_E2E__: JSON.stringify(E2E) },
