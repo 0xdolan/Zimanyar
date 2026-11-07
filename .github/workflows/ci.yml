@@ -196,7 +196,7 @@ jobs:
       - name: Pack the tarball and the npm package
         run: |
           packaging/cli/tarball.sh
-          pnpm --filter zimanyar pack --pack-destination .output
+          pnpm --filter zimanyar pack --pack-destination "$GITHUB_WORKSPACE/apps/cli/.output"
       - name: Keep the packages
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
