@@ -1,0 +1,21 @@
+id: kmr.morph.case-after-preposition
+family: morph
+category: morphology
+severity: warning
+confidence: 0.7
+safeFix: false
+message:
+  en: "After a preposition this noun takes the oblique case."
+  ckb: "دوای ئامراز ئەم ناوە دەچێتە دۆخی نابەرکەوتوو."
+  kmr: "Piştî daçekê ev navdêr di rewşa çemandî de ye."
+reason:
+  en: "Prepositions such as li, ji, bi and di take the oblique. A feminine noun marks it with -ê: li malê, \"at home\"."
+  ckb: "ئامرازەکانی وەک li، ji، bi و di دۆخی نابەرکەوتوو دەخوازن. ناوی مێ بە -ê نیشانی دەدات: li malê."
+  kmr: "Daçekên wek li, ji, bi û di rewşa çemandî dixwazin. Navdêra mê wê bi -ê nîşan dide: li malê."
+examples:
+  - { wrong: "li mal", right: "li malê" }
+  - { wrong: "ji jin", right: "ji jinê" }
+lessons:
+  - { lang: kmr, lessonId: 9, anchor: "oblique-endings" }
+  - { lang: kmr, lessonId: 16, anchor: "simple-prepositions" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

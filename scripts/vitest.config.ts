@@ -6,7 +6,9 @@ export default mergeConfig(
   defineConfig({
     test: {
       include: ["test/**/*.test.ts"],
-      coverage: { include: ["brand/**/*.ts", "checks/**/*.ts", "release/**/*.ts"] },
+      coverage: {
+        include: ["brand/**/*.ts", "checks/**/*.ts", "content/**/*.ts", "corpus/**/*.ts", "release/**/*.ts"],
+      },
     },
   }),
 );

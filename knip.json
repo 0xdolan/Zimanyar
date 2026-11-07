@@ -2,8 +2,54 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "workspaces": {
     "scripts": {
-      "entry": ["checks/*.ts", "brand/*.ts", "brand/*.mjs", "marketing/*.js"]
+      "entry": ["checks/*.ts", "brand/*.ts", "brand/*.mjs", "marketing/*.js", "content/*.ts", "corpus/*.ts"]
+    },
+    "packages/ui": {
+      "entry": ["src/components/ui/*.tsx", "demo/*.{ts,tsx}"]
+    },
+    "packages/editor": {
+      "entry": ["demo/*.{ts,tsx}"],
+      "ignoreDependencies": ["tailwindcss"]
+    },
+    "packages/app": {
+      "entry": ["vite.ts"]
+    },
+    "packages/content": {
+      "entry": ["src/rehype-kurdish.ts", "src/lesson-slugs.ts", "src/components.tsx"]
+    },
+    "apps/web": {
+      "entry": [
+        "astro.config.ts",
+        "src/route-data.ts",
+        "src/content.config.ts",
+        "src/components/*.astro",
+        "src/pages/**/*.astro",
+        "scripts/*.ts"
+      ],
+      "ignoreDependencies": [
+        "@fontsource/.*",
+        "tailwindcss",
+        "@astrojs/markdown-remark",
+        "@astrojs/starlight-tailwind",
+        "sharp",
+        "@zimanyar/config"
+      ]
+    },
+    "apps/extension": {
+      "entry": ["wxt.config.ts", "src/entrypoints/**/*.{ts,tsx}", "scripts/*.ts"],
+      "ignoreDependencies": ["tailwindcss"]
+    },
+    "apps/desktop": {
+      "entry": ["vite.config.ts", "src/main.tsx", "src/settings.tsx", "src/quick.tsx", "scripts/*.ts"],
+      "ignoreDependencies": ["tailwindcss"]
+    },
+    ".": {
+      "ignoreDependencies": ["axe-core"]
+    },
+    "apps/cli": {
+      "entry": ["scripts/*.ts"],
+      "ignoreBinaries": ["strip"]
     }
   },
-  "ignore": ["packages/core/src/generated/**"]
+  "ignore": ["packages/core/src/generated/**", "apps/web/public/**"]
 }

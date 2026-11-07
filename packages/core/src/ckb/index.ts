@@ -1,3 +1,4 @@
+export { CKB_CHAR_MAP, CKB_HIDDEN_FORMS as HIDDEN_FORMS } from "../generated/tables.js";
 export {
   CkbAnalyzer,
   decline,
@@ -12,6 +13,7 @@ export {
   normalize,
   normalizeWord,
   spellingVariants,
+  structuralProblems,
   validateWord,
 } from "./orthography.js";
 export {
@@ -33,6 +35,7 @@ export {
   makeVerb,
   PERSONS,
   pastStemOf,
+  standardSpelling,
   type Verb,
   type VerbForm,
 } from "./verbs.js";

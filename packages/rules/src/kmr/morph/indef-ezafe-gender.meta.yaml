@@ -1,0 +1,19 @@
+id: kmr.morph.indef-ezafe-gender
+family: morph
+category: morphology
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "This ending does not match the noun's gender."
+  ckb: "ئەم پاشگرە لەگەڵ ڕەگەزی ناوەکەدا ناگونجێت."
+  kmr: "Ev paşgir li gorî zayenda navdêrê nîne."
+reason:
+  en: "Before an adjective, an indefinite feminine noun takes -eke and a masculine one -ekî: jineke baş, mirovekî baş."
+  ckb: "پێش ئاوەڵناو، ناوی نەناسراوی مێ -eke و نێر -ekî وەردەگرێت: jineke baş، mirovekî baş."
+  kmr: "Berî rengdêrê, navdêra nediyar a mê -eke û ya nêr -ekî digire: jineke baş, mirovekî baş."
+examples:
+  - { wrong: "miroveke baş", right: "mirovekî baş" }
+  - { wrong: "jinekî baş", right: "jineke baş" }
+lessons:
+  - { lang: kmr, lessonId: 8, anchor: "indefinite-ezafe-a-good-man" }

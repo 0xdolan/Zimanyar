@@ -1,0 +1,68 @@
+---
+title: "22. Agreement and ergativity in depth"
+description: "Kurmanji lesson 22: Agreement and ergativity in depth"
+course: kmr
+lesson: 22
+level: advanced
+rules: ["kmr.ergative.agreement","kmr.morph.ezafe-gender"]
+---
+
+import { Ergativity, LessonRules, Sentences } from "../../src/components.tsx";
+
+Split ergativity is the hardest part of Kurmanji, for learners and for software alike. This lesson collects all the rules and tests them against zimankit's ergativity checker.
+
+## The complete rule
+
+| clause | agent / subject | object | verb agrees with |
+|---|---|---|---|
+| present-stem tense (present, subjunctive, future, imperative), any verb | **direct** | **oblique** | agent / subject |
+| past-stem tense, **intransitive** verb | **direct** | · | subject |
+| past-stem tense, **transitive** verb | **oblique** | **direct** | **object** |
+| passive (hatin + infinitive) | · | direct (as subject) | that subject |
+
+Past-stem tenses are the simple past, past progressive, present perfect and past perfect.
+
+## Agreement with plural objects
+
+Because the verb agrees with the object in ergative clauses, a plural object needs a plural verb, even though a direct plural noun has **no plural ending**:
+
+<Sentences lang="kmr" items={[["Min sêv xwar.","I ate the apple."],["Min sêv xwarin.","I ate the apples."],["Wî heval dîtin.","He saw the friends."]]} />
+
+Only the verb tells you whether *sêv* is one apple or several.
+
+## Pro-drop
+
+The agent is often left out when it is clear from context: *Te çi kir?* “What did you do?” → *Min tiştek nekir.* “I didn't do anything.” → *Nekir.* “(I) didn't.” A checker must accept clauses without an overt agent.
+
+## The checker on correct and wrong sentences
+
+<Ergativity items={[["Ez nan dixwim.","I eat bread."],["Min nan xwar.","I ate bread."],["Te ez dîtim.","You saw me."],["Wan em dîtin.","They saw us."],["Ez hatim.","I came."],["Ez nan xwar.","(wrong) direct agent"],["Min tu dîtim.","(wrong) agreement with the agent"],["Min hatim.","(wrong) oblique subject of an intransitive verb"],["Min sêv xwarin.","I ate the apples. (correct)"],["Jinê nan çêkir.","The woman made bread. (correct)"]]} />
+
+Read the last rows critically, because they show where the current checker is still weak:
+
+* **Min hatim** is rightly flagged, but only because no subject is found; the message should say “the subject of an intransitive verb is direct: *ez hatim*”.
+* **Min sêv xwarin** is correct (*apples*, plural), but a bare noun looks singular, so the checker reports a false mismatch. A real grammar checker must treat a bare direct noun as *singular or plural*.
+* **Jinê nan çêkir** gets a ✔ for the wrong reason. Without a lexicon the checker cannot know that *jin* is feminine, so it takes *jinê* as a direct object and assumes the agent was dropped. With the gender lexicon from the wordlist pipeline, *jinê* would be read correctly as the oblique agent.
+
+All three are concrete tasks for the grammar-checker project.
+
+## Ezafe agreement
+
+The ezafe must match the gender and number of the noun it follows:
+
+| wrong | right | why |
+|---|---|---|
+| \* malê bavê min | mala bavê min | *mal* is feminine → -a |
+| \* bava min | bavê min | *bav* is masculine → -ê |
+| \* hevala min (for several friends) | hevalên min | plural → -ên |
+
+## Summary
+
+* Present: accusative. Past transitive: ergative (oblique agent, direct object, agreement with the object). Past intransitive and passive: subject agreement.
+* Bare direct nouns can be plural; the verb shows it.
+* Ezafe agrees in gender and number.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={22} />

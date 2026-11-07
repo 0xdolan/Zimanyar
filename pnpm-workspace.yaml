@@ -18,6 +18,12 @@ blockExoticSubdeps: true
 # fallback is used only on platforms with no native binding. Remove from 2026-11-02.
 overrides:
   "@napi-rs/wasm-runtime": 1.2.5
+  # wxt uses web-ext only to launch a browser in dev mode, and through it comes node-forge, with advisories
+  # that have no fix. We only build, so that whole branch stays out.
+  "wxt>web-ext": "-"
+  # wxt takes eslint only as an optional peer for configs we do not use: we lint with Biome. It brings a
+  # minimatch with CVE-2026-118764.
+  "wxt>eslint": "-"
 
 # pnpm 10 runs no dependency install scripts unless they are listed here.
 onlyBuiltDependencies:

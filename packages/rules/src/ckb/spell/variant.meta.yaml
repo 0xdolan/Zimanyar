@@ -1,0 +1,19 @@
+id: ckb.spell.variant
+family: spell
+category: spelling
+severity: error
+confidence: 0.9
+safeFix: false
+message:
+  en: "This is a non-standard spelling."
+  ckb: "ئەمە ڕێنووسێکی نەستانداردە."
+  kmr: "Ev rastnivîseke nestandard e."
+reason:
+  en: "Texts mostly write this word another way, and that spelling is the standard one."
+  ckb: "دەقەکان زیاتر ئەم وشەیە بە شێوەیەکی تر دەنووسن، و ئەو ڕێنووسە ستانداردە."
+  kmr: "Nivîs bi piranî vê peyvê bi awayekî din dinivîsin, û ew rastnivîs standard e."
+examples:
+  - { wrong: "بەلام", right: "بەڵام" }
+  - { wrong: "ڕای‌گەیاند", right: "ڕایگەیاند" }
+lessons:
+  - { lang: ckb, lessonId: 23, anchor: "6-real-words-in-the-wrong-spelling" }

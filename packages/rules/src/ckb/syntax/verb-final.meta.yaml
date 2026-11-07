@@ -1,0 +1,19 @@
+id: ckb.syntax.verb-final
+family: syntax
+category: syntax
+severity: hint
+confidence: 0.5
+safeFix: false
+message:
+  en: "In a plain sentence the verb comes last."
+  ckb: "لە ڕستەی ئاساییدا کردار لە کۆتایی دێت."
+  kmr: "Di hevoka asayî de lêker li dawiyê tê."
+reason:
+  en: "Sorani puts the verb at the end: نانم دەخوارد. Another order can be fine for emphasis or in poetry, so this is only a hint."
+  ckb: "سۆرانی کردار دەخاتە کۆتایی: نانم دەخوارد. ڕیزێکی تر بۆ جەختکردن یان لە شیعردا دروستە، بۆیە ئەمە تەنیا ئاماژەیە."
+  kmr: "Soranî lêkerê dixe dawiyê: نانم دەخوارد. Rêzeke din ji bo giraniyê an di helbestê de dikare rast be, ji ber vê ev tenê şîret e."
+examples:
+  - { wrong: "دەمخوارد نان", right: "نانم دەخوارد" }
+  - { wrong: "خواردم نان", right: "نانم خوارد" }
+lessons:
+  - { lang: ckb, lessonId: 10, anchor: "word-order-verb-last" }

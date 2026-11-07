@@ -1,0 +1,60 @@
+---
+title: "17. Comparison and building new words"
+description: "Kurmanji lesson 17: Comparison and building new words"
+course: kmr
+lesson: 17
+level: intermediate
+rules: []
+---
+
+import { Analyze, Sentences } from "../../src/components.tsx";
+
+## Comparative and superlative
+
+| | ending | example |
+|---|---|---|
+| comparative *-er* | **-tir** | mezin**tir** *bigger* |
+| superlative *-est* | **-tirîn** | mezin**tirîn** *biggest* |
+
+* *than* is **ji**: *Ew **ji** min mezintir e.* “He is older (bigger) than me.”
+* The superlative stands **before** the noun without ezafe: *mezintirîn bajar* “the biggest city”. Also common: **herî** + adjective after the noun: *bajarê herî mezin*.
+
+<Sentences lang="kmr" ipa items={[["Amed ji Mêrdînê mezintir e.","Amed is bigger than Mardin."],["Ev baştirîn pirtûk e.","This is the best book."],["Birayê min ji min biçûktir e.","My brother is younger than me."]]} />
+
+## Building words with suffixes
+
+| suffix | makes | example | from |
+|---|---|---|---|
+| **-î** | adjectives of origin, languages; abstract nouns | kurdî *Kurdish* | kurd |
+| **-tî / -ahî** | abstract nouns | hevaltî *friendship*, bilindahî *height* | heval *friend*, bilind *high* |
+| **-van / -kar / -ger** | people who do something | rojnamevan *journalist*, xebatkar *worker* | rojname *newspaper*, xebat *work* |
+| **-dar** | having | birîndar *wounded* | birîn *wound* |
+| **-stan / -geh / -xane** | places | Kurdistan, zanîngeh *university*, nexweşxane *hospital* | zanîn *knowing*, nexweş *sick* |
+| **-ane** | adverbs, *-ly* | mêrane *bravely* | mêr *man* |
+| **-ik / -ok** | diminutives | keçik *little girl* | keç *girl* |
+
+## How zimankit takes words apart
+
+<Analyze lang="kmr" words="mezintir,mezintirîn,Kurdistan,hevaltî,rojnamevan,birîndar,zanîngeh" />
+
+As in Sorani, derivational suffixes are less reliable than inflections: *-î* can be a derivation, the masculine oblique or the copula *î*. The analyzer gives a derived reading high confidence only when the stem is a known word.
+
+## Practice
+
+1. *more beautiful* (*xweşik*).
+2. *the biggest house* (*xanî*).
+3. What does **xwendekar** mean? (*xwendin* to study)
+
+<details>
+<summary>Answers</summary>
+
+1. xweşiktir
+2. mezintirîn xanî / xaniyê herî mezin
+3. *student* (a person who studies)
+
+</details>
+
+## Summary
+
+* **-tir** + **ji** *than*; **-tirîn** before the noun, or **herî** after it.
+* Suffixes: -î, -tî/-ahî, -van/-kar/-ger, -dar, -stan/-geh/-xane, -ane, -ik.

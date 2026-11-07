@@ -1,0 +1,10 @@
+---
+title: Releasing
+description: How a version reaches main.
+sidebar:
+  order: 4
+---
+
+`main` is the release branch and `develop` the integration branch. A release goes through a `release/X.Y.Z` branch from `develop`, is merged into `main`, tagged, and merged back into `develop`.
+
+The website is built and deployed from `main` by the `pages` workflow.

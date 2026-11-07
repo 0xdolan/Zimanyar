@@ -1,0 +1,20 @@
+id: kmr.verb.ni-negation
+family: verb
+category: morphology
+severity: error
+confidence: 0.95
+safeFix: false
+message:
+  en: "zanîn and karîn are negated with ni-."
+  ckb: "zanîn و karîn بە ni- نەرێ دەکرێن."
+  kmr: "zanîn û karîn bi ni- tên neyînîkirin."
+reason:
+  en: "Most verbs take na- in the negative present, but zanîn, \"to know\", and karîn, \"can\", take ni-: nizanim, nikarim."
+  ckb: "زۆربەی کردارەکان لە ڕانەبردووی نەرێدا na- وەردەگرن، بەڵام zanîn و karîn ni-: nizanim، nikarim."
+  kmr: "Piraniya lêkeran di dema niha ya neyînî de na- digirin, lê zanîn û karîn ni-: nizanim, nikarim."
+examples:
+  - { wrong: "nazanim", right: "nizanim" }
+  - { wrong: "nakarim", right: "nikarim" }
+lessons:
+  - { lang: kmr, lessonId: 21, anchor: "zanîn-to-know-and-karîn-can" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

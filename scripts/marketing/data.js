@@ -101,30 +101,4 @@ window.Z = {
       },
     },
   },
-
-  // Kurmanji lesson 14 paradigm, from zimankit's generated tables.
-  lesson: {
-    crumbs: "Learn · Kurmanji · 🟡 Intermediate",
-    title: "14. The past tense II: transitive verbs and split ergativity",
-    intro: "In the past tenses of a transitive verb the agent is oblique, the object is direct, and the verb agrees with the object.",
-    rows: [
-      ["1sg", "min", "ez", "dîtim", "دیتم"],
-      ["2sg", "te", "tu", "dîtî", "دیتی"],
-      ["3sg", "wî / wê", "ew", "dît", "دیت"],
-      ["pl", "me / we / wan", "em / hûn / ew", "dîtin", "دیتن"],
-    ],
-    toc: [
-      ["🟢", "9. Direct and oblique case"], ["🟢", "10. The present tense"], ["🟡", "13. Past tense I"],
-      ["🟡", "14. Split ergativity", true], ["🟡", "15. Past progressive"], ["🔴", "22. Agreement in depth"],
-    ],
-  },
-
-  cli: [
-    '<span class="p">$</span> zimanyar check --lang kmr email.txt',
-    '<span class="m">email.txt</span>',
-    '  1:22  <span class="e">error</span>    dîtim → <span class="g">dîtî</span>     verb agrees with the object  <span class="m">kmr.ergative.agreement</span>',
-    '  1:42  <span class="w">warning</span>  mal → <span class="g">malê</span>       oblique after li             <span class="m">kmr.morph.case-after-preposition</span>',
-    '  1:59  <span class="w">orthog.</span>  dıçım → <span class="g">diçim</span>   Turkish ı                    <span class="m">kmr.orth.turkish-letter</span>',
-    '<span class="m">3 findings · learn: zimanyar lesson kmr 14</span>',
-  ],
 };

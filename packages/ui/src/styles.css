@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "@zimanyar/config/tokens.css";
+/* Fonts are bundled: nothing is requested from anywhere else. */
+@import "@fontsource/ibm-plex-sans/latin-400.css";
+@import "@fontsource/ibm-plex-sans/latin-ext-400.css";
+@import "@fontsource/ibm-plex-sans/latin-600.css";
+@import "@fontsource/ibm-plex-sans/latin-ext-600.css";
+@import "@fontsource/vazirmatn/arabic-400.css";
+@import "@fontsource/vazirmatn/arabic-600.css";
+@import "@fontsource/dejavu-mono/400.css";
+
+@source "./";
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: var(--leading-latin);
+}
+
+[lang="ckb"],
+:lang(ckb) {
+  font-family: var(--font-arabic);
+  line-height: var(--leading-arabic);
+}
+
+/* Focus is always visible, and motion follows the tokens, which respect the reader's settings. */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}

@@ -42,10 +42,12 @@ const RULE_DOCUMENTS = [
   ".claude/skills/",
   "scripts/checks/check-kurdish-spelling.ts",
   "scripts/test/check-kurdish-spelling.test.ts",
+  // Holds misspellings on purpose: the rule that catches them.
+  "packages/rules/src/ckb/orth/arabic-codepoint",
 ];
 
 /** Content where Sorani کردی is the past of کردن (to do). */
-const KURDISH_TEXT = ["packages/content/lessons/", "packages/data/", "corpus/"];
+const KURDISH_TEXT = ["packages/content/lessons/", "packages/content/fixtures/", "packages/data/", "corpus/"];
 
 export const RULES: readonly Rule[] = [
   {

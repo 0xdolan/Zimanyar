@@ -1,0 +1,20 @@
+id: kmr.orth.turkish-letter
+family: orth
+category: orthography
+severity: error
+confidence: 0.98
+safeFix: true
+message:
+  en: "This is a Turkish letter, not part of the Hawar alphabet."
+  ckb: "ئەمە پیتێکی تورکییە و لە ئەلفوبێی هاوار نییە."
+  kmr: "Ev tîpeke tirkî ye, ne ya alfabeya Hawarê ye."
+reason:
+  en: "Turkish keyboards produce ı and İ for the Kurmanji i and I, and ü for û. ğ and ö are not Kurmanji at all, though names may keep them."
+  ckb: "تەختەکلیلی تورکی ı و İ لە جیاتی i و I ی کورمانجی دەنووسێت، و ü لە جیاتی û. ğ و ö هەر کورمانجی نین، بەڵام ناو دەتوانێت بیانپارێزێت."
+  kmr: "Klavyeyên tirkî li şûna i û I ya kurmancî ı û İ, û li şûna û ü dinivîsin. ğ û ö qet ne kurmancî ne, lê nav dikarin wan biparêzin."
+examples:
+  - { wrong: "dıçım", right: "diçim" }
+  - { wrong: "İro", right: "Iro" }
+lessons:
+  - { lang: kmr, lessonId: 23, anchor: "1-turkish-and-other-foreign-letters" }
+  - { lang: kmr, lessonId: 2, anchor: "letters-that-surprise-english-speakers" }

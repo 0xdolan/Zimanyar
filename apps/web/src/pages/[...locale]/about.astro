@@ -1,0 +1,21 @@
+---
+import { createT, type UiLang } from "@zimanyar/i18n";
+import SitePage from "../../components/SitePage.astro";
+import { localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+---
+
+<SitePage title={t("about.title")} description={t("about.description")}>
+  <p class="zy-lead">{t("about.lead")}</p>
+  <h2>{t("about.languageTitle")}</h2>
+  <p>{t("about.languageBody")}</p>
+  <h2>{t("about.engineTitle")}</h2>
+  <p>{t("about.engineBody")} <a href="https://github.com/0xdolan/zimankit">zimankit</a></p>
+  <h2>{t("about.reviewTitle")}</h2>
+  <p>{t("about.reviewBody")}</p>
+  <h2>{t("about.helpTitle")}</h2>
+  <p>{t("about.helpBody")} <a href="https://github.com/0xdolan/Zimanyar">GitHub</a></p>
+</SitePage>

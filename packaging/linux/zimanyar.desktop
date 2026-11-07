@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Zimanyar
+GenericName=Kurdish writing assistant
+Comment=Check and learn Kurdish as you write
+Exec=zimanyar-desktop
+Icon=zimanyar-desktop
+Terminal=false
+Categories=Education;Languages;
+Keywords=Kurdish;Sorani;Kurmanji;grammar;spelling;
+StartupNotify=true

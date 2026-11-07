@@ -1,16 +1,16 @@
 {
-  "zimankit": "0.2.0",
-  "data": "2026.10.1",
+  "zimankit": "0.3.1",
+  "data": "2026.11.1",
   "ckb": {
-    "forms": 329190,
-    "lemmas": 100848,
-    "bytes": 4697407,
-    "sha256": "e95170790733b74d09b3b2c8c314589351be038504aa4c91812a436ada6fc7b7"
+    "forms": 368810,
+    "lemmas": 96396,
+    "bytes": 5125273,
+    "sha256": "fce54de41d3985fcc31ef3da125a5a7c6f08f7e7d1d46c11b1ee429cd5bb9479"
   },
   "kmr": {
-    "forms": 506407,
-    "lemmas": 122110,
-    "bytes": 7156716,
-    "sha256": "4f3c965780590dcc55746005331bd7bd4e1964ce7847bda14527e0ba78344f75"
+    "forms": 506404,
+    "lemmas": 122109,
+    "bytes": 7156684,
+    "sha256": "a6fcaf1e23c47276761dcacd63d821e6615b1ac417bcc490968e771795721b9f"
   }
 }

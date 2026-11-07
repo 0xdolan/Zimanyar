@@ -1,0 +1,21 @@
+id: kmr.morph.ezafe-gender
+family: morph
+category: morphology
+severity: error
+confidence: 0.8
+safeFix: false
+message:
+  en: "This ezafe does not match the noun's gender."
+  ckb: "ئەم ئیزافەیە لەگەڵ ڕەگەزی ناوەکەدا ناگونجێت."
+  kmr: "Ev îzafe li gorî zayenda navdêrê nîne."
+reason:
+  en: "Before a modifier, a feminine noun takes -a and a masculine noun takes -ê: mala min, \"my house\", but bavê min, \"my father\"."
+  ckb: "پێش وەسفکەر، ناوی مێ -a وەردەگرێت و ناوی نێر -ê: mala min، بەڵام bavê min."
+  kmr: "Berî rengdêr an xwedî, navdêra mê -a û ya nêr -ê digire: mala min, lê bavê min."
+examples:
+  - { wrong: "bava min", right: "bavê min" }
+  - { wrong: "malê min", right: "mala min" }
+lessons:
+  - { lang: kmr, lessonId: 8, anchor: "the-linking-ending" }
+  - { lang: kmr, lessonId: 22, anchor: "ezafe-agreement" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

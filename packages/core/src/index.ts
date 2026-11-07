@@ -1,4 +1,4 @@
-export { analyze, normalize, toIpa } from "./api.js";
+export { analyze, functionWordsFor, normalize, toIpa, type Variety } from "./api.js";
 export * as ckb from "./ckb/index.js";
 export { type CompleteOptions, type Completion, complete } from "./complete.js";
 export * as kmr from "./kmr/index.js";
@@ -16,6 +16,7 @@ export {
 export {
   type Analysis,
   emptyLexicon,
+  gloss,
   type LexiconLike,
   SimpleLexicon,
   segmentation,

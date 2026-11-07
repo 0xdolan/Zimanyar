@@ -1,0 +1,20 @@
+id: kmr.orth.accent
+family: orth
+category: orthography
+severity: error
+confidence: 0.98
+safeFix: true
+message:
+  en: "Kurmanji writes this vowel with a circumflex."
+  ckb: "کورمانجی ئەم بزوێنە بە سەرکڵاو دەنووسێت."
+  kmr: "Kurmancî vê dengdêrê bi şapik dinivîse."
+reason:
+  en: "The circumflex is the only Kurmanji accent: ê î û. Other accents come from other keyboards."
+  ckb: "سەرکڵاو تاکە نیشانەی کورمانجییە: ê î û. نیشانەکانی تر لە تەختەکلیلی ترەوە دێن."
+  kmr: "Şapik tenê nîşana kurmancî ye: ê î û. Nîşanên din ji klavyeyên din tên."
+examples:
+  - { wrong: "şéwe", right: "şêwe" }
+  - { wrong: "Kurdí", right: "Kurdî" }
+lessons:
+  - { lang: kmr, lessonId: 23, anchor: "2-what-the-normaliser-fixes" }
+  - { lang: kmr, lessonId: 3, anchor: "eight-vowels" }

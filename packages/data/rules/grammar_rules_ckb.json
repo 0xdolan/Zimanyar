@@ -244,7 +244,7 @@
       },
       {
         "id": "squeeze",
-        "rule": "ەە -> ە, ڕڕ -> ڕ, ڵڵ -> ڵ, ووو -> وو"
+        "rule": "ەە -> ە, ڕڕ -> ڕ, ڵڵڵ -> ڵڵ, ووو -> وو, یییی -> ییی; ڵڵ (ئەڵڵا), ییی (سنەییی) and ر+ڕ, ل+ڵ stay"
       }
     ]
   },
@@ -292,7 +292,7 @@
       "و / ی after a vowel letter -> /w/ /j/",
       "و / ی before a vowel letter -> /w/ /j/ (onset cluster Cw / Cj)",
       "و between consonants or word-finally -> /u/; ی -> /iː/",
-      "وو -> /uː/, یی -> /iː/; a glide is inserted before a following vowel"
+      "وو -> /uː/; after a vowel یی -> /jiː/, after a consonant a surface /iː/ (an ezafe or clitic ی is not a separate vowel); a glide is inserted before a following vowel"
     ],
     "phonotactics": {
       "initial_onsets": "C, C+glide, sibilant+stop",
@@ -313,6 +313,67 @@
   },
   "morphology": {
     "nominal_slots": [
+      {
+        "slot": "COP",
+        "affixes": [
+          {
+            "form": "ە",
+            "tag": "E",
+            "after": "C",
+            "features": {
+              "copula": "3sg|ezafe.def|dem|voc|def.short"
+            }
+          },
+          {
+            "form": "ە",
+            "tag": "E",
+            "after": "UU",
+            "features": {
+              "copula": "3sg|ezafe.def|dem|voc|def.short"
+            }
+          },
+          {
+            "form": "یە",
+            "tag": "E",
+            "after": "V",
+            "features": {
+              "copula": "3sg|dem"
+            }
+          },
+          {
+            "form": "م",
+            "tag": "COP.1SG",
+            "after": "DA",
+            "features": {
+              "copula": "1sg"
+            }
+          },
+          {
+            "form": "یت",
+            "tag": "COP.2SG",
+            "after": "DA",
+            "features": {
+              "copula": "2sg"
+            }
+          },
+          {
+            "form": "ین",
+            "tag": "COP.1PL",
+            "after": "DA",
+            "features": {
+              "copula": "1pl"
+            }
+          },
+          {
+            "form": "ن",
+            "tag": "COP.PL",
+            "after": "DA",
+            "features": {
+              "copula": "2pl|3pl"
+            }
+          }
+        ]
+      },
       {
         "slot": "POSTP",
         "affixes": [
@@ -338,6 +399,14 @@
             "after": null,
             "features": {
               "postposition": "da"
+            }
+          },
+          {
+            "form": "ێ",
+            "tag": "POSTP.E",
+            "after": "C",
+            "features": {
+              "postposition": "e|indef"
             }
           },
           {
@@ -434,12 +503,55 @@
             "features": {
               "additive": "yes"
             }
+          },
+          {
+            "form": "یش",
+            "tag": "ADD",
+            "after": "C",
+            "features": {
+              "additive": "yes"
+            }
           }
         ]
       },
       {
         "slot": "NUMDEF",
         "affixes": [
+          {
+            "form": "ەکان",
+            "tag": "DEF.PL",
+            "after": "UU",
+            "features": {
+              "definite": "def",
+              "number": "pl"
+            }
+          },
+          {
+            "form": "ەکە",
+            "tag": "DEF.SG",
+            "after": "UU",
+            "features": {
+              "definite": "def",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "ێک",
+            "tag": "INDEF",
+            "after": "UU",
+            "features": {
+              "definite": "ind",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "ان",
+            "tag": "PL",
+            "after": "UU",
+            "features": {
+              "number": "pl"
+            }
+          },
           {
             "form": "ەکان",
             "tag": "DEF.PL",
@@ -513,6 +625,42 @@
             }
           },
           {
+            "form": "یێک",
+            "tag": "INDEF",
+            "after": "V",
+            "features": {
+              "definite": "ind",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "ێکە",
+            "tag": "DEF.SG",
+            "after": "C",
+            "features": {
+              "definite": "def",
+              "number": "sg"
+            }
+          },
+          {
+            "form": "ێکان",
+            "tag": "DEF.PL",
+            "after": "C",
+            "features": {
+              "definite": "def",
+              "number": "pl"
+            }
+          },
+          {
+            "form": "ەک",
+            "tag": "INDEF",
+            "after": "C",
+            "features": {
+              "definite": "ind",
+              "number": "sg"
+            }
+          },
+          {
             "form": "ان",
             "tag": "PL",
             "after": "C",
@@ -524,6 +672,27 @@
             "form": "یان",
             "tag": "PL",
             "after": "V",
+            "features": {
+              "number": "pl"
+            }
+          },
+          {
+            "form": "گەل",
+            "tag": "PL.GEL",
+            "after": null,
+            "features": {
+              "number": "pl"
+            }
+          }
+        ]
+      },
+      {
+        "slot": "PL0",
+        "affixes": [
+          {
+            "form": "ان",
+            "tag": "PL",
+            "after": "C",
             "features": {
               "number": "pl"
             }
@@ -587,6 +756,111 @@
             }
           },
           {
+            "form": "انە",
+            "tag": "PL+E",
+            "after": "C",
+            "features": {
+              "copula": "dem",
+              "number": "pl"
+            }
+          },
+          {
+            "form": "زانی",
+            "tag": "SCIENCE",
+            "after": null,
+            "features": {
+              "derivation": "logy"
+            }
+          },
+          {
+            "form": "ناسی",
+            "tag": "SCIENCE",
+            "after": null,
+            "features": {
+              "derivation": "nomy"
+            }
+          },
+          {
+            "form": "خانە",
+            "tag": "PLACE",
+            "after": null,
+            "features": {
+              "derivation": "place"
+            }
+          },
+          {
+            "form": "گەر",
+            "tag": "AGENT",
+            "after": null,
+            "features": {
+              "derivation": "agent"
+            }
+          },
+          {
+            "form": "چی",
+            "tag": "AGENT",
+            "after": null,
+            "features": {
+              "derivation": "agent"
+            }
+          },
+          {
+            "form": "وان",
+            "tag": "AGENT",
+            "after": null,
+            "features": {
+              "derivation": "agent"
+            }
+          },
+          {
+            "form": "ساز",
+            "tag": "AGENT",
+            "after": null,
+            "features": {
+              "derivation": "agent"
+            }
+          },
+          {
+            "form": "مەند",
+            "tag": "POSSR",
+            "after": null,
+            "features": {
+              "derivation": "possessor"
+            }
+          },
+          {
+            "form": "ناک",
+            "tag": "POSSR",
+            "after": null,
+            "features": {
+              "derivation": "possessor"
+            }
+          },
+          {
+            "form": "ۆکە",
+            "tag": "DIM",
+            "after": null,
+            "features": {
+              "derivation": "diminutive"
+            }
+          },
+          {
+            "form": "ۆڵە",
+            "tag": "DIM",
+            "after": null,
+            "features": {
+              "derivation": "diminutive"
+            }
+          },
+          {
+            "form": "یلە",
+            "tag": "DIM",
+            "after": null,
+            "features": {
+              "derivation": "diminutive"
+            }
+          },
+          {
             "form": "ستان",
             "tag": "PLACE",
             "after": null,
@@ -616,6 +890,22 @@
             "after": "C",
             "features": {
               "derivation": "nisba|abstract"
+            }
+          },
+          {
+            "form": "یی",
+            "tag": "NISBA",
+            "after": "V",
+            "features": {
+              "derivation": "nisba"
+            }
+          },
+          {
+            "form": "ایی",
+            "tag": "ABST",
+            "after": null,
+            "features": {
+              "derivation": "abstract"
             }
           }
         ]
@@ -717,11 +1007,26 @@
     },
     "alignment": "past tenses of transitive verbs are ergative: the agent is cross-referenced by a set-2 enclitic",
     "preverbs": [
+      "پێدا",
+      "تێدا",
+      "پێڕا",
+      "تێڕا",
+      "لێڕا",
+      "تێوە",
+      "پێوە",
+      "لێوە",
+      "پێک",
+      "تێک",
+      "ڕێک",
+      "وێک",
+      "لێک",
       "هەڵ",
       "وەر",
       "دەر",
       "دا",
       "ڕا",
+      "ڕۆ",
+      "ڕێ",
       "تێ",
       "پێ",
       "لێ"
@@ -790,10 +1095,103 @@
         "alignment": "ergative"
       },
       {
+        "form": "نەمکردووە",
+        "tense": "present_perfect",
+        "agent": "1sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبووم",
         "tense": "past_perfect",
         "agent": "1sg",
         "alignment": "ergative"
+      },
+      {
+        "form": "نەمکردبوو",
+        "tense": "past_perfect",
+        "agent": "1sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبام",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمکردبا",
+        "polarity": "neg",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبام",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێتم",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمکردبێت",
+        "polarity": "neg",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێتم",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووبام",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمکردبووبا",
+        "polarity": "neg",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووبام",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "1sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردرام",
+        "tense": "past",
+        "voice": "passive",
+        "person": "1sg",
+        "variant": "past_stem"
       },
       {
         "form": "دەکرێم",
@@ -809,13 +1207,128 @@
         "polarity": "neg"
       },
       {
+        "form": "بکرێم",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکرێم",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1sg",
+        "polarity": "neg"
+      },
+      {
         "form": "کرام",
         "tense": "past",
         "voice": "passive",
         "person": "1sg"
       },
       {
+        "form": "نەکرام",
+        "tense": "past",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "دەکرام",
+        "tense": "past",
+        "aspect": "progressive",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەدەکرام",
+        "tense": "past",
+        "aspect": "progressive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "کراوم",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکراوم",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "کرابووم",
+        "tense": "past_perfect",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکرابووم",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "کرابام",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکرابام",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "کرابێتم",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکرابێتم",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "کرابووبام",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
+        "form": "نەکرابووبام",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1sg"
+      },
+      {
         "form": "دەکەیت",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2sg"
+      },
+      {
+        "form": "دەکەی",
+        "variant": "short",
         "tense": "present",
         "mood": "indicative",
         "person": "2sg"
@@ -828,13 +1341,36 @@
         "polarity": "neg"
       },
       {
+        "form": "ناکەی",
+        "variant": "short",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
         "form": "بکەیت",
         "tense": "present",
         "mood": "subjunctive",
         "person": "2sg"
       },
       {
+        "form": "بکەی",
+        "variant": "short",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "2sg"
+      },
+      {
         "form": "نەکەیت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "نەکەی",
+        "variant": "short",
         "tense": "present",
         "mood": "subjunctive",
         "person": "2sg",
@@ -877,13 +1413,113 @@
         "alignment": "ergative"
       },
       {
+        "form": "نەتکردووە",
+        "tense": "present_perfect",
+        "agent": "2sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبووت",
         "tense": "past_perfect",
         "agent": "2sg",
         "alignment": "ergative"
       },
       {
+        "form": "نەتکردبوو",
+        "tense": "past_perfect",
+        "agent": "2sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبات",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتکردبا",
+        "polarity": "neg",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبات",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێتت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتکردبێت",
+        "polarity": "neg",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێتت",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووبات",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتکردبووبا",
+        "polarity": "neg",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووبات",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "2sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردرایت",
+        "tense": "past",
+        "voice": "passive",
+        "person": "2sg",
+        "variant": "past_stem"
+      },
+      {
         "form": "دەکرێیت",
+        "tense": "present",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "دەکرێی",
+        "variant": "short",
         "tense": "present",
         "voice": "passive",
         "person": "2sg"
@@ -896,13 +1532,153 @@
         "polarity": "neg"
       },
       {
+        "form": "ناکرێی",
+        "variant": "short",
+        "tense": "present",
+        "voice": "passive",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکرێیت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "بکرێی",
+        "variant": "short",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکرێیت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "نەکرێی",
+        "variant": "short",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg",
+        "polarity": "neg"
+      },
+      {
         "form": "کرایت",
         "tense": "past",
         "voice": "passive",
         "person": "2sg"
       },
       {
+        "form": "نەکرایت",
+        "tense": "past",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "دەکرایت",
+        "tense": "past",
+        "aspect": "progressive",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەدەکرایت",
+        "tense": "past",
+        "aspect": "progressive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "کراویت",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکراویت",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "کرابوویت",
+        "tense": "past_perfect",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکرابوویت",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "کرابایت",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکرابایت",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "کرابێتیت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکرابێتیت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "کرابووبایت",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
+        "form": "نەکرابووبایت",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2sg"
+      },
+      {
         "form": "دەکات",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3sg"
+      },
+      {
+        "form": "دەکا",
+        "variant": "short",
         "tense": "present",
         "mood": "indicative",
         "person": "3sg"
@@ -915,13 +1691,36 @@
         "polarity": "neg"
       },
       {
+        "form": "ناکا",
+        "variant": "short",
+        "tense": "present",
+        "mood": "indicative",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
         "form": "بکات",
         "tense": "present",
         "mood": "subjunctive",
         "person": "3sg"
       },
       {
+        "form": "بکا",
+        "variant": "short",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "3sg"
+      },
+      {
         "form": "نەکات",
+        "tense": "present",
+        "mood": "subjunctive",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "نەکا",
+        "variant": "short",
         "tense": "present",
         "mood": "subjunctive",
         "person": "3sg",
@@ -964,13 +1763,120 @@
         "alignment": "ergative"
       },
       {
+        "form": "کردوویە",
+        "tense": "present_perfect",
+        "agent": "3sg",
+        "alignment": "ergative",
+        "variant": "short"
+      },
+      {
+        "form": "نەیکردووە",
+        "tense": "present_perfect",
+        "agent": "3sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبووی",
         "tense": "past_perfect",
         "agent": "3sg",
         "alignment": "ergative"
       },
       {
+        "form": "نەیکردبوو",
+        "tense": "past_perfect",
+        "agent": "3sg",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبای",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیکردبا",
+        "polarity": "neg",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبای",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێتی",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیکردبێت",
+        "polarity": "neg",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێتی",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووبای",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیکردبووبا",
+        "polarity": "neg",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووبای",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "3sg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردرا",
+        "tense": "past",
+        "voice": "passive",
+        "person": "3sg",
+        "variant": "past_stem"
+      },
+      {
         "form": "دەکرێت",
+        "tense": "present",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "دەکرێ",
+        "variant": "short",
         "tense": "present",
         "voice": "passive",
         "person": "3sg"
@@ -983,8 +1889,141 @@
         "polarity": "neg"
       },
       {
+        "form": "ناکرێ",
+        "variant": "short",
+        "tense": "present",
+        "voice": "passive",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "بکرێت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "بکرێ",
+        "variant": "short",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکرێت",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
+        "form": "نەکرێ",
+        "variant": "short",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg",
+        "polarity": "neg"
+      },
+      {
         "form": "کرا",
         "tense": "past",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکرا",
+        "tense": "past",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "دەکرا",
+        "tense": "past",
+        "aspect": "progressive",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەدەکرا",
+        "tense": "past",
+        "aspect": "progressive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "کراوە",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکراوە",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "کرابوو",
+        "tense": "past_perfect",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکرابوو",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "کرابا",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکرابا",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "کرابێت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکرابێت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "کرابووبا",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3sg"
+      },
+      {
+        "form": "نەکرابووبا",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
         "voice": "passive",
         "person": "3sg"
       },
@@ -1051,10 +2090,103 @@
         "alignment": "ergative"
       },
       {
+        "form": "نەمانکردووە",
+        "tense": "present_perfect",
+        "agent": "1pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبوومان",
         "tense": "past_perfect",
         "agent": "1pl",
         "alignment": "ergative"
+      },
+      {
+        "form": "نەمانکردبوو",
+        "tense": "past_perfect",
+        "agent": "1pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبامان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمانکردبا",
+        "polarity": "neg",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبامان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێتمان",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمانکردبێت",
+        "polarity": "neg",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێتمان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووبامان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەمانکردبووبا",
+        "polarity": "neg",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووبامان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "1pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردراین",
+        "tense": "past",
+        "voice": "passive",
+        "person": "1pl",
+        "variant": "past_stem"
       },
       {
         "form": "دەکرێین",
@@ -1070,8 +2202,116 @@
         "polarity": "neg"
       },
       {
+        "form": "بکرێین",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکرێین",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1pl",
+        "polarity": "neg"
+      },
+      {
         "form": "کراین",
         "tense": "past",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکراین",
+        "tense": "past",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "دەکراین",
+        "tense": "past",
+        "aspect": "progressive",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەدەکراین",
+        "tense": "past",
+        "aspect": "progressive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "کراوین",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکراوین",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "کرابووین",
+        "tense": "past_perfect",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکرابووین",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "کراباین",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکراباین",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "کرابێتین",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکرابێتین",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "کرابووباین",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "1pl"
+      },
+      {
+        "form": "نەکرابووباین",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
         "voice": "passive",
         "person": "1pl"
       },
@@ -1138,10 +2378,103 @@
         "alignment": "ergative"
       },
       {
+        "form": "نەتانکردووە",
+        "tense": "present_perfect",
+        "agent": "2pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبووتان",
         "tense": "past_perfect",
         "agent": "2pl",
         "alignment": "ergative"
+      },
+      {
+        "form": "نەتانکردبوو",
+        "tense": "past_perfect",
+        "agent": "2pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردباتان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتانکردبا",
+        "polarity": "neg",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردباتان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێتتان",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتانکردبێت",
+        "polarity": "neg",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێتتان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووباتان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەتانکردبووبا",
+        "polarity": "neg",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووباتان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "2pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردران",
+        "tense": "past",
+        "voice": "passive",
+        "person": "2pl",
+        "variant": "past_stem"
       },
       {
         "form": "دەکرێن",
@@ -1157,8 +2490,116 @@
         "polarity": "neg"
       },
       {
+        "form": "بکرێن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکرێن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2pl",
+        "polarity": "neg"
+      },
+      {
         "form": "کران",
         "tense": "past",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکران",
+        "tense": "past",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "دەکران",
+        "tense": "past",
+        "aspect": "progressive",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەدەکران",
+        "tense": "past",
+        "aspect": "progressive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "کراون",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکراون",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "کرابوون",
+        "tense": "past_perfect",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکرابوون",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "کرابان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکرابان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "کرابێتن",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکرابێتن",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "کرابووبان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "2pl"
+      },
+      {
+        "form": "نەکرابووبان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
         "voice": "passive",
         "person": "2pl"
       },
@@ -1225,10 +2666,103 @@
         "alignment": "ergative"
       },
       {
+        "form": "نەیانکردووە",
+        "tense": "present_perfect",
+        "agent": "3pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبوویان",
         "tense": "past_perfect",
         "agent": "3pl",
         "alignment": "ergative"
+      },
+      {
+        "form": "نەیانکردبوو",
+        "tense": "past_perfect",
+        "agent": "3pl",
+        "polarity": "neg",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبایان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیانکردبا",
+        "polarity": "neg",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبایان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێتیان",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیانکردبێت",
+        "polarity": "neg",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێتیان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووبایان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەیانکردبووبا",
+        "polarity": "neg",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووبایان",
+        "polarity": "neg",
+        "variant": "clitic_end",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "3pl",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردران",
+        "tense": "past",
+        "voice": "passive",
+        "person": "3pl",
+        "variant": "past_stem"
       },
       {
         "form": "دەکرێن",
@@ -1244,8 +2778,116 @@
         "polarity": "neg"
       },
       {
+        "form": "بکرێن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکرێن",
+        "tense": "present",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3pl",
+        "polarity": "neg"
+      },
+      {
         "form": "کران",
         "tense": "past",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکران",
+        "tense": "past",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "دەکران",
+        "tense": "past",
+        "aspect": "progressive",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەدەکران",
+        "tense": "past",
+        "aspect": "progressive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "کراون",
+        "tense": "present_perfect",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکراون",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "کرابوون",
+        "tense": "past_perfect",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکرابوون",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "کرابان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکرابان",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "کرابێتن",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکرابێتن",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "کرابووبان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "voice": "passive",
+        "person": "3pl"
+      },
+      {
+        "form": "نەکرابووبان",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
         "voice": "passive",
         "person": "3pl"
       },
@@ -1284,8 +2926,67 @@
         "alignment": "ergative"
       },
       {
+        "form": "نەکردووە",
+        "tense": "present_perfect",
+        "polarity": "neg",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
         "form": "کردبوو",
         "tense": "past_perfect",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبوو",
+        "tense": "past_perfect",
+        "polarity": "neg",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبا",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبا",
+        "tense": "past_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبێت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبێت",
+        "tense": "perfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "کردبووبا",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "agent": "external",
+        "alignment": "ergative"
+      },
+      {
+        "form": "نەکردبووبا",
+        "tense": "pluperfect_subj",
+        "mood": "subjunctive",
+        "polarity": "neg",
         "agent": "external",
         "alignment": "ergative"
       },
@@ -1318,13 +3019,11 @@
         "form": "past_participle"
       },
       {
-        "form": "passive_participle"
+        "form": "past_participle",
+        "polarity": "neg"
       },
       {
-        "form": "کراوە",
-        "tense": "present_perfect",
-        "voice": "passive",
-        "person": "3sg"
+        "form": "passive_participle"
       }
     ]
   },

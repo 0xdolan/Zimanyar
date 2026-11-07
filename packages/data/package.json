@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/data",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Kurdish lexicon automata, rule data and parity fixtures for Zimanyar, built from the zimankit bundle",
   "license": "GPL-3.0-or-later",
@@ -14,7 +14,7 @@
     "build": "tsx ../../scripts/data/build-lexicon.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "ZIMANYAR_COVERAGE=1 vitest run --coverage"
   },
   "devDependencies": {
     "@types/node": "^22",

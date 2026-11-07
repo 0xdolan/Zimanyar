@@ -1,0 +1,9 @@
+# /usr/bin/zimanyar is the official Node.js release binary with the command line injected into it
+# (see debian/copyright). These two come from how Node.js itself is built, and change only with a
+# Node.js built from source for this package.
+
+# Node.js links its own copy of zlib statically, as every Node.js release does.
+embedded-library zlib [usr/bin/zimanyar]
+
+# The official Node.js release for Linux is not a position-independent executable.
+hardening-no-pie [usr/bin/zimanyar]

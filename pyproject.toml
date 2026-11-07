@@ -1,11 +1,11 @@
 [project]
 name = "zimanyar-data"
-version = "0.1.0"
+version = "1.0.0"
 description = "Data and fixture export for Zimanyar (zimankit to TypeScript); not a Python package"
 requires-python = ">=3.13"
 dependencies = [
     "pyarrow>=26.0.0",
-    "zimankit==0.2.0",
+    "zimankit==0.3.1",
     "zstandard>=0.25.0",
 ]
 

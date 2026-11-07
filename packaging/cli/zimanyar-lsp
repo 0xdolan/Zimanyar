@@ -1,0 +1,3 @@
+#!/bin/sh
+# The language server under the name editors look for.
+exec /usr/bin/zimanyar lsp "$@"

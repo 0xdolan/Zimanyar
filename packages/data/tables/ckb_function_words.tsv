@@ -117,3 +117,13 @@
 دژ	ADP	adptype=prep
 ڕەنگە	ADV	mood=potential
 زۆربەی	DET	prontype=ind
+پێ	ADP	adptype=bare
+لێ	ADP	adptype=bare
+تێ	ADP	adptype=bare
+تر	ADJ	prontype=ind
+دیکە	ADJ	prontype=ind
+هی	PRON	prontype=poss
+ئەمشەو	ADV	
+ئەمساڵ	ADV	
+ئەمجار	ADV	
+برا	NOUN	

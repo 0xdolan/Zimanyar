@@ -1,0 +1,19 @@
+id: kmr.orth.cedilla
+family: orth
+category: orthography
+severity: error
+confidence: 0.98
+safeFix: true
+message:
+  en: "This letter looks right but comes from another alphabet."
+  ckb: "ئەم پیتە ڕاست دیارە، بەڵام لە ئەلفوبێیەکی ترەوە هاتووە."
+  kmr: "Ev tîp rast xuya dike, lê ji alfabeyeke din e."
+reason:
+  en: "Romanian ș and Czech š and č look like ş and ç but are different characters, which breaks searching and spell-checking."
+  ckb: "ș ی ڕۆمانی و š و č ی چیکی لە ş و ç دەچن، بەڵام پیتی جیاوازن، گەڕان و پشکنینی ڕێنووس تێک دەدەن."
+  kmr: "ș ya romanî û š û č ya çekî dişibin ş û ç, lê tîpên cuda ne, û lêgerîn û kontrola rastnivîsê xera dikin."
+examples:
+  - { wrong: "șev", right: "şev" }
+  - { wrong: "čav", right: "çav" }
+lessons:
+  - { lang: kmr, lessonId: 23, anchor: "1-turkish-and-other-foreign-letters" }

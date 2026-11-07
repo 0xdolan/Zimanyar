@@ -56,10 +56,22 @@ export function words(text: string): string[] {
   return Array.from(text.matchAll(WORD), (match) => match[0]);
 }
 
-/** A rough sentence split on terminal punctuation and newlines. */
+const CLOSERS = '»”")]';
+// د. سۆران, ی. ن. ک.
+const ABBREVIATION = pythonRegex("(?:^|[\\s(«])[\u0620-\u06ff]\\.$");
+
+/** A rough sentence split on terminal punctuation and newlines. A one-letter abbreviation does not end one. */
 export function sentences(text: string): string[] {
-  return text
-    .split(SENTENCE_END)
-    .map(strip)
-    .filter((sentence) => sentence !== "");
+  const out: string[] = [];
+  let start = 0;
+  for (const match of text.matchAll(SENTENCE_END)) {
+    if (!match[0].includes("\n") && ABBREVIATION.test(text.slice(start, match.index))) continue;
+    let keep = 0;
+    while (keep < match[0].length && CLOSERS.includes(match[0][keep] as string)) keep++;
+    const sentence = strip(text.slice(start, match.index + keep));
+    if (sentence !== "") out.push(sentence);
+    start = match.index + match[0].length;
+  }
+  const tail = strip(text.slice(start));
+  return tail === "" ? out : [...out, tail];
 }

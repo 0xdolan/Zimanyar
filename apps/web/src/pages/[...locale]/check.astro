@@ -1,0 +1,16 @@
+---
+import { createT, type UiLang } from "@zimanyar/i18n";
+import SitePage from "../../components/SitePage.astro";
+import CheckerApp from "../../islands/CheckerApp";
+import { localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+---
+
+<SitePage title={t("check.title")} description={t("check.description")}>
+  <div class="not-content">
+    <CheckerApp client:load lang={lang} />
+  </div>
+</SitePage>

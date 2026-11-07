@@ -1,0 +1,77 @@
+---
+import { createT, type MessageKey, type UiLang } from "@zimanyar/i18n";
+import { allRuleMeta } from "@zimanyar/rules";
+import SitePage from "../../../components/SitePage.astro";
+import { linkTo, localePaths } from "../../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+const rules = allRuleMeta().filter((rule) => !rule.notice);
+const families = [...new Set(rules.map((rule) => rule.family))].sort();
+const severities = ["error", "warning", "hint"] as const;
+const courses = ["ckb", "kmr", "any"] as const;
+const COURSE_NAMES = { ckb: t("lang.ckb"), kmr: t("lang.kmr"), any: t("rules.both") };
+---
+
+<SitePage title={t("rules.title")} description={t("rules.description")}>
+  <p class="zy-lead">{t("rules.lead", { count: rules.length })}</p>
+  <form class="zy-filters not-content" id="rule-filters">
+    <label>{t("rules.filterLang")}
+      <select name="lang">
+        <option value="">{t("rules.all")}</option>
+        {courses.map((code) => <option value={code}>{COURSE_NAMES[code]}</option>)}
+      </select>
+    </label>
+    <label>{t("rules.filterFamily")}
+      <select name="family">
+        <option value="">{t("rules.all")}</option>
+        {families.map((family) => <option value={family} dir="ltr">{family}</option>)}
+      </select>
+    </label>
+    <label>{t("rules.filterSeverity")}
+      <select name="severity">
+        <option value="">{t("rules.all")}</option>
+        {severities.map((severity) => <option value={severity}>{t(`severity.${severity}` as MessageKey)}</option>)}
+      </select>
+    </label>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">{t("rules.colRule")}</th>
+        <th scope="col">{t("rules.colLang")}</th>
+        <th scope="col">{t("rules.colSeverity")}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rules.map((rule) => (
+          <tr class="zy-rule-row" data-family={rule.family} data-lang={rule.lang} data-severity={rule.severity}>
+            <td>
+              <a href={linkTo(lang, `rules/${rule.id}/`)}>{rule.message[lang].replace(/[,:]?\s*\{\w+\}/g, "")}</a>
+              <br />
+              <code dir="ltr">{rule.id}</code>
+            </td>
+            <td>{COURSE_NAMES[rule.lang]}</td>
+            <td>{t(`severity.${rule.severity}` as MessageKey)}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</SitePage>
+
+<script>
+  // Without a script every rule simply stays listed.
+  const form = document.getElementById("rule-filters") as HTMLFormElement;
+  form.addEventListener("change", () => {
+    const chosen = new FormData(form);
+    for (const row of document.querySelectorAll<HTMLElement>(".zy-rule-row")) {
+      row.hidden = ["lang", "family", "severity"].some((name) => {
+        const value = chosen.get(name);
+        return value !== "" && value !== row.dataset[name];
+      });
+    }
+  });
+</script>

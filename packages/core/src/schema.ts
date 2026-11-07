@@ -17,6 +17,11 @@ export function segmentation(analysis: Analysis): string {
     : analysis.surface;
 }
 
+/** The tags of a reading, joined by +. */
+export function gloss(analysis: Analysis): string {
+  return analysis.segments.length > 0 ? analysis.segments.map(([, tag]) => tag).join("+") : "STEM";
+}
+
 /** What the analyzers need from a lexicon: membership, part of speech, frequency and gender. */
 export interface LexiconLike {
   has(word: string): boolean;

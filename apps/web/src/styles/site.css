@@ -1,0 +1,294 @@
+@layer base, starlight, theme, components, utilities;
+
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "@zimanyar/config/tokens.css";
+/* Fonts are bundled: nothing is requested from anywhere else. */
+@import "@fontsource/ibm-plex-sans/latin-400.css";
+@import "@fontsource/ibm-plex-sans/latin-ext-400.css";
+@import "@fontsource/ibm-plex-sans/latin-600.css";
+@import "@fontsource/ibm-plex-sans/latin-ext-600.css";
+@import "@fontsource/vazirmatn/arabic-400.css";
+@import "@fontsource/vazirmatn/arabic-600.css";
+@import "@fontsource/dejavu-mono/400.css";
+
+@source "../../../../packages/ui/src";
+@source "../../../../packages/editor/src";
+@source "../";
+
+/* Starlight's own colours, from our tokens. */
+:root,
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  --sl-font: var(--font-sans);
+  --sl-font-mono: var(--font-mono);
+  --sl-color-accent-low: var(--accent);
+  --sl-color-accent: var(--ring);
+  --sl-color-accent-high: var(--foreground);
+  --sl-color-text-accent: var(--ring);
+  --sl-color-text-invert: var(--primary-foreground);
+  --sl-color-white: var(--foreground);
+  --sl-color-gray-1: var(--foreground);
+  --sl-color-gray-2: var(--foreground);
+  --sl-color-gray-3: var(--muted-foreground);
+  --sl-color-gray-4: var(--input);
+  --sl-color-gray-5: var(--border);
+  --sl-color-gray-6: var(--muted);
+  --sl-color-gray-7: var(--card);
+  --sl-color-black: var(--background);
+  --sl-color-bg: var(--background);
+  --sl-color-bg-nav: var(--background);
+  --sl-color-bg-sidebar: var(--background);
+  --sl-color-bg-inline-code: var(--muted);
+  --sl-color-hairline: var(--border);
+  --sl-color-hairline-light: var(--border);
+  --sl-color-hairline-shade: var(--border);
+  --sl-text-h1: 2.25rem;
+  --sl-text-h2: 1.625rem;
+}
+
+:lang(ckb),
+[lang="ckb"],
+[lang="kmr-Arab"] {
+  font-family: var(--font-arabic);
+  line-height: var(--leading-arabic);
+}
+
+/* Inside English prose a run of Kurdish is a little larger, as Arabic script reads smaller at one size. */
+.sl-markdown-content [lang="ckb"],
+.sl-markdown-content [lang="kmr-Arab"] {
+  font-size: calc(1em * var(--scale-arabic));
+}
+
+.sl-markdown-content :is(h1, h2, h3, h4) [lang="ckb"] {
+  font-size: inherit;
+}
+
+.zy-ipa {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.zy-empty {
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.sl-markdown-content sub {
+  font-size: 0.8em;
+  color: var(--muted-foreground);
+  vertical-align: baseline;
+}
+
+.sl-markdown-content :is(th, td) {
+  vertical-align: top;
+}
+
+.sl-markdown-content .not-content a:not(.zy-button) {
+  color: inherit;
+}
+
+/* The header is two rows: Starlight's, and the site's main links, which scroll sideways on a phone. */
+:root {
+  --sl-nav-height: 6rem;
+}
+
+.zy-head {
+  height: 2.75rem;
+}
+
+.zy-head .site-title img {
+  height: 2.25rem;
+}
+
+.zy-nav {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: var(--sl-text-sm);
+  padding-block-start: 0.25rem;
+  scrollbar-width: none;
+}
+
+.zy-nav a {
+  color: var(--foreground);
+  text-decoration: none;
+  padding-block: 0.25rem;
+}
+
+.zy-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Gold fills carry ink text, as the contrast check requires. */
+#starlight__sidebar a[aria-current="page"],
+#starlight__sidebar a[aria-current="page"] > span {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+kbd {
+  direction: ltr;
+}
+
+starlight-lang-select {
+  --sl-select-width: 8em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Our pages. */
+.zy-hero {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+  padding-block: 1.5rem;
+}
+
+@media (min-width: 60rem) {
+  .zy-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.zy-lead {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  max-width: var(--measure);
+}
+
+.zy-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin-block-start: 1rem;
+}
+
+.zy-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.zy-card h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.zy-card p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.9375rem;
+}
+
+.zy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block-start: 1rem;
+}
+
+.sl-markdown-content a.zy-button,
+a.zy-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.sl-markdown-content a.zy-button-quiet,
+a.zy-button-quiet {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--input);
+}
+
+.zy-shots {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-block-end: 0.5rem;
+}
+
+.zy-shots > * {
+  flex: 0 0 min(36rem, 90%);
+  scroll-snap-align: start;
+  margin: 0;
+}
+
+.zy-shots img {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 100%;
+  height: auto;
+}
+
+.zy-status {
+  display: inline-block;
+  font-size: 0.8125rem;
+  border-radius: 9999px;
+  padding: 0.0625rem 0.625rem;
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.zy-rule-row[hidden] {
+  display: none;
+}
+
+.zy-level {
+  color: var(--muted-foreground);
+  font-size: var(--sl-text-sm);
+  margin-block-start: 0.5rem;
+}
+
+/* English titles in a right-to-left interface keep their own order: "1. Welcome", not ".1 Welcome". */
+#starlight__sidebar a span,
+starlight-toc a span,
+starlight-toc-mobile a span {
+  unicode-bidi: plaintext;
+}
+
+starlight-lang-select select {
+  width: 11em;
+}
+
+starlight-theme-select select {
+  width: 7.5em;
+}
+
+.zy-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+
+.zy-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: var(--sl-text-sm);
+}
+
+.zy-filters select {
+  min-height: 2.5rem;
+  padding-inline: 0.5rem;
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  background: var(--background);
+  color: var(--foreground);
+}

@@ -1,0 +1,66 @@
+---
+title: "20. Preverbs, -ەوە verbs and compound verbs"
+description: "Sorani lesson 20: Preverbs, -ەوە verbs and compound verbs"
+course: ckb
+lesson: 20
+level: advanced
+rules: []
+---
+
+import { Sentences, VerbTable } from "../../src/components.tsx";
+
+Most verbs in a real text are not simple verbs like کردن but **complex** ones built from a simple verb plus something else. Three kinds matter.
+
+## 1. Preverbs
+
+A **preverb** is a short prefix that changes the meaning of the verb: هەڵ *up*, دا *down*, ڕا *forth*, وەر *towards*, دەر *out*, تێ *into*, پێ *at, on*, لێ *from, at*:
+
+| verb | parts | meaning |
+|---|---|---|
+| هەڵگرتن | هەڵ + گرتن | to pick up, to lift |
+| داخستن | دا + خستن | to close |
+| ڕاگەیاندن | ڕا + گەیاندن | to announce |
+| وەرگرتن | وەر + گرتن | to receive |
+| دەرکردن | دەر + کردن | to expel, to issue |
+
+Rules:
+
+* The preverb stays **in front of** دە / نا: هەڵ**دە**گرم *I pick up*, هەڵ**نا**گرم *I don't pick up*.
+* In the subjunctive and imperative, ب **follows the preverb and may be dropped**: هەڵ**ب**گرم or هەڵگرم *that I pick up*, هەڵ**ب**گرە or هەڵگرە *pick up!*
+* In the past the agent clitic goes **right after the preverb**, in every past tense and in the negative, and the standard writes a **space** after it: هەڵ**م** گرت *I picked up*, ڕا**ی** گەیاند *he announced*, هەڵ**م** نەگرت *I didn't pick up*, هەڵ**م** گرتووە *I have picked up*.
+
+The solid spelling (هەڵمگرت, ڕایگەیاند) is allowed and much more common in news text, so read both, and write the split form. The tables below show the standard spelling first and the solid one in small type. An Academy pamphlet is reported to allow the solid form, though the spelling guides themselves print the split one.
+
+<VerbTable lang="ckb" verb="هەڵگرتن" cells="present,subj,past,imperative" />
+
+<VerbTable lang="ckb" verb="ڕاگەیاندن" cells="present,past" />
+
+## 2. Verbs with -ەوە
+
+The suffix **-ەوە** adds *again, back* or a new meaning, and it always comes **last**, after the person ending:
+
+| verb | meaning | present 1sg |
+|---|---|---|
+| کردنەوە | to open | دەکەمەوە |
+| گەڕانەوە | to return | دەگەڕێمەوە |
+| خوێندنەوە | to read | دەخوێنمەوە |
+
+<VerbTable lang="ckb" verb="کردنەوە" cells="present,past" />
+
+<VerbTable lang="ckb" verb="گەڕانەوە" cells="present,past" />
+
+## 3. Compound verbs with a noun
+
+Very many verbs are **noun or adjective + light verb** (usually کردن *do*, بوون *become*, دان *give*): دەستپێکردن *to begin* (lit. hand-to-do), بەکارهێنان *to use* (lit. into-work-bring), کارکردن *to work*. The noun part behaves like a preverb, but the subjunctive **keeps ب**:
+
+<VerbTable lang="ckb" verb="دەستپێکردن" cells="present,subj,past" />
+
+<Sentences lang="ckb" ipa items={[["کتێبەکەم هەڵگرت.","I picked up the book."],["دەرگاکە دابخە!","Close the door!"],["کەی دەگەڕێیتەوە؟","When are you coming back?"],["وانەکە دەستی پێ کرد.","The lesson began."],["حکومەت بڕیارەکەی ڕاگەیاند.","The government announced the decision."]]} />
+
+Notice **دەستی پێ کرد** in the fourth sentence. The agent clitic of a noun + verb compound goes on the **noun part** (دەست**ی** پێ کرد *he began*, دەست**م** پێ کرد *I began*). You will also see it written دەستی پێکرد or دەستپێیکرد, and hear دەستپێکردی in speech.
+
+## Summary
+
+* Preverb verbs: preverb + دە/نا; subjunctive with ب, which may be dropped; past clitic after the preverb, then a space: هەڵم گرت.
+* -ەوە always last: دەکەمەوە.
+* Noun + light verb: written apart in every tense (نان دەکەم, نانم کرد); the infinitive is solid (نانکردن).

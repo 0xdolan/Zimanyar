@@ -118,24 +118,29 @@ describe.skipIf(!existsSync(lexiconPath("ckb")) || !existsSync(lexiconPath("kmr"
         expect(falsePositives).toBe(0);
       }, 120_000);
 
-      it("looks a word up within the performance budget", async () => {
-        const lex = await load();
-        const words = rows(lang, "forms")
-          .slice(0, 50_000)
-          .map(([word]) => word as string);
-        const fsa = lex.automaton;
-        for (const word of words) fsa.rank(word); // warm up the JIT
-        // The best of several runs, because a busy machine only ever makes a run slower.
-        const runs = Array.from({ length: 5 }, () => {
-          const started = performance.now();
-          for (const word of words) fsa.rank(word);
-          return ((performance.now() - started) * 1000) / words.length;
-        });
-        const microseconds = Math.min(...runs);
-        console.log(`${lang}: lookup ${microseconds.toFixed(2)} us`);
-        // The budget is 2 us; this allows for a loaded CI machine.
-        expect(microseconds).toBeLessThan(6);
-      }, 120_000);
+      // Coverage instruments every line and runs beside other packages, so a time means nothing there. make bench holds this.
+      it.skipIf(process.env["ZIMANYAR_COVERAGE"])(
+        "looks a word up within the performance budget",
+        async () => {
+          const lex = await load();
+          const words = rows(lang, "forms")
+            .slice(0, 50_000)
+            .map(([word]) => word as string);
+          const fsa = lex.automaton;
+          for (const word of words) fsa.rank(word); // warm up the JIT
+          // The best of several runs, because a busy machine only ever makes a run slower.
+          const runs = Array.from({ length: 5 }, () => {
+            const started = performance.now();
+            for (const word of words) fsa.rank(word);
+            return ((performance.now() - started) * 1000) / words.length;
+          });
+          const microseconds = Math.min(...runs);
+          console.log(`${lang}: lookup ${microseconds.toFixed(2)} us`);
+          // The budget is 2 us; this allows for a loaded CI machine.
+          expect(microseconds).toBeLessThan(6);
+        },
+        120_000,
+      );
     });
   },
 );

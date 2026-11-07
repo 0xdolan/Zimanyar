@@ -1,0 +1,20 @@
+id: kmr.verb.oblique-intransitive-subject
+family: verb
+category: agreement
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "An intransitive verb has a subject in the direct form."
+  ckb: "کرداری تێنەپەڕ بکەرێکی لە دۆخی بەرکەوتوو هەیە."
+  kmr: "Lêkera negerguhêz kirdeyeke di rewşa sade de heye."
+reason:
+  en: "Only transitive verbs switch in the past. With an intransitive verb the subject stays direct: Ez hatim, \"I came\"."
+  ckb: "تەنیا کرداری تێپەڕ لە ڕابردوودا دەگۆڕێت. لەگەڵ کرداری تێنەپەڕ بکەر بەرکەوتوو دەمێنێتەوە: Ez hatim."
+  kmr: "Tenê lêkerên gerguhêz di dema borî de diguherin. Bi lêkera negerguhêz re kirde sade dimîne: Ez hatim."
+examples:
+  - { wrong: "Min hatim.", right: "Ez hatim." }
+  - { wrong: "Te hatî.", right: "Tu hatî." }
+lessons:
+  - { lang: kmr, lessonId: 13, anchor: "the-simple-past" }
+  - { lang: kmr, lessonId: 23, anchor: "4-real-words-wrong-place" }

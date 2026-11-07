@@ -15,14 +15,15 @@ description: Cut a Zimanyar release with git flow (release/X.Y.Z from develop in
 1. `git switch -c release/X.Y.Z develop`.
 2. Bump the shared version everywhere: every `package.json`, the WXT manifest, `tauri.conf.json`,
    `debian/changelog`, `pyproject.toml`, the AppStream release list
-   (`scripts/release/bump-version.ts` once it exists). The data version is separate.
+   (`make release V=X.Y.Z` does this with `scripts/release/bump-version.ts`; see `RELEASING.md`). The data version is separate.
 3. `uv run git-cliff --tag vX.Y.Z -o CHANGELOG.md`; read it and fix wording by hand if needed.
 4. `make screenshots marketing`; look at every changed image.
 5. Full test suite; commit `chore(release): X.Y.Z` with the maintainer's identity only.
 6. Push the branch, open a pull request into `main`, merge only when every check is green.
 7. Tag `vX.Y.Z` on `main` (annotated, signed by the maintainer), push the tag. The release
-   workflow builds and attaches the artefacts.
-8. Merge `main` back into `develop`.
+   workflow builds the artefacts into a draft release.
+8. `make release-sign V=X.Y.Z`: checks the assets, signs `SHA256SUMS` and publishes the draft.
+9. Merge `main` back into `develop`.
 
 ## Artefact checklist
 

@@ -1,0 +1,88 @@
+---
+import { createT, type MessageKey, type UiLang } from "@zimanyar/i18n";
+import { lessonPath } from "@zimanyar/content/lesson-slugs";
+import { allRuleMeta, type RuleMeta } from "@zimanyar/rules";
+import SitePage from "../../../components/SitePage.astro";
+import { linkTo, localePaths } from "../../../lib/site";
+
+export function getStaticPaths() {
+  return localePaths().flatMap(({ params, props }) =>
+    allRuleMeta().map((rule) => ({ params: { ...params, id: rule.id }, props: { ...props, rule } })),
+  );
+}
+
+const lang = Astro.props.lang as UiLang;
+const rule = Astro.props.rule as RuleMeta;
+const t = createT(lang);
+/** A message without the word it would name: "agrees with the object, {object}." reads as a title without it. */
+const fill = (template: string) => template.replace(/[,:]?\s*\{\w+\}/g, "");
+const related = allRuleMeta().filter((other) => other.family === rule.family && other.lang === rule.lang && other.id !== rule.id);
+const kurdish = rule.lang === "ckb" ? { lang: "ckb", dir: "rtl" as const } : rule.lang === "kmr" ? { lang: "kmr", dir: "ltr" as const } : {};
+---
+
+<SitePage title={fill(rule.message[lang])} description={fill(rule.reason[lang])}>
+  <p>
+    <code dir="ltr">{rule.id}</code> · {t(`severity.${rule.severity}` as MessageKey)} · {t(`category.${rule.category}` as MessageKey)}
+    {rule.safeFix && <> · {t("rules.safeFix")}</>}
+    {rule.standardOnly && <> · {t("rules.standardOnly")}</>}
+  </p>
+  <p>{fill(rule.reason[lang])}</p>
+
+  {
+    rule.examples.length > 0 && (
+      <>
+        <h2>{t("finding.examples")}</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{t("finding.wrong")}</th>
+              <th scope="col">{t("finding.right")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rule.examples.map((example) => (
+              <tr>
+                <td {...kurdish}>{example.wrong}</td>
+                <td {...kurdish}>{example.right}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    )
+  }
+
+  {
+    rule.lessons.length > 0 && (
+      <>
+        <h2>{t("finding.lessons")}</h2>
+        <ul>
+          {rule.lessons.map((lesson) => (
+            <li>
+              <a href={linkTo(lang, `${lessonPath(lesson.lang, lesson.lessonId)}#${lesson.anchor}`)}>
+                {lang === "en"
+                  ? t("finding.lesson", { number: lesson.lessonId, title: lesson.title })
+                  : t("finding.lessonNumber", { number: lesson.lessonId })}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  {
+    related.length > 0 && (
+      <>
+        <h2>{t("rules.related")}</h2>
+        <ul>
+          {related.map((other) => (
+            <li>
+              <a href={linkTo(lang, `rules/${other.id}/`)}>{fill(other.message[lang])}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+</SitePage>

@@ -1,0 +1,66 @@
+---
+title: "23. The written standard and common errors"
+description: "Kurmanji lesson 23: The written standard and common errors"
+course: kmr
+lesson: 23
+level: advanced
+rules: ["kmr.ergative.agreement","kmr.ergative.direct-agent","kmr.ergative.oblique-object","kmr.morph.case-after-preposition","kmr.morph.ezafe-gender","kmr.orth.accent","kmr.orth.apostrophe","kmr.orth.cedilla","kmr.orth.tripled","kmr.orth.turkish-letter","kmr.spell.unknown","kmr.spell.variant","kmr.verb.ni-negation","kmr.verb.oblique-intransitive-subject","kmr.verb.preverb-bi"]
+---
+
+import { LessonRules, Normalize } from "../../src/components.tsx";
+
+This last lesson is about writing Kurmanji correctly: the spelling problems that appear in real texts, how zimankit repairs or flags them (`skills_kmr/orthography.py`), and the grammar errors a checker must catch.
+
+## 1. Turkish and other foreign letters
+
+Most Kurmanji writers also type Turkish, and Turkish keyboards produce letters that do not belong to the Hawar alphabet:
+
+| wrong | right | note |
+|---|---|---|
+| ı (dotless i) | **i** | |
+| İ (dotted capital I) | **I** | |
+| é, è, ë | **ê** | the circumflex is the only Kurmanji accent |
+| í, ï | **î** | |
+| ú, ü | **û** | ü is a Turkish letter |
+| ș (Romanian) | **ş** | looks identical |
+| ğ, ö | · | not Kurmanji: usually a Turkish name |
+
+## 2. What the normaliser fixes
+
+<Normalize lang="kmr" items={[["Kürdistan","Turkish ü for û"],["şéwe","acute é for ê"],["İro baran dibare.","Turkish dotted İ"],["Ez dıçım malê.","Turkish dotless ı"],["Ew’ê hat.","curly apostrophe"]]} />
+
+## 3. What the validator rejects
+
+Some words cannot be standard Kurmanji at all, usually Turkish names or typing errors. The validator reports them; the wordlist pipeline keeps frequent capitalised ones as proper nouns:
+
+<Normalize lang="kmr" items={[["Erdoğan","ğ is not a Kurmanji letter"],["Göktürk","ö, ü"],["kurrrd","three r in a row"]]} />
+
+## 4. Real words, wrong place
+
+Some mistakes produce valid words. Only grammar can catch them:
+
+| error | wrong | right | lesson |
+|---|---|---|---|
+| wrong ezafe gender | \* bava min | bavê min | 8 |
+| direct case after a preposition | \* li mal | li malê | 9, 16 |
+| direct agent in the past | \* ez nan xwar | min nan xwar | 14 |
+| oblique object in the past | \* min wê dît (meaning *her*) | min ew dît | 14 |
+| verb agrees with the agent in the past | \* min tu dîtim | min tu dîtî | 14 |
+| oblique subject of an intransitive verb | \* min hatim | ez hatim | 13 |
+| bi- kept after a preverb | \* birabe | rabe | 20 |
+| na- instead of ni- | \* nazanim | nizanim | 21 |
+
+The third, fifth and sixth are checked by zimankit's `detect_alignment` (lessons 14 and 22). The others need the case and gender information the analyzer already provides. Combining them is the plan for a full Kurmanji grammar checker.
+
+## Summary
+
+* Use only Hawar letters: ê î û ş ç, never Turkish ı İ ğ ö ü or accented é í ú.
+* zimankit normalises the common confusions and rejects impossible spellings.
+* Grammar errors (case, ezafe gender, ergative agreement) need context: the next step is a grammar checker.
+
+**Congratulations, you have finished the Kurmanji course.** The [reference pages](../#reference) have every verb and noun of the course in full.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={23} />

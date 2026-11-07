@@ -1,0 +1,21 @@
+id: ckb.verb.agent-misplaced
+family: verb
+category: agreement
+severity: warning
+confidence: 0.7
+safeFix: false
+standardOnly: true
+message:
+  en: "In the written standard the clitic goes on the object, not the verb."
+  ckb: "لە زمانی نووسیندا کلیتیک دەچێتە سەر بەرکار، نەک کردار."
+  kmr: "Di zimanê nivîsê de klîtîk li ser bireserê ye, ne li ser lêkerê."
+reason:
+  en: "The clitic sits on the first word before the verb when there is one: من نانم خوارد. من نان خواردم is common in speech, so Tolerant mode accepts it."
+  ckb: "کلیتیک لەسەر یەکەم وشەی پێش کردار دەبێت ئەگەر هەبێت: من نانم خوارد. من نان خواردم لە قسەکردندا باوە، بۆیە دۆخی لێبوردە قبووڵی دەکات."
+  kmr: "Klîtîk li ser peyva yekem a berî lêkerê ye heke hebe: من نانم خوارد. من نان خواردم di axaftinê de berbelav e, ji ber vê moda tolerant wê qebûl dike."
+examples:
+  - { wrong: "من نان خواردم", right: "من نانم خوارد" }
+  - { wrong: "نان خواردم", right: "نانم خوارد" }
+lessons:
+  - { lang: ckb, lessonId: 22, anchor: "the-hosting-rule" }
+  - { lang: ckb, lessonId: 14, anchor: "where-the-clitic-goes" }

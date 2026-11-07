@@ -1,0 +1,14 @@
+---
+title: Adding a rule
+description: What a checking rule consists of.
+sidebar:
+  order: 2
+---
+
+A rule lives in `packages/rules/src/<lang>/<family>/` as three files:
+
+- `<rule>.ts`, the check itself
+- `<rule>.meta.yaml`, with its severity, messages in English, Sorani and Kurmanji, reason, examples and lesson links
+- `<rule>.test.ts`, with at least ten sentences it must flag and ten it must not
+
+Then run `make rules` to compile the metadata, and `make corpus` to measure the rule on the gold corpus. The rule's page on this site is generated from its metadata.

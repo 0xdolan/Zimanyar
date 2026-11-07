@@ -1,0 +1,20 @@
+id: ckb.orth.arabic-codepoint
+family: orth
+category: orthography
+severity: error
+confidence: 0.98
+safeFix: true
+message:
+  en: "This letter is Arabic or Persian. Use the Kurdish letter."
+  ckb: "ئەم پیتە عەرەبی یان فارسییە. پیتی کوردی بەکاربهێنە."
+  kmr: "Ev tîp erebî an farisî ye. Tîpa kurdî bi kar bîne."
+reason:
+  en: "Keyboards often produce look-alike letters from other languages. They look the same but break searching, sorting and spell-checking."
+  ckb: "تەختەکلیلەکان زۆرجار پیتی هاوشێوە لە زمانی ترەوە دەنووسن. هەمان شێوەیان هەیە، بەڵام گەڕان و ڕیزکردن و پشکنینی ڕێنووس تێک دەدەن."
+  kmr: "Klavye pir caran tîpên wekhev ji zimanên din dinivîsin. Wek hev xuya dikin, lê lêgerîn, rêzkirin û kontrola rastnivîsê xera dikin."
+examples:
+  - { wrong: "كتێب", right: "کتێب" }
+  - { wrong: "ماسي", right: "ماسی" }
+lessons:
+  - { lang: ckb, lessonId: 23, anchor: "1-use-kurdish-letters-not-arabic-or-persian-ones" }
+  - { lang: ckb, lessonId: 2, anchor: "letters-to-watch" }

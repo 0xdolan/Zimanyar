@@ -1,0 +1,12 @@
+---
+title: The data pipeline
+description: How zimankit's lexicon becomes files the browser can load.
+sidebar:
+  order: 3
+---
+
+`make data` needs [uv](https://docs.astral.sh/uv/). It fetches the lexicon bundle pinned in `packages/data/VERSION`, verifies its checksum, exports fixtures and tables from zimankit, and compiles a lexicon for each variety of about 2 MB gzipped.
+
+The result is reproducible: `packages/data/lexicon.lock.json` records it, and CI fails if a rebuild differs.
+
+`scripts/content/import-zimankit-tutorials.ts` imports the lessons from a zimankit checkout into `packages/content`.

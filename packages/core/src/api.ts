@@ -1,7 +1,7 @@
-import { CkbAnalyzer } from "./ckb/morphology.js";
+import { CkbAnalyzer, functionWords as ckbFunctionWords } from "./ckb/morphology.js";
 import { normalize as normalizeCkb } from "./ckb/orthography.js";
 import { toIpa as ckbToIpa } from "./ckb/phonology.js";
-import { KmrAnalyzer } from "./kmr/morphology.js";
+import { KmrAnalyzer, functionWords as kmrFunctionWords } from "./kmr/morphology.js";
 import { normalize as normalizeKmr } from "./kmr/orthography.js";
 import { toIpa as kmrToIpa } from "./kmr/phonology.js";
 import type { Analysis } from "./schema.js";
@@ -32,3 +32,6 @@ export function analyze(word: string, lang?: Variety): Analysis[] {
   analyzers.kmr ??= new KmrAnalyzer();
   return analyzers.kmr.analyze(word);
 }
+
+/** The closed-class words of a variety: pronouns, prepositions, numbers and so on. */
+export const functionWordsFor = (lang: Variety) => (lang === "ckb" ? ckbFunctionWords() : kmrFunctionWords());

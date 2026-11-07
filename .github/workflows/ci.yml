@@ -71,6 +71,10 @@ jobs:
         run: pnpm --filter @zimanyar/data test
       - name: Check the engine against the full fixtures
         run: pnpm --filter @zimanyar/core test
+      - name: Check the rules against the full lexicon
+        run: pnpm --filter @zimanyar/rules test
+      - name: Check the rules against the gold corpus
+        run: make corpus
       - name: Hold the engine to its performance budgets
         run: pnpm --filter @zimanyar/core bench
       - name: Sizes
@@ -82,3 +86,123 @@ jobs:
               echo "| $(basename "$file") | $(stat -c %s "$file") |"
             done
           } >> "$GITHUB_STEP_SUMMARY"
+
+  e2e:
+    name: Browser tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Install the browser
+        run: pnpm exec playwright install --with-deps chromium
+      - run: make data
+      - run: make e2e
+      - run: make extension-lint
+      - name: Keep the built site, to look at before it reaches main
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: website-preview
+          path: apps/web/dist/
+          retention-days: 7
+      - name: Upload the report
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
+
+  desktop:
+    name: Desktop packages
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Install what Tauri builds against, and the validators
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev libssl-dev libxdo-dev \
+            patchelf rpm lintian appstream desktop-file-utils xvfb xauth dbus-x11 xdotool xclip imagemagick
+      - run: make data
+      - name: Rust stays tidy
+        run: |
+          pnpm --filter @zimanyar/desktop build:web
+          cargo fmt --manifest-path apps/desktop/src-tauri/Cargo.toml --check
+          cargo clippy --manifest-path apps/desktop/src-tauri/Cargo.toml --locked -- -D warnings
+      - name: Build the packages
+        run: pnpm --filter @zimanyar/desktop exec tauri build --ci
+        env:
+          # The AppImage tool cannot mount itself on a runner, and strips nothing it does not understand.
+          APPIMAGE_EXTRACT_AND_RUN: "1"
+          NO_STRIP: "true"
+      - name: Check the .deb
+        run: packaging/linux/check-package.sh "$CARGO_TARGET_DIR_BUNDLE"/deb/*.deb
+        env:
+          CARGO_TARGET_DIR_BUNDLE: apps/desktop/src-tauri/target/release/bundle
+      - name: Install the .deb and start it
+        run: |
+          sudo apt-get install -y ./apps/desktop/src-tauri/target/release/bundle/deb/*.deb
+          packaging/linux/smoke-test.sh smoke.png
+      - name: Keep the packages and what the app looked like
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: desktop-packages
+          path: |
+            apps/desktop/src-tauri/target/release/bundle/deb/*.deb
+            apps/desktop/src-tauri/target/release/bundle/rpm/*.rpm
+            apps/desktop/src-tauri/target/release/bundle/appimage/*.AppImage
+            smoke.png
+            smoke-quick.png
+          retention-days: 7
+
+  cli:
+    name: Command line packages
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Install the Debian packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential debhelper lintian
+      - run: make data
+      - name: Test against the full lexicons
+        run: pnpm --filter zimanyar test
+      - name: Build the single executable
+        run: make cli-sea
+      - name: Run the language server from the npm bundle
+        run: packaging/cli/lsp-smoke.sh node apps/cli/dist/zimanyar-lsp.cjs --stdio
+      - name: Run the language server from the single executable
+        run: packaging/cli/lsp-smoke.sh apps/cli/dist/zimanyar lsp --stdio
+      - name: Build the .deb and run lintian
+        run: packaging/cli/build-deb.sh
+      - name: Install the .deb and use it as a pipeline would (user story 6)
+        run: |
+          sudo apt-get install -y ./apps/cli/.output/zimanyar-cli_*.deb
+          packaging/cli/smoke-test.sh
+      - name: Pack the tarball and the npm package
+        run: |
+          packaging/cli/tarball.sh
+          pnpm --filter zimanyar pack --pack-destination "$GITHUB_WORKSPACE/apps/cli/.output"
+      - name: Keep the packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cli-packages
+          path: |
+            apps/cli/.output/*.deb
+            apps/cli/.output/*.tar.gz
+            apps/cli/.output/*.tgz
+          retention-days: 7

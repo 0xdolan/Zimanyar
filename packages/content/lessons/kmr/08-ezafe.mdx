@@ -1,0 +1,76 @@
+---
+title: "8. Ezafe: linking nouns to adjectives and owners"
+description: "Kurmanji lesson 8: Ezafe: linking nouns to adjectives and owners"
+course: kmr
+lesson: 8
+level: beginner
+rules: ["kmr.morph.ezafe-gender","kmr.morph.indef-ezafe-gender"]
+---
+
+import { Analyze, LessonRules, NounTable, Sentences } from "../../src/components.tsx";
+
+## The linking ending
+
+When a noun is followed by an adjective, an owner or another noun that describes it, Kurmanji adds a **linking ending**, the **ezafe**, to the noun. Its form depends on **gender** and **number**:
+
+| | after a consonant | after a vowel | example |
+|---|---|---|---|
+| masculine singular | **-ê** | **-yê** | bav**ê** min *my father* |
+| feminine singular | **-a** | **-ya** | mal**a** min *my house* |
+| plural (both genders) | **-ên** | **-yên** | heval**ên** min *my friends* |
+
+The owner after the ezafe is in the **oblique** case: *mala **min*** (not *ez*), *bavê **wê*** “her father”.
+
+<NounTable lang="kmr" nouns="bav,mirov,bajar,xanî,jin,mal,pirtûk,çiya" cells="def.dir.sg,def.ez.sg,def.ez.pl" />
+
+<Sentences lang="kmr" ipa items={[["mala min","my house"],["bavê te","your father"],["zimanê kurdî","the Kurdish language"],["pirtûka nû","the new book"],["bajarê mezin","the big city"],["hevalên me","our friends"]]} />
+
+## Indefinite ezafe: *a good man*
+
+With *a* (-ek), the ezafe is **-ekî** for masculine and **-eke** for feminine nouns:
+
+<NounTable lang="kmr" nouns="mirov,bajar,jin,pirtûk" cells="ind.dir.sg,ind.ez.sg" />
+
+*mirovekî baş* “a good man”, *pirtûkeke nû* “a new book”.
+
+## Chains
+
+Ezafes chain from left to right, each noun linking to the next: *mala bavê min* “my father's house” (house-of father-of me), *navê bajarê mezin* “the name of the big city”.
+
+## Standalone ezafe: *mine, his*
+
+Without a noun, the ezafe is a little word **yê** (m), **ya** (f), **yên** (pl): *Ev pirtûk **ya** min e.* “This book is mine.”
+
+## How zimankit reads these
+
+The ending *-ê* is ambiguous (masculine ezafe, or feminine oblique, lesson 9). The analyzer uses the noun's gender from its lexicon to decide:
+
+<Analyze lang="kmr" words="bavê,mala,hevalên,mirovekî,pirtûkeke" />
+
+*mirovekî* gets the oblique reading first; in *mirovekî baş* it is an ezafe. The analyzer keeps both readings and leaves the choice to the context.
+
+## Practice
+
+1. *my sister* (*xwişk f*).
+2. *the big village* (*gund m*, *mezin* big).
+3. *a beautiful city* (*bajar m*, *xweş* nice).
+
+<details>
+<summary>Answers</summary>
+
+1. xwişka min
+2. gundê mezin
+3. bajarekî xweş
+
+</details>
+
+## Summary
+
+* Ezafe: **-ê** (m), **-a** (f), **-ên** (pl); after a vowel -yê, -ya, -yên.
+* Indefinite: **-ekî** (m), **-eke** (f).
+* The word after the ezafe is oblique: mala **min**.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={8} />

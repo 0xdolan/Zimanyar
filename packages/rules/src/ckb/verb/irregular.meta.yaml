@@ -1,0 +1,20 @@
+id: ckb.verb.irregular
+family: verb
+category: morphology
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "This verb is irregular here."
+  ckb: "ئەم کردارە لێرەدا نائاساییە."
+  kmr: "Ev lêker li vir neasayî ye."
+reason:
+  en: "Some common verbs do not follow the regular pattern: the prohibitive of هاتن is مەیە, and ویستن marks its subject with a clitic: دەمەوێت, \"I want\"."
+  ckb: "هەندێک کرداری باو پێڕەوی شێوەی ئاسایی ناکەن: نەهی هاتن مەیەیە، و ویستن بکەرەکەی بە کلیتیک نیشان دەدات: دەمەوێت."
+  kmr: "Hin lêkerên berbelav şêweya asayî naşopînin: neya هاتن مەیە ye, û ویستن kirdeya xwe bi klîtîkê nîşan dide: دەمەوێت."
+examples:
+  - { wrong: "مەێ", right: "مەیە" }
+  - { wrong: "دەوێم", right: "دەمەوێت" }
+lessons:
+  - { lang: ckb, lessonId: 21, anchor: "هاتن-to-come" }
+  - { lang: ckb, lessonId: 21, anchor: "ویستن-to-want" }

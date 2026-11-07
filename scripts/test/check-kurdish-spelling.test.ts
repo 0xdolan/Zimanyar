@@ -48,9 +48,10 @@ describe("check-kurdish-spelling", () => {
     expect(rules("README.md", "کردی <!-- kurdish-spelling: allow -->")).toEqual([]);
   });
 
+  // It reads every file in the repository, which on a slow machine takes a while.
   it("passes on the repository itself", () => {
     expect(run("pnpm", ["exec", "tsx", "scripts/checks/check-kurdish-spelling.ts"]).status).toBe(0);
-  });
+  }, 60_000);
 });
 
 describe("check-kurdish-spelling main", () => {

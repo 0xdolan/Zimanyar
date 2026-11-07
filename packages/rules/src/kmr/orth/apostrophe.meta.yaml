@@ -1,0 +1,20 @@
+id: kmr.orth.apostrophe
+family: orth
+category: orthography
+severity: warning
+confidence: 0.95
+safeFix: true
+message:
+  en: "Use a plain apostrophe here."
+  ckb: "لێرەدا ئەپۆسترۆفی ئاسایی بەکاربهێنە."
+  kmr: "Li vir apostrofa sade bi kar bîne."
+reason:
+  en: "Word processors turn ' into ’. Inside a word, such as before a suffix on a name, the plain apostrophe is the standard, and the curly one splits the word for searching."
+  ckb: "بەرنامەکانی نووسین ' دەکەن بە ’. لەناو وشەدا، وەک پێش پاشگر لەسەر ناو، ئەپۆسترۆفی ئاسایی ستانداردە، و ئەوی چەماوە وشەکە بۆ گەڕان دابەش دەکات."
+  kmr: "Bernameyên nivîsê ' dikin ’. Di nav peyvê de, wek berî paşgirê li ser navekî, apostrofa sade standard e, û ya xwar peyvê ji bo lêgerînê parçe dike."
+examples:
+  - { wrong: "HDP’ê", right: "HDP'ê" }
+  - { wrong: "Ew’ê hat.", right: "Ew'ê hat." }
+lessons:
+  - { lang: kmr, lessonId: 5, anchor: "capital-letters-and-apostrophes" }
+  - { lang: kmr, lessonId: 23, anchor: "2-what-the-normaliser-fixes" }

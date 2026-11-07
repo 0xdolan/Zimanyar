@@ -1,0 +1,25 @@
+id: any.lid.other-variety
+family: lid
+category: style
+severity: hint
+confidence: 0.9
+safeFix: false
+message:
+  en: "This paragraph looks like {language}, so it was not checked."
+  ckb: "ئەم بڕگەیە لە {language} دەچێت، بۆیە نەپشکنرا."
+  kmr: "Ev paragraf dişibe {language}, ji ber vê nehat kontrolkirin."
+reason:
+  en: "Zimanyar checks Sorani and Kurmanji. Zazaki, Gorani, Persian, Arabic, Turkish and English follow other rules, so checking them would only produce false alarms."
+  ckb: "زمانیار سۆرانی و کورمانجی دەپشکنێت. زازاکی، گۆرانی، فارسی، عەرەبی، تورکی و ئینگلیزی یاسای تریان هەیە، بۆیە پشکنینیان تەنیا هەڵەی ساختە دروست دەکات."
+  kmr: "Zimanyar soranî û kurmancî kontrol dike. Zazakî, goranî, farisî, erebî, tirkî û îngilîzî rêzikên din dişopînin, ji ber vê kontrolkirina wan tenê şaşiyên derewîn çêdike."
+examples:
+  - wrong: "The children went to school this morning and the weather was very nice"
+    right: "The children went to school this morning and the weather was very nice"
+    gloss: "English is noticed and left alone"
+  - wrong: "این کتاب را من دیروز خریدم و خیلی خوب است که می‌خواهم آن را بخوانم"
+    right: "این کتاب را من دیروز خریدم و خیلی خوب است که می‌خواهم آن را بخوانم"
+    gloss: "Persian is noticed and left alone"
+notice: true
+lessons:
+  - { lang: ckb, lessonId: 1 }
+  - { lang: kmr, lessonId: 1 }

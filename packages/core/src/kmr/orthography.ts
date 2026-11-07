@@ -3,6 +3,7 @@ import {
   KMR_CHAR_MAP,
   KMR_FOREIGN_LETTERS,
   KMR_LETTERS,
+  KMR_STANDARD_OVERRIDES,
   KMR_VALID_RE,
 } from "../generated/tables.js";
 import { normalizeTextOnce } from "../normalize/shared.js";
@@ -76,6 +77,8 @@ export function validateWord(word: string): string[] {
   const problems: string[] = [];
   const w = lower(word);
   const characters = Array.from(w);
+  const standard = (KMR_STANDARD_OVERRIDES as Record<string, string>)[w];
+  if (standard !== undefined) problems.push(`the standard spelling is ${standard}`);
   const foreign = [...new Set(characters.filter((c) => foreignLetters.has(c)))].sort(compareStrings);
   if (foreign.length > 0) problems.push(`foreign letter(s): ${foreign.join("")}`);
   if (!VALID.test(w)) {

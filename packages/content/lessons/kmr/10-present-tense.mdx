@@ -1,0 +1,90 @@
+---
+title: "10. The present tense"
+description: "Kurmanji lesson 10: The present tense"
+course: kmr
+lesson: 10
+level: beginner
+rules: ["kmr.morph.present-object-case","kmr.verb.prefix-contraction","kmr.verb.present-agreement"]
+---
+
+import { LessonRules, Sentences, VerbTable } from "../../src/components.tsx";
+
+## Two stems
+
+Every Kurmanji verb has a **past stem** and a **present stem**:
+
+| infinitive | meaning | past stem | present stem |
+|---|---|---|---|
+| kirin | to do | kir | **k** |
+| xwarin | to eat | xwar | **xw** |
+| dîtin | to see | dît | **bîn** |
+| çûn | to go | çû | **ç** |
+| gotin | to say | got | **bêj** |
+| xwendin | to read | xwend | **xwîn** |
+
+The **past stem** is the infinitive minus **-in** (or **-n** after a vowel). The **present stem** is often unpredictable and must be learned with each verb; the [verb reference](../verbs/) lists it for every verb in the course.
+
+## Building the present
+
+> **di-** + present stem + personal ending
+
+| person | after a consonant | after a vowel |
+|---|---|---|
+| 1sg | **-im** | **-m** |
+| 2sg | **-î** | **-yî** |
+| 3sg | **-e** | · |
+| pl (we, you, they) | **-in** | **-n** |
+
+The negative replaces *di-* with **na-**.
+
+<VerbTable lang="kmr" verb="kirin" cells="present,present_neg" />
+
+<VerbTable lang="kmr" verb="xwarin" cells="present,present_neg" />
+
+<VerbTable lang="kmr" verb="dîtin" cells="present,present_neg" />
+
+<VerbTable lang="kmr" verb="çûn" cells="present,present_neg" />
+
+<VerbTable lang="kmr" verb="şûştin" cells="present,present_neg" />
+
+## Special prefixes
+
+* A present stem beginning with **ê** or **î** contracts *di-* to **t-** and *na-* to **nay-**: *hatin* → **têm** “I come”, **nayêm**; *anîn* → **tînim** “I bring”, **nayînim**.
+* A stem beginning with **a** keeps *di-* and merges *na-*: *axaftin* → **diaxivim** “I speak”, **naxivim**.
+* *zanîn* “to know” and *karîn* “can” are negated with **ni-**: **nizanim** “I don't know”.
+
+<VerbTable lang="kmr" verb="hatin" cells="present,present_neg" />
+
+<VerbTable lang="kmr" verb="axaftin" cells="present,present_neg" />
+
+<VerbTable lang="kmr" verb="zanîn" cells="present,present_neg" />
+
+## Word order and the object
+
+The verb comes **last** (SOV). A definite object of a present-tense verb is **oblique** (lesson 9):
+
+<Sentences lang="kmr" ipa items={[["Ez nan dixwim.","I eat / am eating bread."],["Ez pirtûkê dixwînim.","I am reading the book."],["Tu çi dikî?","What are you doing?"],["Ew kurdî nizane.","He doesn't know Kurdish."],["Em sibê diçin Amedê.","We are going to Amed tomorrow."],["Ez te dibînim.","I see you."]]} />
+
+The present covers *I do*, *I am doing* and often *I will do*.
+
+## Practice
+
+Conjugate **nivîsîn** *to write* (present stem *nivîs*) in the present and negative.
+
+<details>
+<summary>Answers</summary>
+
+<VerbTable lang="kmr" verb="nivîsîn" cells="present,present_neg" />
+
+</details>
+
+## Summary
+
+* Present = **di-** + present stem + **-im -î -e -in**; negative **na-**.
+* ê/î-stems: **t-**, **nay-**; zanîn/karîn: **ni-**.
+* The verb is last; a definite object is oblique.
+
+
+## Zimanyar checks this
+
+<LessonRules lang="kmr" lesson={10} />

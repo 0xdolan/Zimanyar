@@ -1,0 +1,19 @@
+id: kmr.morph.vowel-glide
+family: morph
+category: morphology
+severity: error
+confidence: 0.85
+safeFix: false
+message:
+  en: "Between two vowels this ending needs y."
+  ckb: "لە نێوان دوو بزوێندا ئەم پاشگرە y ی دەوێت."
+  kmr: "Di navbera du dengdêran de ev paşgir y dixwaze."
+reason:
+  en: "Kurmanji does not let two vowels meet at a suffix: y goes between them, and a final î shortens to i: xanî gives xaniyê."
+  ckb: "کورمانجی نایەڵێت دوو بزوێن لە پاشگردا بەیەک بگەن: y دەچێتە نێوانیان، و î ی کۆتایی دەبێتە i: xanî دەبێتە xaniyê."
+  kmr: "Kurmancî nahêle du dengdêr li ber paşgirê bigihîjin hev: y dikeve navbera wan, û î ya dawiyê dibe i: xanî dibe xaniyê."
+examples:
+  - { wrong: "xanîê", right: "xaniyê" }
+  - { wrong: "çiyaê", right: "çiyayê" }
+lessons:
+  - { lang: kmr, lessonId: 3, anchor: "vowels-next-to-vowels" }

@@ -52,13 +52,39 @@ TABLES = {
 # The same, where two varieties use one name: exported as CKB_<name without leading underscore>.
 PREFIXED = {
     "CKB": {
-        ckb_orthography: ["VARIANT_SWAPS", "_ILLEGAL_SEQUENCES"],
+        ckb_orthography: ["STANDARD_OVERRIDES", "VARIANT_SWAPS", "_FINAL_U_OK", "_ILLEGAL_SEQUENCES"],
         ckb_phonology: ["CONSONANTS", "IPA_TO_LATIN", "LATIN_STYLES", "VOWELS"],
-        ckb_morphology: ["CLITICS", "PERSONS", "POS_PRIORITY", "PROCLITICS"],
-        ckb_verbs: ["CLITIC_SUBJECT_PRESENT", "IRREGULAR", "PASSIVE_STEM", "PREVERBS", "SET2", "VOWEL_END"],
+        ckb_morphology: [
+            "CLITICS",
+            "CLITIC_ADPOSITIONS",
+            "DERIVED_TAGS",
+            "DERIV_PREFIXES",
+            "ENCLITIC_TAGS",
+            "FULL_SCORE_WORDS",
+            "INTERFIXES",
+            "PERSONS",
+            "POS_PRIORITY",
+            "PROCLITICS",
+        ],
+        ckb_verbs: [
+            "CLITIC_SUBJECT_PRESENT",
+            "HIDDEN_FORMS",
+            "IRREGULAR",
+            "IRREGULAR_VARIANTS",
+            "NO_PASSIVE",
+            "PASSIVE_STEM",
+            "PAST_SUBJUNCTIVES",
+            "PERFECT_LONG",
+            "PERFECT_SHORT",
+            "PREVERBS",
+            "SET2",
+            "SPLIT_PREVERBS",
+            "VOWEL_END",
+        ],
     },
     "KMR": {
         kmr_morphology: ["DECLENSION", "DERIVATIONS", "INFLECTIONS", "POS_PRIORITY"],
+        kmr_orthography: ["STANDARD_OVERRIDES"],
         kmr_verbs: ["NI_NEGATION", "PERSONS", "PREVERBS"],
         kmr_syntax: ["DIRECT_PRONOUNS", "OBLIQUE_PRONOUNS", "PRONOUN_PERSON"],
     },
@@ -69,8 +95,9 @@ PREFIXED_REGEXES = {
     "KMR": {kmr_orthography: ["_APOS_EDGE_RE", "_VALID_RE"]},
     "CKB": {
         ckb_orthography: [
-            "_INITIAL_R_RE", "_INITIAL_VOWEL_RE", "_LEGACY_FINAL_HEH_RE", "_LEGACY_HEH_ZWNJ_RE", "_SEQ_RE",
-            "_VALID_RE",
+            "ZWNJ_YI_RE", "_INITIAL_R_RE", "_INITIAL_VOWEL_RE", "_LEGACY_FINAL_HEH_RE", "_LEGACY_HEH_ZWNJ_RE",
+            "_SEQ_RE",
+            "_VALID_RE", "_ZWNJ_AND_RE",
         ],
     },
 }  # fmt: skip

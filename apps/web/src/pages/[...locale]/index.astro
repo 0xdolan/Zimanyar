@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import { createT, type UiLang } from "@zimanyar/i18n";
+import shotChecker from "../../../../../assets/screenshots/editor-autocomplete.png";
+import shotCard from "../../../../../assets/screenshots/editor-ckb-light.png";
+import shotPanel from "../../../../../assets/screenshots/ui-en-light.png";
+import SitePage from "../../components/SitePage.astro";
+import CheckerApp from "../../islands/CheckerApp";
+import { linkTo, localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+const features = [
+  [t("home.feature.offlineTitle"), t("home.feature.offlineText")],
+  [t("home.feature.grammarTitle"), t("home.feature.grammarText")],
+  [t("home.feature.teachTitle"), t("home.feature.teachText")],
+  [t("home.feature.bothTitle"), t("home.feature.bothText")],
+  [t("home.feature.fixTitle"), t("home.feature.fixText")],
+  [t("home.feature.openTitle"), t("home.feature.openText")],
+];
+const comparison = [
+  [t("home.compare.textStays"), t("common.yes"), t("home.compare.usuallyNo")],
+  [t("home.compare.worksOffline"), t("common.yes"), t("common.no")],
+  [t("home.compare.account"), t("home.compare.noneNeeded"), t("home.compare.oftenNeeded")],
+  [t("home.compare.explains"), t("home.compare.withLessons"), t("home.compare.varies")],
+  [t("home.compare.source"), t("home.compare.gpl"), t("home.compare.varies")],
+];
+const faq = [
+  [t("home.faq.privateQ"), t("home.faq.privateA")],
+  [t("home.faq.costQ"), t("home.faq.costA")],
+  [t("home.faq.varietyQ"), t("home.faq.varietyA")],
+  [t("home.faq.wrongQ"), t("home.faq.wrongA")],
+  [t("home.faq.whereQ"), t("home.faq.whereA")],
+];
+---
+
+<SitePage title={t("home.title")} description={t("home.description")}>
+  <div class="zy-hero not-content">
+    <div>
+      <p class="zy-lead">{t("home.lead")}</p>
+      <div class="zy-actions">
+        <a class="zy-button" href={linkTo(lang, "check/")}>{t("home.tryChecker")}</a>
+        <a class="zy-button zy-button-quiet" href={linkTo(lang, "learn/")}>{t("home.startLearning")}</a>
+        <a class="zy-button zy-button-quiet" href={linkTo(lang, "download/")}>{t("nav.download")}</a>
+      </div>
+    </div>
+    <CheckerApp client:visible compact lang={lang} />
+  </div>
+
+  <h2>{t("home.featuresTitle")}</h2>
+  <div class="zy-cards not-content">
+    {features.map(([title, text]) => <div class="zy-card"><h3>{title}</h3><p>{text}</p></div>)}
+  </div>
+
+  <h2>{t("home.shotsTitle")}</h2>
+  <div class="zy-shots not-content" role="group" aria-label={t("home.shotsTitle")} tabindex="0">
+    <figure><Image alt={t("home.shot.card")} loading="lazy" src={shotCard} width={720} /><figcaption>{t("home.shot.card")}</figcaption></figure>
+    <figure><Image alt={t("home.shot.words")} loading="lazy" src={shotChecker} width={720} /><figcaption>{t("home.shot.words")}</figcaption></figure>
+    <figure><Image alt={t("home.shot.panel")} loading="lazy" src={shotPanel} width={720} /><figcaption>{t("home.shot.panel")}</figcaption></figure>
+  </div>
+
+  <h2>{t("home.compareTitle")}</h2>
+  <table>
+    <thead>
+      <tr><th scope="col"></th><th scope="col">Zimanyar</th><th scope="col">{t("home.compare.online")}</th></tr>
+    </thead>
+    <tbody>
+      {comparison.map(([row, ours, theirs]) => <tr><th scope="row">{row}</th><td>{ours}</td><td>{theirs}</td></tr>)}
+    </tbody>
+  </table>
+
+  <h2>{t("home.getTitle")}</h2>
+  <p>{t("home.getText")}</p>
+  <div class="zy-actions not-content">
+    <a class="zy-button" href={linkTo(lang, "check/")}>{t("home.tryChecker")}</a>
+    <a class="zy-button zy-button-quiet" href={linkTo(lang, "download/")}>{t("nav.download")}</a>
+  </div>
+
+  <h2>{t("home.faqTitle")}</h2>
+  {faq.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}
+</SitePage>

@@ -1,0 +1,65 @@
+{
+  "en": {
+    "name": "Zimanyar",
+    "summary": "Check and learn Kurdish as you write, in Sorani and Kurmanji. Everything runs on your device, and nothing is ever sent anywhere.",
+    "description": "Zimanyar finds mistakes in Sorani and Kurmanji as you write, explains each one, and teaches the grammar behind it. It works in any text field on the sites you choose, with two full courses of 23 lessons built in.",
+    "features": [
+      "Underlines spelling, letter and grammar mistakes as you type",
+      "Explains each finding, with examples and a link to its lesson",
+      "Understands ergativity in the past tense, ezafe and word endings",
+      "Suggests words as you type, and fixes keyboard mix-ups",
+      "Two courses of 23 lessons, verb tables and tools, all offline"
+    ],
+    "privacy": "Zimanyar processes text only on your device, stores settings and your personal dictionary locally, sends no analytics, contains no ads, and makes no network requests.",
+    "permissions": {
+      "storage": "Keeps your settings and personal dictionary on your device.",
+      "activeTab": "Checks the current page once, when you ask it to from the toolbar or the context menu.",
+      "scripting": "Adds underlines to the text fields of sites you have turned on.",
+      "contextMenus": "Adds check, transliterate and pronunciation to the menu for selected text.",
+      "sidePanel": "Opens the full app beside the page.",
+      "optional host access": "Asked for one site at a time when you turn Zimanyar on there. Without it Zimanyar runs on no site by itself."
+    }
+  },
+  "ckb": {
+    "name": "زمانیار",
+    "summary": "کوردی لە کاتی نووسیندا بپشکنە و فێر ببە، بە سۆرانی و کورمانجی. هەموو شتێک لەسەر ئامێرەکەت کار دەکات و هیچ نانێردرێت.",
+    "description": "زمانیار لە کاتی نووسیندا هەڵەکانی سۆرانی و کورمانجی دەدۆزێتەوە، هەریەکەیان ڕوون دەکاتەوە و ڕێزمانی پشتیان فێرت دەکات. لە هەر خانەیەکی دەق لەو ماڵپەڕانەی هەڵیاندەبژێریت کار دەکات و دوو خولی تەواوی ٢٣ وانەیی لەگەڵدایە.",
+    "features": [
+      "هەڵەی ڕێنووس، پیت و ڕێزمان لە کاتی نووسیندا هێڵ بەژێردا دەهێنێت",
+      "هەر دۆزینەوەیەک ڕوون دەکاتەوە، بە نموونە و بەستەر بۆ وانەکەی",
+      "ئێرگەتیڤی لە ڕابردوودا، ئیزافە و کۆتایی وشەکان دەناسێت",
+      "لە کاتی نووسیندا وشە پێشنیار دەکات و تێکەڵبوونی تەختەکلیل ڕاست دەکاتەوە",
+      "دوو خولی ٢٣ وانەیی، خشتەی کردار و ئامراز، هەموو بێ ئینتەرنێت"
+    ],
+    "privacy": "زمانیار دەق تەنها لەسەر ئامێرەکەت پرۆسە دەکات، ڕێکخستنەکان و فەرهەنگی تایبەتی لەسەر ئامێرەکەت هەڵدەگرێت، هیچ شیکارییەک نانێرێت، ڕیکلامی نییە و هیچ داواکارییەکی تۆڕ ناکات.",
+    "permissions": {
+      "storage": "ڕێکخستنەکان و فەرهەنگی تایبەتیت لەسەر ئامێرەکەت دەهێڵێتەوە.",
+      "activeTab": "پەڕەی ئێستا یەک جار دەپشکنێت، کاتێک داوای دەکەیت.",
+      "scripting": "هێڵی ژێرەوە بۆ خانەکانی دەق لەو ماڵپەڕانەی چالاکت کردوون زیاد دەکات.",
+      "contextMenus": "پشکنین، گۆڕینی ئەلفوبێ و گۆکردن بۆ لیستەی دەقی هەڵبژێردراو زیاد دەکات.",
+      "sidePanel": "بەرنامەی تەواو لە تەنیشت پەڕەکە دەکاتەوە.",
+      "optional host access": "بۆ هەر ماڵپەڕێک جیا داوا دەکرێت کاتێک لەوێ چالاکی دەکەیت. بەبێ ئەمە زمانیار لەخۆیەوە لەسەر هیچ ماڵپەڕێک کار ناکات."
+    }
+  },
+  "kmr": {
+    "name": "Zimanyar",
+    "summary": "Kurdî dema dinivîsî kontrol bike û fêr bibe, bi soranî û kurmancî. Her tişt li ser cîhaza te dixebite û tiştek naçe tu cihî.",
+    "description": "Zimanyar dema tu dinivîsî şaşiyên soranî û kurmancî dibîne, her yekê rave dike û rêzimana li pişt wan hîn dike. Li her qada nivîsê ya malperên ku tu hildibijêrî dixebite û du kursên temam ên 23 dersî tê de ne.",
+    "features": [
+      "Dema tu dinivîsî şaşiyên rastnivîs, tîp û rêzimanê binxêz dike",
+      "Her encamê bi mînak û girêdana dersa wê rave dike",
+      "Ergatîviya dema borî, îzafe û dawiya peyvan nas dike",
+      "Dema tu dinivîsî peyvan pêşniyar dike û tevliheviyên klavyeyê rast dike",
+      "Du kursên 23 dersî, tabloyên lêkeran û amûr, hemû bê înternet"
+    ],
+    "privacy": "Zimanyar nivîsê tenê li ser cîhaza te pêvajo dike, mîheng û ferhenga te ya kesane li ser cîhazê diparêze, analîtîk naşîne, reklam tune û tu daxwaza torê nake.",
+    "permissions": {
+      "storage": "Mîheng û ferhenga te ya kesane li ser cîhaza te diparêze.",
+      "activeTab": "Rûpela niha carekê kontrol dike, dema tu dixwazî.",
+      "scripting": "Binxêzan li qadên nivîsê yên malperên ku te vekirine zêde dike.",
+      "contextMenus": "Kontrol, veguhastina alfabeyê û bilêvkirinê li menûya nivîsa hilbijartî zêde dike.",
+      "sidePanel": "Sepana temam li kêleka rûpelê vedike.",
+      "optional host access": "Ji bo her malperê cuda tê xwestin dema tu li wir vedikî. Bêyî vê Zimanyar bi serê xwe li tu malperê naxebite."
+    }
+  }
+}

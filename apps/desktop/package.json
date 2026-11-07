@@ -1,0 +1,49 @@
+{
+  "name": "@zimanyar/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zimanyar for the Linux desktop",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "prepare-assets": "tsx scripts/prepare.ts",
+    "build:web": "pnpm prepare-assets && vite build",
+    "preview": "vite preview --port 4177 --strictPort --host localhost",
+    "build": "pnpm build:web",
+    "tauri": "tauri",
+    "package": "tauri build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.12.4",
+    "@tauri-apps/plugin-clipboard-manager": "2.5.0",
+    "@tauri-apps/plugin-dialog": "2.8.3",
+    "@tauri-apps/plugin-fs": "2.7.1",
+    "@zimanyar/app": "workspace:*",
+    "@zimanyar/checker": "workspace:*",
+    "@zimanyar/editor": "workspace:*",
+    "@zimanyar/i18n": "workspace:*",
+    "@zimanyar/rules": "workspace:*",
+    "@zimanyar/settings": "workspace:*",
+    "@zimanyar/ui": "workspace:*",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@tauri-apps/cli": "2.12.4",
+    "@types/node": "^22",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/config": "workspace:*",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}

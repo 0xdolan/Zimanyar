@@ -152,7 +152,7 @@
   --color-brand-rim: var(--brand-rim);
   --color-brand-deq: var(--brand-deq);
   --color-brand-sun: var(--brand-sun);
-  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", "Vazirmatn", system-ui, sans-serif;
   --font-arabic: "Vazirmatn", "IBM Plex Sans Arabic", system-ui, sans-serif;
   --font-mono: "DejaVu Sans Mono", "Noto Sans Mono", monospace;
   --radius-sm: calc(var(--radius) - 0.125rem);

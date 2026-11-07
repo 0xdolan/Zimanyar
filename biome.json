@@ -17,7 +17,9 @@
       "!packages/data/rules",
       "!packages/data/fixtures",
       "!packages/data/tables",
-      "!packages/core/src/generated"
+      "!packages/core/src/generated",
+      "!packages/rules/src/generated",
+      "!packages/ui/src/components/ui"
     ]
   },
   "formatter": {
@@ -64,5 +66,17 @@
     "parser": {
       "tailwindDirectives": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["apps/web/src/styles/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDescendingSpecificity": "off"
+          }
+        }
+      }
+    }
+  ]
 }

@@ -1,0 +1,54 @@
+---
+import { COURSE_PATH } from "@zimanyar/content/lesson-slugs";
+import { createT, type UiLang } from "@zimanyar/i18n";
+import SitePage from "../../components/SitePage.astro";
+import { linkTo, localePaths } from "../../lib/site";
+
+export const getStaticPaths = localePaths;
+const lang = Astro.props.lang as UiLang;
+const t = createT(lang);
+const courses = [
+  { code: COURSE_PATH.ckb, name: t("learn.ckbName"), text: t("learn.ckbText"), first: "01-introduction" },
+  { code: COURSE_PATH.kmr, name: t("learn.kmrName"), text: t("learn.kmrText"), first: "01-introduction" },
+];
+const levels = [
+  [`🟢 ${t("nav.beginner")}`, t("learn.beginnerText")],
+  [`🟡 ${t("nav.intermediate")}`, t("learn.intermediateText")],
+  [`🔴 ${t("nav.advanced")}`, t("learn.advancedText")],
+];
+const paths = [
+  [t("learn.pathReadTitle"), t("learn.pathReadText")],
+  [t("learn.pathWriteTitle"), t("learn.pathWriteText")],
+  [t("learn.pathVerbsTitle"), t("learn.pathVerbsText")],
+];
+---
+
+<SitePage title={t("learn.title")} description={t("learn.description")}>
+  <p class="zy-lead">{t("learn.lead")}</p>
+  {lang !== "en" && <p>{t("learn.englishNote")}</p>}
+
+  <div class="zy-cards not-content">
+    {
+      courses.map((course) => (
+        <div class="zy-card">
+          <h3>{course.name}</h3>
+          <p>{course.text}</p>
+          <div class="zy-actions">
+            <a class="zy-button" href={linkTo(lang, `learn/${course.code}/${course.first}/`)}>{t("learn.start")}</a>
+            <a class="zy-button zy-button-quiet" href={linkTo(lang, `learn/${course.code}/`)}>{t("learn.contents")}</a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <h2>{t("learn.levelsTitle")}</h2>
+  <div class="zy-cards not-content">
+    {levels.map(([title, text]) => <div class="zy-card"><h3>{title}</h3><p>{text}</p></div>)}
+  </div>
+
+  <h2>{t("learn.pathsTitle")}</h2>
+  <div class="zy-cards not-content">
+    {paths.map(([title, text]) => <div class="zy-card"><h3>{title}</h3><p>{text}</p></div>)}
+  </div>
+</SitePage>

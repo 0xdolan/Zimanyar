@@ -1,0 +1,5 @@
+{
+  "extends": "@zimanyar/config/tsconfig.base.json",
+  "compilerOptions": { "noEmit": true, "lib": ["ES2023"], "types": ["node"], "resolveJsonModule": true },
+  "include": ["src/**/*.ts", "src/**/*.json", "test/**/*.ts", "vitest.config.ts"]
+}

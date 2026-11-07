@@ -1,0 +1,19 @@
+id: ckb.orth.arabic-only-letter
+family: orth
+category: orthography
+severity: warning
+confidence: 0.8
+safeFix: false
+message:
+  en: "This letter is not used in Kurdish spelling."
+  ckb: "ئەم پیتە لە ڕێنووسی کوردیدا بەکار نایەت."
+  kmr: "Ev tîp di rastnivîsa kurdî de nayê bikaranîn."
+reason:
+  en: "ث ذ ص ض ط ظ ء belong to Arabic. Loanwords are written in Kurdish with the letters for their Kurdish sounds. Names may keep their own spelling."
+  ckb: "ث ذ ص ض ط ظ ء هی عەرەبین. وشەی وەرگیراو بە پیتی دەنگە کوردییەکانی دەنووسرێت. ناو دەتوانێت ڕێنووسی خۆی بپارێزێت."
+  kmr: "ث ذ ص ض ط ظ ء yên erebî ne. Peyvên wergirtî bi tîpên dengên xwe yên kurdî tên nivîsîn. Nav dikarin rastnivîsa xwe biparêzin."
+examples:
+  - { wrong: "ثەورە", right: "سەورە" }
+  - { wrong: "صەد", right: "سەد" }
+lessons:
+  - { lang: ckb, lessonId: 23, anchor: "5-words-the-validator-rejects" }

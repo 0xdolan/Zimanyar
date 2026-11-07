@@ -1,0 +1,48 @@
+{
+  "name": "@zimanyar/app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The complete Zimanyar app, for the extension's full view and the desktop app",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./vite": "./vite.ts",
+    "./page.css": "./src/page.css",
+    "./overlay.css": "./src/overlay.css",
+    "./practice-store": "./src/practice-store.ts",
+    "./routes": "./src/routes.ts",
+    "./writing": "./src/writing.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@fontsource/vazirmatn": "5.3.0",
+    "@mdx-js/rollup": "3.1.1",
+    "@zimanyar/content": "workspace:*",
+    "@zimanyar/core": "workspace:*",
+    "@zimanyar/editor": "workspace:*",
+    "@zimanyar/i18n": "workspace:*",
+    "@zimanyar/practice": "workspace:*",
+    "@zimanyar/rules": "workspace:*",
+    "@zimanyar/settings": "workspace:*",
+    "@zimanyar/ui": "workspace:*",
+    "react": "19.3.1",
+    "rehype-slug": "6.0.0",
+    "remark-frontmatter": "5.0.0",
+    "remark-gfm": "4.0.1",
+    "tailwindcss": "4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "19.3.0",
+    "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/config": "workspace:*",
+    "typescript": "5.9.3",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  }
+}
