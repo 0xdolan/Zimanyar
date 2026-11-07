@@ -181,10 +181,10 @@ jobs:
       - run: make data
       - name: Test against the full lexicons
         run: pnpm --filter zimanyar test
-      - name: Run the language server from the npm bundle
-        run: packaging/cli/lsp-smoke.sh node apps/cli/dist/zimanyar-lsp.cjs --stdio
       - name: Build the single executable
         run: make cli-sea
+      - name: Run the language server from the npm bundle
+        run: packaging/cli/lsp-smoke.sh node apps/cli/dist/zimanyar-lsp.cjs --stdio
       - name: Run the language server from the single executable
         run: packaging/cli/lsp-smoke.sh apps/cli/dist/zimanyar lsp --stdio
       - name: Build the .deb and run lintian
