@@ -29,6 +29,8 @@ export interface CheckerPanelProps {
   onShare?: (text: string, mode: CheckMode) => Promise<void>;
   onLearn?: (lesson: LessonRef) => void;
   onAddToDictionary?: (word: string) => void;
+  /** A finding the writer fixed or dismissed. */
+  onAct?: (finding: Finding, action: "applied" | "ignored") => void;
   /** More buttons beside the others, given a way to read and replace the text. */
   actions?: (text: { get(): string; set(value: string): void }) => ReactNode;
   /** Called with each change of variety, for a caller that loads data per variety. */
@@ -48,6 +50,7 @@ export function CheckerPanel({
   onShare,
   onLearn,
   onAddToDictionary,
+  onAct,
   actions,
   onModeChange,
 }: CheckerPanelProps) {
@@ -72,6 +75,7 @@ export function CheckerPanel({
       backend,
       ...(onLearn !== undefined ? { onLearn } : {}),
       ...(onAddToDictionary !== undefined ? { onAddToDictionary } : {}),
+      ...(onAct !== undefined ? { onAct } : {}),
     });
     editor.current = handle;
     onReady?.(() => void handle?.refresh());
@@ -79,7 +83,7 @@ export function CheckerPanel({
       handle?.destroy();
       editor.current = null;
     };
-  }, [lang, mode, css, backend, onReady, onLearn, onAddToDictionary]);
+  }, [lang, mode, css, backend, onReady, onLearn, onAddToDictionary, onAct]);
 
   const finding = findings.find((found) => found.id === selected) ?? null;
   const looks = finding?.lookup === undefined ? undefined : looked[finding.lookup];

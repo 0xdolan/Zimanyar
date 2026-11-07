@@ -445,6 +445,20 @@ describe("the finding card", () => {
     expect(handle.findings().map((found) => found.id)).not.toContain(finding.id);
   });
 
+  it("tells the caller about findings fixed and dismissed, for the mistake history", async () => {
+    const onAct = vi.fn();
+    const { handle, shadow } = attach({ onAct });
+    await settled(handle);
+    const fixed = firstFinding(handle);
+    handle.open(fixed.id);
+    button(shadow, /replace with/i).click();
+    expect(onAct).toHaveBeenCalledWith(expect.objectContaining({ ruleId: fixed.ruleId }), "applied");
+    await settled(handle);
+    handle.ignore(firstFinding(handle).id);
+    expect(onAct).toHaveBeenLastCalledWith(expect.anything(), "ignored");
+    expect(onAct).toHaveBeenCalledTimes(2);
+  });
+
   it("offers no dictionary without somewhere to put the word", async () => {
     const finding = { ...checker.check(TEXT, { lang: "kmr" })[0], category: "spelling" } as Finding;
     const { handle, shadow } = attach({ backend: backendOf({ check: async () => [finding] }) });
