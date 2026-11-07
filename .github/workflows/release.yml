@@ -187,13 +187,16 @@ jobs:
       - name: Pack the npm package
         if: matrix.npm
         run: pnpm --filter zimanyar pack --pack-destination .output
+      # upload-artifact leaves out hidden directories such as .output.
+      - name: Collect the packages
+        run: |
+          mkdir -p dist
+          cp apps/cli/.output/*.deb apps/cli/.output/*.tar.gz dist/
+          if [[ "${{ matrix.npm }}" == true ]]; then cp apps/cli/.output/*.tgz dist/; fi
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: release-cli-${{ matrix.arch }}
-          path: |
-            apps/cli/.output/*.deb
-            apps/cli/.output/*.tar.gz
-            apps/cli/.output/*.tgz
+          path: dist/
           if-no-files-found: error
 
   data:
@@ -215,7 +218,7 @@ jobs:
           cd packages/data
           tar --zstd --owner=0 --group=0 --numeric-owner --transform "s|^|zimanyar-data-$VERSION/|" \
             -cf "$GITHUB_WORKSPACE/dist/zimanyar-data-$VERSION.tar.zst" \
-            NOTICE VERSION lexicon.lock.json tables build/lexicon-ckb.bin.gz build/lexicon-kmr.bin.gz build/report.json
+            NOTICE VERSION lexicon.lock.json tables build/lexicon-ckb.bin.gz build/lexicon-kmr.bin.gz
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: release-data
