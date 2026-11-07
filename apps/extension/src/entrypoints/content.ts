@@ -1,5 +1,5 @@
 import overlayCss from "@zimanyar/app/overlay.css?inline";
-import { attachEditor, type EditorHandle, isCheckable } from "@zimanyar/editor";
+import { attachEditor, type EditorHandle, isCheckable, pronunciationOf } from "@zimanyar/editor";
 import { checkOptionsFrom, parseSettings, type Settings, withWord } from "@zimanyar/settings";
 import { browser } from "wxt/browser";
 import { backendFor } from "../lib/browser-backend";
@@ -59,7 +59,9 @@ export default defineContentScript({
         autocomplete: settings.autocomplete.enabled,
         completions: settings.autocomplete.count,
         typingHelper: settings.autocomplete.typingHelper,
+        soraniMarks: settings.autocomplete.soraniMarks,
         teaching: settings.teaching.mode,
+        ...(settings.teaching.mode && settings.teaching.ipa ? { ipaOf: pronunciationOf } : {}),
         underline: settings.interface.underline,
         onAddToDictionary: (word) => {
           settings = withWord(settings, word);

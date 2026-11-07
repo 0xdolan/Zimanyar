@@ -587,6 +587,9 @@ importers:
 
   packages/editor:
     dependencies:
+      '@zimanyar/core':
+        specifier: workspace:*
+        version: link:../core
       '@zimanyar/i18n':
         specifier: workspace:*
         version: link:../i18n

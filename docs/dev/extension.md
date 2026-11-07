@@ -41,7 +41,7 @@ Settings come from `@zimanyar/settings`, and everything that shows or checks tex
 
 The overlay's stylesheet carries the two Vazirmatn weights inside it, about 60 KB, as a page's policy may refuse a font file from an extension. A page's policy can also refuse those, and Latin text uses the system font. Both fall back cleanly.
 
-## Not yet
+## Limits
 
-- Safari packages beyond the Xcode project: the release workflow builds `wxt build -b safari --mv3` and converts it on macOS (RELEASING.md); signing and notarising wait for an Apple account.
-- Settings for a Sorani mark helper (`ر` to `ڕ` on demand), practice reminders and IPA on hover.
+- Safari: the release workflow builds `wxt build -b safari --mv3` and converts it to an Xcode project on macOS (RELEASING.md). That project has not been tested or tried in Safari, and there is no App Store listing.
+- Google Docs and other editors that draw their own text expose no text field, so the content script cannot check them.

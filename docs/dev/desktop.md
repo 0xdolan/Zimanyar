@@ -29,7 +29,7 @@ Global shortcuts need X11 or XWayland, and the tray needs a desktop that shows o
 
 ## Packages
 
-`tauri build` makes the `.deb`, `.rpm` and AppImage. The AppImage step downloads `linuxdeploy` from its rolling `continuous` release, which Tauri does not let us pin, so a release should treat that package with less trust than the other two. `packaging/linux/` holds the desktop entry, AppStream metadata, man page and Debian copyright and changelog, and `check-package.sh` runs lintian, `appstreamcli` and `desktop-file-validate` on a `.deb`. `packaging/flatpak/` has a starting manifest for a later Flathub submission, and has never been built.
+`tauri build` makes the `.deb`, `.rpm` and AppImage. The AppImage step downloads `linuxdeploy` from its rolling `continuous` release, which Tauri does not let us pin, so a release should treat that package with less trust than the other two. `packaging/linux/` holds the desktop entry, AppStream metadata, man page and Debian copyright and changelog, and `check-package.sh` runs lintian, `appstreamcli` and `desktop-file-validate` on a `.deb`. `packaging/flatpak/` has a starting manifest that has never been built; there is no plan to submit it to Flathub.
 
 ## Advisories
 
