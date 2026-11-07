@@ -259,10 +259,9 @@ export function drillFor(id: string): Drill | null {
 
 /** An answer as it is compared: normalised, without outer spaces or a final full stop, in lower case. */
 function comparable(text: string, lang: Course): string {
-  const trimmed = text
-    .trim()
-    .replace(/\s+/g, " ")
-    .replace(/[.!?؟]+$/u, "");
+  let trimmed = text.trim().replace(/\s+/g, " ");
+  // A loop, not a regular expression anchored at the end, which takes quadratic time on "!!!...x".
+  while (/[.!?؟]/u.test(trimmed.at(-1) ?? "")) trimmed = trimmed.slice(0, -1);
   return normalize(trimmed, lang).toLowerCase();
 }
 

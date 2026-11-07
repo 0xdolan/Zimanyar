@@ -127,7 +127,8 @@ describe("spot drills", () => {
   });
 });
 
-describe("every drill", () => {
+// Builds every drill there is, which takes a few seconds on a slow runner with coverage on.
+describe("every drill", { timeout: 60_000 }, () => {
   const all = (["ckb", "kmr"] as const).flatMap((lang) =>
     (["verb", "noun", "spot"] as const).flatMap((kind) => drillIds(lang, kind)),
   );
@@ -183,6 +184,8 @@ describe("answers", () => {
   it("ignore case, outer spaces and a final full stop", () => {
     expect(isRight(verb, "dîtî")).toBe(true);
     expect(isRight(verb, "  Dîtî. ")).toBe(true);
+    expect(isRight(verb, "dîtî?!.")).toBe(true);
+    expect(isRight(verb, `${"!".repeat(50_000)}x`)).toBe(false);
   });
 
   it("accept Sorani typed with Arabic letters", () => {
