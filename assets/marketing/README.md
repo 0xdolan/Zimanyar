@@ -4,7 +4,7 @@ Rendered by `make marketing` (`scripts/marketing/render.sh`, headless Chrome wit
 
 Every Kurdish example and finding in these images is real: the rules come from the rule catalogue, the IPA is computed by zimankit, and the lessons exist in the tutorials. The content lives in `scripts/marketing/data.js`.
 
-> **Design preview.** Until the apps exist, the interface in these images is a design mock-up rendered from HTML, and the store screenshots carry a "Design preview" label. Once the apps are built, the store screenshots are replaced by real Playwright screenshots of the built apps (`assets/screenshots/`); the banner, tiles and ads keep this template system.
+The interface in the four store screenshots is real: they frame Playwright screenshots of the built apps from `assets/screenshots/` (the extension on a compose page, its popup, the lesson reader, the desktop app and `zimanyar check`). Run `make screenshots` before `make marketing` when the apps change. The banner, the promo tiles and the ads keep their HTML rendering of the interface, built from the same real findings.
 
 | file | size | where it is used |
 |---|---|---|
