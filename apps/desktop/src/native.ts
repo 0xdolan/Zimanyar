@@ -26,3 +26,29 @@ export const removeSettings = async (): Promise<void> => {
   if (isNative()) await invoke("clear_settings");
   else localStorage.removeItem(KEY);
 };
+
+const PRACTICE_KEY = "zimanyar-practice";
+
+/** Practice as JSON, from $XDG_CONFIG_HOME/zimanyar/practice.json. */
+export const readPractice = async (): Promise<unknown> => {
+  const stored = isNative()
+    ? await invoke<string | null>("load_practice")
+    : localStorage.getItem(PRACTICE_KEY);
+  if (stored === null) return {};
+  try {
+    return JSON.parse(stored);
+  } catch {
+    return {};
+  }
+};
+
+export const writePractice = async (practice: unknown): Promise<void> => {
+  const json = JSON.stringify(practice);
+  if (isNative()) await invoke("save_practice", { json });
+  else localStorage.setItem(PRACTICE_KEY, json);
+};
+
+export const removePractice = async (): Promise<void> => {
+  if (isNative()) await invoke("clear_practice");
+  else localStorage.removeItem(PRACTICE_KEY);
+};

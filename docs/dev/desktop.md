@@ -17,6 +17,7 @@ To work on it directly, install the [Tauri prerequisites](https://tauri.app/star
 | checker | a Web Worker in each window, as on the website |
 | lexicons | files inside the app, read by one `fetch` that the policy keeps inside it |
 | settings | `$XDG_CONFIG_HOME/zimanyar/settings.json`, written atomically by Rust and validated by `@zimanyar/settings` when read |
+| practice | `$XDG_CONFIG_HOME/zimanyar/practice.json`, the same way, validated by `@zimanyar/practice` when read |
 | clipboard | only the quick window, in its capability |
 | files | only what someone chose in a dialog, which is what grows the file scope, or dropped on the window |
 

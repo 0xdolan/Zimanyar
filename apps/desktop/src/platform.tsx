@@ -9,7 +9,15 @@ import { Button } from "@zimanyar/ui";
 import { useEffect, useRef, useState } from "react";
 import { backendFor } from "./engine";
 import { baseName, chooseDropped, TEXT_EXTENSIONS } from "./lib/text-files";
-import { isNative, readSettings, removeSettings, writeSettings } from "./native";
+import {
+  isNative,
+  readPractice,
+  readSettings,
+  removePractice,
+  removeSettings,
+  writePractice,
+  writeSettings,
+} from "./native";
 
 const SETTINGS_EVENT = "settings-changed";
 
@@ -121,7 +129,9 @@ export function platformFor(lang: UiLang): Platform {
     overlayCss,
     version: __APP_VERSION__,
     saveSettings,
+    practice: { load: readPractice, save: writePractice },
     clearData: async () => {
+      await removePractice();
       await removeSettings();
       await saveSettings(parseSettings({}));
     },

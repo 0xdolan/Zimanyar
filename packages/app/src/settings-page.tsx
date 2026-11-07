@@ -218,6 +218,11 @@ export function SettingsPage({ settings: stored, platform }: { settings: Setting
           label={t("settings.lessonLinks")}
           onChange={(lessonLinks) => change("teaching", { lessonLinks })}
         />
+        <Toggle
+          checked={settings.teaching.practiceReminders}
+          label={t("settings.practiceReminders")}
+          onChange={(practiceReminders) => change("teaching", { practiceReminders })}
+        />
       </Section>
 
       <Section query={query} title={t("settings.autocomplete")}>

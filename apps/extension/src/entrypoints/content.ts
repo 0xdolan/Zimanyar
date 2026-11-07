@@ -71,6 +71,8 @@ export default defineContentScript({
                 void browser.runtime.sendMessage({ kind: "open-lesson", lesson: { lang, lessonId, anchor } }),
             }
           : {}),
+        onAct: ({ ruleId }, action) =>
+          void browser.runtime.sendMessage({ kind: "record-mistake", rule: ruleId, action }).catch(() => {}),
         // The extension was updated or removed under this page, which cannot be recovered from here.
         onError: () => closeAll(),
       });

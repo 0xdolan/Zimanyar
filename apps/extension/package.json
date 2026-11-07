@@ -33,6 +33,7 @@
     "@zimanyar/data": "workspace:*",
     "@zimanyar/editor": "workspace:*",
     "@zimanyar/i18n": "workspace:*",
+    "@zimanyar/practice": "workspace:*",
     "@zimanyar/rules": "workspace:*",
     "@zimanyar/settings": "workspace:*",
     "@zimanyar/ui": "workspace:*",
