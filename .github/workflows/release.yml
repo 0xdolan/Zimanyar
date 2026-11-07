@@ -186,7 +186,7 @@ jobs:
         run: packaging/cli/tarball.sh
       - name: Pack the npm package
         if: matrix.npm
-        run: pnpm --filter zimanyar pack --pack-destination .output
+        run: pnpm --filter zimanyar pack --pack-destination "$GITHUB_WORKSPACE/apps/cli/.output"
       # upload-artifact leaves out hidden directories such as .output.
       - name: Collect the packages
         run: |
