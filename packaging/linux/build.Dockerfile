@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential ca-certificates curl file git pkg-config patchelf xz-utils \
     libwebkit2gtk-4.1-dev libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev libssl-dev libxdo-dev \
-    lintian appstream desktop-file-utils rpm \
+    lintian appstream desktop-file-utils rpm debhelper \
     xvfb xauth dbus-x11 xdotool xclip x11-utils imagemagick
 
 ENV RUSTUP_HOME=/opt/rust CARGO_HOME=/opt/cargo PATH=/opt/cargo/bin:/opt/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

@@ -45,6 +45,10 @@
     },
     ".": {
       "ignoreDependencies": ["axe-core"]
+    },
+    "apps/cli": {
+      "entry": ["scripts/*.ts"],
+      "ignoreBinaries": ["strip"]
     }
   },
   "ignore": ["packages/core/src/generated/**", "apps/web/public/**"]

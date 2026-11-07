@@ -16,3 +16,7 @@ Zimanyar's promise is that text never leaves the device. Each threat below has a
 | a shared link carries something hostile | its text is length-limited and only ever put in a text field | `web.spec.ts` |
 | a malicious data bundle | SHA-256 pinned in `packages/data/VERSION`, verified before use | `make data` |
 | supply chain | frozen lockfile, a seven-day release cooldown, a trust policy, actions pinned by hash, tools with open advisories kept out of the lockfile | CI |
+| a checked file drives the terminal | the text report writes control characters from files and their names as `\u` escapes | `apps/cli/test/check.test.ts` |
+| text leaks from the command line | no network code; a test traps fetch, sockets, DNS and HTTP while every command runs | `apps/cli/test/privacy.test.ts` |
+| a fix changes Markdown markup | findings that touch code, links or HTML, blanked before checking, are dropped | `apps/cli/test/check.test.ts` |
+| the single executable's tools | `postject` runs through `pnpm dlx` at an exact version only while packaging, outside the lockfile and the program | review |

@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke cli cli-sea cli-deb cli-tarball cli-smoke screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -20,6 +20,11 @@ help:
 	@echo "make extension-lint  check the Firefox build with Mozilla's linter"
 	@echo "make desktop-docker  build and check the desktop packages in a container"
 	@echo "make desktop-smoke   install the .deb in a clean container and start it"
+	@echo "make cli           bundle the command line into apps/cli/dist/ (needs make data)"
+	@echo "make cli-sea       the command line as one executable, with Node and the lexicons inside"
+	@echo "make cli-deb       build the CLI .deb and run lintian on it, in a container"
+	@echo "make cli-tarball   pack the executable, its man page and licences as a .tar.gz"
+	@echo "make cli-smoke     install the CLI .deb in a clean container and run it"
 	@echo "make screenshots   regenerate assets/screenshots/; look at every changed image"
 	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
 	@echo "make rules         compile the rules' metadata into the catalogue"
@@ -104,6 +109,23 @@ desktop-docker:
 # Install the .deb in a clean container and start it on a virtual screen.
 desktop-smoke:
 	docker run --rm -v "$$PWD:/repo" -w /repo ubuntu:24.04 bash -c 'apt-get update -qq && apt-get install -y -qq --no-install-recommends ./apps/desktop/.output/*.deb xvfb xauth dbus-x11 xdotool xclip imagemagick > /dev/null && mkdir -p apps/desktop/.output && packaging/linux/smoke-test.sh apps/desktop/.output/smoke.png; status=$$?; chown -R $(shell id -u):$(shell id -g) apps/desktop/.output; exit $$status'
+
+cli:
+	pnpm --filter zimanyar build
+
+cli-sea: cli
+	pnpm --filter zimanyar exec tsx scripts/sea.ts
+
+# Build the .deb in the build image, which has debhelper and lintian, with nothing installed on your own system.
+cli-deb:
+	packaging/linux/in-docker.sh bash -c 'make cli-sea && packaging/cli/build-deb.sh'
+
+cli-tarball: cli-sea
+	packaging/cli/tarball.sh
+
+# Install the CLI .deb in a clean container and run user story 6 against it.
+cli-smoke:
+	docker run --rm -v "$$PWD:/repo:ro" -w /repo debian:13 bash -c 'apt-get update -qq && apt-get install -y -qq --no-install-recommends ./apps/cli/.output/zimanyar-cli_*.deb > /dev/null && packaging/cli/smoke-test.sh'
 
 check-i18n:
 	pnpm exec tsx scripts/checks/check-i18n.ts

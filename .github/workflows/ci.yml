@@ -164,3 +164,41 @@ jobs:
             smoke.png
             smoke-quick.png
           retention-days: 7
+
+  cli:
+    name: Command line packages
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - name: Install the Debian packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential debhelper lintian
+      - run: make data
+      - name: Test against the full lexicons
+        run: pnpm --filter zimanyar test
+      - name: Build the single executable
+        run: make cli-sea
+      - name: Build the .deb and run lintian
+        run: packaging/cli/build-deb.sh
+      - name: Install the .deb and use it as a pipeline would (user story 6)
+        run: |
+          sudo apt-get install -y ./apps/cli/.output/zimanyar-cli_*.deb
+          packaging/cli/smoke-test.sh
+      - name: Pack the tarball and the npm package
+        run: |
+          packaging/cli/tarball.sh
+          pnpm --filter zimanyar pack --pack-destination .output
+      - name: Keep the packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cli-packages
+          path: |
+            apps/cli/.output/*.deb
+            apps/cli/.output/*.tar.gz
+            apps/cli/.output/*.tgz
+          retention-days: 7

@@ -1,0 +1,168 @@
+.TH ZIMANYAR 1 "November 2026" "Zimanyar" "User Commands"
+.SH NAME
+zimanyar \- check and learn Kurdish on the command line
+.SH SYNOPSIS
+.B zimanyar check
+.RI [ file ...| \- ]
+.RB [ \-\-lang " ckb|kmr|auto]"
+.RB [ \-\-format " text|json|sarif]"
+.RB [ \-\-fix ]
+.RB [ \-\-rules " list]"
+.RB [ \-\-disable " list]"
+.RB [ \-\-fail\-on " error|warning|hint|never]"
+.RB [ \-\-tolerant ]
+.RB [ \-\-markdown ]
+.RB [ \-\-dictionary " file]"
+.br
+.B zimanyar analyze
+.I word
+.br
+.B zimanyar conjugate
+.I infinitive
+.br
+.B zimanyar decline
+.I noun
+.RB [ \-\-gender " f|m]"
+.br
+.B zimanyar
+.BR ipa | translit | normalize | lid
+.RI [ text ...| \- ]
+.br
+.B zimanyar explain
+.I rule\-id
+.br
+.B zimanyar lesson
+.RI [ number | rule\-id | words ]
+.RB [ \-\-lang " ckb|kmr]"
+.SH DESCRIPTION
+Zimanyar finds mistakes in Sorani and Kurmanji, explains each one, and teaches the grammar behind it.
+It runs entirely on your own computer: nothing is ever sent anywhere, and no command opens a network
+connection.
+.SH COMMANDS
+.TP
+.B check
+Check files, or standard input when no file or \- is given. Each paragraph is checked as Sorani or
+Kurmanji, chosen by its script and words unless
+.B \-\-lang
+says which. Files ending in .md, .markdown or .mdx are checked in their prose only: code, links,
+HTML and front matter are left alone, and reported lines and columns are those of the file.
+.TP
+.B analyze
+Every reading of a word: lemma, part of speech, its parts and their features, best first.
+.TP
+.B conjugate
+Every form of a verb, from its infinitive. A verb that is not in the core list is built from the
+infinitive.
+.TP
+.B decline
+Every form of a noun. A Kurmanji noun is declined in its gender from
+.BR \-\-gender ,
+from the lexicon, or in both when neither knows it.
+.TP
+.B ipa
+The pronunciation of a text, in the International Phonetic Alphabet.
+.TP
+.B translit
+A text in the other script: Sorani in Latin letters, Kurmanji in Arabic script.
+.TP
+.B normalize
+A text with its letters, digits and spacing corrected to the written standard.
+.TP
+.B lid
+Which language a text is in, and how sure the guess is.
+.TP
+.B explain
+A rule's message and reason, with examples and the lessons that teach it.
+.TP
+.B lesson
+Read a lesson in the terminal. With no topic, list every lesson. A topic is a lesson number, a rule
+id, or words found in titles, then in the lessons themselves.
+.SH OPTIONS
+.TP
+.BR \-\-format " text|json|sarif"
+How
+.B check
+reports. JSON has lines and columns from 1, offsets, messages, suggestions and lessons. SARIF 2.1.0
+suits code scanning; its columns count UTF\-16 code units.
+.B analyze ,
+.B conjugate
+and
+.B decline
+also take
+.BR "\-\-format json" .
+.TP
+.B \-\-fix
+Apply the safe fixes, which change only spelling to the written standard, and write each file back.
+With standard input, the corrected text goes to standard output and what is left to correct to
+standard error.
+.TP
+.BR \-\-rules " list"
+Run only these rules, comma separated. An entry names a rule, or every rule whose id starts with it,
+such as
+.B kmr.ergative
+or
+.BR ckb .
+.TP
+.BR \-\-disable " list"
+Leave these rules out, named in the same way.
+.TP
+.BR \-\-fail\-on " error|warning|hint|never"
+The least severe finding that makes the exit code 1. The default is
+.BR error .
+.TP
+.B \-\-tolerant
+Accept what is common in writing but outside the written standard.
+.TP
+.B \-\-markdown
+Treat the input as Markdown, for standard input or a file with another name.
+.TP
+.BR \-\-dictionary " file"
+Accept the words of a personal dictionary as spelled right: the JSON list the extension and the
+desktop app export, or a text file with one word on each line, where # starts a comment. May be
+given more than once.
+.TP
+.BR \-\-ui " en|ckb|kmr"
+The language of messages and help. Without it, ZIMANYAR_UI and then the locale decide: ckb_IQ is
+Sorani, ku_TR Kurmanji.
+.TP
+.BR \-h ", " \-\-help
+Help for Zimanyar, or for one command.
+.TP
+.BR \-v ", " \-\-version
+The version of Zimanyar and of its data.
+.SH EXIT STATUS
+.TP
+.B 0
+Nothing at or above the
+.B \-\-fail\-on
+severity was found, or a command other than check succeeded.
+.TP
+.B 1
+Findings at or above the
+.B \-\-fail\-on
+severity.
+.TP
+.B 2
+A usage error: an unknown command, option, value, rule or file.
+.SH ENVIRONMENT
+.TP
+.B ZIMANYAR_UI
+The language of messages, as for
+.BR \-\-ui .
+.TP
+.B ZIMANYAR_DATA
+A folder with lexicon\-ckb.bin.gz and lexicon\-kmr.bin.gz, used before the lexicons the program
+carries.
+.TP
+.B NO_COLOR
+Turn colour off. Colour is used only when standard output is a terminal.
+.SH EXAMPLES
+.nf
+zimanyar check \-\-lang kmr \-\-format json README.ku.md
+zimanyar check \-\-format sarif docs/*.md > zimanyar.sarif
+echo "Min tu dîtim." | zimanyar check
+zimanyar conjugate dîtin
+zimanyar lesson ergativity
+.fi
+.SH SEE ALSO
+https://0xdolan.github.io/Zimanyar/
