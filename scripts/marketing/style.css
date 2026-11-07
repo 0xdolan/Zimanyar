@@ -70,10 +70,6 @@ body {
 .footer-line { color: var(--muted); font-size: 18px; }
 .footer-line b { color: var(--text); }
 
-.preview-tag {
-  position: absolute; right: 22px; bottom: 18px; font-size: 13px; font-weight: 600; letter-spacing: 1.4px;
-  text-transform: uppercase; color: rgba(255, 255, 255, 0.45);
-}
 
 /* ---------- Mock UI ---------- */
 
@@ -143,30 +139,6 @@ body {
   background: rgba(254, 189, 17, 0.18); color: #7a5d00;
 }
 .card.dark .lesson { color: var(--sun); background: rgba(254, 189, 17, 0.12); }
-
-/* Findings list */
-.findings { display: flex; flex-direction: column; gap: 10px; }
-.finding-row {
-  display: flex; gap: 12px; align-items: center; padding: 12px 14px; border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); font-size: 16px;
-}
-.finding-row .bar { width: 4px; align-self: stretch; border-radius: 4px; }
-.finding-row b { font-weight: 700; }
-
-/* Table */
-table.paradigm { border-collapse: collapse; width: 100%; font-size: 17px; }
-table.paradigm th { text-align: start; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; color: #7d837f; padding: 8px 10px; border-bottom: 1px solid var(--line-dark); }
-table.paradigm td { padding: 9px 10px; border-bottom: 1px solid var(--line-dark); }
-table.paradigm td b { font-weight: 700; }
-table.paradigm td small { display: block; font-family: var(--arabic); color: #7d837f; font-size: 13px; }
-
-/* Terminal */
-.terminal { white-space: pre; background: #0b0e0d; color: #d6dbd8; font-family: var(--mono); font-size: 15px; line-height: 1.6; padding: 18px 20px; }
-.terminal .p { color: var(--sun); }
-.terminal .e { color: #ff8a8e; }
-.terminal .w { color: #ffc266; }
-.terminal .g { color: #6fd38e; }
-.terminal .m { color: #8b938f; }
 
 /* Interface mock-ups are English UI: keep them left to right inside RTL pages. */
 .demo, .card { text-align: left; }
