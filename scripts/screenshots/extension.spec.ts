@@ -9,12 +9,33 @@ const AXE = readFileSync(resolve(ROOT, "node_modules/axe-core/axe.min.js"), "utf
 const BUILD = resolve(ROOT, "apps/extension/.output/e2e-chrome-mv3");
 const UPDATE = Boolean(process.env["UPDATE_SCREENSHOTS"]);
 const SITE = "http://localhost:4176";
+/** Where the store screenshots write. The browser answers it from COMPOSE, so nothing leaves the machine. */
+const STORE_SITE = "https://mail.example";
 
 const PAGE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>A page</title></head>
 <body><h1>A page</h1>
 <textarea id="field" rows="6" cols="60" aria-label="field" style="font-size:20px"></textarea>
 <div id="rich" contenteditable="true" style="font-size:20px;min-height:80px;border:1px solid #888"></div>
 <input id="secret" type="password" aria-label="secret">
+</body></html>`;
+
+/** A plain compose form for the store screenshots: the same field id, on a page that looks like somewhere people write. */
+const COMPOSE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>New message</title>
+<style>
+  body { margin: 0; font: 15px/1.4 system-ui, sans-serif; background: #eef1ee; color: #1e1e1e; }
+  header { display: flex; align-items: center; gap: 10px; padding: 14px 24px; background: #fff; border-bottom: 1px solid #dde2dd; font-weight: 600; }
+  header i { width: 22px; height: 22px; border-radius: 6px; background: #5b6f63; display: inline-block; }
+  form { margin: 24px auto; max-width: 820px; background: #fff; border: 1px solid #dde2dd; border-radius: 12px; overflow: hidden; }
+  form > div { display: flex; gap: 12px; padding: 10px 18px; border-bottom: 1px solid #eceeeb; color: #69716c; }
+  form > div b { color: #1e1e1e; font-weight: 500; }
+  textarea { box-sizing: border-box; width: 100%; height: 260px; border: 0; padding: 16px 18px; font: 22px/1.6 system-ui, sans-serif; resize: none; outline: none; }
+  footer { display: flex; gap: 10px; padding: 12px 18px; border-top: 1px solid #eceeeb; }
+  footer span { padding: 7px 18px; border-radius: 8px; background: #2f5f45; color: #fff; font-weight: 600; }
+</style></head>
+<body><header><i></i>Mail · New message</header>
+<form><div>To <b>heval@example.org</b></div><div>Subject <b>Sibê</b></div>
+<textarea id="field" dir="auto" aria-label="message"></textarea>
+<footer><span>Send</span></footer></form>
 </body></html>`;
 
 let context: BrowserContext;
@@ -32,6 +53,9 @@ test.beforeEach(async () => {
   const worker = context.serviceWorkers()[0] ?? (await context.waitForEvent("serviceworker"));
   extensionId = new URL(worker.url()).host;
   await context.route(`${SITE}/**`, (route) => route.fulfill({ contentType: "text/html", body: PAGE }));
+  await context.route(`${STORE_SITE}/**`, (route) =>
+    route.fulfill({ contentType: "text/html", body: COMPOSE }),
+  );
 });
 
 test.afterEach(async () => {
@@ -49,11 +73,11 @@ async function setSettings(values: object) {
   await page.close();
 }
 
-async function openSite(values: object = {}): Promise<Page> {
-  await setSettings({ sites: { enabled: [SITE] }, ...values });
+async function openSite(values: object = {}, site = SITE): Promise<Page> {
+  await setSettings({ sites: { enabled: [site] }, ...values });
   const page = await context.newPage();
   await expect(async () => {
-    await page.goto(`${SITE}/`);
+    await page.goto(`${site}/`);
     await page.locator("#field").click();
     await expect(page.locator("html > div")).toHaveCount(1, { timeout: 1000 });
   }).toPass({ timeout: 15_000 });
@@ -431,4 +455,36 @@ test("screenshots of the extension", async () => {
   await page.goto(extensionUrl("sidepanel.html"));
   await page.waitForTimeout(800);
   await shoot(page, "extension-sidepanel");
+});
+
+test("store screenshots of the extension on a page where people write", async () => {
+  test.skip(!UPDATE, "only when regenerating");
+  test.setTimeout(90_000);
+  const shoot = (page: Page, name: string) =>
+    page.screenshot({ path: resolve(ROOT, `assets/screenshots/${name}.png`) });
+  const site = await openSite({}, STORE_SITE);
+  await site.setViewportSize({ width: 960, height: 900 });
+  await site.locator("#field").pressSequentially("دەرگاەکە کرایەوە. من من نان خواردم.");
+  await hoverFirstUnderline(site);
+  await site.locator(".zy-floating section").waitFor();
+  await shoot(site, "extension-store-ckb");
+  await site.keyboard.press("Escape");
+  await site.locator("#field").fill("");
+  await site.locator("#field").pressSequentially("Min tu dîtim. Ez dıçım malê.");
+  await site.waitForTimeout(300);
+  await hoverFirstUnderline(site);
+  await site.locator(".zy-floating section").waitFor();
+  await shoot(site, "extension-store-kmr");
+  // A toolbar popup asks for the active tab, which here is the popup's own tab: point it at the page.
+  const popup = await context.newPage();
+  await popup.addInitScript((site) => {
+    const query = chrome.tabs.query.bind(chrome.tabs);
+    chrome.tabs.query = ((info: chrome.tabs.QueryInfo) =>
+      query(info.active ? { url: `${site}/*` } : info)) as typeof chrome.tabs.query;
+  }, STORE_SITE);
+  await popup.setViewportSize({ width: 380, height: 600 });
+  await popup.goto(extensionUrl("popup.html"));
+  await expect(popup.getByText(STORE_SITE)).toBeVisible();
+  await popup.waitForTimeout(300);
+  await shoot(popup, "extension-popup-site");
 });

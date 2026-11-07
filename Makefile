@@ -94,6 +94,7 @@ screenshots:
 	pnpm --filter @zimanyar/web build
 	pnpm --filter @zimanyar/extension build:e2e
 	pnpm --filter @zimanyar/desktop build:web
+	pnpm --filter zimanyar build
 	UPDATE_SCREENSHOTS=1 pnpm exec playwright test scripts/screenshots/
 
 # Mozilla's linter on the Firefox build. Run in isolation: it brings packages with advisories that have no fix.

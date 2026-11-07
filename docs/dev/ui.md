@@ -48,3 +48,5 @@ An `aria-activedescendant` id cannot point across a shadow root, so the word in 
 `packages/ui/demo` is a page of the components with real findings, and `packages/editor/demo` is the editor on real fields. `make e2e` builds it and tests it in a real browser with a throwaway profile, in each language and theme: axe accessibility checks with colour contrast, no sideways scrolling at 320 px, right-to-left layout, the keyboard, and no outside requests.
 
 `make screenshots` also regenerates `assets/screenshots/`. Look at every changed image, and commit them with the change.
+
+The scenarios live in `scripts/screenshots/`, one file per surface. Besides the pictures for the docs and the website, `extension.spec.ts` takes the store pictures (the extension on a plain compose page at `https://mail.example`, which the browser answers itself, and the popup pointed at that page) and `cli.spec.ts` runs the built `zimanyar check` in colour and draws its output in a terminal. `make marketing` frames these in the four store screenshots (`scripts/marketing/screenshot.html`), so run `make screenshots` first when the apps change.
