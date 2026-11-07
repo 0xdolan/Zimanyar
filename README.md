@@ -24,7 +24,7 @@ The name joins *ziman*, language, and *yar*, friend and helper; the logo joins t
 
 ## Status
 
-Zimanyar is **in development** on the `develop` branch. Version 0.1.0 is a snapshot of the foundations: the lexicon pipeline and the linguistic engine, proven against zimankit. There is no checker, extension, app or package to install yet. The images in this README are design previews of the planned interface, rendered from HTML templates; every Kurdish example and every finding in them is a real rule.
+Zimanyar is **in development** on the `develop` branch, on its way to version 1.0.0. The checker, the rules, the browser extension, the Linux desktop app, the command line, the language server, the website and practice mode are all built and tested there; packages and store listings arrive with the 1.0.0 release. The interface in every image here is a real screenshot of the built apps, taken by Playwright (`make screenshots`).
 
 ## Features
 
@@ -46,6 +46,14 @@ Zimanyar is **in development** on the `develop` branch. Version 0.1.0 is a snaps
 | Learn the rule behind the fix | Everywhere you write |
 | --- | --- |
 | <img src="assets/marketing/store/screenshot-3-learn.png" alt="Learn the rule behind the fix"> | <img src="assets/marketing/store/screenshot-4-everywhere.png" alt="Everywhere you write"> |
+
+| The website checker, in a Sorani interface | Practice: drills and lessons for your frequent mistakes |
+| --- | --- |
+| <img src="assets/screenshots/web-check-ckb.png" alt="The website checker with Sorani findings and a right-to-left interface"> | <img src="assets/screenshots/desktop-practice.png" alt="The Practice tab of the desktop app"> |
+
+| Verb forms from the engine | On a phone |
+| --- | --- |
+| <img src="assets/screenshots/extension-verbs.png" alt="The verb explorer"> | <img src="assets/screenshots/web-check-phone.png" alt="The website checker on a phone" width="260"> |
 
 ## What it checks
 
@@ -98,12 +106,12 @@ There is no server. The extension, the desktop app and the command line make no 
 
 ## The zimanyar command
 
-Planned for the first release:
+<img src="assets/screenshots/cli-check.png" alt="zimanyar check reporting three Kurmanji findings with fixes and lessons">
 
 ```sh
 zimanyar check notes.ku.md                    # findings, with explanations
 zimanyar check --lang kmr --format json -     # read stdin, write JSON
-zimanyar check --fix --rules orthography *.md # apply the safe fixes
+zimanyar check --fix --rules kmr.orth *.md    # apply the safe spelling fixes
 zimanyar explain ckb.morph.definite-allomorph # the rule, with examples and lessons
 zimanyar conjugate xwendin                    # a full verb paradigm
 zimanyar ipa "بە متمانەوە بە کوردی بنووسە"
@@ -130,6 +138,7 @@ make test            # unit tests
 make data            # fetch and verify the zimankit lexicon, export fixtures, compile the lexicons
 make logo            # the logo SVG variants, from scripts/brand/make-logo.mjs
 make icons           # every icon size for the extension, the web and Linux (Inkscape, ImageMagick)
+make screenshots     # screenshots of the built apps with Playwright, into assets/screenshots/
 make marketing       # banner, store tiles, store screenshots and ads (headless Chrome)
 make check-dashes    # fail on em dashes, en dashes and look-alikes
 ```
@@ -160,7 +169,7 @@ make check-dashes    # fail on em dashes, en dashes and look-alikes
 | `scripts/checks/`, `scripts/release/` | Repository guards: dashes, Kurdish spelling, licences, attribution |
 | `docs/` | [The name and the logo](docs/STORY.md), [developer documentation](docs/dev/) |
 
-The engine, the apps and the website arrive phase by phase. Contributors, human or tooling, follow the rules in [CONTRIBUTING.md](CONTRIBUTING.md) and [CLAUDE.md](CLAUDE.md): no AI or bot attribution, no em or en dashes, and every interface string translated into English, Sorani and Kurmanji. Security reports go through [SECURITY.md](SECURITY.md).
+Contributors, human or tooling, follow the rules in [CONTRIBUTING.md](CONTRIBUTING.md) and [CLAUDE.md](CLAUDE.md): no AI or bot attribution, no em or en dashes, and every interface string translated into English, Sorani and Kurmanji. Security reports go through [SECURITY.md](SECURITY.md).
 
 ## Branches and releases
 
