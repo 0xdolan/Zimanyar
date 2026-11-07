@@ -25,8 +25,9 @@ version in `packages/data/VERSION` is separate and changes only with the lexicon
 7. **Sign and publish.** `make release-sign V=X.Y.Z` downloads the draft's assets, checks them
    against `SHA256SUMS` and their attestations, signs `SHA256SUMS` with the maintainer's key as
    `SHA256SUMS.sig`, uploads it and publishes the release.
-8. **Back into `develop`.** Merge `main` into `develop` (`git switch develop && git merge --no-ff
-   main`) and push. Pushing to `main` also deploys the website (`pages.yml`).
+8. **Back into `develop`.** `develop` is protected, so open a pull request from `main` into
+   `develop` (`gh pr create --base develop --head main`) and merge it with a merge commit when
+   the checks are green. The merge into `main` has already deployed the website (`pages.yml`).
 9. **Stores.** Upload the Chrome zip and the Firefox xpi with its source zip to the stores by hand.
 
 A pull request that changes `release.yml`, `scripts/release/`, `packaging/` or `debian/` runs the
