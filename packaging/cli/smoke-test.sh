@@ -38,3 +38,6 @@ zimanyar lesson 14 --lang kmr | grep -q 'ergativity' || fail "lesson"
 # Minimal container images tell dpkg to skip manuals, so ask the package rather than the disk.
 dpkg -L zimanyar-cli | grep -q '/usr/share/man/man1/zimanyar.1.gz' || fail "no man page"
 echo "the other commands, the SARIF report and the man page work"
+
+dpkg -L zimanyar-cli | grep -q '/usr/share/man/man1/zimanyar-lsp.1.gz' || fail "no language server man page"
+"$(dirname "$0")/lsp-smoke.sh" zimanyar-lsp --stdio

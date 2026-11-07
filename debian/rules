@@ -18,6 +18,7 @@ override_dh_auto_test:
 
 override_dh_auto_install:
 	install -D -m 0755 apps/cli/dist/zimanyar debian/zimanyar-cli/usr/bin/zimanyar
+	install -D -m 0755 packaging/cli/zimanyar-lsp debian/zimanyar-cli/usr/bin/zimanyar-lsp
 	install -D -m 0644 apps/cli/dist/THIRD-PARTY-NOTICES.txt debian/zimanyar-cli/usr/share/doc/zimanyar-cli/THIRD-PARTY-NOTICES.txt
 	install -D -m 0644 $(NODE_LICENSE) debian/zimanyar-cli/usr/share/doc/zimanyar-cli/NODE-LICENSE.txt
 

@@ -14,6 +14,8 @@ zimanyar explain kmr.ergative.agreement
 zimanyar lesson ergativity
 ```
 
+`zimanyar-lsp --stdio` is a language server for editors: diagnostics, quick fixes, hovers that explain each finding, and completion of Kurdish words. `man zimanyar-lsp` shows how to set it up in Neovim.
+
 Everything runs on your computer: no command makes a network request. See `man zimanyar` or `zimanyar --help`, and <https://0xdolan.github.io/Zimanyar/>.
 
 Licensed under GPL-3.0-or-later. The word data comes from zimankit and is licensed under CC BY-SA 4.0. `dist/THIRD-PARTY-NOTICES.txt` lists the bundled packages and their licences.

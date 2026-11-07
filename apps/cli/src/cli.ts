@@ -4,11 +4,14 @@ import { declension } from "@zimanyar/content";
 import { createT, type Translate, type UiLang } from "@zimanyar/i18n";
 import type { Strictness, Variety } from "@zimanyar/rules";
 import { parseDictionary } from "@zimanyar/settings";
+import { createConnection } from "vscode-languageserver/node";
 import { type CheckedFile, checkText, disabledBy, type FailOn, failsOn, unknownRules } from "./check.js";
 import { jsonReport } from "./format/json.js";
 import { sarifReport } from "./format/sarif.js";
 import { textReport } from "./format/text.js";
 import type { Io } from "./io.js";
+import { serve } from "./lsp/server.js";
+import { engineFor } from "./lsp/worker.js";
 import { isMarkdown } from "./markdown.js";
 import { DATA_VERSION, VERSION, ZIMANKIT_VERSION } from "./meta.js";
 import {
@@ -80,6 +83,7 @@ const COMMANDS = [
   "lid",
   "explain",
   "lesson",
+  "lsp",
 ] as const;
 type Command = (typeof COMMANDS)[number];
 
@@ -121,6 +125,7 @@ function help(t: Translate, command?: Command): string {
     lid: ["zimanyar lid <text…|->", t("cli.help.lid")],
     explain: ["zimanyar explain <rule-id>", t("cli.help.explain")],
     lesson: ["zimanyar lesson [number|rule-id|words] [--lang ckb|kmr]", t("cli.help.lesson")],
+    lsp: ["zimanyar lsp [--stdio]", t("cli.help.lsp")],
   };
   if (command !== undefined) {
     const [line, text] = usage[command];
@@ -243,7 +248,26 @@ async function runCheck(args: string[], { io, t, ui, paint }: Context): Promise<
   return failsOn(findings, failOn) ? EXIT.findings : EXIT.clean;
 }
 
-async function runWords(command: Command, args: string[], { io, t, ui, paint }: Context): Promise<number> {
+/** The language server, over standard input and output until the editor closes them. */
+function runLsp(args: string[], { io, ui }: Context): Promise<number> {
+  // Editors pass --stdio by habit; it is the only transport there is.
+  parseArgs({ args, options: { stdio: { type: "boolean" } } });
+  serve(createConnection(io.input, io.output), engineFor(io.env), {
+    lang: "auto",
+    ui,
+    rules: [],
+    disable: [],
+    tolerant: false,
+    words: [],
+  });
+  return new Promise(() => {});
+}
+
+async function runWords(
+  command: Exclude<Command, "check" | "lsp">,
+  args: string[],
+  { io, t, ui, paint }: Context,
+): Promise<number> {
   const { values, positionals } = parseArgs({
     args,
     allowPositionals: true,
@@ -385,7 +409,9 @@ export async function run(argv: readonly string[], io: Io): Promise<number> {
       io.out(help(t, command));
       return EXIT.clean;
     }
-    return command === "check" ? await runCheck(rest, context) : await runWords(command, rest, context);
+    if (command === "check") return await runCheck(rest, context);
+    if (command === "lsp") return await runLsp(rest, context);
+    return await runWords(command, rest, context);
   } catch (error) {
     if (error instanceof UsageError) {
       io.err(`${error.message.trimEnd()}\n`);

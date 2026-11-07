@@ -40,6 +40,10 @@ const result = await build({
   metafile: true,
 });
 chmodSync(output, 0o755);
+// zimanyar-lsp is the lsp command under the name editors look for.
+const lsp = join(DIST, "zimanyar-lsp.cjs");
+writeFileSync(lsp, '#!/usr/bin/env node\nprocess.argv.splice(2, 0, "lsp");\nrequire("./zimanyar.cjs");\n');
+chmodSync(lsp, 0o755);
 // Without make data the bundle still builds, and checks without lexicons; the executable needs them.
 for (const lang of ["ckb", "kmr"]) {
   const lexicon = join(LEXICONS, `lexicon-${lang}.bin.gz`);

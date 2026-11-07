@@ -8,7 +8,7 @@ pnpm --filter zimanyar start check README.md    # run it from source
 make cli          # bundle it: apps/cli/dist/zimanyar.cjs, with the lexicons in dist/data/
 make cli-sea      # one executable with Node and the lexicons inside: apps/cli/dist/zimanyar
 make cli-deb      # the .deb, checked by lintian, built in a container
-make cli-smoke    # install the .deb in a clean Debian 13 container and use it
+make cli-smoke    # install the .deb in a clean Debian 13 container and use it, language server included
 make cli-tarball  # the executable, its man page and licences as a .tar.gz
 ```
 
@@ -48,6 +48,40 @@ Lines and columns count UTF-16 code units everywhere, as the checker's offsets d
 
 Every message goes through `t()`. `--ui`, then `ZIMANYAR_UI`, then the locale choose it: `ckb_IQ` is Sorani and `ku_TR` Kurmanji, as glibc names them.
 
+## Language server
+
+`zimanyar lsp --stdio`, also installed as `zimanyar-lsp`, speaks the Language Server Protocol over standard input and output (`apps/cli/src/lsp/`, manual [`zimanyar-lsp.1`](../../apps/cli/man/zimanyar-lsp.1)). It publishes the findings as diagnostics 200 ms after the last change, offers a quick fix for each suggestion and `source.fixAll.zimanyar` for every safe fix, explains a finding on hover with its lesson, and completes Kurdish words from the lexicon of the word's script. Hints are sent as information, since many editors hide hints. Markdown documents are checked in their prose only, as with `check`.
+
+Settings come in `initializationOptions` or as the `zimanyar` section of `workspace/didChangeConfiguration`: `lang`, `ui`, `rules`, `disable`, `tolerant` and `words`, with the meaning of the options of `check`. A value of the wrong shape is ignored.
+
+```lua
+-- Neovim 0.11
+vim.lsp.config("zimanyar", {
+  cmd = { "zimanyar-lsp", "--stdio" },
+  filetypes = { "markdown", "text" },
+  settings = { zimanyar = { lang = "auto", ui = "en" } },
+})
+vim.lsp.enable("zimanyar")
+```
+
+```toml
+# Helix, languages.toml
+[language-server.zimanyar]
+command = "zimanyar-lsp"
+args = ["--stdio"]
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "zimanyar"]
+```
+
+```elisp
+;; Emacs, eglot
+(add-to-list 'eglot-server-programs '(markdown-mode . ("zimanyar-lsp" "--stdio")))
+```
+
+The checker runs in a worker thread, so a long check never holds up hovers or completion: the bundle starts itself as the worker. A single executable cannot start its embedded script as a worker, nor can `tsx` from source, so there the checker runs in the server's thread. `packaging/cli/lsp-smoke.sh` drives a whole session through any of them, and CI runs it against the bundle, the executable and the installed `.deb`.
+
 ## Network
 
-None. The lesson and rule addresses in reports are text to follow, and nothing in the command opens a connection.
+None. The lesson and rule addresses in reports are text to follow, and nothing in the command or the language server opens a connection.
