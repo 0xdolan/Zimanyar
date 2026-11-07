@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/i18n",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Zimanyar's interface strings in English, Sorani and Kurmanji",
   "license": "GPL-3.0-or-later",
