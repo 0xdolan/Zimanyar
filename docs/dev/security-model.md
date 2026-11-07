@@ -13,6 +13,8 @@ Zimanyar's promise is that text never leaves the device. Each threat below has a
 | XSS through suggestions or lessons | text nodes only, and lessons compiled at build time | Biome, review |
 | a compromised page in the desktop app reaches the system | no remote URLs, a strict CSP, minimal capabilities per window, and files only through a dialog | `desktop.spec.ts` |
 | a damaged settings file | `parseSettings` answers with usable settings whatever it is given | `packages/settings/test` |
+| a damaged or hostile practice file | `parsePractice` keeps each valid entry and drops the rest, with bounds on ids, counts and sizes; the desktop refuses files over 4 MB | `packages/practice/test` |
+| a content script fills the mistake history with junk | `record-mistake` carries only a rule id of 1 to 100 characters and an action; unknown rules are never shown, and the history keeps the newest 500 | `apps/extension/test/lib.test.ts`, `packages/practice/test` |
 | a shared link carries something hostile | its text is length-limited and only ever put in a text field | `web.spec.ts` |
 | a malicious data bundle | SHA-256 pinned in `packages/data/VERSION`, verified before use | `make data` |
 | supply chain | frozen lockfile, a seven-day release cooldown, a trust policy, actions pinned by hash, tools with open advisories kept out of the lockfile | CI |

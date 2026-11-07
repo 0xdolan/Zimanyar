@@ -10,6 +10,11 @@ const lesson = z.object({
 export const toBackground = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("open-lesson"), lesson }),
   z.object({ kind: z.literal("open-app"), route: z.string().max(200) }),
+  z.object({
+    kind: z.literal("record-mistake"),
+    rule: z.string().min(1).max(100),
+    action: z.enum(["applied", "ignored"]),
+  }),
 ]);
 
 export const toContent = z.discriminatedUnion("kind", [

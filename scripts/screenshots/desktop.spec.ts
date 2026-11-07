@@ -31,6 +31,54 @@ test("the main window is the same app as the extension's full view", async ({ pa
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Nouns");
 });
 
+test("a drill: wrong, then right, with progress that lasts and a lesson to read", async ({ page }) => {
+  // A fixed mistake from the checker joins the history that recommends lessons.
+  await open(page);
+  await field(page).fill("Min tu dîtim.");
+  await page.getByRole("button", { name: /dîtim/ }).first().click();
+  await page.getByRole("button", { name: "Replace with dîtî" }).click();
+  await page.getByRole("button", { name: "Practice" }).click();
+  await expect(page.getByRole("heading", { name: "Your frequent mistakes" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /Kurmanji course \d+/ })).toBeVisible();
+
+  // Verbs only, so that the drill has a field to type in.
+  await page.getByRole("checkbox", { name: "Nouns and ezafe" }).uncheck();
+  await page.getByRole("checkbox", { name: "Spot the mistake" }).uncheck();
+  const answer = page.getByRole("textbox", { name: "Your answer" });
+  await answer.fill("zzz");
+  await answer.press("Enter");
+  const status = page.getByRole("status");
+  await expect(status).toContainText("Not quite");
+  // The feedback, the lesson link and the mistakes appear only now, so they are checked now.
+  await page.evaluate(AXE);
+  const serious = await page.evaluate(async () => {
+    const { violations } = await (
+      window as unknown as { axe: { run(): Promise<{ violations: { id: string; impact: string }[] }> } }
+    ).axe.run();
+    return violations
+      .filter(({ impact }) => impact === "serious" || impact === "critical")
+      .map(({ id }) => id);
+  });
+  expect(serious).toEqual([]);
+  const right = (await status.locator("bdi").textContent()) as string;
+  await answer.fill(right);
+  await answer.press("Enter");
+  await expect(status).toContainText("Right!");
+  await expect(page.getByRole("button", { name: "Next" })).toBeFocused();
+  const progress = page.getByTestId("practice-progress");
+  await expect(progress).toContainText(/Practised\s*1/);
+  await expect(progress).toContainText(/Right today\s*0 \/ 1/);
+
+  await page.getByRole("button", { name: /^Lesson:/ }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  expect(page.url()).toContain("#/learn/");
+
+  await open(page, "#/practice");
+  await page.reload();
+  await page.waitForSelector("main");
+  await expect(page.getByTestId("practice-progress")).toContainText(/Practised\s*1/);
+});
+
 test("the checker has its real lexicon, in a worker", async ({ page }) => {
   await open(page);
   await field(page).fill("Ez kitêbek zxqjw dixwînim.");
@@ -91,7 +139,15 @@ for (const uiLang of ["en", "ckb", "kmr"]) {
         (settings) => localStorage.setItem("zimanyar-settings", settings),
         JSON.stringify({ interface: { uiLang, theme } }),
       );
-      for (const path of ["", "settings.html", "quick.html", "#/learn/kmr/14", "#/verbs", "#/tools"]) {
+      for (const path of [
+        "",
+        "settings.html",
+        "quick.html",
+        "#/learn/kmr/14",
+        "#/verbs",
+        "#/tools",
+        "#/practice",
+      ]) {
         await open(page, path);
         await page.waitForTimeout(250);
         await page.evaluate(AXE);
@@ -199,6 +255,17 @@ test("screenshots of the desktop app", async ({ page }) => {
   await open(page, "settings.html");
   await page.waitForTimeout(200);
   await shoot("desktop-settings");
+  // The same drill every time, so that the image changes only when the page does.
+  await page.addInitScript(() => {
+    Math.random = () => 0;
+  });
+  await open(page, "#/practice");
+  await page.getByRole("checkbox", { name: "Nouns and ezafe" }).uncheck();
+  await page.getByRole("checkbox", { name: "Spot the mistake" }).uncheck();
+  await page.getByRole("textbox", { name: "Your answer" }).fill("x");
+  await page.getByRole("textbox", { name: "Your answer" }).press("Enter");
+  await page.waitForTimeout(200);
+  await shoot("desktop-practice");
   await page.setViewportSize({ width: 560, height: 640 });
   await page.addInitScript(() => sessionStorage.setItem("clipboard", "دەرگاەکە کرایەوە. ئەو رۆژە هات."));
   await open(page, "quick.html");

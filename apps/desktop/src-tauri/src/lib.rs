@@ -1,5 +1,5 @@
 //! A thin shell. Everything Zimanyar knows lives in the TypeScript packages: this holds the windows, the tray,
-//! the shortcut, and one settings file.
+//! the shortcut, a settings file and a file of practice.
 
 use std::{fs, path::PathBuf};
 use tauri::{
@@ -12,29 +12,29 @@ use tauri_plugin_global_shortcut::{GlobalShortcutExt, ShortcutState};
 const SHORTCUT: &str = "Ctrl+Alt+K";
 /// Settings are small. Anything bigger is not settings.
 const MAX_SETTINGS_BYTES: usize = 1024 * 1024;
+/// Spaced repetition remembers every drill answered, which is more than settings, and still bounded.
+const MAX_PRACTICE_BYTES: usize = 4 * 1024 * 1024;
 
-fn settings_file(app: &AppHandle) -> Result<PathBuf, String> {
+fn data_file(app: &AppHandle, name: &str) -> Result<PathBuf, String> {
     let config = app.path().config_dir().map_err(|error| error.to_string())?;
-    Ok(config.join("zimanyar").join("settings.json"))
+    Ok(config.join("zimanyar").join(name))
 }
 
-#[tauri::command]
-fn load_settings(app: AppHandle) -> Result<Option<String>, String> {
-    match fs::read_to_string(settings_file(&app)?) {
+fn load(app: &AppHandle, name: &str) -> Result<Option<String>, String> {
+    match fs::read_to_string(data_file(app, name)?) {
         Ok(text) => Ok(Some(text)),
         Err(error) if error.kind() == std::io::ErrorKind::NotFound => Ok(None),
         Err(error) => Err(error.to_string()),
     }
 }
 
-#[tauri::command]
-fn save_settings(app: AppHandle, json: String) -> Result<(), String> {
-    if json.len() > MAX_SETTINGS_BYTES {
-        return Err("settings too large".into());
+fn save(app: &AppHandle, name: &str, json: String, max: usize) -> Result<(), String> {
+    if json.len() > max {
+        return Err(format!("{name} too large"));
     }
     serde_json::from_str::<serde_json::Value>(&json).map_err(|error| error.to_string())?;
-    let file = settings_file(&app)?;
-    let folder = file.parent().ok_or("no settings folder")?;
+    let file = data_file(app, name)?;
+    let folder = file.parent().ok_or("no data folder")?;
     fs::create_dir_all(folder).map_err(|error| error.to_string())?;
     // Written beside it and moved into place, so that a crash cannot leave half a file.
     let partial = file.with_extension("json.partial");
@@ -42,12 +42,41 @@ fn save_settings(app: AppHandle, json: String) -> Result<(), String> {
     fs::rename(&partial, &file).map_err(|error| error.to_string())
 }
 
-#[tauri::command]
-fn clear_settings(app: AppHandle) -> Result<(), String> {
-    match fs::remove_file(settings_file(&app)?) {
+fn clear(app: &AppHandle, name: &str) -> Result<(), String> {
+    match fs::remove_file(data_file(app, name)?) {
         Err(error) if error.kind() != std::io::ErrorKind::NotFound => Err(error.to_string()),
         _ => Ok(()),
     }
+}
+
+#[tauri::command]
+fn load_settings(app: AppHandle) -> Result<Option<String>, String> {
+    load(&app, "settings.json")
+}
+
+#[tauri::command]
+fn save_settings(app: AppHandle, json: String) -> Result<(), String> {
+    save(&app, "settings.json", json, MAX_SETTINGS_BYTES)
+}
+
+#[tauri::command]
+fn clear_settings(app: AppHandle) -> Result<(), String> {
+    clear(&app, "settings.json")
+}
+
+#[tauri::command]
+fn load_practice(app: AppHandle) -> Result<Option<String>, String> {
+    load(&app, "practice.json")
+}
+
+#[tauri::command]
+fn save_practice(app: AppHandle, json: String) -> Result<(), String> {
+    save(&app, "practice.json", json, MAX_PRACTICE_BYTES)
+}
+
+#[tauri::command]
+fn clear_practice(app: AppHandle) -> Result<(), String> {
+    clear(&app, "practice.json")
 }
 
 fn show_main(app: &AppHandle) {
@@ -109,7 +138,10 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             load_settings,
             save_settings,
-            clear_settings
+            clear_settings,
+            load_practice,
+            save_practice,
+            clear_practice
         ])
         .setup(|app| {
             // Neither of these is there on every desktop: Wayland has no global shortcuts, and some

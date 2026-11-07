@@ -47,6 +47,8 @@ export interface EditorOptions {
   onFindings?: (findings: readonly Finding[]) => void;
   onAddToDictionary?: (word: string) => void;
   onLearn?: (lesson: LessonRef) => void;
+  /** A finding the writer fixed or dismissed, for the mistake history of practice mode. */
+  onAct?: (finding: Finding, action: "applied" | "ignored") => void;
   onError?: (error: unknown) => void;
 }
 
@@ -201,6 +203,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
           teaching={teaching}
           onIgnore={(finding) => {
             ignored.add(ignoreKey(finding));
+            options.onAct?.(finding, "ignored");
             closeCard(true);
             publish();
           }}
@@ -331,6 +334,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
     if (finding === undefined) return;
     closeCard(false);
     replace(finding.range.start, finding.range.end, suggestion);
+    options.onAct?.(finding, "applied");
   }
 
   function acceptCompletion(item: AutocompleteItem): void {
@@ -545,6 +549,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
       const finding = byId(findingId);
       if (finding === undefined) return;
       ignored.add(ignoreKey(finding));
+      options.onAct?.(finding, "ignored");
       publish();
     },
     fixSafe() {

@@ -5,6 +5,9 @@ export default mergeConfig(
   baseConfig,
   defineConfig({
     esbuild: { jsx: "automatic" },
-    test: { include: ["test/**/*.test.ts"], coverage: { include: ["src/routes.ts", "src/writing.ts"] } },
+    test: {
+      include: ["test/**/*.test.ts"],
+      coverage: { include: ["src/practice-store.ts", "src/routes.ts", "src/writing.ts"] },
+    },
   }),
 );

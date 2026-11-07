@@ -11,6 +11,10 @@ export const platform: Platform = {
   overlayCss,
   version: browser.runtime.getManifest().version,
   saveSettings,
+  practice: {
+    load: async () => (await browser.storage.local.get("practice"))["practice"],
+    save: (practice) => browser.storage.local.set({ practice }),
+  },
   clearData: () => browser.storage.local.clear(),
   openSettings: () => void browser.runtime.openOptionsPage(),
   openExternal: (url) => void browser.tabs.create({ url }),

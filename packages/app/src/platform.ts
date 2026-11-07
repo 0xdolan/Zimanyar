@@ -10,6 +10,8 @@ export interface Platform {
   overlayCss: string;
   version: string;
   saveSettings(settings: Settings): Promise<void>;
+  /** Spaced repetition and the mistake history, stored on this device as JSON. */
+  practice: { load(): Promise<unknown>; save(state: unknown): Promise<void> };
   /** Everything stored on this device, gone. */
   clearData(): Promise<void>;
   openSettings(): void;

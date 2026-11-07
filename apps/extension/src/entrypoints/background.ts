@@ -1,7 +1,9 @@
+import { updatePractice } from "@zimanyar/app/practice-store";
 import { lessonRoute } from "@zimanyar/app/routes";
 import { pronounce, transliterate } from "@zimanyar/app/writing";
 import { Checker, createHandler } from "@zimanyar/checker";
 import { loadLexicon } from "@zimanyar/data";
+import { type MistakeAction, recordMistake } from "@zimanyar/practice/store";
 import { parseSettings } from "@zimanyar/settings";
 import { browser } from "wxt/browser";
 import { isCheckerRequest, lexiconsFor, matchPatternOf, toBackground } from "../lib/messages";
@@ -32,6 +34,16 @@ export default defineBackground(() => {
   const openApp = (route: string) =>
     browser.tabs.create({ url: `${browser.runtime.getURL("/app.html")}#${route}` });
 
+  /** Findings fixed or dismissed on web pages, for practice, under the same lock as the app's own writes. */
+  const practiceStorage = {
+    load: async () => (await browser.storage.local.get("practice"))["practice"],
+    save: (practice: unknown) => browser.storage.local.set({ practice }),
+  };
+  const recordMistakeOf = (rule: string, action: MistakeAction) =>
+    updatePractice(practiceStorage, (state) => recordMistake(state, rule, action, Date.now())).catch(
+      () => {},
+    );
+
   browser.runtime.onMessage.addListener((message: unknown, sender, respond) => {
     // Only this extension's own pages and content scripts. A web page cannot reach here at all.
     if (sender.id !== browser.runtime.id) return false;
@@ -44,6 +56,10 @@ export default defineBackground(() => {
     const parsed = toBackground.safeParse(message);
     if (parsed.success) {
       const request = parsed.data;
+      if (request.kind === "record-mistake") {
+        void recordMistakeOf(request.rule, request.action);
+        return false;
+      }
       void openApp(
         request.kind === "open-app"
           ? request.route

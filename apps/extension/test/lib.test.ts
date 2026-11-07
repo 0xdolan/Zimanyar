@@ -25,6 +25,16 @@ describe("messages", () => {
         .success,
     ).toBe(false);
     expect(toBackground.safeParse({ kind: "steal" }).success).toBe(false);
+    expect(
+      toBackground.safeParse({ kind: "record-mistake", rule: "kmr.ergative.agreement", action: "applied" })
+        .success,
+    ).toBe(true);
+    expect(toBackground.safeParse({ kind: "record-mistake", rule: "x", action: "deleted" }).success).toBe(
+      false,
+    );
+    expect(
+      toBackground.safeParse({ kind: "record-mistake", rule: "x".repeat(101), action: "ignored" }).success,
+    ).toBe(false);
     expect(toContent.safeParse({ kind: "status" }).success).toBe(true);
     expect(toContent.safeParse({ kind: "run", code: "x" }).success).toBe(false);
   });

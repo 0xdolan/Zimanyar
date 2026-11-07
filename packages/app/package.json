@@ -10,6 +10,7 @@
     "./vite": "./vite.ts",
     "./page.css": "./src/page.css",
     "./overlay.css": "./src/overlay.css",
+    "./practice-store": "./src/practice-store.ts",
     "./routes": "./src/routes.ts",
     "./writing": "./src/writing.ts"
   },
@@ -25,6 +26,7 @@
     "@zimanyar/core": "workspace:*",
     "@zimanyar/editor": "workspace:*",
     "@zimanyar/i18n": "workspace:*",
+    "@zimanyar/practice": "workspace:*",
     "@zimanyar/rules": "workspace:*",
     "@zimanyar/settings": "workspace:*",
     "@zimanyar/ui": "workspace:*",

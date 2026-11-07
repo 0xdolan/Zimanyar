@@ -31,6 +31,7 @@ export const settingsSchema = z.object({
     .object({
       mode: z.boolean().default(true),
       lessonLinks: z.boolean().default(true),
+      practiceReminders: z.boolean().default(true),
     })
     .prefault({}),
   autocomplete: z

@@ -60,6 +60,14 @@ Arabic script reads smaller than Latin at the same size and needs room for its m
 
 The tokens use no physical properties. Interface code uses logical ones only (`ms-`, `me-`, `start`, `end`).
 
+## Practice
+
+- Feedback after an answer is a `role="status"` live region with a sign (✓ or ✗) and words, never colour alone; the answer field points at it with `aria-describedby` and is marked `aria-invalid` when wrong.
+- Enter checks. After a right answer focus moves to Next, so that drill after drill needs only the keyboard; after a wrong one it stays in the field to try again.
+- The Kurdish sentence, the field and the shown answer carry `lang` and `dir`, so a Sorani drill reads right to left inside an English interface.
+- Progress is five plain numbers in cards, not a chart: due, practised, known well, right today and days in a row.
+- Links to lessons use the ink colour with an underline: sun gold text on paper is below 4.5:1.
+
 ## The marketing images
 
 `scripts/marketing/style.css` has its own colours: the images are posters on a dark ground in the Roj marketing style, not interface. When the store screenshots become real screenshots of the apps, they show these tokens.
