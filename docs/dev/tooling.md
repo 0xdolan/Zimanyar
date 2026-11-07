@@ -59,6 +59,11 @@ The repository root is also a [uv](https://docs.astral.sh/uv/) project (`pyproje
 | `security.yml` | pull request, push to `main` and `develop`, nightly | gitleaks, Semgrep, `pnpm audit` and licences, OSV-Scanner |
 | `brand.yml` | changes to `assets/`, `scripts/brand/` or `scripts/marketing/` | `make check-brand` with Inkscape, ImageMagick, Chrome and the fonts |
 | `codeql.yml` | push and pull requests on `main` and `develop`, weekly | CodeQL for TypeScript, Python and workflows |
+| `pages.yml` | push to `main`, manual | build the website and deploy it to GitHub Pages |
+| `release.yml` | tag `v*`; pull requests that change the release tooling (rehearsal) | extensions, Safari Xcode project, desktop and CLI packages for amd64 and arm64, data tarball, SBOM, checksums, attestations, draft release (RELEASING.md) |
+| `scorecard.yml` | push to `main`, weekly | OpenSSF Scorecard to the Security tab |
+| `screenshots.yml` | manual, the `screenshots` label on a pull request | `make screenshots`, uploaded as an artefact; never commits |
+| `deps-report.yml` | monthly, manual | `make deps` in the job summary; never commits |
 
 Every third-party action is pinned by full commit SHA with the version in a comment. Workflows default to `contents: read` and never push commits or open pull requests. Shared setup lives in `.github/actions/setup`.
 

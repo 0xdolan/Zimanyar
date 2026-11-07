@@ -1,4 +1,4 @@
-# Zimanyar make targets. Later phases add data, dev, e2e, screenshots, package and release.
+# Zimanyar make targets.
 SHELL := bash
 .SHELLFLAGS := -euo pipefail -c
 .DEFAULT_GOAL := help
@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke cli cli-sea cli-deb cli-tarball cli-smoke screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke cli cli-sea cli-deb cli-tarball cli-smoke release release-sign screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -34,7 +34,9 @@ help:
 	@echo "make format        format code with Biome"
 	@echo "make licenses      check that production dependencies are GPL-3.0 compatible"
 	@echo "make attribution   check authors and attribution of the commits on this branch"
-	@echo "make deps          dependency report: outdated, audit (never changes anything)"
+	@echo "make release V=X.Y.Z  cut release/X.Y.Z from develop: versions, changelog, images, tests (RELEASING.md)"
+	@echo "make release-sign V=X.Y.Z  check the draft release, sign SHA256SUMS and publish it"
+	@echo "make deps         dependency report: outdated, audit (never changes anything)"
 	@echo "make logo          write the logo SVG variants (assets/brand/)"
 	@echo "make icons         logo + every icon size (assets/icons/), needs inkscape and ImageMagick"
 	@echo "make marketing     banner, store tiles, store screenshots, ads (assets/marketing/), needs Chrome"
@@ -179,6 +181,12 @@ licenses:
 
 attribution:
 	scripts/release/verify-contributors.sh "$$(git merge-base origin/develop HEAD)..HEAD"
+
+release:
+	scripts/release/release.sh "$(V)" "$(NOTE)"
+
+release-sign:
+	scripts/release/sign-release.sh "$(V)"
 
 deps:
 	-pnpm outdated --recursive
