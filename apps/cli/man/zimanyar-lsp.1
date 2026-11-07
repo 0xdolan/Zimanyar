@@ -1,0 +1,60 @@
+.TH ZIMANYAR-LSP 1 "November 2026" "Zimanyar" "User Commands"
+.SH NAME
+zimanyar\-lsp \- the Zimanyar language server, for checking Kurdish in any editor
+.SH SYNOPSIS
+.B zimanyar\-lsp
+.RB [ \-\-stdio ]
+.br
+.B zimanyar lsp
+.RB [ \-\-stdio ]
+.SH DESCRIPTION
+.B zimanyar\-lsp
+speaks the Language Server Protocol over standard input and output. An editor starts it and receives
+the mistakes in Sorani and Kurmanji text as diagnostics, a quick fix for each suggestion, a fix of
+every safe spelling mistake at once (the code action kind
+.BR source.fixAll.zimanyar ),
+a hover that explains a mistake and links its lesson, and completion of Kurdish words.
+.PP
+Markdown documents are checked in their prose only: code, link targets and markup make no
+diagnostics. Hints are sent with the severity Information, since many editors hide hints.
+.PP
+It runs entirely on your own computer: it never opens a network connection. It ends when the
+editor closes its input.
+.SH SETTINGS
+Settings come in
+.B initializationOptions
+and in the
+.B zimanyar
+section of
+.BR workspace/didChangeConfiguration .
+A setting with the wrong shape is ignored.
+.TP
+.BR lang " (ckb, kmr or auto)"
+The variety to check. auto, the default, chooses for each paragraph by its script and words.
+.TP
+.BR ui " (en, ckb or kmr)"
+The language of messages. The default is chosen as for
+.BR zimanyar (1).
+.TP
+.BR rules ", " disable " (lists of rule ids or prefixes)"
+Run only these rules, and leave these out.
+.TP
+.BR tolerant " (true or false)"
+Accept what is common in writing but outside the written standard.
+.TP
+.BR words " (list of words)"
+Words to accept as spelled right: names, terms, a personal dictionary.
+.SH EXAMPLES
+Neovim 0.11:
+.PP
+.nf
+vim.lsp.config("zimanyar", {
+  cmd = { "zimanyar\-lsp" },
+  filetypes = { "markdown", "text" },
+  init_options = { ui = "kmr" },
+})
+vim.lsp.enable("zimanyar")
+.fi
+.SH SEE ALSO
+.BR zimanyar (1),
+https://0xdolan.github.io/Zimanyar/

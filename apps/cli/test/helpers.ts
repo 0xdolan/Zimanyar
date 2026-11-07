@@ -1,3 +1,4 @@
+import { PassThrough } from "node:stream";
 import { run } from "../src/cli.js";
 import type { Io } from "../src/io.js";
 
@@ -44,6 +45,8 @@ export async function cli(
     readStdin: async () => stdin,
     tty,
     env,
+    input: new PassThrough(),
+    output: new PassThrough(),
   };
   const code = await run(argv, io);
   return { code, out, err, files: store };

@@ -34,6 +34,9 @@ zimanyar \- check and learn Kurdish on the command line
 .B zimanyar lesson
 .RI [ number | rule\-id | words ]
 .RB [ \-\-lang " ckb|kmr]"
+.br
+.B zimanyar lsp
+.RB [ \-\-stdio ]
 .SH DESCRIPTION
 Zimanyar finds mistakes in Sorani and Kurmanji, explains each one, and teaches the grammar behind it.
 It runs entirely on your own computer: nothing is ever sent anywhere, and no command opens a network
@@ -77,6 +80,11 @@ A rule's message and reason, with examples and the lessons that teach it.
 .B lesson
 Read a lesson in the terminal. With no topic, list every lesson. A topic is a lesson number, a rule
 id, or words found in titles, then in the lessons themselves.
+.TP
+.B lsp
+Run the language server for editors over standard input and output: diagnostics, quick fixes, hovers
+and completion. See
+.BR zimanyar\-lsp (1).
 .SH OPTIONS
 .TP
 .BR \-\-format " text|json|sarif"
@@ -165,4 +173,5 @@ zimanyar conjugate dîtin
 zimanyar lesson ergativity
 .fi
 .SH SEE ALSO
+.BR zimanyar\-lsp (1),
 https://0xdolan.github.io/Zimanyar/

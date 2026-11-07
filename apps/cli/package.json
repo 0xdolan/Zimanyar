@@ -18,16 +18,19 @@
     "grammar",
     "spelling",
     "linter",
-    "sarif"
+    "sarif",
+    "language-server"
   ],
   "engines": {
     "node": ">=22.12.0"
   },
   "bin": {
-    "zimanyar": "dist/zimanyar.cjs"
+    "zimanyar": "dist/zimanyar.cjs",
+    "zimanyar-lsp": "dist/zimanyar-lsp.cjs"
   },
   "files": [
     "dist/zimanyar.cjs",
+    "dist/zimanyar-lsp.cjs",
     "dist/data",
     "dist/THIRD-PARTY-NOTICES.txt",
     "man"
@@ -42,12 +45,12 @@
   },
   "devDependencies": {
     "@mdx-js/mdx": "3.1.1",
-    "@zimanyar/app": "workspace:*",
     "@types/hast": "3.0.5",
     "@types/node": "^22",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitest/coverage-v8": "5.0.5",
+    "@zimanyar/app": "workspace:*",
     "@zimanyar/checker": "workspace:*",
     "@zimanyar/config": "workspace:*",
     "@zimanyar/content": "workspace:*",
@@ -69,6 +72,8 @@
     "remark-gfm": "4.0.1",
     "tsx": "4.23.15",
     "typescript": "5.9.3",
-    "vitest": "5.0.5"
+    "vitest": "5.0.5",
+    "vscode-languageserver": "11.0.0",
+    "vscode-languageserver-textdocument": "1.0.16"
   }
 }

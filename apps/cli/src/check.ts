@@ -90,6 +90,22 @@ function locate(text: string, findings: readonly Finding[]): Located[] {
 
 const loadedLexicons = new WeakMap<Checker, Set<Variety>>();
 
+/** Give a checker the lexicons of these varieties, each once: setLexicon empties the checker's cache. */
+export async function loadLexicons(
+  checker: Checker,
+  varieties: readonly Variety[],
+  env: Readonly<Record<string, string | undefined>>,
+): Promise<void> {
+  const known = loadedLexicons.get(checker) ?? new Set<Variety>();
+  loadedLexicons.set(checker, known);
+  for (const variety of varieties) {
+    if (known.has(variety)) continue;
+    const lexicon = await lexiconFor(variety, env);
+    if (lexicon !== null) checker.setLexicon(lexicon);
+    known.add(variety);
+  }
+}
+
 export interface TextOptions extends CheckOptions {
   lang: Variety | "auto";
   markdown: boolean;
@@ -105,17 +121,13 @@ export async function checkText(
   options: TextOptions,
   env: Readonly<Record<string, string | undefined>>,
 ): Promise<{ text: string; findings: Located[] }> {
-  // setLexicon empties the checker's cache, so each lexicon is set once.
-  const known = loadedLexicons.get(checker) ?? new Set<Variety>();
-  loadedLexicons.set(checker, known);
-  for (const variety of ["ckb", "kmr"] as const) {
-    if (known.has(variety)) continue;
-    const needed = options.lang === variety || (options.lang === "auto" && usesScriptOf(text, variety));
-    if (!needed) continue;
-    const lexicon = await lexiconFor(variety, env);
-    if (lexicon !== null) checker.setLexicon(lexicon);
-    known.add(variety);
-  }
+  await loadLexicons(
+    checker,
+    (["ckb", "kmr"] as const).filter(
+      (variety) => options.lang === variety || (options.lang === "auto" && usesScriptOf(text, variety)),
+    ),
+    env,
+  );
   const { markdown, fix, words, ...checkOptions } = options;
   const findingsIn = (current: string) => findingsOf(checker, current, markdown, words, checkOptions);
   let current = text;

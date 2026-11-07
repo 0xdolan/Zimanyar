@@ -10,6 +10,9 @@ export interface Io {
   /** Whether standard output is a terminal, which allows colour. */
   tty: boolean;
   env: Readonly<Record<string, string | undefined>>;
+  /** Standard input and output as streams, which the language server speaks over. */
+  input: NodeJS.ReadableStream;
+  output: NodeJS.WritableStream;
 }
 
 async function readAll(stream: NodeJS.ReadableStream): Promise<string> {
@@ -27,5 +30,7 @@ export const processIo: Io = {
   readStdin: () => readAll(process.stdin),
   tty: process.stdout.isTTY === true,
   env: process.env,
+  input: process.stdin,
+  output: process.stdout,
 };
 /* v8 ignore stop */

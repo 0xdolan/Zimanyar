@@ -18,5 +18,8 @@ Zimanyar's promise is that text never leaves the device. Each threat below has a
 | supply chain | frozen lockfile, a seven-day release cooldown, a trust policy, actions pinned by hash, tools with open advisories kept out of the lockfile | CI |
 | a checked file drives the terminal | the text report writes control characters from files and their names as `\u` escapes | `apps/cli/test/check.test.ts` |
 | text leaks from the command line | no network code; a test traps fetch, sockets, DNS and HTTP while every command runs | `apps/cli/test/privacy.test.ts` |
+| text leaks from the language server | no network code; the same test runs a whole session with the traps in place | `apps/cli/test/privacy.test.ts` |
+| an editor sends hostile settings | `settingsOf` keeps only values of the right shape and ignores the rest | `apps/cli/test/lsp.test.ts` |
+| a document injects links or HTML into a hover | text from the document and from messages is escaped as Markdown; only the lesson and rule links are markup | `apps/cli/test/lsp.test.ts` |
 | a fix changes Markdown markup | findings that touch code, links or HTML, blanked before checking, are dropped | `apps/cli/test/check.test.ts` |
 | the single executable's tools | `postject` runs through `pnpm dlx` at an exact version only while packaging, outside the lockfile and the program | review |
