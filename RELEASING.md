@@ -29,6 +29,13 @@ version in `packages/data/VERSION` is separate and changes only with the lexicon
    `develop` (`gh pr create --base develop --head main`) and merge it with a merge commit when
    the checks are green. The merge into `main` has already deployed the website (`pages.yml`).
 9. **Stores.** Upload the Chrome zip and the Firefox xpi with its source zip to the stores by hand.
+10. **Ubuntu PPA.** `make ppa V=X.Y.Z SERIES="noble ..." KEY=KEYID` builds signed source packages
+    of `zimanyar` and `zimanyar-cli` for each Ubuntu release from the published release files,
+    after checking them against `SHA256SUMS`, and prints the `dput` commands that upload them.
+    Launchpad builds without a network, so the packages carry the released programs and install
+    them; they need glibc 2.39, so `noble` (24.04) is the oldest release. The orig tarballs come
+    out the same on every run, so a later run for a new Ubuntu release uploads cleanly; uploading
+    the same version for the same release again needs `PPA_REVISION=2`.
 
 A pull request that changes `release.yml`, `scripts/release/`, `packaging/` or `debian/` runs the
 same builds as a rehearsal, publishes nothing and keeps the files as an artefact for three days.
