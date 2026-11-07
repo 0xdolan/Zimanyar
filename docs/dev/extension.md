@@ -43,5 +43,5 @@ The overlay's stylesheet carries the two Vazirmatn weights inside it, about 60 K
 
 ## Not yet
 
-- Safari: `wxt build -b safari` comes with the release work, and needs Xcode on macOS.
+- Safari packages beyond the Xcode project: the release workflow builds `wxt build -b safari --mv3` and converts it on macOS (RELEASING.md); signing and notarising wait for an Apple account.
 - Settings for a Sorani mark helper (`ر` to `ڕ` on demand), practice reminders and IPA on hover.
