@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/settings",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Zimanyar's settings: one validated schema for every surface",
   "license": "GPL-3.0-or-later",

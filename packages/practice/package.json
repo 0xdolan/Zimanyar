@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/practice",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Zimanyar's practice mode: drills from the paradigms and rules, spaced repetition and mistake history",
   "license": "GPL-3.0-or-later",

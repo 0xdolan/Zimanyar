@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "The complete Zimanyar app, for the extension's full view and the desktop app",
   "license": "GPL-3.0-or-later",

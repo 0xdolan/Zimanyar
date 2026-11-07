@@ -24,7 +24,7 @@ The name joins *ziman*, language, and *yar*, friend and helper; the logo joins t
 
 ## Status
 
-Zimanyar is **in development** on the `develop` branch, on its way to version 1.0.0. The checker, the rules, the browser extension, the Linux desktop app, the command line, the language server, the website and practice mode are all built and tested there; packages and store listings arrive with the 1.0.0 release. The interface in every image here is a real screenshot of the built apps, taken by Playwright (`make screenshots`).
+Zimanyar **1.0.0** is out. The browser extension, the Linux desktop app, the command line and the language server are on the [releases page](https://github.com/0xdolan/Zimanyar/releases), with checksums, a signature and build provenance for every file (see [RELEASING.md](RELEASING.md)); the Chrome Web Store and Firefox Add-ons listings follow once the stores have reviewed them. The interface in every image here is a real screenshot of the built apps, taken by Playwright (`make screenshots`).
 
 ## Features
 
