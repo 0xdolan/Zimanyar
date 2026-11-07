@@ -19,10 +19,20 @@ sha256sum --check --strict SHA256SUMS
 listed="$(awk '{ print $2 }' SHA256SUMS | sed 's/^\*//' | sort)"
 present="$(find . -maxdepth 1 -type f ! -name SHA256SUMS -printf '%f\n' | sort)"
 [[ "$listed" == "$present" ]] || { echo "sign-release: the assets and SHA256SUMS do not match" >&2; exit 1; }
-while read -r file; do
-  gh attestation verify "$file" --repo "$repo" > /dev/null
-  echo "$file: attested"
-done <<< "$listed"
+# gh attestation arrived in gh 2.49; older versions can only ask the API whether an attestation exists.
+if gh attestation --help > /dev/null 2>&1; then
+  while read -r file; do
+    gh attestation verify "$file" --repo "$repo" > /dev/null
+    echo "$file: attested"
+  done <<< "$listed"
+else
+  echo "sign-release: gh $(gh --version | awk 'NR == 1 { print $3 }') has no gh attestation; checking that attestations exist, not their signatures" >&2
+  while read -r digest file; do
+    count="$(gh api "repos/$repo/attestations/sha256:$digest" --jq '.attestations | length')"
+    [[ "$count" -ge 1 ]] || { echo "sign-release: $file has no attestation" >&2; exit 1; }
+    echo "$file: attestation found"
+  done < SHA256SUMS
+fi
 gpg --detach-sign --output SHA256SUMS.sig SHA256SUMS
 gpg --verify SHA256SUMS.sig SHA256SUMS
 gh release upload "$tag" SHA256SUMS.sig --clobber
