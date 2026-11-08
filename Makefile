@@ -7,7 +7,7 @@ SHELL_SCRIPTS := $(shell git ls-files --cached --others --exclude-standard '*.sh
 
 .PHONY: help setup lint test coverage typecheck build format \
 	biome check-dashes check-spelling check-i18n check-rules check-contrast check-tokens shellcheck actionlint ruff knip check-imports licenses \
-	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke cli cli-sea cli-deb cli-tarball cli-smoke release release-sign screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
+	attribution deps data bench lessons e2e extension-lint desktop-docker desktop-smoke cli cli-sea cli-deb cli-tarball cli-smoke ppa release release-sign screenshots check-i18n corpus rules check-rules skills tokens logo icons marketing brand check-brand
 
 help:
 	@echo "make setup         install Node and Python dependencies, the git hooks and the UI skills"
@@ -25,6 +25,7 @@ help:
 	@echo "make cli-deb       build the CLI .deb and run lintian on it, in a container"
 	@echo "make cli-tarball   pack the executable, its man page and licences as a .tar.gz"
 	@echo "make cli-smoke     install the CLI .deb in a clean container and run it"
+	@echo "make ppa V=X.Y.Z SERIES=\"noble ...\" KEY=ID  source packages for the Launchpad PPA, from the release"
 	@echo "make screenshots   regenerate assets/screenshots/; look at every changed image"
 	@echo "make corpus        measure every rule on the gold corpus (needs make data)"
 	@echo "make rules         compile the rules' metadata into the catalogue"
@@ -129,6 +130,10 @@ cli-tarball: cli-sea
 # Install the CLI .deb in a clean container and run user story 6 against it.
 cli-smoke:
 	docker run --rm -v "$$PWD:/repo:ro" -w /repo debian:13 bash -c 'apt-get update -qq && apt-get install -y -qq --no-install-recommends ./apps/cli/.output/zimanyar-cli_*.deb > /dev/null && packaging/cli/smoke-test.sh'
+
+# Source packages for the Launchpad PPA, built from the files of the GitHub release (see RELEASING.md).
+ppa:
+	KEY="$(KEY)" packaging/ppa/build-source.sh "$(V)" $(SERIES)
 
 check-i18n:
 	pnpm exec tsx scripts/checks/check-i18n.ts

@@ -1,0 +1,18 @@
+Source: zimanyar
+Section: text
+Priority: optional
+Maintainer: Dolan H. <0xdolan@gmail.com>
+Build-Depends: debhelper-compat (= 13), libwebkit2gtk-4.1-dev
+Standards-Version: 4.6.2
+Homepage: https://0xdolan.github.io/Zimanyar/
+Vcs-Browser: https://github.com/0xdolan/Zimanyar
+Vcs-Git: https://github.com/0xdolan/Zimanyar.git
+Rules-Requires-Root: no
+
+Package: zimanyar
+Architecture: amd64 arm64
+Depends: ${shlibs:Depends}, ${misc:Depends}, libayatana-appindicator3-1
+Description: check and learn Kurdish as you write
+ Zimanyar finds mistakes in Sorani and Kurmanji as you write, explains each
+ one, and teaches the grammar behind it. Everything runs on your own
+ computer and nothing is ever sent anywhere.
