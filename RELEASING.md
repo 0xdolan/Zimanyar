@@ -40,7 +40,7 @@ same builds as a rehearsal, publishes nothing and keeps the files as an artefact
 | `zimanyar-chrome-X.Y.Z.zip` | Chrome extension, for the Chrome Web Store |
 | `zimanyar-firefox-X.Y.Z.xpi` | Firefox extension, unsigned, for AMO |
 | `zimanyar-firefox-X.Y.Z-source.zip` | the tagged source tree, for AMO review (build: `make setup data`, then `pnpm --filter @zimanyar/extension build`) |
-| `zimanyar-safari-X.Y.Z-xcode.zip` | Xcode project for Safari on macOS; signed and notarised locally |
+| `zimanyar-safari-X.Y.Z-xcode.zip` | Xcode project for Safari on macOS, built in CI and not tested |
 | `zimanyar_X.Y.Z_{amd64,arm64}.deb`, `zimanyar-X.Y.Z-1.{x86_64,aarch64}.rpm`, `zimanyar_X.Y.Z_{amd64,arm64}.AppImage` | desktop app |
 | `zimanyar-cli_X.Y.Z_{amd64,arm64}.deb`, `zimanyar-cli-X.Y.Z-linux-{x64,arm64}.tar.gz`, `zimanyar-X.Y.Z.tgz` | command line and language server; the last is the npm package |
 | `zimanyar-data-X.Y.Z.tar.zst` | compiled lexicons and tables with their licence and lock file |

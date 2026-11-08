@@ -32,6 +32,8 @@ describe("parseSettings", () => {
     expect(parseSettings({})).toEqual(defaultSettings());
     expect(defaultSettings().languages.enabled).toEqual(["ckb", "kmr"]);
     expect(defaultSettings().teaching.mode).toBe(true);
+    expect(defaultSettings().teaching.ipa).toBe(true);
+    expect(defaultSettings().autocomplete.soraniMarks).toBe(true);
   });
 
   it("keeps what is valid and fills in the rest", () => {

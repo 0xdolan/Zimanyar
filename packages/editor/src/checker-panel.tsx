@@ -27,6 +27,12 @@ export interface CheckerPanelProps {
   onReady?: (refresh: () => void) => void;
   /** Offer to share the text. Resolves once the link has been copied. */
   onShare?: (text: string, mode: CheckMode) => Promise<void>;
+  /** Turn e^ into ê and the like while typing, for Kurmanji without its keyboard. */
+  typingHelper?: boolean;
+  /** Turn ر^ into ڕ and the like while typing, for Sorani without its keyboard. */
+  soraniMarks?: boolean;
+  /** The pronunciation of a suggestion, shown on its card. */
+  ipaOf?: (suggestion: string) => string | null;
   onLearn?: (lesson: LessonRef) => void;
   onAddToDictionary?: (word: string) => void;
   /** A finding the writer fixed or dismissed. */
@@ -48,6 +54,9 @@ export function CheckerPanel({
   initialMode = "auto",
   onReady,
   onShare,
+  ipaOf,
+  typingHelper = false,
+  soraniMarks = false,
   onLearn,
   onAddToDictionary,
   onAct,
@@ -72,6 +81,8 @@ export function CheckerPanel({
       css,
       theme: document.documentElement.dataset["theme"] === "dark" ? "dark" : "light",
       onFindings: setFindings,
+      typingHelper,
+      soraniMarks,
       backend,
       ...(onLearn !== undefined ? { onLearn } : {}),
       ...(onAddToDictionary !== undefined ? { onAddToDictionary } : {}),
@@ -83,7 +94,7 @@ export function CheckerPanel({
       handle?.destroy();
       editor.current = null;
     };
-  }, [lang, mode, css, backend, onReady, onLearn, onAddToDictionary, onAct]);
+  }, [lang, mode, css, backend, onReady, onLearn, onAddToDictionary, onAct, typingHelper, soraniMarks]);
 
   const finding = findings.find((found) => found.id === selected) ?? null;
   const looks = finding?.lookup === undefined ? undefined : looked[finding.lookup];
@@ -212,6 +223,7 @@ export function CheckerPanel({
                 editor.current?.ignore(shown.id);
                 setSelected(null);
               }}
+              {...(ipaOf !== undefined ? { ipaOf } : {})}
               {...(onLearn !== undefined ? { onLearn } : {})}
             />
           )}
