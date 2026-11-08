@@ -6,7 +6,7 @@ import { createRoot } from "react-dom/client";
 import { fieldFor, isCheckable, type Rect, type TextField } from "./field.js";
 import { addStyles, OVERLAY_CSS, splitStyles } from "./styles.js";
 import { type CompletionView, kindOf, Surface, type Underline } from "./surface.js";
-import { helperLetter, shiftFindings, varietyOf, wordBefore } from "./text.js";
+import { helperLetter, markLetter, shiftFindings, varietyOf, wordBefore } from "./text.js";
 
 /** The checker as the editor sees it: CheckerClient fits, and so does anything else with these. */
 export interface EditorBackend {
@@ -40,6 +40,8 @@ export interface EditorOptions {
   teaching?: boolean;
   /** Turn e^ into ê and s, into ş while typing, for Kurmanji without its keyboard. */
   typingHelper?: boolean;
+  /** Turn ر^ into ڕ, ل^ into ڵ, ی^ into ێ and و^ into ۆ while typing, for Sorani without its keyboard. */
+  soraniMarks?: boolean;
   underline?: "thin" | "thick";
   /** Pages cannot reach into a closed shadow root. Only tests have reason to open it. */
   shadow?: ShadowRootMode;
@@ -102,6 +104,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
     theme = "system",
     teaching = false,
     typingHelper = false,
+    soraniMarks = false,
     underline = "thin",
   } = options;
 
@@ -295,7 +298,7 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
   function sync(): void {
     const next = field.text();
     if (next === snapshot) return;
-    if (typingHelper && !composing && !replacing && applyTypingHelper(next)) return;
+    if ((typingHelper || soraniMarks) && !composing && !replacing && applyTypingHelper(next)) return;
     findings = shiftFindings(findings, snapshot, next);
     snapshot = next;
     card = null;
@@ -313,7 +316,11 @@ export function attachEditor(candidate: Element, options: EditorOptions): Editor
   /** Replace what was just typed if it spells a letter. The replacement comes back here as a change of its own. */
   function applyTypingHelper(text: string): boolean {
     const caret = field.caret();
-    const letter = caret === null ? undefined : helperLetter(text, caret);
+    const letter =
+      caret === null
+        ? undefined
+        : ((typingHelper ? helperLetter(text, caret) : undefined) ??
+          (soraniMarks ? markLetter(text, caret) : undefined));
     if (caret === null || letter === undefined) return false;
     field.replace(caret - 2, caret, letter);
     return true;

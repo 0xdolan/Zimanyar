@@ -24,6 +24,12 @@ overrides:
   # wxt takes eslint only as an optional peer for configs we do not use: we lint with Biome. It brings a
   # minimatch with CVE-2026-118764.
   "wxt>eslint": "-"
+  # typedoc asks for minimatch 10, which has CVE-2026-118764; 11.0.1 and later fix it. minimatch 11 made
+  # matchOne private, so the patch below calls the public match instead.
+  "typedoc>minimatch": ">=11.0.1"
+
+patchedDependencies:
+  typedoc@0.28.20: patches/typedoc@0.28.20.patch
 
 # pnpm 10 runs no dependency install scripts unless they are listed here.
 onlyBuiltDependencies:

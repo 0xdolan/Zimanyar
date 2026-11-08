@@ -78,13 +78,19 @@ All surfaces share one engine, one rule set and one interface.
 | --- | --- | --- |
 | Chrome, Edge, Brave | in-page checking, popup, settings, side panel | Chrome Web Store |
 | Firefox | in-page checking, popup, settings, sidebar | Firefox Add-ons |
-| Safari | the same extension | Xcode project in the GitHub releases |
+| Safari | the same extension, not tested | Xcode project in the GitHub releases |
 | Linux desktop | editor, lessons, tools; a global shortcut checks the clipboard | `.deb`, `.rpm`, AppImage, Ubuntu PPA |
 | Command line | `zimanyar check`, with text, JSON and SARIF output for CI, and the word tools and lessons | npm, `.deb`, a single executable |
 | Editors | diagnostics, quick fixes, hovers and completion over LSP | `zimanyar-lsp` |
 | Web | a live checker, the lessons and the rule catalogue | <https://0xdolan.github.io/Zimanyar/> |
 
 The extension asks for the fewest permissions it can: it runs only on the sites you turn it on for, and never loads remote code.
+
+## Plans
+
+- Checking for Southern Kurdish, Zazaki and Gorani, once open data for them is available. Until then they are recognised and left alone.
+
+Not planned: an extension for VS Code (the language server works with any editor that has an LSP client), an App Store listing for Safari, and checking inside editors that draw their own text, such as Google Docs (use the desktop app or the web checker there).
 
 ## How it works
 

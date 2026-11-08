@@ -24,6 +24,7 @@ apps/extension/public/
 apps/desktop/public/
 apps/desktop/src-tauri/generated/
 apps/desktop/src-tauri/gen/
+apps/web/public/api/
 apps/web/public/lexicons/
 apps/web/public/favicon.svg
 

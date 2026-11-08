@@ -32,6 +32,7 @@ export const settingsSchema = z.object({
       mode: z.boolean().default(true),
       lessonLinks: z.boolean().default(true),
       practiceReminders: z.boolean().default(true),
+      ipa: z.boolean().default(true),
     })
     .prefault({}),
   autocomplete: z
@@ -39,6 +40,7 @@ export const settingsSchema = z.object({
       enabled: z.boolean().default(true),
       count: z.number().int().min(1).max(10).default(6),
       typingHelper: z.boolean().default(true),
+      soraniMarks: z.boolean().default(true),
     })
     .prefault({}),
   dictionary: z

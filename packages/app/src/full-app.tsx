@@ -1,4 +1,4 @@
-import { CheckerPanel } from "@zimanyar/editor";
+import { CheckerPanel, pronunciationOf } from "@zimanyar/editor";
 import { createT } from "@zimanyar/i18n";
 import { parsePractice, progress, recordMistake } from "@zimanyar/practice";
 import type { Settings } from "@zimanyar/settings";
@@ -128,6 +128,9 @@ export function FullApp({ settings, platform }: { settings: Settings; platform: 
             <CheckerPanel
               backend={backend}
               css={platform.overlayCss}
+              {...(settings.teaching.mode && settings.teaching.ipa ? { ipaOf: pronunciationOf } : {})}
+              soraniMarks={settings.autocomplete.soraniMarks}
+              typingHelper={settings.autocomplete.typingHelper}
               lang={uiLang}
               onAddToDictionary={onAddToDictionary}
               onAct={onAct}

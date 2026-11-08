@@ -1,7 +1,7 @@
 import { CheckerClient } from "@zimanyar/checker";
 import CheckerWorker from "@zimanyar/checker/worker?worker";
 import { lessonPath } from "@zimanyar/content/lesson-slugs";
-import { CheckerPanel, type CheckMode, type EditorBackend } from "@zimanyar/editor";
+import { CheckerPanel, type CheckMode, type EditorBackend, pronunciationOf } from "@zimanyar/editor";
 import type { UiLang } from "@zimanyar/i18n";
 import type { LessonRef, Variety } from "@zimanyar/rules";
 import overlayCss from "@zimanyar/ui/styles.css?inline";
@@ -85,6 +85,7 @@ export default function CheckerApp({ lang, compact = false }: CheckerAppProps) {
       compact={compact}
       css={overlayCss}
       initialMode={start?.mode ?? "auto"}
+      ipaOf={pronunciationOf}
       lang={lang}
       onLearn={onLearn}
       onReady={onReady}

@@ -16,6 +16,7 @@
     "demo:serve": "vite preview demo --config demo/vite.config.ts --port 4174 --strictPort"
   },
   "dependencies": {
+    "@zimanyar/core": "workspace:*",
     "@zimanyar/i18n": "workspace:*",
     "@zimanyar/rules": "workspace:*",
     "@zimanyar/ui": "workspace:*",

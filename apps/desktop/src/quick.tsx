@@ -4,7 +4,7 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
 import { applyInterface } from "@zimanyar/app";
 import overlayCss from "@zimanyar/app/overlay.css?inline";
-import { CheckerPanel, type EditorBackend } from "@zimanyar/editor";
+import { CheckerPanel, type EditorBackend, pronunciationOf } from "@zimanyar/editor";
 import { createT } from "@zimanyar/i18n";
 import { checkOptionsFrom, type Settings } from "@zimanyar/settings";
 import { Button } from "@zimanyar/ui";
@@ -73,6 +73,9 @@ function QuickCheck({ settings }: { settings: Settings }) {
         css={overlayCss}
         initialMode={options.lang}
         initialText={text}
+        {...(settings.teaching.mode && settings.teaching.ipa ? { ipaOf: pronunciationOf } : {})}
+        soraniMarks={settings.autocomplete.soraniMarks}
+        typingHelper={settings.autocomplete.typingHelper}
         key={turn}
         lang={settings.interface.uiLang}
         noSamples

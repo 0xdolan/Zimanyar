@@ -696,6 +696,19 @@ describe("options", () => {
     type("de^");
     expect(textarea.value).toBe("de^");
   });
+
+  it("adds Sorani marks when asked", () => {
+    attach({ soraniMarks: true });
+    type("گول^");
+    expect(textarea.value).toBe("گوڵ");
+    expect(textarea.selectionStart).toBe(3);
+  });
+
+  it("keeps the two helpers apart", () => {
+    attach({ soraniMarks: true });
+    type("de^");
+    expect(textarea.value).toBe("de^");
+  });
 });
 
 describe("fixing every safe finding", () => {

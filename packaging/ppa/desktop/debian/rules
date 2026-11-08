@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+# The Launchpad PPA package of the desktop app. Launchpad builds without a network, so the source
+# package (packaging/ppa/build-source.sh) carries the files of the released Tauri .deb in
+# prebuilt/ARCH, and this installs them. libwebkit2gtk-4.1-dev is a build dependency only so that
+# dh_shlibdeps finds the libraries and names them as each Ubuntu release does.
+
+include /usr/share/dpkg/architecture.mk
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	test -x prebuilt/$(DEB_HOST_ARCH)/usr/bin/zimanyar-desktop
+
+override_dh_auto_install:
+	mkdir -p debian/zimanyar
+	cp -a prebuilt/$(DEB_HOST_ARCH)/usr debian/zimanyar/
+
+# The program is the released one, already stripped by its own build.
+override_dh_strip:
+
+override_dh_dwz:
