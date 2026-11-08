@@ -20,6 +20,6 @@ The interface in the four store screenshots is real: they frame Playwright scree
 | `ads/ad-landscape-en.png` | 1200 × 675 | X / Twitter, LinkedIn, blog posts |
 | `ads/ad-story-{en,ckb,kmr}.png` | 1080 × 1920 | stories and reels covers |
 
-The Chrome Web Store screenshots (1280 × 800) also satisfy Firefox Add-ons and Flathub/AppStream requirements.
+The Chrome Web Store screenshots (1280 × 800) also satisfy Firefox Add-ons and AppStream requirements.
 
 To re-render one image: `scripts/marketing/render.sh ad-square` (any part of the output name).
