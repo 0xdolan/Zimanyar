@@ -79,7 +79,7 @@ All surfaces share one engine, one rule set and one interface.
 | Chrome, Edge, Brave | in-page checking, popup, settings, side panel | Chrome Web Store |
 | Firefox | in-page checking, popup, settings, sidebar | Firefox Add-ons |
 | Safari | the same extension | Xcode project in the GitHub releases |
-| Linux desktop | editor, lessons, tools; a global shortcut checks the clipboard | `.deb`, `.rpm`, AppImage; Flatpak later |
+| Linux desktop | editor, lessons, tools; a global shortcut checks the clipboard | `.deb`, `.rpm`, AppImage, Ubuntu PPA |
 | Command line | `zimanyar check`, with text, JSON and SARIF output for CI, and the word tools and lessons | npm, `.deb`, a single executable |
 | Editors | diagnostics, quick fixes, hovers and completion over LSP | `zimanyar-lsp` |
 | Web | a live checker, the lessons and the rule catalogue | <https://0xdolan.github.io/Zimanyar/> |
