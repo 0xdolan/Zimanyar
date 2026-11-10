@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/rules",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Zimanyar's checking rules, with their explanations, examples and lesson links",
   "license": "GPL-3.0-or-later",
