@@ -64,6 +64,8 @@ const CLOSED_POS = new Set(["PRON", "DET", "NUM"]);
 /** After a verb-internal یش. */
 const additiveTails = new Set<string>(CKB_ADDITIVE_TAILS);
 const PREVERB_LIST = CKB_PREVERBS as readonly string[];
+/** What an object clitic can follow at the start of a verb: دە+ت+بینم, ب+م+گرە, هەڵ+ی+دەگرم. */
+const CLITIC_HEADS = ["دە", "نا", "ب", "نە", "مە", ...PREVERB_LIST];
 const CLITIC_LIST = CKB_CLITICS as readonly string[];
 const CLITICS_LONGEST_FIRST = [...CLITIC_LIST].sort((a, b) => length(b) - length(a));
 const OBJECT_PERSONS = new Set<string>(PERSONS);
@@ -478,9 +480,10 @@ export class CkbAnalyzer {
     for (const [i, clitic] of (CKB_CLITICS as string[]).entries()) {
       const object = PERSONS[i] as string;
       // دە+ت+بینم, بم+گرە, and on a preverb هەڵ+ی+دەگرم, ڕا+م+بهێنە
-      for (const head of ["دە", "نا", "ب", "نە", "مە", ...(CKB_PREVERBS as string[])]) {
+      for (const head of CLITIC_HEADS) {
+        if (!word.startsWith(head) || !word.startsWith(clitic, head.length)) continue;
         const rest = word.slice(head.length + clitic.length);
-        if (word.startsWith(head + clitic) && length(rest) >= 2) {
+        if (length(rest) >= 2) {
           // A short remainder is too easily another word on a guessed verb: دەیلی
           add(head + rest, object, (features) => isPresent(features, clitic), length(rest) < 4);
         }
@@ -688,10 +691,13 @@ export class CkbAnalyzer {
         ["یش", !"اەۆێ".includes(previous) && k > 1],
         ["ش", CKB_VOWEL_END.includes(previous) || k === 1],
       ] as const) {
+        if (!fits || !word.startsWith(mark, k)) continue;
         const tail = word.slice(k + mark.length);
-        // نەخۆش+ن is the adjective.
-        if (this.lexicon.has(word.slice(0, k + mark.length))) continue;
-        if (word.startsWith(mark, k) && fits && (heads.has(k) || additiveTails.has(tail))) {
+        if (
+          (heads.has(k) || additiveTails.has(tail)) &&
+          // نەخۆش+ن is the adjective. Checked last, as it is the costly test.
+          !this.lexicon.has(word.slice(0, k + mark.length))
+        ) {
           out.push([word.slice(0, k) + tail, { additive: "yes" }, afterHead(heads.get(k)), true]);
         }
       }
