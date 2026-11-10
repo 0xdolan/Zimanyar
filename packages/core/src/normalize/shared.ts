@@ -4,7 +4,10 @@ import {
   BLANK_LINES_RE,
   EMAIL_RE,
   EMOJI_RE,
+  ENTITY_RE,
   HSPACE_RE,
+  INVISIBLE_CODEPOINTS,
+  INVISIBLE_ENTITIES,
   LATIN_DIGITS,
   MENTION_RE,
   MICRO_SPACES,
@@ -40,6 +43,9 @@ const BLANK_LINES = compile(BLANK_LINES_RE);
 const ZWNJ_EDGE = compile(ZWNJ_EDGE_RE);
 const ZWNJ_RUN = compile(ZWNJ_RUN_RE);
 const ZWNJ_AFTER_NONJOINING = compile(ZWNJ_AFTER_NONJOINING_RE);
+const ENTITY = compile(ENTITY_RE);
+const invisibleCodepoints = new Set<number>(INVISIBLE_CODEPOINTS);
+const invisibleEntities: Readonly<Record<string, string>> = INVISIBLE_ENTITIES;
 
 const each = (characters: string, to: string) =>
   new Map(Array.from(characters, (character) => [character, to] as const));
@@ -69,6 +75,19 @@ function foldPresentationForms(text: string): string {
   return out;
 }
 
+/**
+ * Scraped text often carries the invisible characters as HTML references (`ره&zwnj;زبه&zwnj;ر`). Only
+ * these are decoded: `&amp;` or `&lt;` may be meant literally.
+ */
+export function decodeInvisibleEntities(text: string): string {
+  if (!text.includes("&")) return text;
+  return text.replace(ENTITY, (whole, name?: string, decimal?: string, hex?: string) => {
+    if (name) return invisibleEntities[name] as string;
+    const code = decimal ? Number.parseInt(decimal, 10) : Number.parseInt(hex as string, 16);
+    return invisibleCodepoints.has(code) ? String.fromCodePoint(code) : whole;
+  });
+}
+
 /** Keep a ZWNJ only where it actually stops two letters from joining. */
 export function cleanZwnj(text: string): string {
   return text
@@ -88,7 +107,7 @@ export function normalizeTextOnce(input: string, options: NormalizeOptions = {})
     stripEmoji = true,
     collapseBlankLines = true,
   } = options;
-  let text = foldPresentationForms(input.normalize("NFC"));
+  let text = foldPresentationForms(decodeInvisibleEntities(input).normalize("NFC"));
   text = translate(text, DROP_BIDI);
   text = translate(text, MICRO_TO_ZWNJ);
   text = cleanZwnj(text);

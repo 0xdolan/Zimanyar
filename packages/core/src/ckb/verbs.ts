@@ -227,7 +227,7 @@ function perfectBase(past: string): string {
   return past + (CKB_VOWEL_END.includes(past.at(-1) as string) ? "و" : WW);
 }
 
-function withSuffix(form: string, suffix: string): string {
+export function withSuffix(form: string, suffix: string): string {
   if (!suffix) return form;
   if (form.endsWith(AE)) return `${form}وە`;
   if (form.endsWith(ALEF)) return `${form}یەوە`;

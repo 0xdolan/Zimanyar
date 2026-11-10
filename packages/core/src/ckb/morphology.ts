@@ -1,4 +1,5 @@
 import {
+  CKB_ADDITIVE_TAILS,
   CKB_CLITIC_ADPOSITIONS,
   CKB_CLITICS,
   CKB_DERIV_PREFIXES,
@@ -11,6 +12,7 @@ import {
   CKB_PREVERBS,
   CKB_PROCLITICS,
   CKB_SLOTS,
+  CKB_VOWEL_END,
 } from "../generated/tables.js";
 import { length, round, trimEnd, trimStart } from "../python.js";
 import {
@@ -22,7 +24,7 @@ import {
   segmentation,
 } from "../schema.js";
 import { normalizeWord } from "./orthography.js";
-import { defaultIndex, type FormIndex, PERSONS, type VerbForm } from "./verbs.js";
+import { defaultIndex, type FormIndex, PERSONS, type Verb, type VerbForm, withSuffix } from "./verbs.js";
 
 interface Affix {
   form: string;
@@ -59,6 +61,14 @@ const SHORT_DERIVATIONS = new Set(["گەر", "چی", "وان", "ساز", "مەن
 const SHORT_STEM_TAGS = new Set(["AGENT", "POSSR", "DIM", "SCIENCE"]);
 const OPEN_TAGS = new Set(["NISBA", "ABST", "ADVZ", "SCIENCE", "DIM"]);
 const CLOSED_POS = new Set(["PRON", "DET", "NUM"]);
+/** After a verb-internal یش. */
+const additiveTails = new Set<string>(CKB_ADDITIVE_TAILS);
+const PREVERB_LIST = CKB_PREVERBS as readonly string[];
+const CLITIC_LIST = CKB_CLITICS as readonly string[];
+const CLITICS_LONGEST_FIRST = [...CLITIC_LIST].sort((a, b) => length(b) - length(a));
+const OBJECT_PERSONS = new Set<string>(PERSONS);
+/** The agent persons that can take a patient ending after them. */
+const SPEECH_PERSONS = new Set(["1sg", "2sg", "1pl", "2pl"]);
 
 let functionWordTable: ReturnType<typeof parseFunctionWords> | undefined;
 
@@ -112,6 +122,39 @@ export function decline(stem: string): [cell: string, form: string | null][] {
   ];
 }
 
+/** Can `prefix` stand before the marker دە? Nothing, a preverb, نە and one clitic: نەی+دە, هەڵم+دە. */
+function verbHead(prefix: string): boolean {
+  for (const pre of ["", ...PREVERB_LIST]) {
+    if (!prefix.startsWith(pre)) continue;
+    const rest = prefix.slice(pre.length);
+    if (rest === "" || rest === "نە" || CLITIC_LIST.includes(rest)) return true;
+    if (CLITIC_LIST.some((clitic) => rest === `نە${clitic}` || rest === `${clitic}نە`)) return true;
+  }
+  return false;
+}
+
+/** `form` less a leading subjunctive ب; a clitic after it goes back to the end: بمکرد gives کردم. */
+function withoutB(form: string): string[] {
+  if (!form.startsWith("ب") || length(form) < 4) return [];
+  const out = [form.slice(1)];
+  for (const clitic of CLITICS_LONGEST_FIRST) {
+    if (form.startsWith(clitic, 1) && length(form) > length(clitic) + 3) {
+      out.push(form.slice(1 + clitic.length) + clitic);
+    }
+  }
+  return out;
+}
+
+type Features = Record<string, string>;
+/** A shorter form, the features the element adds, which readings it allows, and whether only core verbs count. */
+type Rewrite = [
+  shorter: string,
+  extra: Features,
+  test: (features: Features, verb: Verb) => boolean,
+  coreOnly: boolean,
+];
+type FallbackHit = [form: VerbForm, object: string | null, extra: Features];
+
 type Candidate = [stem: string, segments: PeeledAffix[]];
 
 function peel(word: string, slot: number, segments: PeeledAffix[], out: Candidate[]): void {
@@ -144,7 +187,21 @@ export class CkbAnalyzer {
     private readonly verbs: FormIndex = defaultIndex(),
   ) {}
 
+  /** شەش+ەم, سێ+یەم: a cardinal numeral with the ordinal ending. */
+  private ordinal(stem: string): boolean {
+    if (this.fw.get(stem)?.[1]["numtype"] === "ord") return true;
+    for (const suffix of ["یەم", "ەم"]) {
+      const base = stem.slice(0, -suffix.length);
+      if (stem.endsWith(suffix) && base !== "" && (suffix === "ەم" || endsWithVowel(base))) {
+        if (this.fw.get(base)?.[0] === "NUM" || this.lexicon.posOf(base).has("NUM")) return true;
+      }
+    }
+    return false;
+  }
+
   private stemScore(stem: string): number {
+    // Above the accidental readings: دەیەم is "tenth" before "my decade".
+    if (this.ordinal(stem)) return 8;
     if (this.fw.has(stem) && !fullScoreWords.has(stem)) return 4;
     if (this.lexicon.has(stem)) return 5 + Math.log1p(this.lexicon.freq(stem)) / 4;
     if (this.fw.has(stem)) return 4;
@@ -213,6 +270,8 @@ export class CkbAnalyzer {
         if (form === "یی" && stem.endsWith("ا")) score -= 12;
         // ڕەش+ایی, not کۆت+ایی.
         if (form === "ایی" && !this.lexicon.posOf(stem).has("ADJ")) score -= 12;
+        // ین makes the attributive ordinal only: شەشەمین ساڵ.
+        if (tag === "ORD" && !(affix === segments[0]?.affix && this.ordinal(stem))) score -= 12;
         // A typo for لەگەڵ, not لە+گەل.
         if (tag === "PL.GEL" && this.fw.has(stem)) score -= 6;
         // A listed word stays whole.
@@ -240,6 +299,10 @@ export class CkbAnalyzer {
         stem += "ە";
       }
       let pos = this.choosePos(stem, posHint, segments.length > 0);
+      if (this.ordinal(stem)) {
+        pos = "ADJ";
+        features["numtype"] ??= "ord";
+      }
       const functionWord = this.fw.get(stem);
       if (functionWord && segments.length === 0) {
         pos = functionWord[0];
@@ -441,6 +504,44 @@ export class CkbAnalyzer {
         );
       }
     }
+    // The agent clitic stands before the stem, so any agent may be followed by a patient ending.
+    const frontedAgent = (features: Features) => {
+      if (!OBJECT_PERSONS.has(features["agent"] as string) || "voice" in features || "mood" in features)
+        return false;
+      // نەیانبینیبوو+م
+      if (features["tense"] === "past_perfect") return features["polarity"] === "neg";
+      return (
+        features["tense"] === "past" &&
+        (features["polarity"] === "neg" || features["aspect"] === "progressive")
+      );
+    };
+    const finalAgent = (features: Features) =>
+      ["present_perfect", "past_perfect", "past_subj", "pluperfect_subj"].includes(
+        features["tense"] as string,
+      ) &&
+      !("polarity" in features) &&
+      !("voice" in features) &&
+      SPEECH_PERSONS.has(features["agent"] as string);
+    // The same endings in the other past tenses (the patient slot of Ahmadi 2021, Table 1).
+    for (const [end, object] of [
+      ["یت", "2sg"],
+      ["م", "1sg"],
+      ["ین", "1pl"],
+      ["ن", "2pl|3pl"],
+    ] as const) {
+      if (!word.endsWith(end) || length(word) <= length(end) + 3) continue;
+      const rest = word.slice(0, -end.length);
+      add(rest, object, frontedAgent, true); // نەمدەکرد+ن, دەیانکرد+ین
+      // بینیبووم+ن, کردبام+ن
+      add(rest, object, (features) => finalAgent(features) && features["tense"] !== "present_perfect", true);
+      // کردووم+ن
+      add(
+        `${rest}ە`,
+        object,
+        (features) => finalAgent(features) && features["tense"] === "present_perfect",
+        true,
+      );
+    }
     for (const [agent, clitic] of [
       ["3sg", "ی"],
       ["3pl", "یان"],
@@ -468,6 +569,170 @@ export class CkbAnalyzer {
     return found;
   }
 
+  /**
+   * Ways to take one productive element off a verb form. These elements multiply every paradigm cell, so
+   * they are stripped and never listed. The inventory is the verb template of Ahmadi (2021, Table 1): the
+   * additive یش inside the verb, the directional ە, the particle ەوە, the conditional ایە, and the marker
+   * ئە for دە (Ahmadi et al. 2024, Table 4).
+   */
+  private rewrites(word: string): Rewrite[] {
+    const out: Rewrite[] = [];
+    const finite = (features: Features) => "person" in features || "agent" in features;
+
+    // ئەچم, ئەیکەم, نەیئەکرد, هەڵئەگرم
+    const i = word.indexOf("ئە");
+    if (i >= 0 && verbHead(word.slice(0, i))) {
+      out.push([`${word.slice(0, i)}دە${word.slice(i + 2)}`, { variant: "dialect_ae" }, finite, true]);
+    }
+    // ەوە on a verb the list has without it: دەیخۆمەوە, خواردیانەوە, کڕیومەتەوە, بیخۆرەوە
+    for (const cut of [2, 3, 4]) {
+      const base = word.slice(0, -cut);
+      const tail = word.slice(-cut);
+      if (length(base) < 3 || !tail.endsWith("وە")) continue;
+      if (withSuffix(base, "ەوە") === word) {
+        out.push([
+          base,
+          { particle: "ewe" },
+          (features, verb) =>
+            finite(features) &&
+            !verb.suffix &&
+            !("goal" in features) &&
+            features["tense"] !== "present_perfect",
+          false,
+        ]);
+      } else if (tail === "تەوە" && base.endsWith("ە")) {
+        out.push([
+          base,
+          { particle: "ewe" },
+          (features, verb) => !verb.suffix && features["tense"] === "present_perfect",
+          false,
+        ]);
+      } else if (tail === "رەوە" && "ەۆێ".includes(base.at(-1) as string)) {
+        out.push([
+          base,
+          { particle: "ewe" },
+          (features, verb) => !verb.suffix && features["mood"] === "imperative",
+          false,
+        ]);
+      }
+    }
+    // Regional shapes of ەوە (Ahmadi et al. 2024, Table 4): ەوانێ in Sulaymaniyah, ەو in Sanandaj.
+    if (word.endsWith("ەوانێ")) {
+      out.push([`${word.slice(0, -5)}ەوە`, { particle_variant: "ewanê" }, finite, false]);
+    } else if (word.endsWith("ەو") && length(word) >= 5) {
+      out.push([`${word}ە`, { particle_variant: "ew" }, finite, false]);
+    }
+    // Directional ە: دەچمە, هاتنە, هاتیتە; تە after the perfect: هاتوومەتە
+    if (word.endsWith("ە") && !CKB_VOWEL_END.includes(word.at(-2) as string)) {
+      out.push([
+        word.slice(0, -1),
+        { goal: "yes" },
+        (features) => finite(features) && !("goal" in features) && features["tense"] !== "present_perfect",
+        true,
+      ]);
+    }
+    if (word.endsWith("ەتە")) {
+      out.push([
+        word.slice(0, -2),
+        { goal: "yes" },
+        (features) => features["tense"] === "present_perfect",
+        true,
+      ]);
+    }
+    // Conditional ایە on the past: بکردایە, بهاتمایە, بمکردایە, نەهاتایە, کردبووایە
+    const conditionalBase = word.endsWith("ایە") ? word.slice(0, -3) : "";
+    if (length(conditionalBase) >= 2) {
+      const conditional = (features: Features) =>
+        (features["tense"] === "past" || features["tense"] === "past_perfect") &&
+        features["aspect"] !== "progressive" &&
+        !("mood" in features) &&
+        !("goal" in features);
+      for (const base of [conditionalBase, ...withoutB(conditionalBase)]) {
+        out.push([base, { mood: "conditional" }, conditional, false]);
+      }
+    }
+    // ب before the past subjunctive: بهاتبام, بمکردبا
+    for (const base of withoutB(word)) {
+      out.push([
+        base,
+        {},
+        (features) =>
+          (features["tense"] === "past_subj" || features["tense"] === "pluperfect_subj") &&
+          !("polarity" in features),
+        false,
+      ]);
+    }
+    // Additive یش / ش: after the first element (نەشیکرد, هەڵیشیدەگرت) or before the ending (هاتیشم, کردمیش).
+    // The first element must then be what it looks like: بشارین is not ب+ش+بارین.
+    const heads = new Map<number, string>();
+    for (const head of ["دە", "نە", "نا", "مە", "ئە", "ب", ...PREVERB_LIST]) {
+      if (word.startsWith(head)) heads.set(head.length, head);
+    }
+    const afterHead =
+      (head: string | undefined) =>
+      (features: Features, verb: Verb): boolean => {
+        if (!finite(features) || head === "دە" || head === "ئە" || head === undefined)
+          return finite(features);
+        if (PREVERB_LIST.includes(head)) return verb.preverb === head;
+        if (head === "ب") {
+          return (
+            !("polarity" in features) &&
+            (features["mood"] === "subjunctive" || features["mood"] === "imperative")
+          );
+        }
+        return features["polarity"] === "neg";
+      };
+    for (let k = 1; k < word.length; k++) {
+      const previous = word[k - 1] as string;
+      for (const [mark, fits] of [
+        ["یش", !"اەۆێ".includes(previous) && k > 1],
+        ["ش", CKB_VOWEL_END.includes(previous) || k === 1],
+      ] as const) {
+        const tail = word.slice(k + mark.length);
+        // نەخۆش+ن is the adjective.
+        if (this.lexicon.has(word.slice(0, k + mark.length))) continue;
+        if (word.startsWith(mark, k) && fits && (heads.has(k) || additiveTails.has(tail))) {
+          out.push([word.slice(0, k) + tail, { additive: "yes" }, afterHead(heads.get(k)), true]);
+        }
+      }
+    }
+    return out.filter(([shorter]) => length(shorter) >= 3);
+  }
+
+  /** Readings of `word` as a listed form plus up to three of the elements in `rewrites`. */
+  private verbFallback(word: string, depth = 0): FallbackHit[] {
+    const found: FallbackHit[] = [];
+    for (const [shorter, extra, test, coreOnly] of this.rewrites(word)) {
+      const ok = (form: VerbForm) => {
+        const verb = this.verbs.verbs.get(form.lemma) as Verb;
+        return !this.fw.has(form.lemma) && test(form.features, verb) && (verb.source === "core" || !coreOnly);
+      };
+      const listed = this.verbs.lookup(shorter);
+      // A known word with a clitic is the nominal analysis: هێشتا+یە, داخەوە+ش
+      if (listed.length === 0 && (this.lexicon.has(shorter) || this.fw.has(shorter))) continue;
+      const direct: [VerbForm, string | null][] = [
+        ...listed.map((form): [VerbForm, null] => [form, null]),
+        ...this.objectClitic(shorter),
+      ];
+      let hits: FallbackHit[] = direct
+        .filter(([form]) => ok(form))
+        .map(([form, object]) => [form, object, extra]);
+      if (hits.length === 0 && depth < 2) {
+        hits = this.verbFallback(shorter, depth + 1)
+          .filter(
+            ([form, , more]) =>
+              ok(form) &&
+              Object.keys(extra).every((key) => !(key in more)) &&
+              // دەچمەوە is not دەچمە + وە
+              !("particle" in extra && "goal" in more),
+          )
+          .map(([form, object, more]) => [form, object, { ...more, ...extra }]);
+      }
+      found.push(...hits);
+    }
+    return found;
+  }
+
   private verbal(word: string): Analysis[] {
     const out: Analysis[] = [];
     const listed = this.verbs.lookup(word).length > 0;
@@ -488,19 +753,24 @@ export class CkbAnalyzer {
         });
       }
     }
-    if (out.length === 0 && !listed && word.startsWith("ئە") && !known) {
-      // ئەچم, ئەخوارد: the eastern marker, recognised and never generated.
-      for (const form of this.verbs.lookup(`دە${word.slice(2)}`)) {
-        if (this.verbs.verbs.get(form.lemma)?.source === "core") {
-          out.push({
-            surface: word,
-            lemma: form.lemma,
-            pos: "VERB",
-            features: { ...withoutPos(form.features), variant: "dialect_ae" },
-            segments: [[word, "VERB"]],
-            score: 6,
-          });
-        }
+    if (out.length === 0 && length(word) >= 4 && !listed && !known) {
+      for (const [form, object, extra] of this.verbFallback(word)) {
+        const verb = this.verbs.verbs.get(form.lemma) as Verb;
+        let lemma = form.lemma;
+        // خواردنەوە is its own verb where the list has it.
+        if (extra["particle"] === "ewe" && this.verbs.verbs.has(`${lemma}ەوە`)) lemma += "ەوە";
+        const features: Features = { ...withoutPos(form.features), ...extra };
+        if (object) features["object"] = object;
+        features["transitivity"] = verb.transitive ? "transitive" : "intransitive";
+        out.push({
+          surface: word,
+          lemma,
+          pos: "VERB",
+          features,
+          segments: [[word, "VERB"]],
+          // The one-letter additive is the weakest evidence: a known word with a clitic outranks it (نەخۆش+ن).
+          score: "additive" in extra ? 4.3 : verb.source === "core" ? 6 : 4.5,
+        });
       }
     }
     const forms = this.verbs.lookup(word);

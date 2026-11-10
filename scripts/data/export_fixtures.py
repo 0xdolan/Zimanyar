@@ -82,6 +82,10 @@ EDGE_TEXTS = (
     "1 2 \u0661\u0662 \u06f1\u06f2 3.5 4,5 \u0663\u066b\u0664 \u0665\u066c\u0666 7. .8",
     "a\u00a0b\u1680c\u2000d\u200ae\u202ff\u205fg\u3000h\ti\x0bj\x0ck\x1cl\x85m",
     "a\r\nb\rc\n\n\nd\n \n e  \n\n",
+    # HTML references for invisible characters are decoded; others stay literal.
+    "\u0631\u0647&zwnj;\u0632\u0628\u0647&zwnj;\u0631 a&nbsp;b c&shy;d &lrm;&rlm;&zwj;",
+    "\u0628&#8204;\u0628 \u0628&#x200C;\u0628 \u0628&#x200c;\u0628 a&#160;b &#65279;x &#8288;y",
+    "&amp; &lt; &#65; &#x41; &zwnj &ZWNJ; &#99999; &#x20AC; &#12; &#8204",
     "  leading and trailing\u3000",
     "HDP'y\u00ee 'quoted' don't o'clock ' a'",
     "Kurd-\u00ee a-b-c \u0628-\u067e -a b- --",

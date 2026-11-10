@@ -321,3 +321,38 @@ describe("known zimankit limitations, to improve on and then record as exception
   it.todo("Min hatim gets its own message about an oblique subject");
   it.todo("the oblique of some masculine nouns changes its vowel: bajar, bajêr");
 });
+
+// zimankit 0.4.0: present stems in -êr, the imperative bêje and -tir after t.
+describe("-art verbs, bêje and pêwistir", () => {
+  const analyzer = new kmr.KmrAnalyzer();
+  it.each([
+    ["bêje", "gotin"],
+    ["bêjin", "gotin"],
+    ["najimêrim", "jimartin"],
+    ["jimartiye", "jimartin"],
+    ["hejmartiye", "hejmartin"],
+    ["vedişêre", "veşartin"],
+    ["dispêrim", "spartin"],
+  ])("%s is a form of %s", (word, lemma) => {
+    const best = analyzer.best(word);
+    expect([best?.lemma, best?.pos]).toEqual([lemma, "VERB"]);
+  });
+
+  it("drops only bi- in the bare imperative", () => {
+    const known = new Map(kmr.loadCoreVerbs().map((verb) => [verb.infinitive, verb]));
+    const verb = kmr.makeVerb("vegotin", null, null, "guess", known);
+    const forms = new Set(kmr.conjugate(verb as kmr.Verb).map((form) => form.form));
+    expect(forms.has("vebêje")).toBe(true);
+    expect(forms.has("vejin") || forms.has("veje")).toBe(false);
+  });
+
+  it("guesses -êr for -art", () => {
+    expect(kmr.guessPresentStem("hinart")).toBe("hinêr");
+  });
+
+  it("reads pêwistir as pêwist+tir", () => {
+    const lexicon = new SimpleLexicon();
+    lexicon.add("pêwist", "ADJ");
+    expect(new kmr.KmrAnalyzer(lexicon).best("pêwistir")?.lemma).toBe("pêwist");
+  });
+});

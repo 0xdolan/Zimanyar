@@ -88,6 +88,10 @@ function candidates(word: string): Candidate[] {
   for (const [derivation, tag, pos] of DERIVATIONS) {
     if (word.endsWith(derivation) && size - length(derivation) >= 2) {
       out.push([word.slice(0, -derivation.length), [[derivation, tag]], {}, pos]);
+      // pêwist+tir is written pêwistir.
+      if (derivation.startsWith("t") && word.at(-derivation.length - 1) !== "t") {
+        out.push([word.slice(0, -derivation.length + 1), [[derivation, tag]], {}, pos]);
+      }
     }
   }
   return out;

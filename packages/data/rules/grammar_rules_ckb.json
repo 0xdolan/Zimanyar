@@ -717,6 +717,14 @@
             "features": {
               "degree": "cmp"
             }
+          },
+          {
+            "form": "ین",
+            "tag": "ORD",
+            "after": "C",
+            "features": {
+              "numtype": "ord"
+            }
           }
         ]
       },
