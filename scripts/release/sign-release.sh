@@ -35,6 +35,6 @@ else
 fi
 gpg --detach-sign --output SHA256SUMS.sig SHA256SUMS
 gpg --verify SHA256SUMS.sig SHA256SUMS
-gh release upload "$tag" SHA256SUMS.sig --clobber
-gh release edit "$tag" --draft=false --latest
+gh release upload "$tag" SHA256SUMS.sig --clobber --repo "$repo"
+gh release edit "$tag" --draft=false --latest --repo "$repo"
 echo "$tag is published"
