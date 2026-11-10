@@ -1,3 +1,9 @@
+zimanyar (1.1.0) unstable; urgency=medium
+
+  * Follows zimankit 0.4.0: more Sorani verb forms and ordinals, new Kurmanji verbs.
+
+ -- Dolan H. <0xdolan@gmail.com>  Tue, 10 Nov 2026 07:53:06 +0000
+
 zimanyar (1.0.0) unstable; urgency=medium
 
   * The first stable version.
