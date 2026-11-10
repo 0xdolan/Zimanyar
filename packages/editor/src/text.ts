@@ -1,3 +1,4 @@
+import { ckb, kmr } from "@zimanyar/core";
 import type { Finding, Variety } from "@zimanyar/rules";
 
 /** Where two texts differ: the same before `start`, and the same after each end. */
@@ -58,3 +59,21 @@ const HELPER: Readonly<Record<string, string>> = {
 /** The Kurmanji letter spelled by the two characters before the caret, as on a keyboard without them. */
 export const helperLetter = (text: string, caret: number): string | undefined =>
   caret < 2 ? undefined : HELPER[text.slice(caret - 2, caret)];
+
+const MARKS: Readonly<Record<string, string>> = {
+  "ر^": "ڕ",
+  "ل^": "ڵ",
+  "ی^": "ێ",
+  "ي^": "ێ",
+  "و^": "ۆ",
+};
+
+/** The Sorani letter with its mark, asked for with ^ after the letter on a keyboard without it. */
+export const markLetter = (text: string, caret: number): string | undefined =>
+  caret < 2 ? undefined : MARKS[text.slice(caret - 2, caret)];
+
+/** The pronunciation of a suggestion, between slashes, or null when it has none. */
+export function pronunciationOf(text: string): string | null {
+  const ipa = varietyOf(text) === "ckb" ? ckb.textToIpa(text) : kmr.textToIpa(text);
+  return ipa.trim() === "" ? null : `/${ipa}/`;
+}

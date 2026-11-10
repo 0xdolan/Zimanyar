@@ -23,7 +23,7 @@ description: Cut a Zimanyar release with git flow (release/X.Y.Z from develop in
 7. Tag `vX.Y.Z` on `main` (annotated, signed by the maintainer), push the tag. The release
    workflow builds the artefacts into a draft release.
 8. `make release-sign V=X.Y.Z`: checks the assets, signs `SHA256SUMS` and publishes the draft.
-9. Merge `main` back into `develop`.
+9. Merge `main` back into `develop` through a pull request from `main` (`develop` is protected).
 
 ## Artefact checklist
 

@@ -1,13 +1,13 @@
 {
   "name": "@zimanyar/web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Zimanyar's website: the checker, the course, the rules and the docs",
   "license": "GPL-3.0-or-later",
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "prebuild": "tsx scripts/copy-assets.ts",
+    "prebuild": "tsx scripts/copy-assets.ts && cd ../.. && typedoc",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --port 4175 --host localhost --ignore-lock",
     "typecheck": "ASTRO_TELEMETRY_DISABLED=1 astro sync && tsc --noEmit"

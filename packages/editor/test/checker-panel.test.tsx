@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { Checker } from "@zimanyar/checker";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { CheckerPanel, type EditorBackend } from "../src/index.js";
+import { CheckerPanel, type EditorBackend, pronunciationOf } from "../src/index.js";
 
 const checker = new Checker();
 const backendOf = (): EditorBackend => ({
@@ -35,6 +35,30 @@ describe("CheckerPanel", () => {
     fireEvent.click(await screen.findByRole("button", { name: /dîtim/ }));
     fireEvent.click(await screen.findByRole("button", { name: "Replace with dîtî" }));
     expect(field().value).toBe("Min tu dîtî.");
+  });
+
+  it("offers the pronunciation of the suggestions when given a way to find it", async () => {
+    render(
+      <CheckerPanel
+        backend={backendOf()}
+        css=""
+        initialText="Min tu dîtim."
+        ipaOf={pronunciationOf}
+        lang="en"
+      />,
+    );
+    fireEvent.click(await screen.findByRole("button", { name: /dîtim/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "Show pronunciation" }));
+    expect(screen.getByText(/^Pronunciation: \/.+\/$/)).toBeDefined();
+  });
+
+  it("adds Sorani marks while typing when asked", () => {
+    render(<CheckerPanel backend={backendOf()} css="" initialText="" lang="en" noSamples soraniMarks />);
+    field().focus();
+    field().value = "گول^";
+    field().setSelectionRange(4, 4);
+    fireEvent.input(field());
+    expect(field().value).toBe("گوڵ");
   });
 
   it("looks up suggestions a check left out", async () => {

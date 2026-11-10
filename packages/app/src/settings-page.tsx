@@ -223,6 +223,11 @@ export function SettingsPage({ settings: stored, platform }: { settings: Setting
           label={t("settings.practiceReminders")}
           onChange={(practiceReminders) => change("teaching", { practiceReminders })}
         />
+        <Toggle
+          checked={settings.teaching.ipa}
+          label={t("settings.ipa")}
+          onChange={(ipa) => change("teaching", { ipa })}
+        />
       </Section>
 
       <Section query={query} title={t("settings.autocomplete")}>
@@ -235,6 +240,11 @@ export function SettingsPage({ settings: stored, platform }: { settings: Setting
           checked={settings.autocomplete.typingHelper}
           label={t("settings.typingHelper")}
           onChange={(typingHelper) => change("autocomplete", { typingHelper })}
+        />
+        <Toggle
+          checked={settings.autocomplete.soraniMarks}
+          label={t("settings.soraniMarks")}
+          onChange={(soraniMarks) => change("autocomplete", { soraniMarks })}
         />
         <label className="flex items-center gap-2">
           <span>{t("settings.count")}</span>

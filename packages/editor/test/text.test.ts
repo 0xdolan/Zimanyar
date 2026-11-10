@@ -1,6 +1,14 @@
 import type { Finding } from "@zimanyar/rules";
 import { describe, expect, it } from "vitest";
-import { changedRange, helperLetter, shiftFindings, varietyOf, wordBefore } from "../src/text.js";
+import {
+  changedRange,
+  helperLetter,
+  markLetter,
+  pronunciationOf,
+  shiftFindings,
+  varietyOf,
+  wordBefore,
+} from "../src/text.js";
 
 const finding = (start: number, end: number) => ({ id: `${start}`, range: { start, end } }) as Finding;
 const ranges = (found: readonly Finding[]) => found.map(({ range }) => [range.start, range.end]);
@@ -74,5 +82,33 @@ describe("helperLetter", () => {
   it("leaves everything else alone", () => {
     expect(helperLetter("ab", 2)).toBeUndefined();
     expect(helperLetter("e", 1)).toBeUndefined();
+  });
+});
+
+describe("markLetter", () => {
+  it("adds the Sorani mark asked for with ^", () => {
+    expect(markLetter("ر^", 2)).toBe("ڕ");
+    expect(markLetter("گوڵ^", 4)).toBeUndefined();
+    expect(markLetter("گول^", 4)).toBe("ڵ");
+    expect(markLetter("دی^", 3)).toBe("ێ");
+    expect(markLetter("دي^", 3)).toBe("ێ");
+    expect(markLetter("ڕو^", 3)).toBe("ۆ");
+  });
+
+  it("leaves everything else alone", () => {
+    expect(markLetter("ر", 1)).toBeUndefined();
+    expect(markLetter("e^", 2)).toBeUndefined();
+    expect(markLetter("رر", 2)).toBeUndefined();
+  });
+});
+
+describe("pronunciationOf", () => {
+  it("gives the IPA of either variety between slashes", () => {
+    expect(pronunciationOf("ڕۆژ")).toMatch(/^\/.+\/$/);
+    expect(pronunciationOf("roj")).toMatch(/^\/.+\/$/);
+  });
+
+  it("has nothing for a text without sounds", () => {
+    expect(pronunciationOf("")).toBeNull();
   });
 });

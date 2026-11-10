@@ -4,6 +4,22 @@ All notable changes to Zimanyar are listed here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-11-10
+
+### Added
+
+- **web:** Bring back the API reference for core and checker
+- **editor:** Add the Sorani mark helper and show the pronunciation of suggestions
+- **core:** Follow zimankit 0.4.0
+
+### Fixed
+
+- **release:** Sign with older gh, and merge main back through a pull request
+
+### Changed
+
+- **core:** Test cheap conditions first in the Sorani verb fallback
+
 ## [1.0.0] - 2026-11-07
 
 ### Added
@@ -46,6 +62,9 @@ All notable changes to Zimanyar are listed here. The format follows
 - **extension:** Prepare before testing on a clean checkout, and drop eslint from wxt
 - **desktop:** Record advisories with no fix, and find React by what a file holds
 - **practice:** Strip final punctuation in linear time
+- **release:** Collect the CLI packages outside .output and pack only built data
+- **release:** Pack the npm tarball next to the other CLI packages
+- **ci:** Keep the npm tarball with the CLI packages
 
 ### Changed
 

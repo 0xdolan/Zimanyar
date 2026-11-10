@@ -1,6 +1,6 @@
 {
   "name": "@zimanyar/editor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Underlines, the finding card and autocomplete on any text field",
   "license": "GPL-3.0-or-later",
@@ -16,6 +16,7 @@
     "demo:serve": "vite preview demo --config demo/vite.config.ts --port 4174 --strictPort"
   },
   "dependencies": {
+    "@zimanyar/core": "workspace:*",
     "@zimanyar/i18n": "workspace:*",
     "@zimanyar/rules": "workspace:*",
     "@zimanyar/ui": "workspace:*",
