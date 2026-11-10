@@ -49,9 +49,11 @@ export function pastStemOf(infinitive: string): string | null {
   return null;
 }
 
-/** Regular patterns only: -and gives -în (causative), -î is dropped, otherwise the past stem. */
+/** Regular patterns only: -and gives -în (causative), -art gives -êr, -î is dropped, otherwise the past stem. */
 export function guessPresentStem(past: string): string {
   if (past.endsWith("and")) return `${past.slice(0, -3)}în`;
+  // jimartin gives dijimêre, veşartin vedişêre.
+  if (past.endsWith("art") && past.length > 3) return `${past.slice(0, -3)}êr`;
   if (past.endsWith("î") && past.length > 2) return past.slice(0, -1);
   if (past.endsWith("t") && past.length > 2 && "sş".includes(past.at(-2) as string)) return past.slice(0, -1);
   return past;
@@ -189,6 +191,8 @@ export function conjugate(verb: Verb): VerbForm[] {
   }
   for (const [p, form] of imperatives) {
     emit(form, { mood: "imperative", person: p });
+    // bêje and bêjin beside bibêje: bi- is normally dropped before the stem's b.
+    if (base === "gotin" && form.startsWith("bib")) emit(form.slice(2), { mood: "imperative", person: p });
     const end = presentFinal ? (p === "2sg" ? "" : "n") : p === "2sg" ? "e" : "in";
     emit(presentPrefix(verb, "negsubj") + pres + end, { mood: "imperative", person: p, polarity: "neg" });
   }

@@ -215,3 +215,13 @@ describe("identify", () => {
     expect(isLang(kurmanji, "kmr", 1.1)).toBe(false);
   });
 });
+
+describe("HTML references for invisible characters", () => {
+  it("decodes them and leaves the others literal", () => {
+    // Scraped text: the KLPT test set has ره&zwnj;زبه&zwnj;ر (Ahmadi 2020).
+    expect(ckb.normalize("ره&zwnj;زبه&#8204;ر").replaceAll("‌", "")).toBe("ڕەزبەر");
+    expect(normalizeText("a&nbsp;b&#x200c;c")).toBe("a bc");
+    expect(normalizeText("a &amp; b")).toContain("&amp;");
+    expect(normalizeText("&#65;")).toContain("&#65;");
+  });
+});

@@ -48,6 +48,7 @@ TABLES = {
     text_helpers: ["CKB_LETTER_CLASS", "KMR_LETTER_CLASS", "PATTERNS"],
     lid: ["ARABIC_SCRIPT_PROFILES", "LATIN_SCRIPT_PROFILES"],
     phonology_core: ["FRICATIVES", "GLIDES", "LIQUIDS", "NASALS", "SIBILANTS", "STOPS"],
+    normalizer: ["_INVISIBLE_CODEPOINTS", "_INVISIBLE_ENTITIES"],
 }  # fmt: skip
 # The same, where two varieties use one name: exported as CKB_<name without leading underscore>.
 PREFIXED = {
@@ -55,6 +56,7 @@ PREFIXED = {
         ckb_orthography: ["STANDARD_OVERRIDES", "VARIANT_SWAPS", "_FINAL_U_OK", "_ILLEGAL_SEQUENCES"],
         ckb_phonology: ["CONSONANTS", "IPA_TO_LATIN", "LATIN_STYLES", "VOWELS"],
         ckb_morphology: [
+            "ADDITIVE_TAILS",
             "CLITICS",
             "CLITIC_ADPOSITIONS",
             "DERIVED_TAGS",
@@ -106,7 +108,7 @@ DATA_FILES = ["ckb_function_words", "ckb_verbs_core", "kmr_function_words", "kmr
 REGEXES = {
     normalizer: [
         "BLANK_LINES_RE", "EMAIL_RE", "EMOJI_RE", "HSPACE_RE", "MENTION_RE", "URL_RE",
-        "_ZWNJ_AFTER_NONJOINING_RE", "_ZWNJ_EDGE_RE", "_ZWNJ_RUN_RE",
+        "_ENTITY_RE", "_ZWNJ_AFTER_NONJOINING_RE", "_ZWNJ_EDGE_RE", "_ZWNJ_RUN_RE",
     ],
     tokenizer: ["HYPHEN_WORD_RE", "SENTENCE_END_RE", "TOKEN_RE", "WORD_RE"],
 }  # fmt: skip
@@ -158,7 +160,7 @@ def render() -> str:
     for module, names in TABLES.items():
         for name in names:
             text = json.dumps(plain(getattr(module, name)), ensure_ascii=True)
-            lines.append(f"export const {name} = {text};")
+            lines.append(f"export const {name.lstrip('_')} = {text};")
     for module, names in REGEXES.items():
         for name in names:
             pattern = getattr(module, name)

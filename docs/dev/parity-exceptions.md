@@ -5,6 +5,7 @@
 | function | zimankit behaviour | Zimanyar behaviour | reason | test |
 | --- | --- | --- | --- | --- |
 | `normalizeText`, `ckb.normalize`, `kmr.normalize` | one pass, which is not always stable: `ک + ZWNJ + ب@a.b` gives a text that a second pass changes | repeats the pass until the text stops changing | the plan requires normalisation to be idempotent. The pass itself is exported as `normalizeTextOnce` and `normalizeOnce`, and those match zimankit on every line | `python.test.ts`, `parity-*.test.ts` |
+| `decodeInvisibleEntities`, inside `normalizeText` | `&#NNNN;` takes any Unicode decimal digits, so `&#٨٢٠٤;` is a ZWNJ | ASCII digits only; other references stay literal | HTML numeric references are written with ASCII digits. Python's `\d` matches every decimal digit, JavaScript's only 0-9 | `parity-shared.test.ts` |
 | `tokenize` | offsets count code points | offsets count UTF-16 code units | browsers, editors and the language server all use UTF-16; the tests convert before comparing | `parity-shared.test.ts` |
 
 Scores and distances are compared to six decimal places. `Verb` and the analyzer's `features` hold the same values under the same names, in camelCase where a name is ours.

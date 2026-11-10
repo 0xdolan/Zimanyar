@@ -238,7 +238,7 @@ describe.each(["ckb", "kmr"] as const)("tables for %s match zimankit's", (lang) 
 describe("reference pages", () => {
   it.each(["ckb", "kmr"] as const)("%s has a page for each verb, with a name of its own", (lang) => {
     const verbs = referenceVerbs(lang);
-    expect(verbs.length).toBe(lang === "ckb" ? 123 : 65);
+    expect(verbs.length).toBe(lang === "ckb" ? 123 : 70);
     expect(new Set(verbs.map((verb) => verbSlug(lang, verb))).size).toBe(verbs.length);
     expect(verbIndexRows(lang)).toHaveLength(verbs.length);
   });

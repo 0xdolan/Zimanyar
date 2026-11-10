@@ -292,3 +292,54 @@ describe("known zimankit limitations, to improve on and then record as exception
     expect(ckb.normalize(`سپی${zwnj}یە`)).toBe("سپییە");
   });
 });
+
+// zimankit 0.4.0: the verb template slots of Ahmadi (2021, Table 1), ordinals and the regional ەوە.
+describe("verb elements stripped before lookup", () => {
+  const analyzer = new ckb.CkbAnalyzer();
+  it.each([
+    ["دەچمەوە", "چوونەوە", {}],
+    ["نەیدەگرتەوە", "گرتن", { polarity: "neg", particle: "ewe" }],
+    ["ئەهاتە", "هاتن", { variant: "dialect_ae", goal: "yes" }],
+    ["ڕۆیشتووەتە", "ڕۆیشتن", { goal: "yes" }],
+    ["بمردایە", "مردن", { mood: "conditional" }],
+    ["نەشیانبینیبووم", "بینین", { additive: "yes", object: "1sg" }],
+    ["هەڵیشیدەگرت", "هەڵگرتن", { additive: "yes" }],
+    ["نەمدەکردن", "کردن", { object: "2pl|3pl" }],
+    ["هاتمەوانێ", "هاتنەوە", { particle_variant: "ewanê" }],
+    ["گەڕامەو", "گەڕانەوە", { particle_variant: "ew" }],
+  ] as const)("%s is a form of %s", (word, lemma, features) => {
+    const best = analyzer.best(word);
+    expect([best?.lemma, best?.pos]).toEqual([lemma, "VERB"]);
+    expect(best?.features).toMatchObject(features);
+  });
+
+  it("leaves listed words alone", () => {
+    const lexicon = new SimpleLexicon();
+    lexicon.add("نەخۆش", "ADJ");
+    lexicon.add("گۆشت", "NOUN");
+    const withLexicon = new ckb.CkbAnalyzer(lexicon);
+    for (const word of ["نەخۆشن", "گۆشتی"]) expect(withLexicon.best(word)?.pos).not.toBe("VERB");
+  });
+});
+
+describe("ordinals", () => {
+  const analyzer = new ckb.CkbAnalyzer();
+  it.each([
+    ["شەشەم", "شەشەم"],
+    ["شەشەمین", "شەشەم"],
+    ["سێیەم", "سێیەم"],
+    ["دەیەم", "دەیەم"],
+    ["یەکەم", "یەکەم"],
+    ["یەکەمیان", "یەکەم"],
+    ["چوارەمی", "چوارەم"],
+  ])("%s is the ordinal %s", (word, lemma) => {
+    const best = analyzer.best(word);
+    expect([best?.lemma, best?.pos, best?.features["numtype"]]).toEqual([lemma, "ADJ", "ord"]);
+  });
+
+  it("needs a numeral before the ending", () => {
+    for (const word of ["زەمین", "شیرین", "دەم", "کەم"]) {
+      expect(analyzer.best(word)?.features["numtype"]).toBeUndefined();
+    }
+  });
+});

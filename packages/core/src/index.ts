@@ -4,7 +4,13 @@ export { type CompleteOptions, type Completion, complete } from "./complete.js";
 export * as kmr from "./kmr/index.js";
 export { lexiconAdapter } from "./lexicon-adapter.js";
 export { identify, isLang, type LidLang, type LidResult } from "./lid.js";
-export { cleanZwnj, type DigitTarget, type NormalizeOptions, normalizeText } from "./normalize/shared.js";
+export {
+  cleanZwnj,
+  type DigitTarget,
+  decodeInvisibleEntities,
+  type NormalizeOptions,
+  normalizeText,
+} from "./normalize/shared.js";
 export {
   breakClusters,
   legalCoda,
